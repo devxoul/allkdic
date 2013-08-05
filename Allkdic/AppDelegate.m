@@ -1,6 +1,6 @@
 //
 //  AppDelegate.m
-//  PocketDictionary
+//  Allkdic
 //
 //  Created by 전수열 on 13. 8. 4..
 //  Copyright (c) 2013년 Joyfl. All rights reserved.
@@ -19,9 +19,9 @@
 	icon.template = YES;
 	self.statusItem.image = icon;
 	
-	self.pocketDictionaryController = [[PocketDictionaryController alloc] initWithStatusItem:self.statusItem];
+	self.allkdicController = [[AllkdicController alloc] initWithStatusItem:self.statusItem];
 	
-	self.statusItem.target = self.pocketDictionaryController;
+	self.statusItem.target = self.allkdicController;
 	self.statusItem.action = @selector(open);
 	
 	NSButton *button = [self.statusItem valueForKey:@"_button"];
@@ -60,7 +60,7 @@
 
 OSStatus hotKeyHandler( EventHandlerCallRef nextHandler, EventRef theEvent, void *userData )
 {
-	[[(AppDelegate *)[NSApp delegate] pocketDictionaryController] open];
+	[[(AppDelegate *)[NSApp delegate] allkdicController] open];
 	
 	return noErr;
 }

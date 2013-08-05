@@ -1,14 +1,14 @@
 //
-//  PocketDictionaryContentView.m
-//  PocketDictionary
+//  AllkdicContentView.m
+//  Allkdic
 //
 //  Created by 전수열 on 13. 8. 5..
 //  Copyright (c) 2013년 Joyfl. All rights reserved.
 //
 
-#import "PocketDictionaryContentView.h"
+#import "AllkdicContentView.h"
 
-@implementation PocketDictionaryContentView
+@implementation AllkdicContentView
 
 - (id)init
 {

@@ -1,6 +1,6 @@
 //
 //  NSWindow+CanBecomeKeyWindow.m
-//  PocketDictionary
+//  Allkdic
 //
 //  Created by 전수열 on 13. 8. 5..
 //  Copyright (c) 2013년 Joyfl. All rights reserved.

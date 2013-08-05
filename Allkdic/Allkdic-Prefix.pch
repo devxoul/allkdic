@@ -1,5 +1,5 @@
 //
-// Prefix header for all source files of the 'PocketDictionary' target in the 'PocketDictionary' project
+// Prefix header for all source files of the 'Allkdic' target in the 'Allkdic' project
 //
 
 #ifdef __OBJC__

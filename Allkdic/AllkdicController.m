@@ -1,14 +1,14 @@
 //
-//  PocketDictionaryController.m
-//  PocketDictionary
+//  AllkdicController.m
+//  Allkdic
 //
 //  Created by 전수열 on 13. 8. 5..
 //  Copyright (c) 2013년 Joyfl. All rights reserved.
 //
 
-#import "PocketDictionaryController.h"
+#import "AllkdicController.h"
 
-@implementation PocketDictionaryController
+@implementation AllkdicController
 
 - (id)initWithStatusItem:(NSStatusItem *)statusItem
 {
@@ -16,7 +16,7 @@
 	
 	self.statusItem = statusItem;
 	
-	self.contentView = [[PocketDictionaryContentView alloc] init];
+	self.contentView = [[AllkdicContentView alloc] init];
 	
 	self.popover = [[NSPopover alloc] init];
 	self.popover.contentViewController = [[NSViewController alloc] init];

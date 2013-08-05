@@ -11,12 +11,11 @@
 		0322CF9E17AE9BBB007E832C /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0322CF9D17AE9BBB007E832C /* WebKit.framework */; };
 		0322CFA317AF389B007E832C /* statusicon_default.png in Resources */ = {isa = PBXBuildFile; fileRef = 0322CFA117AF389B007E832C /* statusicon_default.png */; };
 		0322CFA517AF3A6C007E832C /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0322CFA417AF3A6C007E832C /* Carbon.framework */; };
-		0367293517B00CEC0074D249 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 0367293117B00CEC0074D249 /* Credits.rtf */; };
 		0367293617B00CEC0074D249 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0367293317B00CEC0074D249 /* InfoPlist.strings */; };
 		0367293917B00CF70074D249 /* MainInterface.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0367293717B00CF70074D249 /* MainInterface.xib */; };
 		0367293A17B00D3E0074D249 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0367292617B00CB30074D249 /* AppDelegate.m */; };
-		0367293B17B00D3E0074D249 /* PocketDictionaryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0367292817B00CC00074D249 /* PocketDictionaryController.m */; };
-		0367293C17B00D3E0074D249 /* PocketDictionaryContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0367292A17B00CC40074D249 /* PocketDictionaryContentView.m */; };
+		0367293B17B00D3E0074D249 /* AllkdicController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0367292817B00CC00074D249 /* AllkdicController.m */; };
+		0367293C17B00D3E0074D249 /* AllkdicContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0367292A17B00CC40074D249 /* AllkdicContentView.m */; };
 		0367293D17B00D3E0074D249 /* NSWindow+CanBecomeKeyWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 0367292C17B00CC90074D249 /* NSWindow+CanBecomeKeyWindow.m */; };
 		0367293E17B00D3E0074D249 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0367292F17B00CD90074D249 /* main.m */; };
 /* End PBXBuildFile section */
@@ -32,16 +31,15 @@
 		0322CFA417AF3A6C007E832C /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		0367292517B00CB30074D249 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Allkdic/AppDelegate.h; sourceTree = SOURCE_ROOT; };
 		0367292617B00CB30074D249 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Allkdic/AppDelegate.m; sourceTree = SOURCE_ROOT; };
-		0367292717B00CC00074D249 /* PocketDictionaryController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PocketDictionaryController.h; path = Allkdic/PocketDictionaryController.h; sourceTree = SOURCE_ROOT; };
-		0367292817B00CC00074D249 /* PocketDictionaryController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PocketDictionaryController.m; path = Allkdic/PocketDictionaryController.m; sourceTree = SOURCE_ROOT; };
-		0367292917B00CC40074D249 /* PocketDictionaryContentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PocketDictionaryContentView.h; path = Allkdic/PocketDictionaryContentView.h; sourceTree = SOURCE_ROOT; };
-		0367292A17B00CC40074D249 /* PocketDictionaryContentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PocketDictionaryContentView.m; path = Allkdic/PocketDictionaryContentView.m; sourceTree = SOURCE_ROOT; };
+		0367292717B00CC00074D249 /* AllkdicController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AllkdicController.h; path = Allkdic/AllkdicController.h; sourceTree = SOURCE_ROOT; };
+		0367292817B00CC00074D249 /* AllkdicController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AllkdicController.m; path = Allkdic/AllkdicController.m; sourceTree = SOURCE_ROOT; };
+		0367292917B00CC40074D249 /* AllkdicContentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AllkdicContentView.h; path = Allkdic/AllkdicContentView.h; sourceTree = SOURCE_ROOT; };
+		0367292A17B00CC40074D249 /* AllkdicContentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AllkdicContentView.m; path = Allkdic/AllkdicContentView.m; sourceTree = SOURCE_ROOT; };
 		0367292B17B00CC90074D249 /* NSWindow+CanBecomeKeyWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSWindow+CanBecomeKeyWindow.h"; path = "Allkdic/NSWindow+CanBecomeKeyWindow.h"; sourceTree = SOURCE_ROOT; };
 		0367292C17B00CC90074D249 /* NSWindow+CanBecomeKeyWindow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "NSWindow+CanBecomeKeyWindow.m"; path = "Allkdic/NSWindow+CanBecomeKeyWindow.m"; sourceTree = SOURCE_ROOT; };
 		0367292D17B00CD90074D249 /* Allkdic-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Allkdic-Info.plist"; path = "Allkdic/Allkdic-Info.plist"; sourceTree = SOURCE_ROOT; };
 		0367292E17B00CD90074D249 /* Allkdic-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Allkdic-Prefix.pch"; path = "Allkdic/Allkdic-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		0367292F17B00CD90074D249 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Allkdic/main.m; sourceTree = SOURCE_ROOT; };
-		0367293217B00CEC0074D249 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = Allkdic/en.lproj/Credits.rtf; sourceTree = SOURCE_ROOT; };
 		0367293417B00CEC0074D249 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Allkdic/en.lproj/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
 		0367293817B00CF70074D249 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = Allkdic/en.lproj/MainInterface.xib; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -104,10 +102,10 @@
 			children = (
 				0367292517B00CB30074D249 /* AppDelegate.h */,
 				0367292617B00CB30074D249 /* AppDelegate.m */,
-				0367292717B00CC00074D249 /* PocketDictionaryController.h */,
-				0367292817B00CC00074D249 /* PocketDictionaryController.m */,
-				0367292917B00CC40074D249 /* PocketDictionaryContentView.h */,
-				0367292A17B00CC40074D249 /* PocketDictionaryContentView.m */,
+				0367292717B00CC00074D249 /* AllkdicController.h */,
+				0367292817B00CC00074D249 /* AllkdicController.m */,
+				0367292917B00CC40074D249 /* AllkdicContentView.h */,
+				0367292A17B00CC40074D249 /* AllkdicContentView.m */,
 				0367292B17B00CC90074D249 /* NSWindow+CanBecomeKeyWindow.h */,
 				0367292C17B00CC90074D249 /* NSWindow+CanBecomeKeyWindow.m */,
 				0367293717B00CF70074D249 /* MainInterface.xib */,
@@ -123,7 +121,6 @@
 				0367292D17B00CD90074D249 /* Allkdic-Info.plist */,
 				0367292E17B00CD90074D249 /* Allkdic-Prefix.pch */,
 				0367292F17B00CD90074D249 /* main.m */,
-				0367293117B00CEC0074D249 /* Credits.rtf */,
 				0367293317B00CEC0074D249 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -189,7 +186,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0322CFA317AF389B007E832C /* statusicon_default.png in Resources */,
-				0367293517B00CEC0074D249 /* Credits.rtf in Resources */,
 				0367293617B00CEC0074D249 /* InfoPlist.strings in Resources */,
 				0367293917B00CF70074D249 /* MainInterface.xib in Resources */,
 			);
@@ -203,8 +199,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0367293A17B00D3E0074D249 /* AppDelegate.m in Sources */,
-				0367293B17B00D3E0074D249 /* PocketDictionaryController.m in Sources */,
-				0367293C17B00D3E0074D249 /* PocketDictionaryContentView.m in Sources */,
+				0367293B17B00D3E0074D249 /* AllkdicController.m in Sources */,
+				0367293C17B00D3E0074D249 /* AllkdicContentView.m in Sources */,
 				0367293D17B00D3E0074D249 /* NSWindow+CanBecomeKeyWindow.m in Sources */,
 				0367293E17B00D3E0074D249 /* main.m in Sources */,
 			);
@@ -213,14 +209,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		0367293117B00CEC0074D249 /* Credits.rtf */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0367293217B00CEC0074D249 /* en */,
-			);
-			name = Credits.rtf;
-			sourceTree = "<group>";
-		};
 		0367293317B00CEC0074D249 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
