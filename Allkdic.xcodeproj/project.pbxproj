@@ -28,6 +28,7 @@
 		0367297317B050FF0074D249 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0367297217B050FF0074D249 /* Sparkle.framework */; };
 		0367297517B0514D0074D249 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0367297217B050FF0074D249 /* Sparkle.framework */; };
 		0367297717B052B70074D249 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 0367297617B052B70074D249 /* dsa_pub.pem */; };
+		03C0861D17B064480070A164 /* LoginUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C0861C17B064480070A164 /* LoginUtil.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -76,6 +77,8 @@
 		0367296B17B045A00074D249 /* AllkdicController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AllkdicController.m; path = Allkdic/AllkdicController.m; sourceTree = SOURCE_ROOT; };
 		0367297217B050FF0074D249 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = "../../../../Users/xoul/Downloads/Sparkle 1.5b6/Sparkle.framework"; sourceTree = "<group>"; };
 		0367297617B052B70074D249 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
+		03C0861B17B064480070A164 /* LoginUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginUtil.h; path = Allkdic/LoginUtil.h; sourceTree = SOURCE_ROOT; };
+		03C0861C17B064480070A164 /* LoginUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginUtil.m; path = Allkdic/LoginUtil.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +146,8 @@
 				0367292617B00CB30074D249 /* AppDelegate.m */,
 				0367296A17B045A00074D249 /* AllkdicController.h */,
 				0367296B17B045A00074D249 /* AllkdicController.m */,
+				03C0861B17B064480070A164 /* LoginUtil.h */,
+				03C0861C17B064480070A164 /* LoginUtil.m */,
 				0367296217B0458D0074D249 /* Views */,
 				0367295D17B0458D0074D249 /* Controllers */,
 				0367295A17B0458D0074D249 /* Categories */,
@@ -302,6 +307,7 @@
 				0367296F17B045BF0074D249 /* AlldicContentViewController.m in Sources */,
 				0367297017B045BF0074D249 /* NSWindow+CanBecomeKeyWindow.m in Sources */,
 				0367297117B045BF0074D249 /* main.m in Sources */,
+				03C0861D17B064480070A164 /* LoginUtil.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

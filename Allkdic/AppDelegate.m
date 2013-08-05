@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import <Carbon/Carbon.h>
 #import <Sparkle/Sparkle.h>
+#import "LoginUtil.h"
 
 @implementation AppDelegate
 
@@ -30,6 +31,11 @@
 	[button setButtonType:NSPushOnPushOffButton];
 	
 	[self registerHotKey];
+	
+	if( ![LoginUtil willStartAtLogin] )
+	{
+		[LoginUtil setStartAtLoginEnabled:YES];
+	}
 	
 	[[SUUpdater sharedUpdater] checkForUpdates:self];
 }
@@ -69,3 +75,4 @@ OSStatus hotKeyHandler( EventHandlerCallRef nextHandler, EventRef theEvent, void
 }
 
 @end
+
