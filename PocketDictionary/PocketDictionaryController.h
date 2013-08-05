@@ -1,5 +1,5 @@
 //
-//  PocketDictionary.h
+//  PocketDictionaryController.h
 //  PocketDictionary
 //
 //  Created by 전수열 on 13. 8. 5..
@@ -10,14 +10,14 @@
 #import <WebKit/WebKit.h>
 #import "PocketDictionaryContentView.h"
 
-@interface PocketDictionary : NSObject
+@interface PocketDictionaryController : NSObject <NSWindowDelegate>
 
 @property (nonatomic, strong) NSStatusItem *statusItem;
-@property (nonatomic, strong) NSWindow *window;
 @property (nonatomic, strong) NSPopover *popover;
 @property (nonatomic, strong) PocketDictionaryContentView *contentView;
 
 - (id)initWithStatusItem:(NSStatusItem *)statusItem;
-- (void)show;
+- (void)open;
+- (void)close;
 
 @end

@@ -17,13 +17,15 @@
 	self.statusItem.image = [NSImage imageNamed:@"statusicon_default.png"];
 	self.statusItem.alternateImage = [NSImage imageNamed:@"statusicon_alt.png"];
 	self.statusItem.highlightMode = YES;
-	self.statusItem.target = self;
-	self.statusItem.action = @selector(show);
 	
-	self.pocketDictionary = [[PocketDictionary alloc] initWithStatusItem:self.statusItem];
+	self.pocketDictionaryController = [[PocketDictionaryController alloc] initWithStatusItem:self.statusItem];
+	
+	self.statusItem.target = self.pocketDictionaryController;
+	self.statusItem.action = @selector(open);
 	
 	[self registerHotKey];
 }
+
 
 /**
  * Reference : http://dbachrach.com/blog/2005/11/program-global-hotkeys-in-cocoa-easily/
@@ -53,13 +55,8 @@
 
 OSStatus hotKeyHandler( EventHandlerCallRef nextHandler, EventRef theEvent, void *userData )
 {
-	[(AppDelegate *)[NSApplication sharedApplication].delegate show];
+	[[(AppDelegate *)[NSApp delegate] pocketDictionaryController] open];
 	return noErr;
-}
-
-- (void)show
-{
-	[self.pocketDictionary show];
 }
 
 @end

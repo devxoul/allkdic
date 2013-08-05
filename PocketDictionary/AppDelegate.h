@@ -7,13 +7,11 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "PocketDictionary.h"
+#import "PocketDictionaryController.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
-@property (nonatomic, strong) PocketDictionary *pocketDictionary;
+@property (nonatomic, strong) PocketDictionaryController *pocketDictionaryController;
 @property (nonatomic, strong) NSStatusItem *statusItem;
-
-- (void)show;
 
 @end
