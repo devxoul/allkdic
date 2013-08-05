@@ -12,7 +12,7 @@
 
 - (id)init
 {
-	self = [super initWithFrame:NSMakeRect( 0, 0, 405, 514 )];
+	self = [super initWithFrame:NSMakeRect( 0, 0, 405, 513 )];
 	
 	self.webView = [[WebView alloc] initWithFrame:self.frame];
 	self.webView.mainFrameURL = @"http://endic.naver.com/popManager.nhn?m=miniPopMain";
