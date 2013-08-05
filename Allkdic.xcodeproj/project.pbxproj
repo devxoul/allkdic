@@ -22,15 +22,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0322CF7A17AE9965007E832C /* PocketDictionary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PocketDictionary.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0322CF7A17AE9965007E832C /* Allkdic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Allkdic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0322CF7D17AE9965007E832C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		0322CF8017AE9965007E832C /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		0322CF8117AE9965007E832C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		0322CF8217AE9965007E832C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		0322CF8517AE9965007E832C /* PocketDictionary-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PocketDictionary-Info.plist"; sourceTree = "<group>"; };
+		0322CF8517AE9965007E832C /* Allkdic-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Allkdic-Info.plist"; sourceTree = "<group>"; };
 		0322CF8717AE9965007E832C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0322CF8917AE9965007E832C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		0322CF8B17AE9965007E832C /* PocketDictionary-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PocketDictionary-Prefix.pch"; sourceTree = "<group>"; };
+		0322CF8B17AE9965007E832C /* Allkdic-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Allkdic-Prefix.pch"; sourceTree = "<group>"; };
 		0322CF8D17AE9965007E832C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		0322CF8F17AE9965007E832C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0322CF9017AE9965007E832C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -73,7 +73,7 @@
 		0322CF7B17AE9965007E832C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0322CF7A17AE9965007E832C /* PocketDictionary.app */,
+				0322CF7A17AE9965007E832C /* Allkdic.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -119,10 +119,10 @@
 		0322CF8417AE9965007E832C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				0322CF8517AE9965007E832C /* PocketDictionary-Info.plist */,
+				0322CF8517AE9965007E832C /* Allkdic-Info.plist */,
 				0322CF8617AE9965007E832C /* InfoPlist.strings */,
 				0322CF8917AE9965007E832C /* main.m */,
-				0322CF8B17AE9965007E832C /* PocketDictionary-Prefix.pch */,
+				0322CF8B17AE9965007E832C /* Allkdic-Prefix.pch */,
 				0322CF8C17AE9965007E832C /* Credits.rtf */,
 			);
 			name = "Supporting Files";
@@ -139,9 +139,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0322CF7917AE9964007E832C /* PocketDictionary */ = {
+		0322CF7917AE9964007E832C /* Allkdic */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0322CF9717AE9965007E832C /* Build configuration list for PBXNativeTarget "PocketDictionary" */;
+			buildConfigurationList = 0322CF9717AE9965007E832C /* Build configuration list for PBXNativeTarget "Allkdic" */;
 			buildPhases = (
 				0322CF7617AE9964007E832C /* Sources */,
 				0322CF7717AE9964007E832C /* Frameworks */,
@@ -151,9 +151,9 @@
 			);
 			dependencies = (
 			);
-			name = PocketDictionary;
+			name = Allkdic;
 			productName = PocketDictionary;
-			productReference = 0322CF7A17AE9965007E832C /* PocketDictionary.app */;
+			productReference = 0322CF7A17AE9965007E832C /* Allkdic.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -165,7 +165,7 @@
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = Joyfl;
 			};
-			buildConfigurationList = 0322CF7517AE9964007E832C /* Build configuration list for PBXProject "PocketDictionary" */;
+			buildConfigurationList = 0322CF7517AE9964007E832C /* Build configuration list for PBXProject "Allkdic" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -177,7 +177,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0322CF7917AE9964007E832C /* PocketDictionary */,
+				0322CF7917AE9964007E832C /* Allkdic */,
 			);
 		};
 /* End PBXProject section */
@@ -303,9 +303,9 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "PocketDictionary/PocketDictionary-Prefix.pch";
-				INFOPLIST_FILE = "PocketDictionary/PocketDictionary-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "PocketDictionary/Allkdic-Prefix.pch";
+				INFOPLIST_FILE = "PocketDictionary/Allkdic-Info.plist";
+				PRODUCT_NAME = Allkdic;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -315,9 +315,9 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "PocketDictionary/PocketDictionary-Prefix.pch";
-				INFOPLIST_FILE = "PocketDictionary/PocketDictionary-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "PocketDictionary/Allkdic-Prefix.pch";
+				INFOPLIST_FILE = "PocketDictionary/Allkdic-Info.plist";
+				PRODUCT_NAME = Allkdic;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -325,7 +325,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0322CF7517AE9964007E832C /* Build configuration list for PBXProject "PocketDictionary" */ = {
+		0322CF7517AE9964007E832C /* Build configuration list for PBXProject "Allkdic" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0322CF9517AE9965007E832C /* Debug */,
@@ -334,7 +334,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0322CF9717AE9965007E832C /* Build configuration list for PBXNativeTarget "PocketDictionary" */ = {
+		0322CF9717AE9965007E832C /* Build configuration list for PBXNativeTarget "Allkdic" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0322CF9817AE9965007E832C /* Debug */,

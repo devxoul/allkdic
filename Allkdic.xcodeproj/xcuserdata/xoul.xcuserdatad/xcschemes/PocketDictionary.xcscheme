@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "0322CF7917AE9964007E832C"
                BuildableName = "PocketDictionary.app"
-               BlueprintName = "PocketDictionary"
-               ReferencedContainer = "container:PocketDictionary.xcodeproj">
+               BlueprintName = "Allkdic"
+               ReferencedContainer = "container:Allkdic.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,8 +34,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0322CF7917AE9964007E832C"
             BuildableName = "PocketDictionary.app"
-            BlueprintName = "PocketDictionary"
-            ReferencedContainer = "container:PocketDictionary.xcodeproj">
+            BlueprintName = "Allkdic"
+            ReferencedContainer = "container:Allkdic.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -53,8 +53,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0322CF7917AE9964007E832C"
             BuildableName = "PocketDictionary.app"
-            BlueprintName = "PocketDictionary"
-            ReferencedContainer = "container:PocketDictionary.xcodeproj">
+            BlueprintName = "Allkdic"
+            ReferencedContainer = "container:Allkdic.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -71,8 +71,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0322CF7917AE9964007E832C"
             BuildableName = "PocketDictionary.app"
-            BlueprintName = "PocketDictionary"
-            ReferencedContainer = "container:PocketDictionary.xcodeproj">
+            BlueprintName = "Allkdic"
+            ReferencedContainer = "container:Allkdic.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
