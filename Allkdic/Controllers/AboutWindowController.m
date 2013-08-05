@@ -29,7 +29,7 @@
 
 - (IBAction)viewOnGitHub:(id)sender
 {
-	[NSApp openURL:[NSURL URLWithString:@"https://github.com/devxoul/allkdic"]];
+	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://github.com/devxoul/allkdic"]];
 }
 
 @end
