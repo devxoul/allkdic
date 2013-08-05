@@ -15,7 +15,7 @@
 {
 	self.statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
 	self.statusItem.image = [NSImage imageNamed:@"statusicon_default.png"];
-	self.statusItem.alternateImage = [NSImage imageNamed:@"statusicon_alt.png"];
+	self.statusItem.alternateImage = [NSImage imageNamed:@"statusicon_highlighted.png"];
 	self.statusItem.highlightMode = YES;
 	
 	self.pocketDictionaryController = [[PocketDictionaryController alloc] initWithStatusItem:self.statusItem];
