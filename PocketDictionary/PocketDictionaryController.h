@@ -13,11 +13,11 @@
 @interface PocketDictionaryController : NSObject <NSWindowDelegate>
 
 @property (nonatomic, strong) NSStatusItem *statusItem;
-@property (nonatomic, strong) NSPanel *panel;
 @property (nonatomic, strong) NSPopover *popover;
 @property (nonatomic, strong) PocketDictionaryContentView *contentView;
 
 - (id)initWithStatusItem:(NSStatusItem *)statusItem;
-- (void)show;
+- (void)open;
+- (void)close;
 
 @end

@@ -339,6 +339,7 @@
 				0322CF9917AE9965007E832C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

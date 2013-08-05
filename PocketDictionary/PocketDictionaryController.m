@@ -15,32 +15,24 @@
 	self = [super init];
 	
 	self.statusItem = statusItem;
-//	NSRect statusItemFrame = [[self.statusItem valueForKey:@"window"] frame];
-	
-	self.panel = [[NSPanel alloc] init];
-//	self.panel.contentSize = NSMakeSize( statusItemFrame.size.width, statusItemFrame.size.height );
-	self.panel.contentSize = NSMakeSize( 405, 513 );
-	self.panel.styleMask = NSBorderlessWindowMask | NSNonactivatingPanelMask;
-	self.panel.collectionBehavior = NSWindowCollectionBehaviorCanJoinAllSpaces | NSWindowCollectionBehaviorTransient;
-	self.panel.hidesOnDeactivate = NO;
-//	self.panel.opaque = NO;
-//	self.panel.backgroundColor = [NSColor clearColor];
-	self.panel.delegate = self;
 	
 	self.contentView = [[PocketDictionaryContentView alloc] init];
 	
 	self.popover = [[NSPopover alloc] init];
 	self.popover.contentViewController = [[NSViewController alloc] init];
 	self.popover.contentViewController.view = self.contentView;
+	self.popover.behavior = NSPopoverBehaviorTransient;
+	[NSEvent addGlobalMonitorForEventsMatchingMask:NSLeftMouseUp handler:^(NSEvent *event)
+	{
+		[self.popover close];
+	}];
 	
 	return self;
 }
 
-- (void)show
+- (void)open
 {
-	NSRect statusItemFrame = [[self.statusItem valueForKey:@"window"] frame];
-	[self.panel setFrameOrigin:NSMakePoint( statusItemFrame.origin.x, self.panel.screen.frame.size.height - self.statusItem.statusBar.thickness - 513 )];
-	[self.panel orderFrontRegardless];
+	[self.popover showRelativeToRect:NSMakeRect( 0, 0, 405, 514 ) ofView:[self.statusItem valueForKey:@"_button"] preferredEdge:NSMaxYEdge];
 }
 
 - (void)close
