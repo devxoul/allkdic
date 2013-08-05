@@ -25,7 +25,23 @@
 		0367296F17B045BF0074D249 /* AlldicContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0367296117B0458D0074D249 /* AlldicContentViewController.m */; };
 		0367297017B045BF0074D249 /* NSWindow+CanBecomeKeyWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 0367295C17B0458D0074D249 /* NSWindow+CanBecomeKeyWindow.m */; };
 		0367297117B045BF0074D249 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0367292F17B00CD90074D249 /* main.m */; };
+		0367297317B050FF0074D249 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0367297217B050FF0074D249 /* Sparkle.framework */; };
+		0367297517B0514D0074D249 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0367297217B050FF0074D249 /* Sparkle.framework */; };
+		0367297717B052B70074D249 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 0367297617B052B70074D249 /* dsa_pub.pem */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0367297417B051280074D249 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				0367297517B0514D0074D249 /* Sparkle.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0322CF7A17AE9965007E832C /* Allkdic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Allkdic.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -58,6 +74,8 @@
 		0367296417B0458D0074D249 /* AlldicContentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlldicContentView.xib; sourceTree = "<group>"; };
 		0367296A17B045A00074D249 /* AllkdicController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AllkdicController.h; path = Allkdic/AllkdicController.h; sourceTree = SOURCE_ROOT; };
 		0367296B17B045A00074D249 /* AllkdicController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AllkdicController.m; path = Allkdic/AllkdicController.m; sourceTree = SOURCE_ROOT; };
+		0367297217B050FF0074D249 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = "../../../../Users/xoul/Downloads/Sparkle 1.5b6/Sparkle.framework"; sourceTree = "<group>"; };
+		0367297617B052B70074D249 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +86,7 @@
 				0322CFA517AF3A6C007E832C /* Carbon.framework in Frameworks */,
 				0322CF9E17AE9BBB007E832C /* WebKit.framework in Frameworks */,
 				0322CF7E17AE9965007E832C /* Cocoa.framework in Frameworks */,
+				0367297317B050FF0074D249 /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +115,7 @@
 		0322CF7C17AE9965007E832C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0367297217B050FF0074D249 /* Sparkle.framework */,
 				0322CFA417AF3A6C007E832C /* Carbon.framework */,
 				0322CF9D17AE9BBB007E832C /* WebKit.framework */,
 				0322CF7D17AE9965007E832C /* Cocoa.framework */,
@@ -146,6 +166,7 @@
 		0322CF9F17AF389B007E832C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0367297617B052B70074D249 /* dsa_pub.pem */,
 				0367294E17B032DF0074D249 /* icon.iconset */,
 				0322CFA117AF389B007E832C /* statusicon_default.png */,
 				0367294117B016A80074D249 /* line.png */,
@@ -196,6 +217,7 @@
 				0322CF7617AE9964007E832C /* Sources */,
 				0322CF7717AE9964007E832C /* Frameworks */,
 				0322CF7817AE9964007E832C /* Resources */,
+				0367297417B051280074D249 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -246,6 +268,7 @@
 				0367294F17B032DF0074D249 /* icon.iconset in Resources */,
 				0367296817B0458D0074D249 /* AboutWindow.xib in Resources */,
 				0367296917B0458D0074D249 /* AlldicContentView.xib in Resources */,
+				0367297717B052B70074D249 /* dsa_pub.pem in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,6 +373,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"/Users/xoul/Downloads/Sparkle 1.5b6\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Allkdic/Allkdic-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Allkdic/Allkdic-Info.plist";
@@ -362,6 +389,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"/Users/xoul/Downloads/Sparkle 1.5b6\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Allkdic/Allkdic-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Allkdic/Allkdic-Info.plist";

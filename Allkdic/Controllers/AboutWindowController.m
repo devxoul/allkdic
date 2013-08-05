@@ -8,6 +8,7 @@
 
 #import "AboutWindowController.h"
 #import "AppDelegate.h"
+#import <Sparkle/Sparkle.h>
 
 @implementation AboutWindowController
 
@@ -24,7 +25,7 @@
 
 - (IBAction)checkForUpdate:(id)sender
 {
-	
+	[[SUUpdater sharedUpdater] checkForUpdates:self];
 }
 
 - (IBAction)viewOnGitHub:(id)sender

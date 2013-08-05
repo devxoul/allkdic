@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <Carbon/Carbon.h>
+#import <Sparkle/Sparkle.h>
 
 @implementation AppDelegate
 
@@ -29,6 +30,8 @@
 	[button setButtonType:NSPushOnPushOffButton];
 	
 	[self registerHotKey];
+	
+	[[SUUpdater sharedUpdater] checkForUpdates:self];
 }
 
 
