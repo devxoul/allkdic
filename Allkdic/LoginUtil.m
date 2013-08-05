@@ -6,6 +6,10 @@
 //  Copyright (c) 2013년 Joyfl. All rights reserved.
 //
 
+/**
+ * http://stackoverflow.com/questions/815063/how-do-you-make-your-app-open-at-login
+ */
+
 #import "LoginUtil.h"
 
 @implementation LoginUtil
