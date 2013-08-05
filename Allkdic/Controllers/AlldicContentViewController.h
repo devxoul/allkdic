@@ -8,10 +8,12 @@
 
 #import <Cocoa/Cocoa.h>
 #import <WebKit/WebKit.h>
+#import "AboutWindowController.h"
 
 @interface AlldicContentViewController : NSViewController
 
 @property (nonatomic, strong) IBOutlet WebView *webView;
+@property (nonatomic, strong) AboutWindowController *aboutWindowController;
 
 - (void)focusOnTextArea;
 - (IBAction)showAboutWindow:(id)sender;

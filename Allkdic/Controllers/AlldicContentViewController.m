@@ -14,6 +14,7 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+	self.aboutWindowController = [[AboutWindowController alloc] initWithWindowNibName:@"AboutWindow"];
     return self;
 }
 
@@ -34,8 +35,7 @@
 
 - (IBAction)showAboutWindow:(id)sender
 {
-	AboutWindowController *aboutWindowController = [[AboutWindowController alloc] initWithWindowNibName:@"AboutWindow"];
-	[aboutWindowController showWindow:self];
+	[self.aboutWindowController showWindow:self];
 }
 
 @end

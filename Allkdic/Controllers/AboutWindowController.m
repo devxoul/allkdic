@@ -11,15 +11,15 @@
 
 @implementation AboutWindowController
 
-- (id)initWithWindow:(NSWindow *)window
-{
-    self = [super initWithWindow:window];
-    return self;
-}
-
 - (void)windowDidLoad
 {
     [super windowDidLoad];
+}
+
+- (void)showWindow:(id)sender
+{
+	[[(AppDelegate *)[NSApp delegate] allkdicController] close];
+	[super showWindow:sender];
 }
 
 - (IBAction)checkForUpdate:(id)sender
