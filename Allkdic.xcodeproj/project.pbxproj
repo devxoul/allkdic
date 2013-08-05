@@ -18,6 +18,7 @@
 		0367293C17B00D3E0074D249 /* AllkdicContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0367292A17B00CC40074D249 /* AllkdicContentView.m */; };
 		0367293D17B00D3E0074D249 /* NSWindow+CanBecomeKeyWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 0367292C17B00CC90074D249 /* NSWindow+CanBecomeKeyWindow.m */; };
 		0367293E17B00D3E0074D249 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0367292F17B00CD90074D249 /* main.m */; };
+		0367294217B016A80074D249 /* line.png in Resources */ = {isa = PBXBuildFile; fileRef = 0367294117B016A80074D249 /* line.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,8 @@
 		0367292F17B00CD90074D249 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Allkdic/main.m; sourceTree = SOURCE_ROOT; };
 		0367293417B00CEC0074D249 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Allkdic/en.lproj/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
 		0367293817B00CF70074D249 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = Allkdic/en.lproj/MainInterface.xib; sourceTree = SOURCE_ROOT; };
+		0367294117B016A80074D249 /* line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = line.png; sourceTree = "<group>"; };
+		0367294317B025390074D249 /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Common.h; path = Allkdic/Common.h; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +103,7 @@
 		0322CF8317AE9965007E832C /* Allkdic */ = {
 			isa = PBXGroup;
 			children = (
+				0367294317B025390074D249 /* Common.h */,
 				0367292517B00CB30074D249 /* AppDelegate.h */,
 				0367292617B00CB30074D249 /* AppDelegate.m */,
 				0367292717B00CC00074D249 /* AllkdicController.h */,
@@ -130,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				0322CFA117AF389B007E832C /* statusicon_default.png */,
+				0367294117B016A80074D249 /* line.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -188,6 +193,7 @@
 				0322CFA317AF389B007E832C /* statusicon_default.png in Resources */,
 				0367293617B00CEC0074D249 /* InfoPlist.strings in Resources */,
 				0367293917B00CF70074D249 /* MainInterface.xib in Resources */,
+				0367294217B016A80074D249 /* line.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
