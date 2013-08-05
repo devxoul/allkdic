@@ -170,7 +170,7 @@
 							<object class="NSTextFieldCell" key="NSCell" id="786652275">
 								<int key="NSCellFlags">605028416</int>
 								<int key="NSCellFlags2">138413056</int>
-								<string key="NSContents">Copyright © 2013 Joyfl. All Rights Reserved.</string>
+								<string key="NSContents">Copyright © 2013 Su Yeol Jeon. All Rights Reserved.</string>
 								<object class="NSFont" key="NSSupport">
 									<string key="NSName">LucidaGrande</string>
 									<double key="NSSize">9</double>
@@ -1713,16 +1713,11 @@
 					<string key="superclassName">NSWindowController</string>
 					<dictionary class="NSMutableDictionary" key="actions">
 						<string key="checkForUpdate:">id</string>
-						<string key="showWindow:">id</string>
 						<string key="viewOnGitHub:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
 						<object class="IBActionInfo" key="checkForUpdate:">
 							<string key="name">checkForUpdate:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="showWindow:">
-							<string key="name">showWindow:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="viewOnGitHub:">
@@ -1762,7 +1757,7 @@
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
 			<string key="NS.key.0">icon</string>
-			<string key="NS.object.0">{256, 256}</string>
+			<string key="NS.object.0">{512, 512}</string>
 		</object>
 		<bool key="IBDocument.UseAutolayout">YES</bool>
 	</data>
