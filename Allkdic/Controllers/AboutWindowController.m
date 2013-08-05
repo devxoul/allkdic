@@ -34,4 +34,9 @@
 	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://github.com/devxoul/allkdic"]];
 }
 
+- (IBAction)quit:(id)sender
+{
+	[NSApp performSelector:@selector(terminate:) withObject:nil afterDelay:0.0];
+}
+
 @end
