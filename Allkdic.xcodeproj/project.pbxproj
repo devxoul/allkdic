@@ -8,17 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		0322CF7E17AE9965007E832C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0322CF7D17AE9965007E832C /* Cocoa.framework */; };
-		0322CF8817AE9965007E832C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0322CF8617AE9965007E832C /* InfoPlist.strings */; };
-		0322CF8A17AE9965007E832C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0322CF8917AE9965007E832C /* main.m */; };
-		0322CF8E17AE9965007E832C /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 0322CF8C17AE9965007E832C /* Credits.rtf */; };
-		0322CF9117AE9965007E832C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0322CF9017AE9965007E832C /* AppDelegate.m */; };
-		0322CF9417AE9965007E832C /* MainInterface.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0322CF9217AE9965007E832C /* MainInterface.xib */; };
 		0322CF9E17AE9BBB007E832C /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0322CF9D17AE9BBB007E832C /* WebKit.framework */; };
 		0322CFA317AF389B007E832C /* statusicon_default.png in Resources */ = {isa = PBXBuildFile; fileRef = 0322CFA117AF389B007E832C /* statusicon_default.png */; };
 		0322CFA517AF3A6C007E832C /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0322CFA417AF3A6C007E832C /* Carbon.framework */; };
-		0322CFA817AF56A2007E832C /* PocketDictionaryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0322CFA717AF56A2007E832C /* PocketDictionaryController.m */; };
-		0322CFAB17AF5DE0007E832C /* PocketDictionaryContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0322CFAA17AF5DE0007E832C /* PocketDictionaryContentView.m */; };
-		03E7BBE317AFE065002CC54E /* NSWindow+CanBecomeKeyWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E7BBE217AFE065002CC54E /* NSWindow+CanBecomeKeyWindow.m */; };
+		0367293517B00CEC0074D249 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 0367293117B00CEC0074D249 /* Credits.rtf */; };
+		0367293617B00CEC0074D249 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0367293317B00CEC0074D249 /* InfoPlist.strings */; };
+		0367293917B00CF70074D249 /* MainInterface.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0367293717B00CF70074D249 /* MainInterface.xib */; };
+		0367293A17B00D3E0074D249 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0367292617B00CB30074D249 /* AppDelegate.m */; };
+		0367293B17B00D3E0074D249 /* PocketDictionaryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0367292817B00CC00074D249 /* PocketDictionaryController.m */; };
+		0367293C17B00D3E0074D249 /* PocketDictionaryContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0367292A17B00CC40074D249 /* PocketDictionaryContentView.m */; };
+		0367293D17B00D3E0074D249 /* NSWindow+CanBecomeKeyWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 0367292C17B00CC90074D249 /* NSWindow+CanBecomeKeyWindow.m */; };
+		0367293E17B00D3E0074D249 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0367292F17B00CD90074D249 /* main.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,23 +27,23 @@
 		0322CF8017AE9965007E832C /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		0322CF8117AE9965007E832C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		0322CF8217AE9965007E832C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		0322CF8517AE9965007E832C /* Allkdic-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Allkdic-Info.plist"; sourceTree = "<group>"; };
-		0322CF8717AE9965007E832C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		0322CF8917AE9965007E832C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		0322CF8B17AE9965007E832C /* Allkdic-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Allkdic-Prefix.pch"; sourceTree = "<group>"; };
-		0322CF8D17AE9965007E832C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		0322CF8F17AE9965007E832C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		0322CF9017AE9965007E832C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		0322CF9317AE9965007E832C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainInterface.xib; sourceTree = "<group>"; };
 		0322CF9D17AE9BBB007E832C /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		0322CFA117AF389B007E832C /* statusicon_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = statusicon_default.png; sourceTree = "<group>"; };
 		0322CFA417AF3A6C007E832C /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
-		0322CFA617AF56A2007E832C /* PocketDictionaryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PocketDictionaryController.h; sourceTree = "<group>"; };
-		0322CFA717AF56A2007E832C /* PocketDictionaryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PocketDictionaryController.m; sourceTree = "<group>"; };
-		0322CFA917AF5DE0007E832C /* PocketDictionaryContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PocketDictionaryContentView.h; sourceTree = "<group>"; };
-		0322CFAA17AF5DE0007E832C /* PocketDictionaryContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PocketDictionaryContentView.m; sourceTree = "<group>"; };
-		03E7BBE117AFE065002CC54E /* NSWindow+CanBecomeKeyWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSWindow+CanBecomeKeyWindow.h"; sourceTree = "<group>"; };
-		03E7BBE217AFE065002CC54E /* NSWindow+CanBecomeKeyWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSWindow+CanBecomeKeyWindow.m"; sourceTree = "<group>"; };
+		0367292517B00CB30074D249 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Allkdic/AppDelegate.h; sourceTree = SOURCE_ROOT; };
+		0367292617B00CB30074D249 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Allkdic/AppDelegate.m; sourceTree = SOURCE_ROOT; };
+		0367292717B00CC00074D249 /* PocketDictionaryController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PocketDictionaryController.h; path = Allkdic/PocketDictionaryController.h; sourceTree = SOURCE_ROOT; };
+		0367292817B00CC00074D249 /* PocketDictionaryController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PocketDictionaryController.m; path = Allkdic/PocketDictionaryController.m; sourceTree = SOURCE_ROOT; };
+		0367292917B00CC40074D249 /* PocketDictionaryContentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PocketDictionaryContentView.h; path = Allkdic/PocketDictionaryContentView.h; sourceTree = SOURCE_ROOT; };
+		0367292A17B00CC40074D249 /* PocketDictionaryContentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PocketDictionaryContentView.m; path = Allkdic/PocketDictionaryContentView.m; sourceTree = SOURCE_ROOT; };
+		0367292B17B00CC90074D249 /* NSWindow+CanBecomeKeyWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSWindow+CanBecomeKeyWindow.h"; path = "Allkdic/NSWindow+CanBecomeKeyWindow.h"; sourceTree = SOURCE_ROOT; };
+		0367292C17B00CC90074D249 /* NSWindow+CanBecomeKeyWindow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "NSWindow+CanBecomeKeyWindow.m"; path = "Allkdic/NSWindow+CanBecomeKeyWindow.m"; sourceTree = SOURCE_ROOT; };
+		0367292D17B00CD90074D249 /* Allkdic-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Allkdic-Info.plist"; path = "Allkdic/Allkdic-Info.plist"; sourceTree = SOURCE_ROOT; };
+		0367292E17B00CD90074D249 /* Allkdic-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Allkdic-Prefix.pch"; path = "Allkdic/Allkdic-Prefix.pch"; sourceTree = SOURCE_ROOT; };
+		0367292F17B00CD90074D249 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Allkdic/main.m; sourceTree = SOURCE_ROOT; };
+		0367293217B00CEC0074D249 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = Allkdic/en.lproj/Credits.rtf; sourceTree = SOURCE_ROOT; };
+		0367293417B00CEC0074D249 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Allkdic/en.lproj/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
+		0367293817B00CF70074D249 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = Allkdic/en.lproj/MainInterface.xib; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +63,7 @@
 		0322CF7117AE9964007E832C = {
 			isa = PBXGroup;
 			children = (
-				0322CF8317AE9965007E832C /* PocketDictionary */,
+				0322CF8317AE9965007E832C /* Allkdic */,
 				0322CF9F17AF389B007E832C /* Resources */,
 				0322CF7C17AE9965007E832C /* Frameworks */,
 				0322CF7B17AE9965007E832C /* Products */,
@@ -99,31 +99,32 @@
 			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
-		0322CF8317AE9965007E832C /* PocketDictionary */ = {
+		0322CF8317AE9965007E832C /* Allkdic */ = {
 			isa = PBXGroup;
 			children = (
-				0322CF8F17AE9965007E832C /* AppDelegate.h */,
-				0322CF9017AE9965007E832C /* AppDelegate.m */,
-				0322CFA617AF56A2007E832C /* PocketDictionaryController.h */,
-				0322CFA717AF56A2007E832C /* PocketDictionaryController.m */,
-				0322CFA917AF5DE0007E832C /* PocketDictionaryContentView.h */,
-				0322CFAA17AF5DE0007E832C /* PocketDictionaryContentView.m */,
-				0322CF9217AE9965007E832C /* MainInterface.xib */,
-				03E7BBE117AFE065002CC54E /* NSWindow+CanBecomeKeyWindow.h */,
-				03E7BBE217AFE065002CC54E /* NSWindow+CanBecomeKeyWindow.m */,
+				0367292517B00CB30074D249 /* AppDelegate.h */,
+				0367292617B00CB30074D249 /* AppDelegate.m */,
+				0367292717B00CC00074D249 /* PocketDictionaryController.h */,
+				0367292817B00CC00074D249 /* PocketDictionaryController.m */,
+				0367292917B00CC40074D249 /* PocketDictionaryContentView.h */,
+				0367292A17B00CC40074D249 /* PocketDictionaryContentView.m */,
+				0367292B17B00CC90074D249 /* NSWindow+CanBecomeKeyWindow.h */,
+				0367292C17B00CC90074D249 /* NSWindow+CanBecomeKeyWindow.m */,
+				0367293717B00CF70074D249 /* MainInterface.xib */,
 				0322CF8417AE9965007E832C /* Supporting Files */,
 			);
+			name = Allkdic;
 			path = PocketDictionary;
 			sourceTree = "<group>";
 		};
 		0322CF8417AE9965007E832C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				0322CF8517AE9965007E832C /* Allkdic-Info.plist */,
-				0322CF8617AE9965007E832C /* InfoPlist.strings */,
-				0322CF8917AE9965007E832C /* main.m */,
-				0322CF8B17AE9965007E832C /* Allkdic-Prefix.pch */,
-				0322CF8C17AE9965007E832C /* Credits.rtf */,
+				0367292D17B00CD90074D249 /* Allkdic-Info.plist */,
+				0367292E17B00CD90074D249 /* Allkdic-Prefix.pch */,
+				0367292F17B00CD90074D249 /* main.m */,
+				0367293117B00CEC0074D249 /* Credits.rtf */,
+				0367293317B00CEC0074D249 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -187,10 +188,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0322CF8817AE9965007E832C /* InfoPlist.strings in Resources */,
-				0322CF8E17AE9965007E832C /* Credits.rtf in Resources */,
-				0322CF9417AE9965007E832C /* MainInterface.xib in Resources */,
 				0322CFA317AF389B007E832C /* statusicon_default.png in Resources */,
+				0367293517B00CEC0074D249 /* Credits.rtf in Resources */,
+				0367293617B00CEC0074D249 /* InfoPlist.strings in Resources */,
+				0367293917B00CF70074D249 /* MainInterface.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,37 +202,37 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0322CF8A17AE9965007E832C /* main.m in Sources */,
-				0322CF9117AE9965007E832C /* AppDelegate.m in Sources */,
-				0322CFA817AF56A2007E832C /* PocketDictionaryController.m in Sources */,
-				0322CFAB17AF5DE0007E832C /* PocketDictionaryContentView.m in Sources */,
-				03E7BBE317AFE065002CC54E /* NSWindow+CanBecomeKeyWindow.m in Sources */,
+				0367293A17B00D3E0074D249 /* AppDelegate.m in Sources */,
+				0367293B17B00D3E0074D249 /* PocketDictionaryController.m in Sources */,
+				0367293C17B00D3E0074D249 /* PocketDictionaryContentView.m in Sources */,
+				0367293D17B00D3E0074D249 /* NSWindow+CanBecomeKeyWindow.m in Sources */,
+				0367293E17B00D3E0074D249 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		0322CF8617AE9965007E832C /* InfoPlist.strings */ = {
+		0367293117B00CEC0074D249 /* Credits.rtf */ = {
 			isa = PBXVariantGroup;
 			children = (
-				0322CF8717AE9965007E832C /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		0322CF8C17AE9965007E832C /* Credits.rtf */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0322CF8D17AE9965007E832C /* en */,
+				0367293217B00CEC0074D249 /* en */,
 			);
 			name = Credits.rtf;
 			sourceTree = "<group>";
 		};
-		0322CF9217AE9965007E832C /* MainInterface.xib */ = {
+		0367293317B00CEC0074D249 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				0322CF9317AE9965007E832C /* en */,
+				0367293417B00CEC0074D249 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		0367293717B00CF70074D249 /* MainInterface.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0367293817B00CF70074D249 /* en */,
 			);
 			name = MainInterface.xib;
 			sourceTree = "<group>";
@@ -303,8 +304,8 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "PocketDictionary/Allkdic-Prefix.pch";
-				INFOPLIST_FILE = "PocketDictionary/Allkdic-Info.plist";
+				GCC_PREFIX_HEADER = "Allkdic/Allkdic-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/Allkdic/Allkdic-Info.plist";
 				PRODUCT_NAME = Allkdic;
 				WRAPPER_EXTENSION = app;
 			};
@@ -315,8 +316,8 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "PocketDictionary/Allkdic-Prefix.pch";
-				INFOPLIST_FILE = "PocketDictionary/Allkdic-Info.plist";
+				GCC_PREFIX_HEADER = "Allkdic/Allkdic-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/Allkdic/Allkdic-Info.plist";
 				PRODUCT_NAME = Allkdic;
 				WRAPPER_EXTENSION = app;
 			};
