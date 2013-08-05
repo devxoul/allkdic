@@ -8,13 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import <WebKit/WebKit.h>
-#import "AllkdicContentView.h"
+#import "AlldicContentViewController.h"
 
 @interface AllkdicController : NSObject <NSWindowDelegate>
 
 @property (nonatomic, strong) NSStatusItem *statusItem;
 @property (nonatomic, strong) NSPopover *popover;
-@property (nonatomic, strong) AllkdicContentView *contentView;
+@property (nonatomic, strong) AlldicContentViewController *contentViewController;
 
 - (id)initWithStatusItem:(NSStatusItem *)statusItem;
 - (void)open;

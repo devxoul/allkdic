@@ -16,11 +16,8 @@
 	
 	self.statusItem = statusItem;
 	
-	self.contentView = [[AllkdicContentView alloc] init];
-	
 	self.popover = [[NSPopover alloc] init];
-	self.popover.contentViewController = [[NSViewController alloc] init];
-	self.popover.contentViewController.view = self.contentView;
+	self.popover.contentViewController = [[AlldicContentViewController alloc] initWithNibName:@"AlldicContentView" bundle:nil];
 	[NSEvent addGlobalMonitorForEventsMatchingMask:NSLeftMouseUp | NSLeftMouseDown handler:^(NSEvent *event)
 	{
 		[self close];
@@ -43,7 +40,7 @@
 	
 	[NSApp activateIgnoringOtherApps:YES];
 	[self.popover showRelativeToRect:NSZeroRect ofView:button preferredEdge:NSMaxYEdge];
-	[self.contentView focusOnTextArea];
+	[self.contentViewController focusOnTextArea];
 }
 
 - (void)close
