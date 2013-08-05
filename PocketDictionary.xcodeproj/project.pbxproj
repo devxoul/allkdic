@@ -12,7 +12,13 @@
 		0322CF8A17AE9965007E832C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0322CF8917AE9965007E832C /* main.m */; };
 		0322CF8E17AE9965007E832C /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 0322CF8C17AE9965007E832C /* Credits.rtf */; };
 		0322CF9117AE9965007E832C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0322CF9017AE9965007E832C /* AppDelegate.m */; };
-		0322CF9417AE9965007E832C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0322CF9217AE9965007E832C /* MainMenu.xib */; };
+		0322CF9417AE9965007E832C /* MainInterface.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0322CF9217AE9965007E832C /* MainInterface.xib */; };
+		0322CF9E17AE9BBB007E832C /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0322CF9D17AE9BBB007E832C /* WebKit.framework */; };
+		0322CFA217AF389B007E832C /* statusicon_alt.png in Resources */ = {isa = PBXBuildFile; fileRef = 0322CFA017AF389B007E832C /* statusicon_alt.png */; };
+		0322CFA317AF389B007E832C /* statusicon_default.png in Resources */ = {isa = PBXBuildFile; fileRef = 0322CFA117AF389B007E832C /* statusicon_default.png */; };
+		0322CFA517AF3A6C007E832C /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0322CFA417AF3A6C007E832C /* Carbon.framework */; };
+		0322CFA817AF56A2007E832C /* PocketDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 0322CFA717AF56A2007E832C /* PocketDictionary.m */; };
+		0322CFAB17AF5DE0007E832C /* PocketDictionaryContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0322CFAA17AF5DE0007E832C /* PocketDictionaryContentView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,7 +34,15 @@
 		0322CF8D17AE9965007E832C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		0322CF8F17AE9965007E832C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0322CF9017AE9965007E832C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		0322CF9317AE9965007E832C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		0322CF9317AE9965007E832C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainInterface.xib; sourceTree = "<group>"; };
+		0322CF9D17AE9BBB007E832C /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		0322CFA017AF389B007E832C /* statusicon_alt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = statusicon_alt.png; sourceTree = "<group>"; };
+		0322CFA117AF389B007E832C /* statusicon_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = statusicon_default.png; sourceTree = "<group>"; };
+		0322CFA417AF3A6C007E832C /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
+		0322CFA617AF56A2007E832C /* PocketDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PocketDictionary.h; sourceTree = "<group>"; };
+		0322CFA717AF56A2007E832C /* PocketDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PocketDictionary.m; sourceTree = "<group>"; };
+		0322CFA917AF5DE0007E832C /* PocketDictionaryContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PocketDictionaryContentView.h; sourceTree = "<group>"; };
+		0322CFAA17AF5DE0007E832C /* PocketDictionaryContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PocketDictionaryContentView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +50,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0322CFA517AF3A6C007E832C /* Carbon.framework in Frameworks */,
+				0322CF9E17AE9BBB007E832C /* WebKit.framework in Frameworks */,
 				0322CF7E17AE9965007E832C /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -47,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				0322CF8317AE9965007E832C /* PocketDictionary */,
+				0322CF9F17AF389B007E832C /* Resources */,
 				0322CF7C17AE9965007E832C /* Frameworks */,
 				0322CF7B17AE9965007E832C /* Products */,
 			);
@@ -63,6 +80,8 @@
 		0322CF7C17AE9965007E832C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0322CFA417AF3A6C007E832C /* Carbon.framework */,
+				0322CF9D17AE9BBB007E832C /* WebKit.framework */,
 				0322CF7D17AE9965007E832C /* Cocoa.framework */,
 				0322CF7F17AE9965007E832C /* Other Frameworks */,
 			);
@@ -84,7 +103,11 @@
 			children = (
 				0322CF8F17AE9965007E832C /* AppDelegate.h */,
 				0322CF9017AE9965007E832C /* AppDelegate.m */,
-				0322CF9217AE9965007E832C /* MainMenu.xib */,
+				0322CFA617AF56A2007E832C /* PocketDictionary.h */,
+				0322CFA717AF56A2007E832C /* PocketDictionary.m */,
+				0322CFA917AF5DE0007E832C /* PocketDictionaryContentView.h */,
+				0322CFAA17AF5DE0007E832C /* PocketDictionaryContentView.m */,
+				0322CF9217AE9965007E832C /* MainInterface.xib */,
 				0322CF8417AE9965007E832C /* Supporting Files */,
 			);
 			path = PocketDictionary;
@@ -100,6 +123,15 @@
 				0322CF8C17AE9965007E832C /* Credits.rtf */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0322CF9F17AF389B007E832C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0322CFA017AF389B007E832C /* statusicon_alt.png */,
+				0322CFA117AF389B007E832C /* statusicon_default.png */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,7 +187,9 @@
 			files = (
 				0322CF8817AE9965007E832C /* InfoPlist.strings in Resources */,
 				0322CF8E17AE9965007E832C /* Credits.rtf in Resources */,
-				0322CF9417AE9965007E832C /* MainMenu.xib in Resources */,
+				0322CF9417AE9965007E832C /* MainInterface.xib in Resources */,
+				0322CFA217AF389B007E832C /* statusicon_alt.png in Resources */,
+				0322CFA317AF389B007E832C /* statusicon_default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,6 +202,8 @@
 			files = (
 				0322CF8A17AE9965007E832C /* main.m in Sources */,
 				0322CF9117AE9965007E832C /* AppDelegate.m in Sources */,
+				0322CFA817AF56A2007E832C /* PocketDictionary.m in Sources */,
+				0322CFAB17AF5DE0007E832C /* PocketDictionaryContentView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,12 +226,12 @@
 			name = Credits.rtf;
 			sourceTree = "<group>";
 		};
-		0322CF9217AE9965007E832C /* MainMenu.xib */ = {
+		0322CF9217AE9965007E832C /* MainInterface.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				0322CF9317AE9965007E832C /* en */,
 			);
-			name = MainMenu.xib;
+			name = MainInterface.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

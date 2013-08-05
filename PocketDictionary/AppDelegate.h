@@ -7,9 +7,13 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "PocketDictionary.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
-@property (assign) IBOutlet NSWindow *window;
+@property (nonatomic, strong) PocketDictionary *pocketDictionary;
+@property (nonatomic, strong) NSStatusItem *statusItem;
+
+- (void)show;
 
 @end
