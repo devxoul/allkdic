@@ -21,8 +21,7 @@
 	self.popover = [[NSPopover alloc] init];
 	self.popover.contentViewController = [[NSViewController alloc] init];
 	self.popover.contentViewController.view = self.contentView;
-	self.popover.behavior = NSPopoverBehaviorTransient;
-	[NSEvent addGlobalMonitorForEventsMatchingMask:NSLeftMouseUp handler:^(NSEvent *event)
+	[NSEvent addGlobalMonitorForEventsMatchingMask:NSLeftMouseUp | NSLeftMouseDown handler:^(NSEvent *event)
 	{
 		[self close];
 	}];
@@ -32,13 +31,26 @@
 
 - (void)open
 {
+	NSButton *button = [self.statusItem valueForKey:@"_button"];
+	
+	if( self.popover.isShown )
+	{
+		[self close];
+		return;
+	}
+	
+	button.state = NSOnState;
+	
 	[NSApp activateIgnoringOtherApps:YES];
-	[self.popover showRelativeToRect:NSZeroRect ofView:[self.statusItem valueForKey:@"_button"] preferredEdge:NSMaxYEdge];
+	[self.popover showRelativeToRect:NSZeroRect ofView:button preferredEdge:NSMaxYEdge];
 	[self.contentView focusOnTextArea];
 }
 
 - (void)close
 {
+	NSButton *button = [self.statusItem valueForKey:@"_button"];
+	button.state = NSOffState;
+	
 	[self.popover close];
 }
 

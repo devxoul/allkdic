@@ -14,14 +14,19 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
 	self.statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
-	self.statusItem.image = [NSImage imageNamed:@"statusicon_default.png"];
-	self.statusItem.alternateImage = [NSImage imageNamed:@"statusicon_highlighted.png"];
-	self.statusItem.highlightMode = YES;
+	
+	NSImage *icon = [NSImage imageNamed:@"statusicon_default.png"];
+	icon.template = YES;
+	self.statusItem.image = icon;
 	
 	self.pocketDictionaryController = [[PocketDictionaryController alloc] initWithStatusItem:self.statusItem];
 	
 	self.statusItem.target = self.pocketDictionaryController;
 	self.statusItem.action = @selector(open);
+	
+	NSButton *button = [self.statusItem valueForKey:@"_button"];
+	button.focusRingType = NSFocusRingTypeNone;
+	[button setButtonType:NSPushOnPushOffButton];
 	
 	[self registerHotKey];
 }
@@ -56,6 +61,7 @@
 OSStatus hotKeyHandler( EventHandlerCallRef nextHandler, EventRef theEvent, void *userData )
 {
 	[[(AppDelegate *)[NSApp delegate] pocketDictionaryController] open];
+	
 	return noErr;
 }
 
