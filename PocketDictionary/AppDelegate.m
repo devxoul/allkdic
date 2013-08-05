@@ -20,7 +20,7 @@
 	self.statusItem.target = self;
 	self.statusItem.action = @selector(show);
 	
-	self.pocketDictionary = [[PocketDictionary alloc] initWithStatusItem:self.statusItem];
+	self.pocketDictionaryController = [[PocketDictionaryController alloc] initWithStatusItem:self.statusItem];
 	
 	[self registerHotKey];
 }
@@ -59,7 +59,7 @@ OSStatus hotKeyHandler( EventHandlerCallRef nextHandler, EventRef theEvent, void
 
 - (void)show
 {
-	[self.pocketDictionary show];
+	[self.pocketDictionaryController show];
 }
 
 @end
