@@ -1,0 +1,70 @@
+.container {
+	text-align: center;
+}
+
+h1 {
+	text-align: center !important;
+}
+
+footer {
+	text-align: center;
+	margin-top: 100px;
+	padding-bottom: 20px;
+}
+
+.btn-logout {
+	font-size: 8pt;
+	text-decoration: none;
+	color: #E74C3C;
+}
+
+.btn-logout:hover {
+	color: #C0392B;
+}
+
+#photo {
+	max-width: 600px;
+	max-height: 600px;
+	margin-bottom: 20px;
+}
+
+.form-container {
+	width: 540px;
+	margin: 0 auto;
+}
+
+.form-container input#titleInput {
+	width: 526px;
+}
+
+.form-container textarea {
+	width: 514px;
+}
+
+.form-container input.btn {
+	width: 100%;
+}
+
+.file-input-container {
+	display: block;
+	overflow: hidden;
+}
+
+#file-uploader {
+	position: relative;
+	opacity: 0;
+	filter: alpha( opacity=0 );
+	width: 100%;
+	top: -20px;
+	height: 41px;
+	cursor: hand;
+}
+
+#btn-upload {
+	position: relative;
+	top: 21px;
+}
+
+#descriptionInput {
+	height: 100px;
+}
