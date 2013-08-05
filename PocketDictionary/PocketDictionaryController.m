@@ -24,7 +24,7 @@
 	self.popover.behavior = NSPopoverBehaviorTransient;
 	[NSEvent addGlobalMonitorForEventsMatchingMask:NSLeftMouseUp handler:^(NSEvent *event)
 	{
-		[self.popover close];
+		[self close];
 	}];
 	
 	return self;
@@ -32,12 +32,14 @@
 
 - (void)open
 {
-	[self.popover showRelativeToRect:NSMakeRect( 0, 0, 405, 514 ) ofView:[self.statusItem valueForKey:@"_button"] preferredEdge:NSMaxYEdge];
+	[NSApp activateIgnoringOtherApps:YES];
+	[self.popover showRelativeToRect:NSZeroRect ofView:[self.statusItem valueForKey:@"_button"] preferredEdge:NSMaxYEdge];
+	[self.contentView focusOnTextArea];
 }
 
 - (void)close
 {
-	
+	[self.popover close];
 }
 
 @end

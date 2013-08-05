@@ -19,6 +19,7 @@
 		0322CFA517AF3A6C007E832C /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0322CFA417AF3A6C007E832C /* Carbon.framework */; };
 		0322CFA817AF56A2007E832C /* PocketDictionaryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0322CFA717AF56A2007E832C /* PocketDictionaryController.m */; };
 		0322CFAB17AF5DE0007E832C /* PocketDictionaryContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0322CFAA17AF5DE0007E832C /* PocketDictionaryContentView.m */; };
+		03E7BBE317AFE065002CC54E /* NSWindow+CanBecomeKeyWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E7BBE217AFE065002CC54E /* NSWindow+CanBecomeKeyWindow.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,8 @@
 		0322CFA717AF56A2007E832C /* PocketDictionaryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PocketDictionaryController.m; sourceTree = "<group>"; };
 		0322CFA917AF5DE0007E832C /* PocketDictionaryContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PocketDictionaryContentView.h; sourceTree = "<group>"; };
 		0322CFAA17AF5DE0007E832C /* PocketDictionaryContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PocketDictionaryContentView.m; sourceTree = "<group>"; };
+		03E7BBE117AFE065002CC54E /* NSWindow+CanBecomeKeyWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSWindow+CanBecomeKeyWindow.h"; sourceTree = "<group>"; };
+		03E7BBE217AFE065002CC54E /* NSWindow+CanBecomeKeyWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSWindow+CanBecomeKeyWindow.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +111,8 @@
 				0322CFA917AF5DE0007E832C /* PocketDictionaryContentView.h */,
 				0322CFAA17AF5DE0007E832C /* PocketDictionaryContentView.m */,
 				0322CF9217AE9965007E832C /* MainInterface.xib */,
+				03E7BBE117AFE065002CC54E /* NSWindow+CanBecomeKeyWindow.h */,
+				03E7BBE217AFE065002CC54E /* NSWindow+CanBecomeKeyWindow.m */,
 				0322CF8417AE9965007E832C /* Supporting Files */,
 			);
 			path = PocketDictionary;
@@ -204,6 +209,7 @@
 				0322CF9117AE9965007E832C /* AppDelegate.m in Sources */,
 				0322CFA817AF56A2007E832C /* PocketDictionaryController.m in Sources */,
 				0322CFAB17AF5DE0007E832C /* PocketDictionaryContentView.m in Sources */,
+				03E7BBE317AFE065002CC54E /* NSWindow+CanBecomeKeyWindow.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

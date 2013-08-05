@@ -14,6 +14,4 @@
 @property (nonatomic, strong) PocketDictionaryController *pocketDictionaryController;
 @property (nonatomic, strong) NSStatusItem *statusItem;
 
-- (void)show;
-
 @end

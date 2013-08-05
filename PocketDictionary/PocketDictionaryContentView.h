@@ -7,7 +7,12 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <WebKit/WebKit.h>
 
 @interface PocketDictionaryContentView : NSView
+
+@property (nonatomic, strong) WebView *webView;
+
+- (void)focusOnTextArea;
 
 @end
