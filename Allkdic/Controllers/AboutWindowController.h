@@ -10,6 +10,8 @@
 
 @interface AboutWindowController : NSWindowController
 
+@property (nonatomic, strong) IBOutlet NSTextField *versionLabel;
+
 - (IBAction)checkForUpdate:(id)sender;
 - (IBAction)viewOnGitHub:(id)sender;
 
