@@ -51,8 +51,14 @@
 
 - (void)handleKeyBinding:(KeyBinding *)keyBinding
 {
+	// Esc
+	if( !keyBinding.shift && !keyBinding.control && !keyBinding.option && !keyBinding.command && keyBinding.keyCode == 53 )
+	{
+		[[AllkdicController sharedController] close];
+	}
+	
 	// Command + A
-	if( keyBinding.command && keyBinding.keyCode == [KeyBinding keyCodeFormKeyString:@"a"] )
+	else if( keyBinding.command && keyBinding.keyCode == [KeyBinding keyCodeFormKeyString:@"a"] )
 	{
 		[self focusOnTextArea];
 	}
