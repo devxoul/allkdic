@@ -70,7 +70,7 @@
 		self.commandLabel.textColor = [NSColor blackColor];
 	}
 	
-	self.keyLabel.stringValue = [KeyBinding keyStringFormKeyCode:keyBinding.keyCode].uppercaseString;
+	self.keyLabel.stringValue = [KeyBinding keyStringFormKeyCode:keyBinding.keyCode].capitalizedString;
 	
 	[[NSUserDefaults standardUserDefaults] setObject:keyBinding.dictionary forKey:AllkdicSettingKeyHotKey];
 	[[NSUserDefaults standardUserDefaults] synchronize];
