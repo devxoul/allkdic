@@ -10,6 +10,7 @@
 #import <WebKit/WebKit.h>
 #import "PreferenceWindowController.h"
 #import "AboutWindowController.h"
+#import "KeyBinding.h"
 
 @interface AlldicContentViewController : NSViewController
 
@@ -20,6 +21,7 @@
 
 - (void)updateHotKeyLabel;
 - (void)focusOnTextArea;
+- (void)handleKeyBinding:(KeyBinding *)keyBinding;
 - (IBAction)showMenu:(id)sender;
 - (IBAction)showPreferenceWindow:(id)sender;
 - (IBAction)showAboutWindow:(id)sender;

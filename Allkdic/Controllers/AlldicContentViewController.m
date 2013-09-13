@@ -14,6 +14,7 @@
 - (void)awakeFromNib
 {
 	self.webView.mainFrameURL = @"http://endic.naver.com/popManager.nhn?m=miniPopMain";
+
 }
 
 - (void)updateHotKeyLabel
@@ -43,8 +44,63 @@
 
 - (void)focusOnTextArea
 {
-	[self.webView.mainFrameDocument evaluateWebScript:@"document.ac_input.focus()"];
+	[self javascript:@"ac_input.focus()"];
+	[self javascript:@"ac_input.select()"];
 }
+
+- (void)handleKeyBinding:(KeyBinding *)keyBinding
+{
+	// Command + A
+	if( keyBinding.command && keyBinding.keyCode == [KeyBinding keyCodeFormKeyString:@"a"] )
+	{
+		[self focusOnTextArea];
+	}
+	
+	// Command + X
+	else if( keyBinding.command && keyBinding.keyCode == [KeyBinding keyCodeFormKeyString:@"x"] )
+	{
+		NSString *input = [self javascript:@"ac_input.value.slice(ac_input.selectionStart, ac_input.selectionEnd)"];
+		[[NSPasteboard generalPasteboard] clearContents];
+		[[NSPasteboard generalPasteboard] setString:input forType:NSStringPboardType];
+		NSLog( @"'%@' has been copied.", input );
+		
+		NSMutableString *script = [NSMutableString string];
+		[script appendString:@"var selection = ac_input.selectionStart;"];
+		[script appendString:@"ac_input.value = ac_input.value.substring(0, ac_input.selectionStart) + ac_input.value.substr(ac_input.selectionEnd,  ac_input.value.length - ac_input.selectionEnd);"];
+		[script appendString:@"ac_input.selectionStart = ac_input.selectionEnd = selection;"];
+		[self javascript:script];
+	}
+	
+	// Command + C
+	else if( keyBinding.command && keyBinding.keyCode == [KeyBinding keyCodeFormKeyString:@"c"] )
+	{
+		NSString *input = [self javascript:@"ac_input.value.slice(ac_input.selectionStart, ac_input.selectionEnd)"];
+		[[NSPasteboard generalPasteboard] clearContents];
+		[[NSPasteboard generalPasteboard] setString:input forType:NSStringPboardType];
+		NSLog( @"'%@' has been copied.", input );
+	}
+	
+	// Command + V
+	else if( keyBinding.command && keyBinding.keyCode == [KeyBinding keyCodeFormKeyString:@"v"] )
+	{
+		NSString *input = [[NSPasteboard generalPasteboard] stringForType:NSStringPboardType];
+		if( !input ) return;
+		
+		NSMutableString *script = [NSMutableString string];
+		[script appendFormat:@"var input = '%@';", input];
+		[script appendString:@"var selection = ac_input.selectionStart + input.length;"];
+		[script appendString:@"ac_input.value = ac_input.value.substring(0, ac_input.selectionStart) + input + ac_input.value.substr(ac_input.selectionEnd,  ac_input.value.length - ac_input.selectionEnd);"];
+		[script appendString:@"ac_input.selectionStart = ac_input.selectionEnd = selection;"];
+		[self javascript:script];
+		NSLog( @"script: %@", script );
+	}
+}
+
+- (id)javascript:(NSString *)javascript
+{
+	return [self.webView.mainFrameDocument evaluateWebScript:javascript];
+}
+
 
 - (IBAction)showMenu:(id)sender
 {

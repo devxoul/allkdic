@@ -71,10 +71,15 @@
 
 - (void)handleKeyCode:(unsigned short)keyCode flags:(NSUInteger)flags windowNumber:(NSInteger)windowNumber
 {
+	KeyBinding *keyBinding = [KeyBinding keyBindingWithKeyCode:keyCode flags:flags];
+	
 	NSWindow *window = [NSApp windowWithWindowNumber:windowNumber];
-	if( [window.windowController isKindOfClass:[AllkdicWindowController class]] )
+	if( [[window.class description] isEqualToString:@"NSStatusBarWindow"] )
 	{
-		KeyBinding *keyBinding = [KeyBinding keyBindingWithKeyCode:keyCode flags:flags];
+		[self.contentViewController handleKeyBinding:keyBinding];
+	}
+	else if( [window.windowController isKindOfClass:[AllkdicWindowController class]] )
+	{
 		[(AllkdicWindowController *)window.windowController handleKeyBinding:keyBinding];
 	}
 }
