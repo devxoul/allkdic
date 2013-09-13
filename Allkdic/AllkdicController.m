@@ -45,12 +45,6 @@
 
 - (void)open
 {
-	if( self.preferenceWindowController.window.isVisible )
-	{
-		NSLog( @"Preference window is visible." );
-		return;
-	}
-	
 	NSButton *button = [self.statusItem valueForKey:@"_button"];
 	
 	if( self.popover.isShown )

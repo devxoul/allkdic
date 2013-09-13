@@ -21,7 +21,7 @@
             <rect key="frame" x="0.0" y="0.0" width="405" height="566"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7">
+                <textField verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7">
                     <rect key="frame" x="170" y="537" width="64" height="24"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="올ㅋ사전" id="16">
@@ -56,13 +56,9 @@
                         <action selector="showMenu:" target="-2" id="fxb-nf-CLs"/>
                     </connections>
                 </button>
-                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="39">
-                    <rect key="frame" x="109" y="522" width="186" height="17"/>
+                <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="39">
+                    <rect key="frame" x="30" y="521" width="345" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="17" id="44"/>
-                        <constraint firstAttribute="width" constant="180" id="45"/>
-                    </constraints>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Option + Command + Space" id="40">
                         <font key="font" metaFont="smallSystem"/>
                         <color key="textColor" name="headerColor" catalog="System" colorSpace="catalog"/>
@@ -75,10 +71,7 @@
                 <constraint firstItem="5" firstAttribute="trailing" secondItem="4" secondAttribute="trailing" id="10"/>
                 <constraint firstItem="6" firstAttribute="leading" secondItem="4" secondAttribute="leading" id="21"/>
                 <constraint firstAttribute="trailing" secondItem="28" secondAttribute="trailing" constant="8" id="37"/>
-                <constraint firstItem="39" firstAttribute="centerX" secondItem="6" secondAttribute="centerX" id="63"/>
-                <constraint firstItem="39" firstAttribute="centerX" secondItem="7" secondAttribute="centerX" id="65"/>
                 <constraint firstItem="5" firstAttribute="top" secondItem="6" secondAttribute="top" id="73"/>
-                <constraint firstItem="39" firstAttribute="top" secondItem="4" secondAttribute="top" constant="27" id="101"/>
                 <constraint firstItem="7" firstAttribute="top" secondItem="4" secondAttribute="top" constant="5" id="102"/>
                 <constraint firstItem="28" firstAttribute="top" secondItem="4" secondAttribute="top" constant="14" id="104"/>
                 <constraint firstItem="5" firstAttribute="bottom" secondItem="4" secondAttribute="bottom" id="109"/>

@@ -21,6 +21,7 @@
 - (void)showWindow:(id)sender
 {
 	[[(AppDelegate *)[NSApp delegate] allkdicController] close];
+	self.window.level = NSScreenSaverWindowLevel;
 	[super showWindow:sender];
 }
 

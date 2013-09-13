@@ -74,6 +74,8 @@
 	
 	[[NSUserDefaults standardUserDefaults] setObject:keyBinding.dictionary forKey:AllkdicSettingKeyHotKey];
 	[[NSUserDefaults standardUserDefaults] synchronize];
+	
+	[[AllkdicController sharedController].contentViewController updateHotKeyLabel];
 }
 
 @end

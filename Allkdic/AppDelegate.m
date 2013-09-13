@@ -63,6 +63,7 @@ EventHotKeyRef hotKeyRef;
 	
 	KeyBinding *keyBinding = [KeyBinding keyBindingWithDictionary:[[NSUserDefaults standardUserDefaults] objectForKey:AllkdicSettingKeyHotKey]];
 	if( !keyBinding ) {
+		NSLog( @"No existing key setting." );
 		keyBinding = [[KeyBinding alloc] init];
 		keyBinding.option = YES;
 		keyBinding.command = YES;
@@ -88,6 +89,8 @@ EventHotKeyRef hotKeyRef;
 	}
 	
 	RegisterEventHotKey( (UInt32)keyBinding.keyCode, hotKeyModifiers, hotKeyId, GetApplicationEventTarget(), 0, &hotKeyRef );
+	
+	[self.allkdicController.contentViewController updateHotKeyLabel];
 }
 
 - (void)unregisterHotKey
