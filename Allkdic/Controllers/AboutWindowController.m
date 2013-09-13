@@ -16,7 +16,6 @@
 {
     [super windowDidLoad];
 	self.versionLabel.stringValue = [NSString stringWithFormat:@"버전 : %@ (빌드 %@)", VERSION, BUILD];
-	
 }
 
 - (void)showWindow:(id)sender

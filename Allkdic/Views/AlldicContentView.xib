@@ -8,6 +8,8 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="AlldicContentViewController">
             <connections>
+                <outlet property="menu" destination="fOC-xb-L4X" id="csd-uj-ywH"/>
+                <outlet property="menuButton" destination="28" id="c7Y-Xq-TEr"/>
                 <outlet property="view" destination="4" id="20"/>
                 <outlet property="webView" destination="5" id="77"/>
             </connections>
@@ -33,7 +35,9 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="513" id="78"/>
                     </constraints>
-                    <webPreferences key="preferences" defaultFontSize="12" defaultFixedFontSize="12"/>
+                    <webPreferences key="preferences" defaultFontSize="12" defaultFixedFontSize="12">
+                        <nil key="identifier"/>
+                    </webPreferences>
                 </webView>
                 <imageView translatesAutoresizingMaskIntoConstraints="NO" id="6">
                     <rect key="frame" x="0.0" y="511" width="405" height="2"/>
@@ -48,7 +52,7 @@
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                     <connections>
-                        <action selector="showAboutWindow" target="-2" id="110"/>
+                        <action selector="showMenu:" target="-2" id="fxb-nf-CLs"/>
                     </connections>
                 </button>
                 <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="39">
@@ -79,6 +83,29 @@
                 <constraint firstItem="5" firstAttribute="bottom" secondItem="4" secondAttribute="bottom" id="109"/>
             </constraints>
         </customView>
+        <menu id="fOC-xb-L4X">
+            <items>
+                <menuItem title="환경설정" id="fJj-BL-NQz">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="showPreferenceWindow:" target="-2" id="lHE-Oo-MSM"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="올ㅋ사전에 관하여" id="xxf-aD-RVN">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="showAboutWindow:" target="-2" id="NBW-SO-sfH"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="lA1-FD-Iwf"/>
+                <menuItem title="올ㅋ사전 종료" id="y32-I0-ime">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="quit:" target="-2" id="Iac-RA-Hlk"/>
+                    </connections>
+                </menuItem>
+            </items>
+        </menu>
     </objects>
     <resources>
         <image name="line" width="405" height="2"/>

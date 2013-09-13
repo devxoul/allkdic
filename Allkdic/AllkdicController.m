@@ -23,7 +23,12 @@
 		[self close];
 	}];
 	
-	return self;
+	[NSEvent addLocalMonitorForEventsMatchingMask:NSKeyDownMask handler:^(NSEvent *event) {
+		[self handleKeyCode:event.keyCode flags:event.modifierFlags];
+		return event;
+	}];
+	
+    return self;
 }
 
 - (void)open
@@ -49,6 +54,32 @@
 	button.state = NSOffState;
 	
 	[self.popover close];
+}
+
+- (void)handleKeyCode:(unsigned short)keyCode flags:(NSUInteger)flag
+{
+	BOOL control = NO;
+	BOOL shift = NO;
+	BOOL command = NO;
+	BOOL alt = NO;
+	
+	for( int i = 0; i < 6; i ++ )
+	{
+		if( flag & (1 << i) )
+		{
+			if( i == 0 ) {
+				control = YES;
+			} else if( i == 1 ) {
+				shift = YES;
+			} else if( i == 3 ) {
+				command = YES;
+			} else if( i == 5 ) {
+				alt = YES;
+			}
+		}
+	}
+	
+	NSLog( @"keys : %d, %d, %d, %d, %d", keyCode, control, shift, command, alt );
 }
 
 @end

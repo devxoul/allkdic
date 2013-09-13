@@ -11,6 +11,8 @@
 		0322CF9E17AE9BBB007E832C /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0322CF9D17AE9BBB007E832C /* WebKit.framework */; };
 		0322CFA317AF389B007E832C /* statusicon_default.png in Resources */ = {isa = PBXBuildFile; fileRef = 0322CFA117AF389B007E832C /* statusicon_default.png */; };
 		0322CFA517AF3A6C007E832C /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0322CFA417AF3A6C007E832C /* Carbon.framework */; };
+		0324200817E37710003025E3 /* PreferenceWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0324200717E37710003025E3 /* PreferenceWindowController.m */; };
+		0324200A17E378C9003025E3 /* PreferenceWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0324200917E37742003025E3 /* PreferenceWindow.xib */; };
 		0367293617B00CEC0074D249 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0367293317B00CEC0074D249 /* InfoPlist.strings */; };
 		0367293917B00CF70074D249 /* MainInterface.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0367293717B00CF70074D249 /* MainInterface.xib */; };
 		0367294217B016A80074D249 /* line.png in Resources */ = {isa = PBXBuildFile; fileRef = 0367294117B016A80074D249 /* line.png */; };
@@ -53,6 +55,9 @@
 		0322CF9D17AE9BBB007E832C /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		0322CFA117AF389B007E832C /* statusicon_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = statusicon_default.png; sourceTree = "<group>"; };
 		0322CFA417AF3A6C007E832C /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
+		0324200617E37710003025E3 /* PreferenceWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferenceWindowController.h; sourceTree = "<group>"; };
+		0324200717E37710003025E3 /* PreferenceWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferenceWindowController.m; sourceTree = "<group>"; };
+		0324200917E37742003025E3 /* PreferenceWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreferenceWindow.xib; sourceTree = "<group>"; };
 		0367292517B00CB30074D249 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Allkdic/AppDelegate.h; sourceTree = SOURCE_ROOT; };
 		0367292617B00CB30074D249 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Allkdic/AppDelegate.m; sourceTree = SOURCE_ROOT; };
 		0367292D17B00CD90074D249 /* Allkdic-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Allkdic-Info.plist"; path = "Allkdic/Allkdic-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -195,6 +200,8 @@
 			children = (
 				0367296017B0458D0074D249 /* AlldicContentViewController.h */,
 				0367296117B0458D0074D249 /* AlldicContentViewController.m */,
+				0324200617E37710003025E3 /* PreferenceWindowController.h */,
+				0324200717E37710003025E3 /* PreferenceWindowController.m */,
 				0367295E17B0458D0074D249 /* AboutWindowController.h */,
 				0367295F17B0458D0074D249 /* AboutWindowController.m */,
 			);
@@ -206,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				0367296417B0458D0074D249 /* AlldicContentView.xib */,
+				0324200917E37742003025E3 /* PreferenceWindow.xib */,
 				0367296317B0458D0074D249 /* AboutWindow.xib */,
 			);
 			name = Views;
@@ -272,6 +280,7 @@
 				0367294517B029CD0074D249 /* icon_settings.png in Resources */,
 				0367294D17B031FA0074D249 /* icon.png in Resources */,
 				0367294F17B032DF0074D249 /* icon.iconset in Resources */,
+				0324200A17E378C9003025E3 /* PreferenceWindow.xib in Resources */,
 				0367296817B0458D0074D249 /* AboutWindow.xib in Resources */,
 				0367296917B0458D0074D249 /* AlldicContentView.xib in Resources */,
 				0367297717B052B70074D249 /* dsa_pub.pem in Resources */,
@@ -303,6 +312,7 @@
 			files = (
 				0367296C17B045BF0074D249 /* AppDelegate.m in Sources */,
 				0367296D17B045BF0074D249 /* AllkdicController.m in Sources */,
+				0324200817E37710003025E3 /* PreferenceWindowController.m in Sources */,
 				0367296E17B045BF0074D249 /* AboutWindowController.m in Sources */,
 				0367296F17B045BF0074D249 /* AlldicContentViewController.m in Sources */,
 				0367297017B045BF0074D249 /* NSWindow+CanBecomeKeyWindow.m in Sources */,

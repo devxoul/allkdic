@@ -56,7 +56,7 @@
 	InstallApplicationEventHandler( &hotKeyHandler, 1, &eventType, NULL, NULL );
 	
 	// 4byte character
-	hotKeyId.signature = 'xoul';
+	hotKeyId.signature = 'allk';
 	hotKeyId.id = 0;
 	
 	// Register hotkey. (option + command + space)
