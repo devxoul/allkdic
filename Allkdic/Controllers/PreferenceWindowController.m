@@ -14,24 +14,66 @@
 - (void)windowDidLoad
 {
 	[super windowDidLoad];
+	
+	KeyBinding *keyBinding = [KeyBinding keyBindingWithDictionary:[[NSUserDefaults standardUserDefaults] objectForKey:AllkdicSettingKeyHotKey]];
+	[self handleKeyBinding:keyBinding];
 }
 
 - (void)showWindow:(id)sender
 {
-	[[(AppDelegate *)[NSApp delegate] allkdicController] close];
+	AppDelegate *appDelegate = (AppDelegate *)[NSApp delegate];
+	[[appDelegate allkdicController] close];
+	[appDelegate unregisterHotKey];
+	
+	self.window.level = NSScreenSaverWindowLevel;
+	
 	[super showWindow:sender];
 }
 
-- (void)keyDown:(NSEvent *)theEvent
+- (BOOL)windowShouldClose:(id)sender
 {
-	NSLog( @"keydown : %@", theEvent );
+	AppDelegate *appDelegate = (AppDelegate *)[NSApp delegate];
+	[appDelegate registerHotKey];
+	
+	return YES;
 }
 
 - (void)controlTextDidChange:(NSNotification *)obj
 {
 	NSTextField *textField = (NSTextField *)obj.object;
+	if( textField == self.hotKeyTextField )
+	{
+		textField.stringValue = @"";
+	}
+}
+
+- (void)handleKeyBinding:(KeyBinding *)keyBinding
+{
+	if( !keyBinding.shift && !keyBinding.control && !keyBinding.option && !keyBinding.command ) {
+		return;
+	}
 	
-	textField.stringValue = @"";
+	NSLog( @"New HotKey : %@", keyBinding );
+	
+	self.shiftLabel.textColor = self.controlLabel.textColor = self.altLabel.textColor = self.commandLabel.textColor = [NSColor lightGrayColor];
+	
+	if( keyBinding.shift ) {
+		self.shiftLabel.textColor = [NSColor blackColor];
+	}
+	if( keyBinding.control ) {
+		self.controlLabel.textColor = [NSColor blackColor];
+	}
+	if( keyBinding.option ) {
+		self.altLabel.textColor = [NSColor blackColor];
+	}
+	if( keyBinding.command ) {
+		self.commandLabel.textColor = [NSColor blackColor];
+	}
+	
+	self.keyLabel.stringValue = [KeyBinding keyStringFormKeyCode:keyBinding.keyCode].uppercaseString;
+	
+	[[NSUserDefaults standardUserDefaults] setObject:keyBinding.dictionary forKey:AllkdicSettingKeyHotKey];
+	[[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 @end

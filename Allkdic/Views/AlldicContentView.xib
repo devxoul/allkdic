@@ -8,6 +8,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="AlldicContentViewController">
             <connections>
+                <outlet property="hotKeyLabel" destination="39" id="trD-ZW-Y55"/>
                 <outlet property="menu" destination="fOC-xb-L4X" id="csd-uj-ywH"/>
                 <outlet property="menuButton" destination="28" id="c7Y-Xq-TEr"/>
                 <outlet property="view" destination="4" id="20"/>

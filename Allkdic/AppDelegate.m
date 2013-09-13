@@ -10,6 +10,7 @@
 #import <Carbon/Carbon.h>
 #import <Sparkle/Sparkle.h>
 #import "LoginUtil.h"
+#import "KeyBinding.h"
 
 @implementation AppDelegate
 
@@ -44,9 +45,10 @@
 /**
  * Reference : http://dbachrach.com/blog/2005/11/program-global-hotkeys-in-cocoa-easily/
  */
+EventHotKeyRef hotKeyRef;
+
 - (void)registerHotKey
 {
-	EventHotKeyRef hotKeyRef;
 	EventHotKeyID hotKeyId;
 	EventTypeSpec eventType;
 	eventType.eventClass = kEventClassKeyboard;
@@ -59,8 +61,39 @@
 	hotKeyId.signature = 'allk';
 	hotKeyId.id = 0;
 	
-	// Register hotkey. (option + command + space)
-	RegisterEventHotKey( 49, optionKey + cmdKey, hotKeyId, GetApplicationEventTarget(), 0, &hotKeyRef );
+	KeyBinding *keyBinding = [KeyBinding keyBindingWithDictionary:[[NSUserDefaults standardUserDefaults] objectForKey:AllkdicSettingKeyHotKey]];
+	if( !keyBinding ) {
+		keyBinding = [[KeyBinding alloc] init];
+		keyBinding.option = YES;
+		keyBinding.command = YES;
+		keyBinding.keyCode = 49; // Space
+		[[NSUserDefaults standardUserDefaults] setObject:keyBinding.dictionary forKey:AllkdicSettingKeyHotKey];
+		[[NSUserDefaults standardUserDefaults] synchronize];
+	}
+	
+	NSLog( @"Bind HotKey : %@", keyBinding );
+	
+	UInt32 hotKeyModifiers = 0;
+	if( keyBinding.shift ) {
+		hotKeyModifiers += shiftKey;
+	}
+	if( keyBinding.option ) {
+		hotKeyModifiers += optionKey;
+	}
+	if( keyBinding.control ) {
+		hotKeyModifiers += controlKey;
+	}
+	if( keyBinding.command ) {
+		hotKeyModifiers += cmdKey;
+	}
+	
+	RegisterEventHotKey( (UInt32)keyBinding.keyCode, hotKeyModifiers, hotKeyId, GetApplicationEventTarget(), 0, &hotKeyRef );
+}
+
+- (void)unregisterHotKey
+{
+	NSLog( @"Unbind HotKey" );
+	UnregisterEventHotKey( hotKeyRef );
 }
 
 

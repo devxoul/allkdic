@@ -13,6 +13,8 @@
 		0322CFA517AF3A6C007E832C /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0322CFA417AF3A6C007E832C /* Carbon.framework */; };
 		0324200817E37710003025E3 /* PreferenceWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0324200717E37710003025E3 /* PreferenceWindowController.m */; };
 		0324200A17E378C9003025E3 /* PreferenceWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0324200917E37742003025E3 /* PreferenceWindow.xib */; };
+		0324200F17E38DA4003025E3 /* AllkdicWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0324200E17E38DA4003025E3 /* AllkdicWindowController.m */; };
+		0324201317E38ED8003025E3 /* KeyBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 0324201217E38ED8003025E3 /* KeyBinding.m */; };
 		0367293617B00CEC0074D249 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0367293317B00CEC0074D249 /* InfoPlist.strings */; };
 		0367293917B00CF70074D249 /* MainInterface.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0367293717B00CF70074D249 /* MainInterface.xib */; };
 		0367294217B016A80074D249 /* line.png in Resources */ = {isa = PBXBuildFile; fileRef = 0367294117B016A80074D249 /* line.png */; };
@@ -58,6 +60,10 @@
 		0324200617E37710003025E3 /* PreferenceWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferenceWindowController.h; sourceTree = "<group>"; };
 		0324200717E37710003025E3 /* PreferenceWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferenceWindowController.m; sourceTree = "<group>"; };
 		0324200917E37742003025E3 /* PreferenceWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreferenceWindow.xib; sourceTree = "<group>"; };
+		0324200B17E38AC6003025E3 /* AllkdicWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllkdicWindowController.h; sourceTree = "<group>"; };
+		0324200E17E38DA4003025E3 /* AllkdicWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllkdicWindowController.m; sourceTree = "<group>"; };
+		0324201117E38ED8003025E3 /* KeyBinding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KeyBinding.h; path = Allkdic/Models/KeyBinding.h; sourceTree = SOURCE_ROOT; };
+		0324201217E38ED8003025E3 /* KeyBinding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KeyBinding.m; path = Allkdic/Models/KeyBinding.m; sourceTree = SOURCE_ROOT; };
 		0367292517B00CB30074D249 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Allkdic/AppDelegate.h; sourceTree = SOURCE_ROOT; };
 		0367292617B00CB30074D249 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Allkdic/AppDelegate.m; sourceTree = SOURCE_ROOT; };
 		0367292D17B00CD90074D249 /* Allkdic-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Allkdic-Info.plist"; path = "Allkdic/Allkdic-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -155,6 +161,7 @@
 				03C0861C17B064480070A164 /* LoginUtil.m */,
 				0367296217B0458D0074D249 /* Views */,
 				0367295D17B0458D0074D249 /* Controllers */,
+				0324201017E38EC3003025E3 /* Models */,
 				0367295A17B0458D0074D249 /* Categories */,
 				0322CF8417AE9965007E832C /* Supporting Files */,
 			);
@@ -185,6 +192,15 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		0324201017E38EC3003025E3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0324201117E38ED8003025E3 /* KeyBinding.h */,
+				0324201217E38ED8003025E3 /* KeyBinding.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		0367295A17B0458D0074D249 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
@@ -198,6 +214,8 @@
 		0367295D17B0458D0074D249 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0324200B17E38AC6003025E3 /* AllkdicWindowController.h */,
+				0324200E17E38DA4003025E3 /* AllkdicWindowController.m */,
 				0367296017B0458D0074D249 /* AlldicContentViewController.h */,
 				0367296117B0458D0074D249 /* AlldicContentViewController.m */,
 				0324200617E37710003025E3 /* PreferenceWindowController.h */,
@@ -316,8 +334,10 @@
 				0367296E17B045BF0074D249 /* AboutWindowController.m in Sources */,
 				0367296F17B045BF0074D249 /* AlldicContentViewController.m in Sources */,
 				0367297017B045BF0074D249 /* NSWindow+CanBecomeKeyWindow.m in Sources */,
+				0324200F17E38DA4003025E3 /* AllkdicWindowController.m in Sources */,
 				0367297117B045BF0074D249 /* main.m in Sources */,
 				03C0861D17B064480070A164 /* LoginUtil.m in Sources */,
+				0324201317E38ED8003025E3 /* KeyBinding.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

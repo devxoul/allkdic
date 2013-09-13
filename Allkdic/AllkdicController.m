@@ -7,8 +7,16 @@
 //
 
 #import "AllkdicController.h"
+#import "AppDelegate.h"
+#import "AllkdicWindowController.h"
+#import "KeyBinding.h"
 
 @implementation AllkdicController
+
++ (AllkdicController *)sharedController
+{
+	return [(AppDelegate *)[NSApplication sharedApplication].delegate allkdicController];
+}
 
 - (id)initWithStatusItem:(NSStatusItem *)statusItem
 {
@@ -16,15 +24,19 @@
 	
 	self.statusItem = statusItem;
 	
+	self.contentViewController = [[AlldicContentViewController alloc] initWithNibName:@"AlldicContentView" bundle:nil];
+	self.preferenceWindowController = [[PreferenceWindowController alloc] initWithWindowNibName:@"PreferenceWindow"];
+	self.aboutWindowController = [[AboutWindowController alloc] initWithWindowNibName:@"AboutWindow"];
+	
 	self.popover = [[NSPopover alloc] init];
-	self.popover.contentViewController = [[AlldicContentViewController alloc] initWithNibName:@"AlldicContentView" bundle:nil];
+	self.popover.contentViewController = self.contentViewController;
 	[NSEvent addGlobalMonitorForEventsMatchingMask:NSLeftMouseUp | NSLeftMouseDown handler:^(NSEvent *event)
 	{
 		[self close];
 	}];
 	
 	[NSEvent addLocalMonitorForEventsMatchingMask:NSKeyDownMask handler:^(NSEvent *event) {
-		[self handleKeyCode:event.keyCode flags:event.modifierFlags];
+		[self handleKeyCode:event.keyCode flags:event.modifierFlags windowNumber:event.windowNumber];
 		return event;
 	}];
 	
@@ -33,6 +45,12 @@
 
 - (void)open
 {
+	if( self.preferenceWindowController.window.isVisible )
+	{
+		NSLog( @"Preference window is visible." );
+		return;
+	}
+	
 	NSButton *button = [self.statusItem valueForKey:@"_button"];
 	
 	if( self.popover.isShown )
@@ -45,6 +63,7 @@
 	
 	[NSApp activateIgnoringOtherApps:YES];
 	[self.popover showRelativeToRect:NSZeroRect ofView:button preferredEdge:NSMaxYEdge];
+	[self.contentViewController updateHotKeyLabel];
 	[self.contentViewController focusOnTextArea];
 }
 
@@ -56,30 +75,14 @@
 	[self.popover close];
 }
 
-- (void)handleKeyCode:(unsigned short)keyCode flags:(NSUInteger)flag
+- (void)handleKeyCode:(unsigned short)keyCode flags:(NSUInteger)flags windowNumber:(NSInteger)windowNumber
 {
-	BOOL control = NO;
-	BOOL shift = NO;
-	BOOL command = NO;
-	BOOL alt = NO;
-	
-	for( int i = 0; i < 6; i ++ )
+	NSWindow *window = [NSApp windowWithWindowNumber:windowNumber];
+	if( [window.windowController isKindOfClass:[AllkdicWindowController class]] )
 	{
-		if( flag & (1 << i) )
-		{
-			if( i == 0 ) {
-				control = YES;
-			} else if( i == 1 ) {
-				shift = YES;
-			} else if( i == 3 ) {
-				command = YES;
-			} else if( i == 5 ) {
-				alt = YES;
-			}
-		}
+		KeyBinding *keyBinding = [KeyBinding keyBindingWithKeyCode:keyCode flags:flags];
+		[(AllkdicWindowController *)window.windowController handleKeyBinding:keyBinding];
 	}
-	
-	NSLog( @"keys : %d, %d, %d, %d, %d", keyCode, control, shift, command, alt );
 }
 
 @end

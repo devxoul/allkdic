@@ -13,12 +13,12 @@
 
 @interface AlldicContentViewController : NSViewController
 
+@property (nonatomic, strong) IBOutlet NSTextField *hotKeyLabel;
 @property (nonatomic, strong) IBOutlet WebView *webView;
 @property (nonatomic, strong) IBOutlet NSButton *menuButton;
 @property (nonatomic, strong) IBOutlet NSMenu *menu;
-@property (nonatomic, strong) PreferenceWindowController *preferenceWindowController;
-@property (nonatomic, strong) AboutWindowController *aboutWindowController;
 
+- (void)updateHotKeyLabel;
 - (void)focusOnTextArea;
 - (IBAction)showMenu:(id)sender;
 - (IBAction)showPreferenceWindow:(id)sender;

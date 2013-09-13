@@ -14,4 +14,7 @@
 @property (nonatomic, strong) AllkdicController *allkdicController;
 @property (nonatomic, strong) NSStatusItem *statusItem;
 
+- (void)registerHotKey;
+- (void)unregisterHotKey;
+
 @end

@@ -210,6 +210,9 @@
                     <constraint firstAttribute="bottom" secondItem="313" secondAttribute="bottom" constant="57" id="329"/>
                 </constraints>
             </view>
+            <connections>
+                <outlet property="delegate" destination="-2" id="tho-bK-1bD"/>
+            </connections>
         </window>
     </objects>
     <resources>
