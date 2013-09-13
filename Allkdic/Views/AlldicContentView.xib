@@ -9,6 +9,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="AlldicContentViewController">
             <connections>
                 <outlet property="hotKeyLabel" destination="39" id="trD-ZW-Y55"/>
+                <outlet property="indicator" destination="zy1-rX-u6R" id="trv-vl-lbj"/>
                 <outlet property="menu" destination="fOC-xb-L4X" id="csd-uj-ywH"/>
                 <outlet property="menuButton" destination="28" id="c7Y-Xq-TEr"/>
                 <outlet property="view" destination="4" id="20"/>
@@ -39,6 +40,9 @@
                     <webPreferences key="preferences" defaultFontSize="12" defaultFixedFontSize="12">
                         <nil key="identifier"/>
                     </webPreferences>
+                    <connections>
+                        <outlet property="frameLoadDelegate" destination="-2" id="RNc-kS-EAF"/>
+                    </connections>
                 </webView>
                 <imageView translatesAutoresizingMaskIntoConstraints="NO" id="6">
                     <rect key="frame" x="0.0" y="511" width="405" height="2"/>
@@ -65,6 +69,10 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
+                <progressIndicator horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="zy1-rX-u6R">
+                    <rect key="frame" x="194" y="248" width="16" height="16"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                </progressIndicator>
             </subviews>
             <constraints>
                 <constraint firstItem="5" firstAttribute="leading" secondItem="4" secondAttribute="leading" id="8"/>

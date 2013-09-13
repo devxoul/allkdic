@@ -14,7 +14,7 @@
 - (void)awakeFromNib
 {
 	self.webView.mainFrameURL = @"http://endic.naver.com/popManager.nhn?m=miniPopMain";
-
+	[self.indicator startAnimation:nil];
 }
 
 - (void)updateHotKeyLabel
@@ -37,8 +37,9 @@
 	self.hotKeyLabel.stringValue = [keys componentsJoinedByString:@" + "];
 }
 
-- (void)webviewDidFinishLoading
+- (void)webView:(WebView *)sender didFinishLoadForFrame:(WebFrame *)frame
 {
+	[self.indicator stopAnimation:nil];
 	[self focusOnTextArea];
 }
 
@@ -92,7 +93,6 @@
 		[script appendString:@"ac_input.value = ac_input.value.substring(0, ac_input.selectionStart) + input + ac_input.value.substr(ac_input.selectionEnd,  ac_input.value.length - ac_input.selectionEnd);"];
 		[script appendString:@"ac_input.selectionStart = ac_input.selectionEnd = selection;"];
 		[self javascript:script];
-		NSLog( @"script: %@", script );
 	}
 }
 
