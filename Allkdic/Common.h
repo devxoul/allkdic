@@ -9,3 +9,5 @@
 #define VERSION [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]
 #define BUILD [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"]
 #define BUNDLE_NAME [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"];
+
+static NSString *AllkdicSettingKeyHotKey = @"AllkdicSettingKeyHotKey";

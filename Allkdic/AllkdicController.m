@@ -7,8 +7,16 @@
 //
 
 #import "AllkdicController.h"
+#import "AppDelegate.h"
+#import "AllkdicWindowController.h"
+#import "KeyBinding.h"
 
 @implementation AllkdicController
+
++ (AllkdicController *)sharedController
+{
+	return [(AppDelegate *)[NSApplication sharedApplication].delegate allkdicController];
+}
 
 - (id)initWithStatusItem:(NSStatusItem *)statusItem
 {
@@ -16,14 +24,23 @@
 	
 	self.statusItem = statusItem;
 	
+	self.contentViewController = [[AlldicContentViewController alloc] initWithNibName:@"AlldicContentView" bundle:nil];
+	self.preferenceWindowController = [[PreferenceWindowController alloc] initWithWindowNibName:@"PreferenceWindow"];
+	self.aboutWindowController = [[AboutWindowController alloc] initWithWindowNibName:@"AboutWindow"];
+	
 	self.popover = [[NSPopover alloc] init];
-	self.popover.contentViewController = [[AlldicContentViewController alloc] initWithNibName:@"AlldicContentView" bundle:nil];
+	self.popover.contentViewController = self.contentViewController;
 	[NSEvent addGlobalMonitorForEventsMatchingMask:NSLeftMouseUp | NSLeftMouseDown handler:^(NSEvent *event)
 	{
 		[self close];
 	}];
 	
-	return self;
+	[NSEvent addLocalMonitorForEventsMatchingMask:NSKeyDownMask handler:^(NSEvent *event) {
+		[self handleKeyCode:event.keyCode flags:event.modifierFlags windowNumber:event.windowNumber];
+		return event;
+	}];
+	
+    return self;
 }
 
 - (void)open
@@ -40,6 +57,7 @@
 	
 	[NSApp activateIgnoringOtherApps:YES];
 	[self.popover showRelativeToRect:NSZeroRect ofView:button preferredEdge:NSMaxYEdge];
+	[self.contentViewController updateHotKeyLabel];
 	[self.contentViewController focusOnTextArea];
 }
 
@@ -49,6 +67,21 @@
 	button.state = NSOffState;
 	
 	[self.popover close];
+}
+
+- (void)handleKeyCode:(unsigned short)keyCode flags:(NSUInteger)flags windowNumber:(NSInteger)windowNumber
+{
+	KeyBinding *keyBinding = [KeyBinding keyBindingWithKeyCode:keyCode flags:flags];
+	
+	NSWindow *window = [NSApp windowWithWindowNumber:windowNumber];
+	if( [[window.class description] isEqualToString:@"NSStatusBarWindow"] )
+	{
+		[self.contentViewController handleKeyBinding:keyBinding];
+	}
+	else if( [window.windowController isKindOfClass:[AllkdicWindowController class]] )
+	{
+		[(AllkdicWindowController *)window.windowController handleKeyBinding:keyBinding];
+	}
 }
 
 @end

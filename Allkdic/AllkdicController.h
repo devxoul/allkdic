@@ -15,7 +15,10 @@
 @property (nonatomic, strong) NSStatusItem *statusItem;
 @property (nonatomic, strong) NSPopover *popover;
 @property (nonatomic, strong) AlldicContentViewController *contentViewController;
+@property (nonatomic, strong) PreferenceWindowController *preferenceWindowController;
+@property (nonatomic, strong) AboutWindowController *aboutWindowController;
 
++ (AllkdicController *)sharedController;
 - (id)initWithStatusItem:(NSStatusItem *)statusItem;
 - (void)open;
 - (void)close;

@@ -7,8 +7,9 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "AllkdicWindowController.h"
 
-@interface AboutWindowController : NSWindowController
+@interface AboutWindowController : AllkdicWindowController
 
 @property (nonatomic, strong) IBOutlet NSTextField *versionLabel;
 
