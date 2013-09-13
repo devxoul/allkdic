@@ -58,13 +58,13 @@
 	}
 	
 	// Command + A
-	else if( keyBinding.command && keyBinding.keyCode == [KeyBinding keyCodeFormKeyString:@"a"] )
+	else if( !keyBinding.shift && !keyBinding.control && !keyBinding.option && keyBinding.command && keyBinding.keyCode == [KeyBinding keyCodeFormKeyString:@"a"] )
 	{
 		[self focusOnTextArea];
 	}
 	
 	// Command + X
-	else if( keyBinding.command && keyBinding.keyCode == [KeyBinding keyCodeFormKeyString:@"x"] )
+	else if( !keyBinding.shift && !keyBinding.control && !keyBinding.option && keyBinding.command && keyBinding.keyCode == [KeyBinding keyCodeFormKeyString:@"x"] )
 	{
 		NSString *input = [self javascript:@"ac_input.value.slice(ac_input.selectionStart, ac_input.selectionEnd)"];
 		[[NSPasteboard generalPasteboard] clearContents];
@@ -79,7 +79,7 @@
 	}
 	
 	// Command + C
-	else if( keyBinding.command && keyBinding.keyCode == [KeyBinding keyCodeFormKeyString:@"c"] )
+	else if( !keyBinding.shift && !keyBinding.control && !keyBinding.option && keyBinding.command && keyBinding.keyCode == [KeyBinding keyCodeFormKeyString:@"c"] )
 	{
 		NSString *input = [self javascript:@"ac_input.value.slice(ac_input.selectionStart, ac_input.selectionEnd)"];
 		[[NSPasteboard generalPasteboard] clearContents];
@@ -88,7 +88,7 @@
 	}
 	
 	// Command + V
-	else if( keyBinding.command && keyBinding.keyCode == [KeyBinding keyCodeFormKeyString:@"v"] )
+	else if( !keyBinding.shift && !keyBinding.control && !keyBinding.option && keyBinding.command && keyBinding.keyCode == [KeyBinding keyCodeFormKeyString:@"v"] )
 	{
 		NSString *input = [[NSPasteboard generalPasteboard] stringForType:NSStringPboardType];
 		if( !input ) return;
