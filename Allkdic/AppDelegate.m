@@ -37,7 +37,7 @@
 		[LoginUtil setStartAtLoginEnabled:YES];
 	}
 	
-	[[SUUpdater sharedUpdater] checkForUpdates:self];
+	[[SUUpdater sharedUpdater] checkForUpdatesInBackground];
 }
 
 
