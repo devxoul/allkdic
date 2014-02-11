@@ -21,7 +21,7 @@ static NSString *const kAnalyticsUrl = @"http://google-analytics.com/collect";
  view shows when an event has been triggered in the last 6-7 minutes. So these views
  show the right data, send at 5 minute intervals.
  */
-static const float kDefaultSendInterval = 60 * 5; // 5 minutes
+static const float kDefaultSendInterval = 60; // 1 minutes
 
 /*
  In order to test this class without hitting the network, we create a network handler
