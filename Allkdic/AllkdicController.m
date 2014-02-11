@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "AllkdicWindowController.h"
 #import "KeyBinding.h"
+#import "AnalyticsHelper.h"
 
 @implementation AllkdicController
 
@@ -45,6 +46,10 @@
 
 - (void)open
 {
+    if( self.isOpen ) {
+        return;
+    }
+    
 	NSButton *button = [self.statusItem valueForKey:@"_button"];
 	
 	if( self.popover.isShown )
@@ -59,14 +64,28 @@
 	[self.popover showRelativeToRect:NSZeroRect ofView:button preferredEdge:NSMaxYEdge];
 	[self.contentViewController updateHotKeyLabel];
 	[self.contentViewController focusOnTextArea];
+    
+    _isOpen = YES;
+    
+    [[AnalyticsHelper sharedInstance] recordScreenWithName:@"AllkdicWindow"];
+    [[AnalyticsHelper sharedInstance] recordCachedEventWithCategory:AKAnalyticsCategoryAllkdic
+                                                             action:AKAnalyticsActionOpen label:nil value:nil];
 }
 
 - (void)close
 {
+    if( !self.isOpen ) {
+        return;
+    }
+    
 	NSButton *button = [self.statusItem valueForKey:@"_button"];
 	button.state = NSOffState;
 	
 	[self.popover close];
+    _isOpen = NO;
+    
+    [[AnalyticsHelper sharedInstance] recordCachedEventWithCategory:AKAnalyticsCategoryAllkdic
+                                                             action:AKAnalyticsActionClose label:nil value:nil];
 }
 
 - (void)handleKeyCode:(unsigned short)keyCode flags:(NSUInteger)flags windowNumber:(NSInteger)windowNumber

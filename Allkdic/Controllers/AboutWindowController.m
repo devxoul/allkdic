@@ -9,6 +9,7 @@
 #import "AboutWindowController.h"
 #import "AppDelegate.h"
 #import <Sparkle/Sparkle.h>
+#import "AnalyticsHelper.h"
 
 @implementation AboutWindowController
 
@@ -23,15 +24,22 @@
 	[[(AppDelegate *)[NSApp delegate] allkdicController] close];
 	self.window.level = NSScreenSaverWindowLevel;
 	[super showWindow:sender];
+    
+    [[AnalyticsHelper sharedInstance] recordScreenWithName:@"AboutWindow"];
 }
 
 - (IBAction)checkForUpdate:(id)sender
 {
+    [[AnalyticsHelper sharedInstance] recordCachedEventWithCategory:AKAnalyticsCategoryAbout
+                                                             action:AKAnalyticsActionCheckForUpdate
+                                                             label:nil value:nil];
 	[[SUUpdater sharedUpdater] checkForUpdates:self];
 }
 
 - (IBAction)viewOnGitHub:(id)sender
 {
+    [[AnalyticsHelper sharedInstance] recordCachedEventWithCategory:AKAnalyticsCategoryAbout
+                                                             action:AKAnalyticsActionViewOnGitHub label:nil value:nil];
 	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://github.com/devxoul/allkdic"]];
 }
 

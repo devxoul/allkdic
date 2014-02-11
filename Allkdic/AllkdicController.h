@@ -12,6 +12,8 @@
 
 @interface AllkdicController : NSObject <NSWindowDelegate>
 
+@property (nonatomic, readonly) BOOL isOpen;
+
 @property (nonatomic, strong) NSStatusItem *statusItem;
 @property (nonatomic, strong) NSPopover *popover;
 @property (nonatomic, strong) AlldicContentViewController *contentViewController;

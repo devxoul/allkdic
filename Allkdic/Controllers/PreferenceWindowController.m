@@ -8,6 +8,7 @@
 
 #import "PreferenceWindowController.h"
 #import "AppDelegate.h"
+#import "AnalyticsHelper.h"
 
 @implementation PreferenceWindowController
 
@@ -28,6 +29,8 @@
 	self.window.level = NSScreenSaverWindowLevel;
 	
 	[super showWindow:sender];
+    
+    [[AnalyticsHelper sharedInstance] recordScreenWithName:@"PreferenceWindow"];
 }
 
 - (BOOL)windowShouldClose:(id)sender
@@ -52,6 +55,11 @@
 	if( !keyBinding.shift && !keyBinding.control && !keyBinding.option && !keyBinding.command ) {
 		return;
 	}
+    
+    if( [self.keyBinding isEqual:keyBinding] ) {
+        return;
+    }
+    self.keyBinding = keyBinding;
 	
 	NSLog( @"New HotKey : %@", keyBinding );
 	
@@ -76,6 +84,9 @@
 	[[NSUserDefaults standardUserDefaults] synchronize];
 	
 	[[AllkdicController sharedController].contentViewController updateHotKeyLabel];
+    
+    [[AnalyticsHelper sharedInstance] recordCachedEventWithCategory:AKAnalyticsCategoryPreference
+                                                             action:AKAnalyticsActionUpdateHotKey label:nil value:nil];
 }
 
 @end

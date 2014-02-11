@@ -11,6 +11,8 @@
 
 @interface PreferenceWindowController : AllkdicWindowController <NSWindowDelegate>
 
+@property (nonatomic, strong) KeyBinding *keyBinding;
+
 @property (nonatomic, strong) IBOutlet NSTextField *hotKeyTextField;
 @property (nonatomic, strong) IBOutlet NSTextField *shiftLabel;
 @property (nonatomic, strong) IBOutlet NSTextField *controlLabel;
