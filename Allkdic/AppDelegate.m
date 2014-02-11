@@ -131,6 +131,12 @@
         NSLog(@"Error copying file: %@", error);
     }
     
+    // Remove downloaded app to trash
+    [fileManager removeItemAtPath:sourcePath error:&error];
+    if( error ) {
+        NSLog(@"Removing downloaded file: %@", error);
+    }
+    
     // Run new app
     NSString *cmd = [NSString stringWithFormat:@"open %@", destPath];
     NSTask *task = [NSTask launchedTaskWithLaunchPath:@"/bin/sh" arguments:@[@"-c", cmd]];
