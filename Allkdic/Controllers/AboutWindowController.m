@@ -9,6 +9,7 @@
 #import "AboutWindowController.h"
 #import "AppDelegate.h"
 #import <Sparkle/Sparkle.h>
+#import "AnalyticsHelper.h"
 
 @implementation AboutWindowController
 
@@ -23,6 +24,8 @@
 	[[(AppDelegate *)[NSApp delegate] allkdicController] close];
 	self.window.level = NSScreenSaverWindowLevel;
 	[super showWindow:sender];
+    
+    [[AnalyticsHelper sharedInstance] recordScreenWithName:@"AboutWindow"];
 }
 
 - (IBAction)checkForUpdate:(id)sender

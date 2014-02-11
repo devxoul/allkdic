@@ -11,6 +11,7 @@
 #import <Sparkle/Sparkle.h>
 #import "LoginUtil.h"
 #import "KeyBinding.h"
+#import "AnalyticsHelper.h"
 
 @implementation AppDelegate
 
@@ -38,7 +39,17 @@
 		[LoginUtil setStartAtLoginEnabled:YES];
 	}
 	
+    AnalyticsHelper *ga = [AnalyticsHelper sharedInstance];
+    [ga beginPeriodicReportingWithAccount:@"UA-42976442-2" name:@"올ㅋ사전" version:VERSION];
+    
 	[[SUUpdater sharedUpdater] checkForUpdatesInBackground];
+}
+
+- (void)applicationWillTerminate:(NSNotification *)notification
+{
+    AnalyticsHelper *ga = [AnalyticsHelper sharedInstance];
+    [ga handleApplicationWillTerminate];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 

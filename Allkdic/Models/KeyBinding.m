@@ -65,6 +65,15 @@
 			 @"keyCode": [NSNumber numberWithInteger:self.keyCode]};
 }
 
+- (BOOL)isEqual:(KeyBinding *)keyBinding
+{
+    return (self.keyCode == keyBinding.keyCode &&
+            self.shift == keyBinding.shift &&
+            self.control == keyBinding.control &&
+            self.option == keyBinding.option &&
+            self.command == keyBinding.command);
+}
+
 + (NSString *)keyStringFormKeyCode:(CGKeyCode)keyCode
 {
     // Proper key detection seems to want a switch statement, unfortunately

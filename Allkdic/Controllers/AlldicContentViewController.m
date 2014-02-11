@@ -8,6 +8,7 @@
 
 #import "AlldicContentViewController.h"
 #import "AllkdicController.h"
+#import "AnalyticsHelper.h"
 
 @implementation AlldicContentViewController
 
@@ -35,6 +36,39 @@
 	}
 	[keys addObject:[[KeyBinding keyStringFormKeyCode:keyBinding.keyCode] capitalizedString]];
 	self.hotKeyLabel.stringValue = [keys componentsJoinedByString:@" + "];
+}
+
+- (void)webView:(WebView *)sender willPerformClientRedirectToURL:(NSURL *)URL delay:(NSTimeInterval)seconds
+       fireDate:(NSDate *)date forFrame:(WebFrame *)frame
+{
+    NSString *urlString = URL.absoluteString;
+    if( [urlString rangeOfString:@"query="].location != NSNotFound )
+    {
+        NSString *dicType = nil;
+        if( [urlString hasPrefix:@"http://endic"] ) {
+            dicType = AKAnalyticsValueEnglish;
+        }
+        else if( [urlString hasPrefix:@"http://krdic"] ) {
+            dicType = AKAnalyticsValueKorean;
+        }
+        else if( [urlString hasPrefix:@"http://hanja"] ) {
+            dicType = AKAnalyticsValueHanja;
+        }
+        else if( [urlString hasPrefix:@"http://jpdic"] ) {
+            dicType = AKAnalyticsValueJapanese;
+        }
+        else if( [urlString hasPrefix:@"http://cndic"] ) {
+            dicType = AKAnalyticsValueChinese;
+        }
+        else if( [urlString hasPrefix:@"http://frdic"] ) {
+            dicType = AKAnalyticsValueFrench;
+        }
+        
+        [[AnalyticsHelper sharedInstance] recordCachedEventWithCategory:AKAnalyticsCategoryAllkdic
+                                                                 action:AKAnalyticsActionSearch
+                                                                  label:dicType
+                                                                  value:nil];
+    }
 }
 
 - (void)webView:(WebView *)sender didFinishLoadForFrame:(WebFrame *)frame

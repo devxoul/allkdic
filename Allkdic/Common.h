@@ -11,3 +11,18 @@
 #define BUNDLE_NAME [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"];
 
 static NSString *AllkdicSettingKeyHotKey = @"AllkdicSettingKeyHotKey";
+
+static NSString *AKAnalyticsCategoryAllkdic = @"Allkdic";
+static NSString *AKAnalyticsCategoryPreference = @"Preference";
+
+static NSString *AKAnalyticsActionOpen = @"Open";
+static NSString *AKAnalyticsActionClose = @"Close";
+static NSString *AKAnalyticsActionSearch = @"Search";
+static NSString *AKAnalyticsActionUpdateHotKey = @"UpdateHotKey";
+
+static NSString *AKAnalyticsValueEnglish = @"English";
+static NSString *AKAnalyticsValueKorean = @"Korean";
+static NSString *AKAnalyticsValueHanja = @"Hanja";
+static NSString *AKAnalyticsValueJapanese = @"Japanese";
+static NSString *AKAnalyticsValueChinese = @"Chinese";
+static NSString *AKAnalyticsValueFrench = @"French";
