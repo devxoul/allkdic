@@ -46,10 +46,6 @@
 
 - (void)open
 {
-    if( self.isOpen ) {
-        return;
-    }
-    
 	NSButton *button = [self.statusItem valueForKey:@"_button"];
 	
 	if( self.popover.isShown )
@@ -65,8 +61,6 @@
 	[self.contentViewController updateHotKeyLabel];
 	[self.contentViewController focusOnTextArea];
     
-    _isOpen = YES;
-    
     [[AnalyticsHelper sharedInstance] recordScreenWithName:@"AllkdicWindow"];
     [[AnalyticsHelper sharedInstance] recordCachedEventWithCategory:AKAnalyticsCategoryAllkdic
                                                              action:AKAnalyticsActionOpen label:nil value:nil];
@@ -74,7 +68,7 @@
 
 - (void)close
 {
-    if( !self.isOpen ) {
+    if( !self.popover.isShown ) {
         return;
     }
     
@@ -82,7 +76,6 @@
 	button.state = NSOffState;
 	
 	[self.popover close];
-    _isOpen = NO;
     
     [[AnalyticsHelper sharedInstance] recordCachedEventWithCategory:AKAnalyticsCategoryAllkdic
                                                              action:AKAnalyticsActionClose label:nil value:nil];
