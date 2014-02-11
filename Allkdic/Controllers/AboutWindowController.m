@@ -30,11 +30,16 @@
 
 - (IBAction)checkForUpdate:(id)sender
 {
+    [[AnalyticsHelper sharedInstance] recordCachedEventWithCategory:AKAnalyticsCategoryAbout
+                                                             action:AKAnalyticsActionCheckForUpdate
+                                                             label:nil value:nil];
 	[[SUUpdater sharedUpdater] checkForUpdates:self];
 }
 
 - (IBAction)viewOnGitHub:(id)sender
 {
+    [[AnalyticsHelper sharedInstance] recordCachedEventWithCategory:AKAnalyticsCategoryAbout
+                                                             action:AKAnalyticsActionViewOnGitHub label:nil value:nil];
 	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://github.com/devxoul/allkdic"]];
 }
 

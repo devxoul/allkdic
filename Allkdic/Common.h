@@ -15,11 +15,14 @@ static NSString * const AllkdicSettingKeyHotKey = @"AllkdicSettingKeyHotKey";
 
 static NSString * const AKAnalyticsCategoryAllkdic = @"Allkdic";
 static NSString * const AKAnalyticsCategoryPreference = @"Preference";
+static NSString * const AKAnalyticsCategoryAbout = @"About";
 
 static NSString * const AKAnalyticsActionOpen = @"Open";
 static NSString * const AKAnalyticsActionClose = @"Close";
 static NSString * const AKAnalyticsActionSearch = @"Search";
 static NSString * const AKAnalyticsActionUpdateHotKey = @"UpdateHotKey";
+static NSString * const AKAnalyticsActionCheckForUpdate = @"CheckForUpdate";
+static NSString * const AKAnalyticsActionViewOnGitHub = @"ViewOnGitHub";
 
 static NSString * const AKAnalyticsValueEnglish = @"English";
 static NSString * const AKAnalyticsValueKorean = @"Korean";

@@ -12,7 +12,6 @@
 #import "LoginUtil.h"
 #import "KeyBinding.h"
 #import "AnalyticsHelper.h"
-#import "PFMoveApplication.h"
 
 @implementation AppDelegate
 
@@ -34,7 +33,6 @@
 	[button setButtonType:NSPushOnPushOffButton];
 	
     [self moveToApplicationFolderIfNeeded];
-//    PFMoveToApplicationsFolderIfNecessary();
     
 	[self registerHotKey];
     
@@ -50,7 +48,6 @@
 
 - (void)applicationWillTerminate:(NSNotification *)notification
 {
-    NSLog(@"- [applicationWillTerminate:]");
     [[AnalyticsHelper sharedInstance] handleApplicationWillTerminate];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
