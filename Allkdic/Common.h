@@ -10,19 +10,20 @@
 #define BUILD [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"]
 #define BUNDLE_NAME [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"];
 
-static NSString *AllkdicSettingKeyHotKey = @"AllkdicSettingKeyHotKey";
+static NSString * const AKIgnoreApplicationFolderWarning = @"AKIgnoreApplicationFolder";
+static NSString * const AllkdicSettingKeyHotKey = @"AllkdicSettingKeyHotKey";
 
-static NSString *AKAnalyticsCategoryAllkdic = @"Allkdic";
-static NSString *AKAnalyticsCategoryPreference = @"Preference";
+static NSString * const AKAnalyticsCategoryAllkdic = @"Allkdic";
+static NSString * const AKAnalyticsCategoryPreference = @"Preference";
 
-static NSString *AKAnalyticsActionOpen = @"Open";
-static NSString *AKAnalyticsActionClose = @"Close";
-static NSString *AKAnalyticsActionSearch = @"Search";
-static NSString *AKAnalyticsActionUpdateHotKey = @"UpdateHotKey";
+static NSString * const AKAnalyticsActionOpen = @"Open";
+static NSString * const AKAnalyticsActionClose = @"Close";
+static NSString * const AKAnalyticsActionSearch = @"Search";
+static NSString * const AKAnalyticsActionUpdateHotKey = @"UpdateHotKey";
 
-static NSString *AKAnalyticsValueEnglish = @"English";
-static NSString *AKAnalyticsValueKorean = @"Korean";
-static NSString *AKAnalyticsValueHanja = @"Hanja";
-static NSString *AKAnalyticsValueJapanese = @"Japanese";
-static NSString *AKAnalyticsValueChinese = @"Chinese";
-static NSString *AKAnalyticsValueFrench = @"French";
+static NSString * const AKAnalyticsValueEnglish = @"English";
+static NSString * const AKAnalyticsValueKorean = @"Korean";
+static NSString * const AKAnalyticsValueHanja = @"Hanja";
+static NSString * const AKAnalyticsValueJapanese = @"Japanese";
+static NSString * const AKAnalyticsValueChinese = @"Chinese";
+static NSString * const AKAnalyticsValueFrench = @"French";

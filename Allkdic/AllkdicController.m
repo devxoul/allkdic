@@ -78,7 +78,6 @@
         return;
     }
     
-    NSLog(@"Close allkdic");
 	NSButton *button = [self.statusItem valueForKey:@"_button"];
 	button.state = NSOffState;
 	

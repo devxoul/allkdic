@@ -9,7 +9,10 @@
 /* Begin PBXBuildFile section */
 		0320F9F118AA099400D989F6 /* AnalyticsEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 0320F9ED18AA099400D989F6 /* AnalyticsEvent.m */; };
 		0320F9F218AA099400D989F6 /* AnalyticsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0320F9EF18AA099400D989F6 /* AnalyticsHelper.m */; };
-		0320F9F318AA099400D989F6 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0320F9F018AA099400D989F6 /* Sparkle.framework */; };
+		0320F9F618AA62C000D989F6 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0320F9F018AA099400D989F6 /* Sparkle.framework */; };
+		0320F9F718AA62FB00D989F6 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0320F9F018AA099400D989F6 /* Sparkle.framework */; };
+		0320F9FB18AA6CE100D989F6 /* PFMoveApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 0320F9FA18AA6CE100D989F6 /* PFMoveApplication.m */; };
+		0320F9FD18AA6D9000D989F6 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0320F9FC18AA6D9000D989F6 /* Security.framework */; };
 		0322CF7E17AE9965007E832C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0322CF7D17AE9965007E832C /* Cocoa.framework */; };
 		0322CF9E17AE9BBB007E832C /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0322CF9D17AE9BBB007E832C /* WebKit.framework */; };
 		0322CFA317AF389B007E832C /* statusicon_default.png in Resources */ = {isa = PBXBuildFile; fileRef = 0322CFA117AF389B007E832C /* statusicon_default.png */; };
@@ -43,6 +46,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				0320F9F718AA62FB00D989F6 /* Sparkle.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +58,9 @@
 		0320F9EE18AA099400D989F6 /* AnalyticsHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnalyticsHelper.h; sourceTree = "<group>"; };
 		0320F9EF18AA099400D989F6 /* AnalyticsHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnalyticsHelper.m; sourceTree = "<group>"; };
 		0320F9F018AA099400D989F6 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
+		0320F9F918AA6CE100D989F6 /* PFMoveApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFMoveApplication.h; sourceTree = "<group>"; };
+		0320F9FA18AA6CE100D989F6 /* PFMoveApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFMoveApplication.m; sourceTree = "<group>"; };
+		0320F9FC18AA6D9000D989F6 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		0322CF7A17AE9965007E832C /* Allkdic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Allkdic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0322CF7D17AE9965007E832C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		0322CF8017AE9965007E832C /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -101,9 +108,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0320F9FD18AA6D9000D989F6 /* Security.framework in Frameworks */,
+				0320F9F618AA62C000D989F6 /* Sparkle.framework in Frameworks */,
 				0322CFA517AF3A6C007E832C /* Carbon.framework in Frameworks */,
 				0322CF9E17AE9BBB007E832C /* WebKit.framework in Frameworks */,
-				0320F9F318AA099400D989F6 /* Sparkle.framework in Frameworks */,
 				0322CF7E17AE9965007E832C /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -114,6 +122,7 @@
 		0320F9EA18AA099400D989F6 /* Third Party */ = {
 			isa = PBXGroup;
 			children = (
+				0320F9F818AA6CE100D989F6 /* PFMoveApplication */,
 				0320F9EB18AA099400D989F6 /* SimpleCocoaGoogleAnalytics */,
 				0320F9F018AA099400D989F6 /* Sparkle.framework */,
 			);
@@ -129,6 +138,16 @@
 				0320F9EF18AA099400D989F6 /* AnalyticsHelper.m */,
 			);
 			path = SimpleCocoaGoogleAnalytics;
+			sourceTree = "<group>";
+		};
+		0320F9F818AA6CE100D989F6 /* PFMoveApplication */ = {
+			isa = PBXGroup;
+			children = (
+				0320F9F918AA6CE100D989F6 /* PFMoveApplication.h */,
+				0320F9FA18AA6CE100D989F6 /* PFMoveApplication.m */,
+			);
+			name = PFMoveApplication;
+			path = ../../SimpleCocoaGoogleAnalytics/PFMoveApplication;
 			sourceTree = "<group>";
 		};
 		0322CF7117AE9964007E832C = {
@@ -154,6 +173,7 @@
 		0322CF7C17AE9965007E832C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0320F9FC18AA6D9000D989F6 /* Security.framework */,
 				0322CFA417AF3A6C007E832C /* Carbon.framework */,
 				0322CF9D17AE9BBB007E832C /* WebKit.framework */,
 				0322CF7D17AE9965007E832C /* Cocoa.framework */,
@@ -363,6 +383,7 @@
 				0320F9F218AA099400D989F6 /* AnalyticsHelper.m in Sources */,
 				0367297117B045BF0074D249 /* main.m in Sources */,
 				03C0861D17B064480070A164 /* LoginUtil.m in Sources */,
+				0320F9FB18AA6CE100D989F6 /* PFMoveApplication.m in Sources */,
 				0324201317E38ED8003025E3 /* KeyBinding.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -454,9 +475,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/xoul/Downloads/Sparkle\\ 1.5b6",
-					"\\\"$(SRCROOT)/Third\\ Party\\\"",
-					"/Volumes/XOUL/workspace/Allkdic/Third\\ Party",
+					"$(SRCROOT)/Third\\ Party",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Allkdic/Allkdic-Prefix.pch";
@@ -473,9 +492,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/xoul/Downloads/Sparkle\\ 1.5b6",
-					"\\\"$(SRCROOT)/Third\\ Party\\\"",
-					"/Volumes/XOUL/workspace/Allkdic/Third\\ Party",
+					"$(SRCROOT)/Third\\ Party",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Allkdic/Allkdic-Prefix.pch";

@@ -12,6 +12,7 @@
 #import "LoginUtil.h"
 #import "KeyBinding.h"
 #import "AnalyticsHelper.h"
+#import "PFMoveApplication.h"
 
 @implementation AppDelegate
 
@@ -32,10 +33,12 @@
 	button.focusRingType = NSFocusRingTypeNone;
 	[button setButtonType:NSPushOnPushOffButton];
 	
+    [self moveToApplicationFolderIfNeeded];
+//    PFMoveToApplicationsFolderIfNecessary();
+    
 	[self registerHotKey];
-	
-	if( ![LoginUtil willStartAtLogin] )
-	{
+    
+	if( ![LoginUtil willStartAtLogin] ) {
 		[LoginUtil setStartAtLoginEnabled:YES];
 	}
 	
@@ -47,9 +50,96 @@
 
 - (void)applicationWillTerminate:(NSNotification *)notification
 {
-    AnalyticsHelper *ga = [AnalyticsHelper sharedInstance];
-    [ga handleApplicationWillTerminate];
+    NSLog(@"- [applicationWillTerminate:]");
+    [[AnalyticsHelper sharedInstance] handleApplicationWillTerminate];
     [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (void)moveToApplicationFolderIfNeeded
+{
+    BOOL ignore = [[[NSUserDefaults standardUserDefaults] objectForKey:AKIgnoreApplicationFolderWarning] boolValue];
+    if (ignore) {
+        return;
+    }
+    
+    if( [self isInApplicationFolder] ) {
+        return;
+    }
+    
+    NSString *message = @"자동 업데이트 등의 기능이 원활하게 이루어지지 않을 수 있습니다.\n지금 이동하시겠습니까?";
+    NSAlert *alert = [NSAlert alertWithMessageText:@"올ㅋ사전이 애플리케이션 폴더에 있지 않습니다."
+                                     defaultButton:@"이동"
+                                   alternateButton:@"다시 묻지 않음"
+                                       otherButton:@"취소"
+                         informativeTextWithFormat:@"%@", message];
+    NSModalResponse response = [alert runModal];
+    switch( response ) {
+        // 다시 묻지 않음
+        case 0:
+            [[NSUserDefaults standardUserDefaults] setObject:@YES forKey:AKIgnoreApplicationFolderWarning];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            break;
+            
+        // 취소
+        case -1:
+            break;
+            
+        // 이동
+        case 1:
+            [self moveToApplicationFolder];
+            break;
+    }
+}
+
+- (BOOL)isInApplicationFolder
+{
+    NSString *bundlePath = [[NSBundle mainBundle] bundlePath];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSApplicationDirectory, NSAllDomainsMask, YES);
+    for( NSString *path in paths ) {
+        if( [bundlePath hasPrefix:path] ) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
+- (void)moveToApplicationFolder
+{
+    NSString *sourcePath = [[NSBundle mainBundle] bundlePath];
+    NSString *bundleName = sourcePath.lastPathComponent;
+    NSArray *applicationPaths = NSSearchPathForDirectoriesInDomains(NSApplicationDirectory, NSLocalDomainMask, YES);
+    NSString *destPath = [applicationPaths.lastObject stringByAppendingPathComponent:bundleName];
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    BOOL existing = [fileManager fileExistsAtPath:destPath];
+    if( existing ) {
+        // Terminate running process at destination path.
+        NSString *cmd = [NSString stringWithFormat:@"ps ax | grep '%@' | awk '{print $1}' | xargs kill -9", destPath];
+        NSTask *task = [NSTask launchedTaskWithLaunchPath:@"/bin/sh" arguments:@[@"-c", cmd]];
+        [task waitUntilExit];
+        
+        // Move existing app to trash
+        BOOL success = [[NSWorkspace sharedWorkspace] performFileOperation:NSWorkspaceRecycleOperation
+                                                                    source:[destPath stringByDeletingLastPathComponent]
+                                                               destination:nil files:@[bundleName] tag:nil];
+        if( !success ) {
+            NSLog(@"Failed to trash existing app.");
+        }
+    }
+    
+    // Copy to `/Application` folder.
+    NSError *error = nil;
+    [fileManager copyItemAtPath:sourcePath toPath:destPath error:&error];
+    if( error ) {
+        NSLog(@"Error copying file: %@", error);
+    }
+    
+    // Run new app
+    NSString *cmd = [NSString stringWithFormat:@"open %@", destPath];
+    NSTask *task = [NSTask launchedTaskWithLaunchPath:@"/bin/sh" arguments:@[@"-c", cmd]];
+    [task waitUntilExit];
+    
+    [NSApp terminate:nil];
 }
 
 
