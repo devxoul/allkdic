@@ -17,6 +17,8 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+    [self terminateAlreadyRunning];
+    
 	self.statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
 	
 	NSImage *icon = [NSImage imageNamed:@"statusicon_default.png"];
@@ -50,6 +52,16 @@
 {
     [[AnalyticsHelper sharedInstance] handleApplicationWillTerminate];
     [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (void)terminateAlreadyRunning
+{
+    int pid = [[NSProcessInfo processInfo] processIdentifier];
+    NSString *filter = @"Contents/MacOS/Allkdic";
+    NSString *cmd = [NSString stringWithFormat:
+                     @"ps aux | grep '%@' | awk '{if($2 != %d) print $2}' | xargs kill -9", filter, pid];
+    NSTask *task = [NSTask launchedTaskWithLaunchPath:@"/bin/sh" arguments:@[@"-c", cmd]];
+    [task waitUntilExit];
 }
 
 - (void)moveToApplicationFolderIfNeeded
@@ -111,7 +123,7 @@
     BOOL existing = [fileManager fileExistsAtPath:destPath];
     if( existing ) {
         // Terminate running process at destination path.
-        NSString *cmd = [NSString stringWithFormat:@"ps ax | grep '%@' | awk '{print $1}' | xargs kill -9", destPath];
+        NSString *cmd = [NSString stringWithFormat:@"ps aux | grep '%@' | awk '{print $2}' | xargs kill -9", destPath];
         NSTask *task = [NSTask launchedTaskWithLaunchPath:@"/bin/sh" arguments:@[@"-c", cmd]];
         [task waitUntilExit];
         
