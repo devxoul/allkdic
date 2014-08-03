@@ -21,7 +21,7 @@
     
 	self.statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
 	
-	NSImage *icon = [NSImage imageNamed:@"statusicon_default.png"];
+	NSImage *icon = [NSImage imageNamed:@"statusicon_default"];
 	icon.template = YES;
 	self.statusItem.image = icon;
 	
