@@ -4,4 +4,4 @@
 
 http://devxoul.github.io/allkdic/
 
-![allkdic](https://github.com/devxoul/allkdic/blob/gh-pages/gh-pages/images/screenshots/allkdic-2.png])
+![allkdic](https://github.com/devxoul/allkdic/blob/gh-pages/gh-pages/images/screenshots/allkdic-2.png)
