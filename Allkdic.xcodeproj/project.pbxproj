@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		031FE7DF19D479DB008EB670 /* AKLabelButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 031FE7DE19D479DB008EB670 /* AKLabelButton.m */; };
 		0320F9F118AA099400D989F6 /* AnalyticsEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 0320F9ED18AA099400D989F6 /* AnalyticsEvent.m */; };
 		0320F9F218AA099400D989F6 /* AnalyticsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0320F9EF18AA099400D989F6 /* AnalyticsHelper.m */; };
 		0320F9F618AA62C000D989F6 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0320F9F018AA099400D989F6 /* Sparkle.framework */; };
@@ -52,6 +53,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		031FE7DD19D479DB008EB670 /* AKLabelButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AKLabelButton.h; path = Allkdic/AKLabelButton.h; sourceTree = SOURCE_ROOT; };
+		031FE7DE19D479DB008EB670 /* AKLabelButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AKLabelButton.m; path = Allkdic/AKLabelButton.m; sourceTree = SOURCE_ROOT; };
 		0320F9EC18AA099400D989F6 /* AnalyticsEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnalyticsEvent.h; sourceTree = "<group>"; };
 		0320F9ED18AA099400D989F6 /* AnalyticsEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnalyticsEvent.m; sourceTree = "<group>"; };
 		0320F9EE18AA099400D989F6 /* AnalyticsHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnalyticsHelper.h; sourceTree = "<group>"; };
@@ -189,6 +192,8 @@
 				0367296B17B045A00074D249 /* AllkdicController.m */,
 				03C0861B17B064480070A164 /* LoginUtil.h */,
 				03C0861C17B064480070A164 /* LoginUtil.m */,
+				031FE7DD19D479DB008EB670 /* AKLabelButton.h */,
+				031FE7DE19D479DB008EB670 /* AKLabelButton.m */,
 				0367296217B0458D0074D249 /* Views */,
 				0367295D17B0458D0074D249 /* Controllers */,
 				0324201017E38EC3003025E3 /* Models */,
@@ -358,6 +363,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				031FE7DF19D479DB008EB670 /* AKLabelButton.m in Sources */,
 				0320F9F118AA099400D989F6 /* AnalyticsEvent.m in Sources */,
 				0367296C17B045BF0074D249 /* AppDelegate.m in Sources */,
 				0367296D17B045BF0074D249 /* AllkdicController.m in Sources */,

@@ -14,6 +14,7 @@
 
 @interface AlldicContentViewController : NSViewController
 
+@property (nonatomic, strong) IBOutlet NSTextField *titleLabel;
 @property (nonatomic, strong) IBOutlet NSTextField *hotKeyLabel;
 @property (nonatomic, strong) IBOutlet NSProgressIndicator *indicator;
 @property (nonatomic, strong) IBOutlet WebView *webView;

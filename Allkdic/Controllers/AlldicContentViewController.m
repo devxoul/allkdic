@@ -14,8 +14,15 @@
 
 - (void)awakeFromNib
 {
-	self.webView.mainFrameURL = @"http://endic.naver.com/popManager.nhn?m=miniPopMain";
-	[self.indicator startAnimation:nil];
+    self.titleLabel.target = self;
+    self.titleLabel.action = @selector(navigationToHome);
+    [self navigationToHome];
+}
+
+- (void)navigationToHome
+{
+    self.webView.mainFrameURL = @"http://endic.naver.com/popManager.nhn?m=miniPopMain";
+    [self.indicator startAnimation:nil];
 }
 
 - (void)updateHotKeyLabel
@@ -140,7 +147,6 @@
 {
 	return [self.webView.mainFrameDocument evaluateWebScript:javascript];
 }
-
 
 - (IBAction)showMenu:(id)sender
 {

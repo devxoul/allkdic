@@ -12,6 +12,7 @@
                 <outlet property="indicator" destination="zy1-rX-u6R" id="trv-vl-lbj"/>
                 <outlet property="menu" destination="fOC-xb-L4X" id="csd-uj-ywH"/>
                 <outlet property="menuButton" destination="28" id="c7Y-Xq-TEr"/>
+                <outlet property="titleLabel" destination="7" id="AIj-YO-iWF"/>
                 <outlet property="view" destination="4" id="20"/>
                 <outlet property="webView" destination="5" id="77"/>
             </connections>
@@ -22,7 +23,7 @@
             <rect key="frame" x="0.0" y="0.0" width="405" height="566"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <textField verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7">
+                <textField verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7" customClass="AKLabelButton">
                     <rect key="frame" x="170" y="537" width="64" height="24"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="올ㅋ사전" id="16">
                         <font key="font" size="16" name="AppleSDGothicNeo-Regular"/>
