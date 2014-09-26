@@ -1,0 +1,90 @@
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+	<channel>
+		<title>올ㅋ사전</title>
+		<link>https://raw.githubusercontent.com/devxoul/allkdic/master/appcast.xml</link>
+		<language>en</language>
+		<!--<item>
+			<title>Version 1.0.0</title>
+			<pubDate>Tue, Aug 06 2013 07:59:26 GMT+0900 (KST)</pubDate>
+			<enclosure url="https://github.com/devxoul/allkdic/releases/download/v1.0.0/Allkdic-1.0.0.app.zip"
+				sparkle:version="5"
+				sparkle:shortVersionString="1.0.0"
+				sparkle:dsaSignature="MEUCIQDb1VEhac9Tbg6cDN/FHbkNlZbjqUQW4WGXAE2x1FMn1gIgEhB7mF2jJluGSmf8t1ttg0mOuVxl+60LiovFqaf89LU="
+				length="1623481"
+				type="application/octet-stream" />
+		</item>-->
+		<item>
+			<title>Version 1.0.1</title>
+			<pubDate>Tue, Aug 06 2013 06:28:37 GMT+0900 (KST)</pubDate>
+			<enclosure url="https://github.com/devxoul/allkdic/releases/download/v1.0.1/Allkdic-1.0.1.app.zip"
+				sparkle:version="213"
+				sparkle:shortVersionString="1.0.1"
+				sparkle:dsaSignature="MCwCFCMxldMR8Xm6dJSamOe1dSUMFm//AhRL/7Z3zjaEOQSvv3O+TsxCpvM5AA=="
+				length="493154"
+				type="application/octet-stream" />
+			<description>
+				<![CDATA[
+				<h1 style="color: red">자동 업데이트가 불가능합니다. <a href="https://github.com/devxoul/allkdic/releases/download/v1.0.1/Allkdic-1.0.1.app.zip">이곳</a>에서 직접 다운로드해주세요!! ㅠㅠ</h1>
+				<h3>올ㅋ사전 1.0.1</h3>
+				* 단축키 변경이 가능해졌습니다.<br />
+				* 새 업데이트가 있을 경우에만 업데이트 UI를 띄우도록 변경했습니다.<br />
+				* ESC를 눌러 올ㅋ사전을 닫을 수 있습니다.<br />
+				* 전체선택, 복사, 붙여넣기가 가능해졌습니다.<br />
+				* OS X 10.7에서도 사용이 가능해졌습니다.<br />
+				]]>
+			</description>
+		</item>
+        <item>
+            <title>Version 1.1.0</title>
+            <pubDate>Web, Feb 12 2014 01:33:00 GMT+0900 (KST)</pubDate>
+            <enclosure url="https://github.com/devxoul/allkdic/releases/download/v1.1.0/Allkdic-1.1.0.app.zip"
+                sparkle:version="336"
+                sparkle:shortVersionString="1.1.0"
+                sparkle:dsaSignature="MCwCFEYXNg8Ra6LWxz/VQuW8dzOt8ltKAhRb5muVrRa/ypQxrp4cTMXZ3l8wnQ=="
+                length="506304"
+                type="application/octet-stream" />
+            <description>
+                <![CDATA[
+                <h1 style="color: red">자동 업데이트가 불가능합니다. <a href="https://github.com/devxoul/allkdic/releases/download/v1.1.0/Allkdic-1.1.0.app.zip">이곳</a>에서 직접 다운로드해주세요!! ㅠㅠ</h1>
+                <h3>올ㅋ사전 1.1.0</h3>
+                * 올ㅋ사전이 애플리케이션 폴더에 없을 경우 확인창을 띄우도록 변경했습니다.<br />
+                * 이미 실행중인 올ㅋ사전이 있을 경우 종료시킵니다.<br />
+                * 사용성 분석을 위해 앱 사용 로그를 기록합니다. (검색어는 기록되지 않습니다.)
+                ]]>
+            </description>
+        </item>
+        <item>
+            <title>Version 1.1.1</title>
+            <pubDate>Tue, Aug 03 2014 22:39:00 GMT+0900 (KST)</pubDate>
+            <enclosure url="https://github.com/devxoul/allkdic/releases/download/v1.1.1/Allkdic-1.1.1.app.zip"
+                sparkle:version="359"
+                sparkle:shortVersionString="1.1.1"
+                sparkle:dsaSignature="MCwCFDT+ln2GuwoktNaymeYKnIL4iLzzAhRUiMm/Tsvl3PY3O1GioJyOqDm7Ig=="
+                length="506304"
+                type="application/octet-stream" />
+            <description>
+                <![CDATA[
+                <h3>올ㅋ사전 1.1.1</h3>
+                * 상태바에서 올ㅋ사전이 닫혔는데도 아이콘이 활성화 상태인 문제를 수정했습니다.<br />
+                * 상태바 레티나 아이콘을 추가했습니다.
+                ]]>
+            </description>
+        </item>
+        <item>
+            <title>Version 1.1.2</title>
+            <pubDate>Fri, Sep 26 2014 02:00:00 GMT+0900 (KST)</pubDate>
+            <enclosure url="https://github.com/devxoul/allkdic/releases/download/v1.1.2/Allkdic-1.1.2.app.zip"
+                sparkle:version="394"
+                sparkle:shortVersionString="1.1.2"
+                sparkle:dsaSignature="MCwCFDtxUMoXzyDzohDcIt8kqkojuGbNAhQzNN0ArbPehiF69G0DNfw+Eg/9gg=="
+                length="506304"
+                type="application/octet-stream" />
+            <description>
+                <![CDATA[
+                <h3>올ㅋ사전 1.1.2</h3>
+                * 올ㅋ사전 제목을 눌러서 메인 화면으로 이동할 수 있게 되었습니다.
+                ]]>
+            </description>
+        </item>
+	</channel>
+</rss>

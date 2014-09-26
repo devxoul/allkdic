@@ -37,7 +37,7 @@
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
 	<key>SUFeedURL</key>
-	<string>https://dl.dropboxusercontent.com/u/69958027/Allkdic/appcast.xml</string>
+	<string>https://raw.githubusercontent.com/devxoul/allkdic/master/appcast.xml</string>
 	<key>SUPublicDSAKeyFile</key>
 	<string>dsa_pub.pem</string>
 </dict>
