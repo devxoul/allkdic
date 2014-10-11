@@ -1,5 +1,8 @@
 # 올ㅋ사전
 
+[![Gratipay](http://img.shields.io/gratipay/devxoul.svg)](https://gratipay.com/devxoul)
+
+
 맥에서 Option + Command + Space를 누르면 영어사전이 뙇!!!!
 
 http://devxoul.github.io/allkdic/
