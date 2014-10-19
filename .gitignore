@@ -1,4 +1,5 @@
-
 *.xcuserstate
-
 *.xccheckout
+xcuserdata
+
+.DS_Store
