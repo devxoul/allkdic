@@ -22,11 +22,11 @@
  SOFTWARE.
 */
 
-#import "AnalyticsHelper.h"
+import AppKit
 
-#import "AKHotKeyManager.h"
-#import "AllkdicController.h"
-#import "Common.h"
-#import "LoginUtil.h"
-
-#import <Sparkle/SUUpdater.h>
+autoreleasepool { () -> () in
+    let application = NSApplication.sharedApplication()
+    let delegate = AppDelegate()
+    application.delegate = delegate
+    application.run()
+}

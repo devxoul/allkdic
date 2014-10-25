@@ -7,7 +7,6 @@
 //
 
 #import "AllkdicController.h"
-#import "AppDelegate.h"
 #import "AllkdicWindowController.h"
 #import "KeyBinding.h"
 #import "AnalyticsHelper.h"

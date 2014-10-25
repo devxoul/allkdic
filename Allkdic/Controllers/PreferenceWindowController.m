@@ -6,8 +6,10 @@
 //  Copyright (c) 2013년 Joyfl. All rights reserved.
 //
 
+#import "AKHotKeyManager.h"
 #import "PreferenceWindowController.h"
-#import "AppDelegate.h"
+#import "AlldicContentViewController.h"
+#import "AllkdicController.h"
 #import "AnalyticsHelper.h"
 
 @implementation PreferenceWindowController
@@ -22,9 +24,7 @@
 
 - (void)showWindow:(id)sender
 {
-	AppDelegate *appDelegate = (AppDelegate *)[NSApp delegate];
-	[[appDelegate allkdicController] close];
-	[appDelegate unregisterHotKey];
+    [AKHotKeyManager unregisterHotKey];
 	
 	self.window.level = NSScreenSaverWindowLevel;
 	
@@ -35,9 +35,7 @@
 
 - (BOOL)windowShouldClose:(id)sender
 {
-	AppDelegate *appDelegate = (AppDelegate *)[NSApp delegate];
-	[appDelegate registerHotKey];
-	
+	[AKHotKeyManager registerHotKey];
 	return YES;
 }
 

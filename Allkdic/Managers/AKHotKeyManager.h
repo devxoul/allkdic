@@ -22,11 +22,10 @@
  SOFTWARE.
 */
 
-#import "AnalyticsHelper.h"
 
-#import "AKHotKeyManager.h"
-#import "AllkdicController.h"
-#import "Common.h"
-#import "LoginUtil.h"
+@interface AKHotKeyManager : NSObject
 
-#import <Sparkle/SUUpdater.h>
++ (void)registerHotKey;
++ (void)unregisterHotKey;
+
+@end

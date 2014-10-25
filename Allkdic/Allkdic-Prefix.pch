@@ -6,4 +6,5 @@
 	#import <Cocoa/Cocoa.h>
 	#import "NSWindow+CanBecomeKeyWindow.h"
 	#import "Common.h"
+    #import "Allkdic-Swift.h"
 #endif

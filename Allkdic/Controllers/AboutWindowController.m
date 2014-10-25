@@ -7,9 +7,9 @@
 //
 
 #import "AboutWindowController.h"
-#import "AppDelegate.h"
 #import <Sparkle/Sparkle.h>
 #import "AnalyticsHelper.h"
+#import "AllkdicController.h"
 
 @implementation AboutWindowController
 

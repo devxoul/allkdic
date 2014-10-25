@@ -32,8 +32,6 @@
 	<true/>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2013 Su Yeol Jeon. All Rights Reserved.</string>
-	<key>NSMainNibFile</key>
-	<string>MainInterface</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
 	<key>SUFeedURL</key>
