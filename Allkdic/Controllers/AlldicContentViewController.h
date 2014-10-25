@@ -19,7 +19,7 @@
 @property (nonatomic, strong) IBOutlet NSProgressIndicator *indicator;
 @property (nonatomic, strong) IBOutlet WebView *webView;
 @property (nonatomic, strong) IBOutlet NSButton *menuButton;
-@property (nonatomic, strong) IBOutlet NSMenu *menu;
+@property (nonatomic, strong) IBOutlet NSMenu *mainMenu;
 
 - (void)updateHotKeyLabel;
 - (void)focusOnTextArea;

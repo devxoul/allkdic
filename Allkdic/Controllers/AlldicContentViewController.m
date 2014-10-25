@@ -149,7 +149,7 @@
 
 - (IBAction)showMenu:(id)sender
 {
-	[self.menu popUpMenuPositioningItem:[self.menu itemAtIndex:0] atLocation:self.menuButton.frame.origin inView:self.view];
+	[self.mainMenu popUpMenuPositioningItem:[self.mainMenu itemAtIndex:0] atLocation:self.menuButton.frame.origin inView:self.view];
 }
 
 - (IBAction)showPreferenceWindow:(id)sender
