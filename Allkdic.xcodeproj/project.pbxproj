@@ -24,6 +24,8 @@
 		0349451719FB8D4D00D7AEE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349451619FB8D4D00D7AEE2 /* AppDelegate.swift */; };
 		0349451A19FB9D1800D7AEE2 /* AKHotKeyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0349451919FB9D1800D7AEE2 /* AKHotKeyManager.m */; };
 		0349451E19FBB01700D7AEE2 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349451D19FBB01700D7AEE2 /* main.swift */; };
+		0349452019FBB24100D7AEE2 /* AllkdicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349451F19FBB24100D7AEE2 /* AllkdicManager.swift */; };
+		0349452219FBB68D00D7AEE2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349452119FBB68D00D7AEE2 /* Constants.swift */; };
 		0367293617B00CEC0074D249 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0367293317B00CEC0074D249 /* InfoPlist.strings */; };
 		0367294217B016A80074D249 /* line.png in Resources */ = {isa = PBXBuildFile; fileRef = 0367294117B016A80074D249 /* line.png */; };
 		0367294517B029CD0074D249 /* icon_settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 0367294417B029CD0074D249 /* icon_settings.png */; };
@@ -81,6 +83,8 @@
 		0349451919FB9D1800D7AEE2 /* AKHotKeyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AKHotKeyManager.m; path = Allkdic/Managers/AKHotKeyManager.m; sourceTree = SOURCE_ROOT; };
 		0349451C19FB9D2B00D7AEE2 /* AKHotKeyManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AKHotKeyManager.h; path = Allkdic/Managers/AKHotKeyManager.h; sourceTree = SOURCE_ROOT; };
 		0349451D19FBB01700D7AEE2 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = main.swift; path = Allkdic/main.swift; sourceTree = SOURCE_ROOT; };
+		0349451F19FBB24100D7AEE2 /* AllkdicManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AllkdicManager.swift; path = Allkdic/Managers/AllkdicManager.swift; sourceTree = SOURCE_ROOT; };
+		0349452119FBB68D00D7AEE2 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Allkdic/Constants.swift; sourceTree = SOURCE_ROOT; };
 		0367292D17B00CD90074D249 /* Allkdic-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Allkdic-Info.plist"; path = "Allkdic/Allkdic-Info.plist"; sourceTree = SOURCE_ROOT; };
 		0367292E17B00CD90074D249 /* Allkdic-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Allkdic-Prefix.pch"; path = "Allkdic/Allkdic-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		0367293417B00CEC0074D249 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Allkdic/en.lproj/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
@@ -186,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				0367294317B025390074D249 /* Common.h */,
+				0349452119FBB68D00D7AEE2 /* Constants.swift */,
 				0349451619FB8D4D00D7AEE2 /* AppDelegate.swift */,
 				0367296A17B045A00074D249 /* AllkdicController.h */,
 				0367296B17B045A00074D249 /* AllkdicController.m */,
@@ -240,6 +245,7 @@
 		0349451B19FB9D1D00D7AEE2 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				0349451F19FBB24100D7AEE2 /* AllkdicManager.swift */,
 				0349451C19FB9D2B00D7AEE2 /* AKHotKeyManager.h */,
 				0349451919FB9D1800D7AEE2 /* AKHotKeyManager.m */,
 			);
@@ -358,9 +364,11 @@
 				031FE7DF19D479DB008EB670 /* AKLabelButton.m in Sources */,
 				0349451A19FB9D1800D7AEE2 /* AKHotKeyManager.m in Sources */,
 				0320F9F118AA099400D989F6 /* AnalyticsEvent.m in Sources */,
+				0349452019FBB24100D7AEE2 /* AllkdicManager.swift in Sources */,
 				0367296D17B045BF0074D249 /* AllkdicController.m in Sources */,
 				0349451719FB8D4D00D7AEE2 /* AppDelegate.swift in Sources */,
 				0324200817E37710003025E3 /* PreferenceWindowController.m in Sources */,
+				0349452219FBB68D00D7AEE2 /* Constants.swift in Sources */,
 				0367296E17B045BF0074D249 /* AboutWindowController.m in Sources */,
 				0367296F17B045BF0074D249 /* AlldicContentViewController.m in Sources */,
 				0349451E19FBB01700D7AEE2 /* main.swift in Sources */,

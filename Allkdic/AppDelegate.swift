@@ -59,8 +59,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
 
         let ga = AnalyticsHelper.sharedInstance()
-        let version = NSBundle.mainBundle().infoDictionary?["CFBundleShortVersionString"] as String
-        ga.beginPeriodicReportingWithAccount("UA-42976442-2", name:"올ㅋ사전", version: version)
+        ga.beginPeriodicReportingWithAccount("UA-42976442-2", name:"올ㅋ사전", version: BundleInfo.Version)
 
         SUUpdater.sharedUpdater().checkForUpdatesInBackground()
     }
@@ -78,7 +77,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func moveToApplicationFolderIfNeeded() {
-        let ignore = NSUserDefaults.standardUserDefaults().boolForKey("AKIgnoreApplicationFolderWarning")
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        let ignore = userDefaults.boolForKey(UserDefaultsKey.IgnoreApplicationFolderWarning)
         if ignore {
             return
         }
@@ -95,18 +95,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         alert.addButtonWithTitle("다시 묻지 않음")
 
         let response = alert.runModal()
-        switch response {
-            case 1002: // 다시 묻지 않음
-                NSUserDefaults.standardUserDefaults().setObject(true, forKey: "AKIgnoreApplicationFolderWarning")
-                NSUserDefaults.standardUserDefaults().synchronize()
-                break
 
-            case 1000: // 이동
-                self.moveToApplicationFolder()
-                break
+        // 다시 묻지 않음
+        if response == 1002 {
+            userDefaults.setObject(true, forKey: UserDefaultsKey.IgnoreApplicationFolderWarning)
+            userDefaults.synchronize()
+        }
 
-            default:
-                break
+        // 이동
+        else if response == 1000 {
+            self.moveToApplicationFolder()
         }
     }
 
