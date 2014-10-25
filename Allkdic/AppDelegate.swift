@@ -27,28 +27,8 @@ import Cocoa
 
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-    let statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(-1) // NSVariableStatusItemLength
-    private var _allkdicController: AllkdicController!
-
-    func allkdicController() -> AllkdicController {
-        return self._allkdicController
-    }
-
     func applicationDidFinishLaunching(notification: NSNotification) {
         self.terminateAlreadyRunning()
-
-        let icon = NSImage(named: "statusicon_default")
-        icon?.setTemplate(true)
-        self.statusItem.image = icon
-
-        self._allkdicController = AllkdicController(statusItem: self.statusItem)
-
-        self.statusItem.target = self._allkdicController
-        self.statusItem.action = "open"
-
-        let button = self.statusItem.valueForKey("_button") as NSButton
-        button.focusRingType = .None
-        button.setButtonType(.PushOnPushOffButton)
 
         self.moveToApplicationFolderIfNeeded()
 

@@ -9,7 +9,6 @@
 #import "AKHotKeyManager.h"
 #import "PreferenceWindowController.h"
 #import "AlldicContentViewController.h"
-#import "AllkdicController.h"
 #import "AnalyticsHelper.h"
 
 @implementation PreferenceWindowController
@@ -80,8 +79,8 @@
 	
 	[[NSUserDefaults standardUserDefaults] setObject:keyBinding.dictionary forKey:AllkdicSettingKeyHotKey];
 	[[NSUserDefaults standardUserDefaults] synchronize];
-	
-	[[AllkdicController sharedController].contentViewController updateHotKeyLabel];
+
+	[[AllkdicManager sharedInstance].contentViewController updateHotKeyLabel];
     
     [[AnalyticsHelper sharedInstance] recordCachedEventWithCategory:AKAnalyticsCategoryPreference
                                                              action:AKAnalyticsActionUpdateHotKey label:nil value:nil];

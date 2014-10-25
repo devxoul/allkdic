@@ -27,7 +27,6 @@
 
 #import "AKHotKeyManager.h"
 #import "AlldicContentViewController.h"
-#import "AllkdicController.h"
 #import "KeyBinding.h"
 
 @implementation AKHotKeyManager
@@ -80,7 +79,7 @@ EventHotKeyRef hotKeyRef;
 
     RegisterEventHotKey( (UInt32)keyBinding.keyCode, hotKeyModifiers, hotKeyId, GetApplicationEventTarget(), 0, &hotKeyRef );
 
-    [[[(AppDelegate *)[NSApp delegate] allkdicController] contentViewController] updateHotKeyLabel];
+    [[AllkdicManager sharedInstance].contentViewController updateHotKeyLabel];
 }
 
 + (void)unregisterHotKey
@@ -95,8 +94,7 @@ EventHotKeyRef hotKeyRef;
 
 OSStatus hotKeyHandler( EventHandlerCallRef nextHandler, EventRef theEvent, void *userData )
 {
-    [[(AppDelegate *)[NSApp delegate] allkdicController] open];
-    
+    [[AllkdicManager sharedInstance] open];
     return noErr;
 }
 

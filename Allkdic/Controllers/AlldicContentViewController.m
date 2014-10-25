@@ -7,7 +7,6 @@
 //
 
 #import "AlldicContentViewController.h"
-#import "AllkdicController.h"
 #import "AnalyticsHelper.h"
 
 @implementation AlldicContentViewController
@@ -95,7 +94,7 @@
 	// Esc
 	if( !keyBinding.shift && !keyBinding.control && !keyBinding.option && !keyBinding.command && keyBinding.keyCode == 53 )
 	{
-		[[AllkdicController sharedController] close];
+		[[AllkdicManager sharedInstance] close];
 	}
 	
 	// Command + A
@@ -155,12 +154,12 @@
 
 - (IBAction)showPreferenceWindow:(id)sender
 {
-	[[AllkdicController sharedController].preferenceWindowController showWindow:self];
+	[[AllkdicManager sharedInstance].preferenceWindowController showWindow:self];
 }
 
 - (IBAction)showAboutWindow:(id)sender
 {
-	[[AllkdicController sharedController].aboutWindowController showWindow:self];
+	[[AllkdicManager sharedInstance].aboutWindowController showWindow:self];
 }
 
 - (IBAction)quit:(id)sender

@@ -9,7 +9,6 @@
 #import "AboutWindowController.h"
 #import <Sparkle/Sparkle.h>
 #import "AnalyticsHelper.h"
-#import "AllkdicController.h"
 
 @implementation AboutWindowController
 
@@ -21,7 +20,7 @@
 
 - (void)showWindow:(id)sender
 {
-	[[(AppDelegate *)[NSApp delegate] allkdicController] close];
+    [[AllkdicManager sharedInstance] close];
 	self.window.level = NSScreenSaverWindowLevel;
 	[super showWindow:sender];
     

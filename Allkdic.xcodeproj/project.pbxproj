@@ -33,7 +33,6 @@
 		0367294F17B032DF0074D249 /* icon.iconset in Resources */ = {isa = PBXBuildFile; fileRef = 0367294E17B032DF0074D249 /* icon.iconset */; };
 		0367296817B0458D0074D249 /* AboutWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0367296317B0458D0074D249 /* AboutWindow.xib */; };
 		0367296917B0458D0074D249 /* AlldicContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0367296417B0458D0074D249 /* AlldicContentView.xib */; };
-		0367296D17B045BF0074D249 /* AllkdicController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0367296B17B045A00074D249 /* AllkdicController.m */; };
 		0367296E17B045BF0074D249 /* AboutWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0367295F17B0458D0074D249 /* AboutWindowController.m */; };
 		0367296F17B045BF0074D249 /* AlldicContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0367296117B0458D0074D249 /* AlldicContentViewController.m */; };
 		0367297017B045BF0074D249 /* NSWindow+CanBecomeKeyWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 0367295C17B0458D0074D249 /* NSWindow+CanBecomeKeyWindow.m */; };
@@ -101,8 +100,6 @@
 		0367296117B0458D0074D249 /* AlldicContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlldicContentViewController.m; sourceTree = "<group>"; };
 		0367296317B0458D0074D249 /* AboutWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutWindow.xib; sourceTree = "<group>"; };
 		0367296417B0458D0074D249 /* AlldicContentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlldicContentView.xib; sourceTree = "<group>"; };
-		0367296A17B045A00074D249 /* AllkdicController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AllkdicController.h; path = Allkdic/AllkdicController.h; sourceTree = SOURCE_ROOT; };
-		0367296B17B045A00074D249 /* AllkdicController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AllkdicController.m; path = Allkdic/AllkdicController.m; sourceTree = SOURCE_ROOT; };
 		0367297617B052B70074D249 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		03C0861B17B064480070A164 /* LoginUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginUtil.h; path = Allkdic/LoginUtil.h; sourceTree = SOURCE_ROOT; };
 		03C0861C17B064480070A164 /* LoginUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginUtil.m; path = Allkdic/LoginUtil.m; sourceTree = SOURCE_ROOT; };
@@ -192,8 +189,6 @@
 				0367294317B025390074D249 /* Common.h */,
 				0349452119FBB68D00D7AEE2 /* Constants.swift */,
 				0349451619FB8D4D00D7AEE2 /* AppDelegate.swift */,
-				0367296A17B045A00074D249 /* AllkdicController.h */,
-				0367296B17B045A00074D249 /* AllkdicController.m */,
 				03C0861B17B064480070A164 /* LoginUtil.h */,
 				03C0861C17B064480070A164 /* LoginUtil.m */,
 				031FE7DD19D479DB008EB670 /* AKLabelButton.h */,
@@ -365,7 +360,6 @@
 				0349451A19FB9D1800D7AEE2 /* AKHotKeyManager.m in Sources */,
 				0320F9F118AA099400D989F6 /* AnalyticsEvent.m in Sources */,
 				0349452019FBB24100D7AEE2 /* AllkdicManager.swift in Sources */,
-				0367296D17B045BF0074D249 /* AllkdicController.m in Sources */,
 				0349451719FB8D4D00D7AEE2 /* AppDelegate.swift in Sources */,
 				0324200817E37710003025E3 /* PreferenceWindowController.m in Sources */,
 				0349452219FBB68D00D7AEE2 /* Constants.swift in Sources */,
