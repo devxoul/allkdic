@@ -31,8 +31,8 @@ class AllkdicManager: NSObject {
     let statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(-1) // NSVariableStatusItemLength
     let popover = NSPopover()
 
-    let contentViewController = AlldicContentViewController(nibName: "AllkdicContentView", bundle: nil)!
-    let preferenceWindowController = PreferenceWindowController(windowNibName: "PreferenceWindowController")
+    let contentViewController = ContentViewController()!
+    let preferenceWindowController = PreferenceWindowController(windowNibName: "PreferenceWindow")
     let aboutWindowController = AboutWindowController(windowNibName: "AboutWindow")
 
     class func sharedInstance() -> AllkdicManager {

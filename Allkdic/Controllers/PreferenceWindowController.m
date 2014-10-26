@@ -8,7 +8,6 @@
 
 #import "AKHotKeyManager.h"
 #import "PreferenceWindowController.h"
-#import "AlldicContentViewController.h"
 #import "AnalyticsHelper.h"
 
 @implementation PreferenceWindowController

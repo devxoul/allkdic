@@ -26,7 +26,6 @@
 #import <Cocoa/Cocoa.h>
 
 #import "AKHotKeyManager.h"
-#import "AlldicContentViewController.h"
 #import "KeyBinding.h"
 
 @implementation AKHotKeyManager

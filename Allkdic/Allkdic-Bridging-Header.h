@@ -26,7 +26,7 @@
 
 #import "AboutWindowController.h"
 #import "AKHotKeyManager.h"
-#import "AlldicContentViewController.h"
+#import "AKLabelButton.h"
 #import "Common.h"
 #import "LoginUtil.h"
 #import "PreferenceWindowController.h"
