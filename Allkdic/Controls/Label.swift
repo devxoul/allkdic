@@ -22,11 +22,22 @@
  SOFTWARE.
 */
 
-#import "AnalyticsHelper.h"
+import AppKit
 
-#import "AboutWindowController.h"
-#import "AKHotKeyManager.h"
-#import "Common.h"
-#import "LoginUtil.h"
+public class Label: NSTextField {
 
-#import <Sparkle/SUUpdater.h>
+    override init(frame: NSRect) {
+        super.init(frame: frame)
+        self.bezeled = false
+        self.editable = false
+        self.backgroundColor = NSColor.clearColor()
+    }
+
+    convenience override init() {
+        self.init(frame: CGRectZero)
+    }
+
+    required public init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}

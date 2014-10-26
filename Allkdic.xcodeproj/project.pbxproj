@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		031FE7DF19D479DB008EB670 /* AKLabelButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 031FE7DE19D479DB008EB670 /* AKLabelButton.m */; };
+		0315897519FD5069002D5A7C /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0315897419FD5069002D5A7C /* Label.swift */; };
+		0315897819FD50E1002D5A7C /* LabelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0315897719FD50E1002D5A7C /* LabelButton.swift */; };
 		0320F9F118AA099400D989F6 /* AnalyticsEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 0320F9ED18AA099400D989F6 /* AnalyticsEvent.m */; };
 		0320F9F218AA099400D989F6 /* AnalyticsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0320F9EF18AA099400D989F6 /* AnalyticsHelper.m */; };
 		0320F9F618AA62C000D989F6 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0320F9F018AA099400D989F6 /* Sparkle.framework */; };
@@ -58,8 +60,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		031FE7DD19D479DB008EB670 /* AKLabelButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AKLabelButton.h; path = Allkdic/AKLabelButton.h; sourceTree = SOURCE_ROOT; };
-		031FE7DE19D479DB008EB670 /* AKLabelButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AKLabelButton.m; path = Allkdic/AKLabelButton.m; sourceTree = SOURCE_ROOT; };
+		0315897419FD5069002D5A7C /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Label.swift; path = Allkdic/Controls/Label.swift; sourceTree = SOURCE_ROOT; };
+		0315897719FD50E1002D5A7C /* LabelButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LabelButton.swift; path = Allkdic/Controls/LabelButton.swift; sourceTree = SOURCE_ROOT; };
 		0320F9EC18AA099400D989F6 /* AnalyticsEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnalyticsEvent.h; sourceTree = "<group>"; };
 		0320F9ED18AA099400D989F6 /* AnalyticsEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnalyticsEvent.m; sourceTree = "<group>"; };
 		0320F9EE18AA099400D989F6 /* AnalyticsHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnalyticsHelper.h; sourceTree = "<group>"; };
@@ -127,6 +129,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0315897619FD506D002D5A7C /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				0315897419FD5069002D5A7C /* Label.swift */,
+				0315897719FD50E1002D5A7C /* LabelButton.swift */,
+			);
+			name = Controls;
+			sourceTree = "<group>";
+		};
 		0320F9EA18AA099400D989F6 /* Third Party */ = {
 			isa = PBXGroup;
 			children = (
@@ -198,9 +209,8 @@
 				0349451619FB8D4D00D7AEE2 /* AppDelegate.swift */,
 				03C0861B17B064480070A164 /* LoginUtil.h */,
 				03C0861C17B064480070A164 /* LoginUtil.m */,
-				031FE7DD19D479DB008EB670 /* AKLabelButton.h */,
-				031FE7DE19D479DB008EB670 /* AKLabelButton.m */,
 				0349451B19FB9D1D00D7AEE2 /* Managers */,
+				0315897619FD506D002D5A7C /* Controls */,
 				0367296217B0458D0074D249 /* Views */,
 				0367295D17B0458D0074D249 /* Controllers */,
 				0324201017E38EC3003025E3 /* Models */,
@@ -361,7 +371,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0349452419FBEE7100D7AEE2 /* ContentViewController.swift in Sources */,
-				031FE7DF19D479DB008EB670 /* AKLabelButton.m in Sources */,
 				0362B0CC19FD146B00C88610 /* PreferenceWindowController.swift in Sources */,
 				0349451A19FB9D1800D7AEE2 /* AKHotKeyManager.m in Sources */,
 				0320F9F118AA099400D989F6 /* AnalyticsEvent.m in Sources */,
@@ -374,7 +383,9 @@
 				0349451E19FBB01700D7AEE2 /* main.swift in Sources */,
 				0367297017B045BF0074D249 /* NSWindow+CanBecomeKeyWindow.m in Sources */,
 				0324200F17E38DA4003025E3 /* AllkdicWindowController.m in Sources */,
+				0315897519FD5069002D5A7C /* Label.swift in Sources */,
 				0320F9F218AA099400D989F6 /* AnalyticsHelper.m in Sources */,
+				0315897819FD50E1002D5A7C /* LabelButton.swift in Sources */,
 				03C0861D17B064480070A164 /* LoginUtil.m in Sources */,
 				0324201317E38ED8003025E3 /* KeyBinding.m in Sources */,
 			);

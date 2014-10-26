@@ -28,8 +28,8 @@ import WebKit
 
 public class ContentViewController: NSViewController {
 
-    let titleLabel = AKLabelButton()
-    let hotKeyLabel = NSTextField()
+    let titleLabel = LabelButton()
+    let hotKeyLabel = Label()
     let separatorView = NSImageView()
     let webView = WebView()
     let indicator = NSProgressIndicator(frame: NSZeroRect)
@@ -48,9 +48,6 @@ public class ContentViewController: NSViewController {
         self.view = NSView(frame: CGRectMake(0, 0, 405, 566))
 
         self.view.addSubview(self.titleLabel)
-        self.titleLabel.bezeled = false
-        self.titleLabel.editable = false
-        self.titleLabel.backgroundColor = NSColor.clearColor()
         self.titleLabel.textColor = NSColor.controlTextColor()
         self.titleLabel.font = NSFont.systemFontOfSize(16)
         self.titleLabel.stringValue = "올ㅋ사전"
@@ -63,9 +60,6 @@ public class ContentViewController: NSViewController {
         }
 
         self.view.addSubview(self.hotKeyLabel)
-        self.hotKeyLabel.bezeled = false
-        self.hotKeyLabel.editable = false
-        self.hotKeyLabel.backgroundColor = NSColor.clearColor()
         self.hotKeyLabel.textColor = NSColor.headerColor()
         self.hotKeyLabel.font = NSFont.systemFontOfSize(NSFont.smallSystemFontSize())
         self.hotKeyLabel.snp_makeConstraints { make in

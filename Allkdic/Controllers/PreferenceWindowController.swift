@@ -29,13 +29,13 @@ class PreferenceWindowController: WindowController, NSTextFieldDelegate {
 
     var keyBinding: KeyBinding?
 
-    let label = NSTextField()
+    let label = Label()
     let hotKeyTextField = NSTextField()
-    let shiftLabel = NSTextField()
-    let controlLabel = NSTextField()
-    let altLabel = NSTextField()
-    let commandLabel = NSTextField()
-    let keyLabel = NSTextField()
+    let shiftLabel = Label()
+    let controlLabel = Label()
+    let altLabel = Label()
+    let commandLabel = Label()
+    let keyLabel = Label()
 
     init() {
         super.init(windowSize: CGSizeMake(310, 200))
@@ -48,13 +48,6 @@ class PreferenceWindowController: WindowController, NSTextFieldDelegate {
         self.contentView.addSubview(self.altLabel)
         self.contentView.addSubview(self.commandLabel)
         self.contentView.addSubview(self.keyLabel)
-
-        let labels = [self.label, self.shiftLabel, self.controlLabel, self.altLabel, self.commandLabel, self.keyLabel]
-        for label in labels {
-            label.bezeled = false
-            label.editable = false
-            label.backgroundColor = NSColor.clearColor()
-        }
 
         self.label.font = NSFont.systemFontOfSize(13)
         self.label.stringValue = "단축키:"

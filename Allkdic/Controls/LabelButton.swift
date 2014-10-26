@@ -22,11 +22,27 @@
  SOFTWARE.
 */
 
-#import "AnalyticsHelper.h"
+import AppKit
 
-#import "AboutWindowController.h"
-#import "AKHotKeyManager.h"
-#import "Common.h"
-#import "LoginUtil.h"
+public class LabelButton: Label {
 
-#import <Sparkle/SUUpdater.h>
+    public var normalTextColor: NSColor! = NSColor.blackColor()
+    public var highlightedTextColor: NSColor! = NSColor(white: 0.5, alpha: 1)
+
+    override public func mouseDown(theEvent: NSEvent?) {
+        self.textColor = self.highlightedTextColor
+    }
+
+    override public func mouseUp(theEvent: NSEvent?) {
+        self.textColor = self.normalTextColor
+
+        if theEvent? != nil {
+            let point = theEvent!.locationInWindow
+            let rect = CGRectInset(self.frame, -10, -30)
+
+            if NSPointInRect(point, rect) {
+                self.sendAction(self.action, to: self.target)
+            }
+        }
+    }
+}
