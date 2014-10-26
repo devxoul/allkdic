@@ -17,8 +17,6 @@
 		0322CF9E17AE9BBB007E832C /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0322CF9D17AE9BBB007E832C /* WebKit.framework */; };
 		0322CFA317AF389B007E832C /* statusicon_default.png in Resources */ = {isa = PBXBuildFile; fileRef = 0322CFA117AF389B007E832C /* statusicon_default.png */; };
 		0322CFA517AF3A6C007E832C /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0322CFA417AF3A6C007E832C /* Carbon.framework */; };
-		0324200817E37710003025E3 /* PreferenceWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0324200717E37710003025E3 /* PreferenceWindowController.m */; };
-		0324200A17E378C9003025E3 /* PreferenceWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0324200917E37742003025E3 /* PreferenceWindow.xib */; };
 		0324200F17E38DA4003025E3 /* AllkdicWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0324200E17E38DA4003025E3 /* AllkdicWindowController.m */; };
 		0324201317E38ED8003025E3 /* KeyBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 0324201217E38ED8003025E3 /* KeyBinding.m */; };
 		0349451719FB8D4D00D7AEE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349451619FB8D4D00D7AEE2 /* AppDelegate.swift */; };
@@ -31,6 +29,8 @@
 		0349455619FCA13100D7AEE2 /* Snappy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0349455419FCA12600D7AEE2 /* Snappy.framework */; };
 		0349455719FCA13100D7AEE2 /* Snappy.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0349455419FCA12600D7AEE2 /* Snappy.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0349455A19FCF0A900D7AEE2 /* WebView+Key.m in Sources */ = {isa = PBXBuildFile; fileRef = 0349455919FCF0A900D7AEE2 /* WebView+Key.m */; };
+		0362B0CC19FD146B00C88610 /* PreferenceWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0362B0CB19FD146B00C88610 /* PreferenceWindowController.swift */; };
+		0362B0CE19FD2D2B00C88610 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0362B0CD19FD2D2B00C88610 /* WindowController.swift */; };
 		0367293617B00CEC0074D249 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0367293317B00CEC0074D249 /* InfoPlist.strings */; };
 		0367294217B016A80074D249 /* line.png in Resources */ = {isa = PBXBuildFile; fileRef = 0367294117B016A80074D249 /* line.png */; };
 		0367294517B029CD0074D249 /* icon_settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 0367294417B029CD0074D249 /* icon_settings.png */; };
@@ -74,9 +74,6 @@
 		0322CF9D17AE9BBB007E832C /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		0322CFA117AF389B007E832C /* statusicon_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = statusicon_default.png; sourceTree = "<group>"; };
 		0322CFA417AF3A6C007E832C /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
-		0324200617E37710003025E3 /* PreferenceWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferenceWindowController.h; sourceTree = "<group>"; };
-		0324200717E37710003025E3 /* PreferenceWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferenceWindowController.m; sourceTree = "<group>"; };
-		0324200917E37742003025E3 /* PreferenceWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreferenceWindow.xib; sourceTree = "<group>"; };
 		0324200B17E38AC6003025E3 /* AllkdicWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllkdicWindowController.h; sourceTree = "<group>"; };
 		0324200E17E38DA4003025E3 /* AllkdicWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllkdicWindowController.m; sourceTree = "<group>"; };
 		0324201117E38ED8003025E3 /* KeyBinding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KeyBinding.h; path = Allkdic/Models/KeyBinding.h; sourceTree = SOURCE_ROOT; };
@@ -92,6 +89,8 @@
 		0349455419FCA12600D7AEE2 /* Snappy.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Snappy.framework; path = "Third Party/Snappy.framework"; sourceTree = SOURCE_ROOT; };
 		0349455819FCF08100D7AEE2 /* WebView+Key.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WebView+Key.h"; sourceTree = "<group>"; };
 		0349455919FCF0A900D7AEE2 /* WebView+Key.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WebView+Key.m"; sourceTree = "<group>"; };
+		0362B0CB19FD146B00C88610 /* PreferenceWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceWindowController.swift; sourceTree = "<group>"; };
+		0362B0CD19FD2D2B00C88610 /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 		0367292D17B00CD90074D249 /* Allkdic-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Allkdic-Info.plist"; path = "Allkdic/Allkdic-Info.plist"; sourceTree = SOURCE_ROOT; };
 		0367292E17B00CD90074D249 /* Allkdic-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Allkdic-Prefix.pch"; path = "Allkdic/Allkdic-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		0367293417B00CEC0074D249 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Allkdic/en.lproj/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
@@ -271,10 +270,10 @@
 			isa = PBXGroup;
 			children = (
 				0349452319FBEE7100D7AEE2 /* ContentViewController.swift */,
+				0362B0CD19FD2D2B00C88610 /* WindowController.swift */,
+				0362B0CB19FD146B00C88610 /* PreferenceWindowController.swift */,
 				0324200B17E38AC6003025E3 /* AllkdicWindowController.h */,
 				0324200E17E38DA4003025E3 /* AllkdicWindowController.m */,
-				0324200617E37710003025E3 /* PreferenceWindowController.h */,
-				0324200717E37710003025E3 /* PreferenceWindowController.m */,
 				0367295E17B0458D0074D249 /* AboutWindowController.h */,
 				0367295F17B0458D0074D249 /* AboutWindowController.m */,
 			);
@@ -285,7 +284,6 @@
 		0367296217B0458D0074D249 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				0324200917E37742003025E3 /* PreferenceWindow.xib */,
 				0367296317B0458D0074D249 /* AboutWindow.xib */,
 			);
 			name = Views;
@@ -350,7 +348,6 @@
 				0367294517B029CD0074D249 /* icon_settings.png in Resources */,
 				0367294D17B031FA0074D249 /* icon.png in Resources */,
 				0367294F17B032DF0074D249 /* icon.iconset in Resources */,
-				0324200A17E378C9003025E3 /* PreferenceWindow.xib in Resources */,
 				0367296817B0458D0074D249 /* AboutWindow.xib in Resources */,
 				0367297717B052B70074D249 /* dsa_pub.pem in Resources */,
 			);
@@ -365,12 +362,13 @@
 			files = (
 				0349452419FBEE7100D7AEE2 /* ContentViewController.swift in Sources */,
 				031FE7DF19D479DB008EB670 /* AKLabelButton.m in Sources */,
+				0362B0CC19FD146B00C88610 /* PreferenceWindowController.swift in Sources */,
 				0349451A19FB9D1800D7AEE2 /* AKHotKeyManager.m in Sources */,
 				0320F9F118AA099400D989F6 /* AnalyticsEvent.m in Sources */,
 				0349452019FBB24100D7AEE2 /* AllkdicManager.swift in Sources */,
 				0349455A19FCF0A900D7AEE2 /* WebView+Key.m in Sources */,
 				0349451719FB8D4D00D7AEE2 /* AppDelegate.swift in Sources */,
-				0324200817E37710003025E3 /* PreferenceWindowController.m in Sources */,
+				0362B0CE19FD2D2B00C88610 /* WindowController.swift in Sources */,
 				0349452219FBB68D00D7AEE2 /* Constants.swift in Sources */,
 				0367296E17B045BF0074D249 /* AboutWindowController.m in Sources */,
 				0349451E19FBB01700D7AEE2 /* main.swift in Sources */,

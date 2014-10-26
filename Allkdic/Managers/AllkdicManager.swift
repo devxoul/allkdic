@@ -32,7 +32,7 @@ class AllkdicManager: NSObject {
     let popover = NSPopover()
 
     let contentViewController = ContentViewController()!
-    let preferenceWindowController = PreferenceWindowController(windowNibName: "PreferenceWindow")
+    let preferenceWindowController = PreferenceWindowController()
     let aboutWindowController = AboutWindowController(windowNibName: "AboutWindow")
 
     class func sharedInstance() -> AllkdicManager {
@@ -110,9 +110,13 @@ class AllkdicManager: NSObject {
         let keyBinding = KeyBinding(keyCode: Int(keyCode), flags: flags.rawValue)
 
         let window = NSApp.windowWithWindowNumber(windowNumber)
+        if window? == nil {
+            return
+        }
+
         if window!.dynamicType.className() == "NSStatusBarWindow" {
             self.contentViewController.handleKeyBinding(keyBinding)
-        } else if window!.windowController()! is AllkdicWindowController {
+        } else if window!.windowController()? != nil && window!.windowController()! is PreferenceWindowController {
             window!.windowController()!.handleKeyBinding(keyBinding)
         }
     }

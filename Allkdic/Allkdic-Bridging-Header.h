@@ -29,6 +29,5 @@
 #import "AKLabelButton.h"
 #import "Common.h"
 #import "LoginUtil.h"
-#import "PreferenceWindowController.h"
 
 #import <Sparkle/SUUpdater.h>
