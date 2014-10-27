@@ -22,9 +22,12 @@
  SOFTWARE.
 */
 
+#import "Allkdic-Swift.h"
+
 #import <Carbon/Carbon.h>
 #import <Cocoa/Cocoa.h>
 
+#import "Common.h"
 #import "AKHotKeyManager.h"
 #import "KeyBinding.h"
 

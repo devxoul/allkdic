@@ -36,14 +36,6 @@ public class ContentViewController: NSViewController {
     let menuButton = NSButton()
     let mainMenu = NSMenu()
 
-    override init?(nibName nibNameOrNil: String? = nil, bundle bundleOrNil: NSBundle? = nil) {
-        super.init(nibName: "", bundle: nil)
-    }
-
-    required public init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
     override public func loadView() {
         self.view = NSView(frame: CGRectMake(0, 0, 405, 566))
 
@@ -115,7 +107,6 @@ public class ContentViewController: NSViewController {
             self.mainMenu.addItem(menuItem)
         }
 
-        super.loadView()
         self.navigateToMain()
     }
 
