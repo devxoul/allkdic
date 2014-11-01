@@ -22,7 +22,7 @@
  SOFTWARE.
 */
 
-import Cocoa
+import AppKit
 
 private let _sharedInstance = AllkdicManager()
 

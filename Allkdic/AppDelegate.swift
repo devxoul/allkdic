@@ -23,7 +23,6 @@
 */
 
 import AppKit
-import Cocoa
 
 class AppDelegate: NSObject, NSApplicationDelegate {
 

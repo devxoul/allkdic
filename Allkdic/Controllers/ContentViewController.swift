@@ -22,7 +22,7 @@
  SOFTWARE.
 */
 
-import Cocoa
+import AppKit
 import Snappy
 import WebKit
 
