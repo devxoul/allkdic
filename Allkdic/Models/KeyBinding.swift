@@ -22,9 +22,18 @@
  SOFTWARE.
 */
 
-@objc public class KeyBinding: NSObject {
+private let _dictionaryKeys = ["keyCode", "shift", "control", "option", "command"]
 
-    private let _dictionaryKeys = ["keyCode", "shift", "control", "option", "command"]
+public func ==(left: KeyBinding, right: KeyBinding) -> Bool {
+    for key in _dictionaryKeys {
+        if left.valueForKey(key) as Int != right.valueForKey(key) as Int {
+            return false
+        }
+    }
+    return true
+}
+
+@objc public class KeyBinding: NSObject {
 
     var keyCode: Int = 0
     var shift: Bool = false
@@ -83,14 +92,16 @@
             return
         }
         for key in _dictionaryKeys {
-            let value = dictionary![key] as Int
-            self.setValue(value, forKey: key)
+            let value = dictionary![key] as? Int
+            if value? != nil {
+                self.setValue(value, forKey: key)
+            }
         }
     }
 
     public func toDictionary() -> [String: Int] {
         var dictionary = [String: Int]()
-        for key in self._dictionaryKeys {
+        for key in _dictionaryKeys {
             dictionary[key] = self.valueForKey(key)!.integerValue
         }
         return dictionary
