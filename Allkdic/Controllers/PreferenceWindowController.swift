@@ -137,8 +137,12 @@ class PreferenceWindowController: WindowController, NSTextFieldDelegate {
         }
     }
 
-    func handleKeyBinding(keyBinding: KeyBinding) {
-        if !keyBinding.shift && !keyBinding.control && !keyBinding.option && !keyBinding.command {
+    func handleKeyBinding(keyBinding: KeyBinding?) {
+        if keyBinding? == nil {
+            return
+        }
+
+        if !keyBinding!.shift && !keyBinding!.control && !keyBinding!.option && !keyBinding!.command {
             return
         }
 
@@ -152,23 +156,27 @@ class PreferenceWindowController: WindowController, NSTextFieldDelegate {
         self.altLabel.textColor = NSColor.lightGrayColor()
         self.commandLabel.textColor = NSColor.lightGrayColor()
 
-        if keyBinding.shift {
+        if keyBinding!.shift {
             self.shiftLabel.textColor = NSColor.blackColor()
         }
-        if keyBinding.control {
+        if keyBinding!.control {
             self.controlLabel.textColor = NSColor.blackColor()
         }
-        if keyBinding.option {
+        if keyBinding!.option {
             self.altLabel.textColor = NSColor.blackColor()
         }
-        if keyBinding.command {
+        if keyBinding!.command {
             self.commandLabel.textColor = NSColor.blackColor()
         }
 
-        self.keyLabel.stringValue = KeyBinding.keyStringFormKeyCode(CGKeyCode(keyBinding.keyCode)).capitalizedString
+        let keyString = KeyBinding.keyStringFormKeyCode(keyBinding!.keyCode)
+        if keyString? == nil {
+            return
+        }
+        self.keyLabel.stringValue = keyString!.capitalizedString
         self.keyLabel.sizeToFit()
 
-        NSUserDefaults.standardUserDefaults().setObject(keyBinding.dictionary, forKey: UserDefaultsKey.HotKey)
+        NSUserDefaults.standardUserDefaults().setObject(keyBinding!.toDictionary(), forKey: UserDefaultsKey.HotKey)
         NSUserDefaults.standardUserDefaults().synchronize()
 
         AllkdicManager.sharedInstance().contentViewController.updateHotKeyLabel()

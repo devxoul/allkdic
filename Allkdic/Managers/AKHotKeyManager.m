@@ -27,7 +27,6 @@
 #import <Carbon/Carbon.h>
 
 #import "AKHotKeyManager.h"
-#import "KeyBinding.h"
 
 @implementation AKHotKeyManager
 
@@ -51,14 +50,16 @@ EventHotKeyRef hotKeyRef;
     hotKeyId.id = 0;
 
     NSDictionary *data = [[NSUserDefaults standardUserDefaults] objectForKey:UserDefaultsKey.HotKey];
-    KeyBinding *keyBinding = [KeyBinding keyBindingWithDictionary:data];
-    if (!keyBinding) {
+    KeyBinding *keyBinding;
+    if (data) {
+        keyBinding = [[KeyBinding alloc] initWithDictionary:data];
+    } else {
         NSLog(@"No existing key setting.");
         keyBinding = [[KeyBinding alloc] init];
         keyBinding.option = YES;
         keyBinding.command = YES;
         keyBinding.keyCode = 49; // Space
-        [[NSUserDefaults standardUserDefaults] setObject:keyBinding.dictionary forKey:UserDefaultsKey.HotKey];
+        [[NSUserDefaults standardUserDefaults] setObject:[keyBinding toDictionary] forKey:UserDefaultsKey.HotKey];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
 

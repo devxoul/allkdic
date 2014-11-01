@@ -107,7 +107,7 @@ class AllkdicManager: NSObject {
     }
 
     func handleKeyCode(keyCode: UInt16, flags: NSEventModifierFlags, windowNumber: Int) {
-        let keyBinding = KeyBinding(keyCode: Int(keyCode), flags: flags.rawValue)
+        let keyBinding = KeyBinding(keyCode: Int(keyCode), flags: Int(flags.rawValue))
 
         let window = NSApp.windowWithWindowNumber(windowNumber)
         if window? == nil {

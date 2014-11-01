@@ -113,22 +113,7 @@ public class ContentViewController: NSViewController {
     public func updateHotKeyLabel() {
         let keyBindingData = NSUserDefaults.standardUserDefaults().dictionaryForKey(UserDefaultsKey.HotKey)
         let keyBinding = KeyBinding(dictionary: keyBindingData)
-
-        var keys = [String]()
-        if keyBinding.shift {
-            keys.append("Shift")
-        }
-        if keyBinding.control {
-            keys.append("Control")
-        }
-        if keyBinding.option {
-            keys.append("Option")
-        }
-        if keyBinding.command {
-            keys.append("Command")
-        }
-        keys.append(KeyBinding.keyStringFormKeyCode(CGKeyCode(keyBinding.keyCode)).capitalizedString)
-        self.hotKeyLabel.stringValue = " + ".join(keys)
+        self.hotKeyLabel.stringValue = keyBinding.description
         self.hotKeyLabel.sizeToFit()
     }
 

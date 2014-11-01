@@ -25,7 +25,6 @@
 #import "AnalyticsHelper.h"
 
 #import "AKHotKeyManager.h"
-#import "KeyBinding.h"
 #import "LoginUtil.h"
 
 #import <Sparkle/SUUpdater.h>
