@@ -44,7 +44,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func applicationWillTerminate(notification: NSNotification) {
-        AnalyticsHelper.sharedInstance().handleApplicationWillTerminate()
+        AnalyticsHelper.sharedInstance().handleApplicationWillClose()
         NSUserDefaults.standardUserDefaults().synchronize()
     }
 
