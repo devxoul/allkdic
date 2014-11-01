@@ -92,7 +92,6 @@
 		0367292D17B00CD90074D249 /* Allkdic-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Allkdic-Info.plist"; path = "Allkdic/Allkdic-Info.plist"; sourceTree = SOURCE_ROOT; };
 		0367293417B00CEC0074D249 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Allkdic/en.lproj/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
 		0367294117B016A80074D249 /* line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = line.png; sourceTree = "<group>"; };
-		0367294317B025390074D249 /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Common.h; path = Allkdic/Common.h; sourceTree = SOURCE_ROOT; };
 		0367294417B029CD0074D249 /* icon_settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_settings.png; sourceTree = "<group>"; };
 		0367294C17B031FA0074D249 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		0367294E17B032DF0074D249 /* icon.iconset */ = {isa = PBXFileReference; lastKnownFileType = folder.iconset; path = icon.iconset; sourceTree = "<group>"; };
@@ -196,7 +195,6 @@
 		0322CF8317AE9965007E832C /* Allkdic */ = {
 			isa = PBXGroup;
 			children = (
-				0367294317B025390074D249 /* Common.h */,
 				0349452119FBB68D00D7AEE2 /* Constants.swift */,
 				0349451619FB8D4D00D7AEE2 /* AppDelegate.swift */,
 				03C0861B17B064480070A164 /* LoginUtil.h */,

@@ -29,9 +29,9 @@ struct BundleInfo {
     static let BundleName = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleName") as String
 }
 
-struct UserDefaultsKey {
-    static let IgnoreApplicationFolderWarning = "AKIgnoreApplicationFolder"
-    static let HotKey = "AllkdicSettingKeyHotKey"
+@objc class UserDefaultsKey {
+    class var IgnoreApplicationFolderWarning: String { return "AKIgnoreApplicationFolder" }
+    class var HotKey: String { return "AllkdicSettingKeyHotKey" }
 }
 
 struct AnalyticsCategory {

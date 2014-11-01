@@ -25,9 +25,7 @@
 #import "Allkdic-Swift.h"
 
 #import <Carbon/Carbon.h>
-#import <Cocoa/Cocoa.h>
 
-#import "Common.h"
 #import "AKHotKeyManager.h"
 #import "KeyBinding.h"
 
@@ -46,55 +44,57 @@ EventHotKeyRef hotKeyRef;
     eventType.eventKind = kEventHotKeyPressed;
 
     // When hotkey event fired, hotKeyHandler is called.
-    InstallApplicationEventHandler( &hotKeyHandler, 1, &eventType, NULL, NULL );
+    InstallApplicationEventHandler(&hotKeyHandler, 1, &eventType, NULL, NULL);
 
     // 4byte character
     hotKeyId.signature = 'allk';
     hotKeyId.id = 0;
 
-    KeyBinding *keyBinding = [KeyBinding keyBindingWithDictionary:[[NSUserDefaults standardUserDefaults] objectForKey:AllkdicSettingKeyHotKey]];
-    if( !keyBinding ) {
-        NSLog( @"No existing key setting." );
+    NSDictionary *data = [[NSUserDefaults standardUserDefaults] objectForKey:UserDefaultsKey.HotKey];
+    KeyBinding *keyBinding = [KeyBinding keyBindingWithDictionary:data];
+    if (!keyBinding) {
+        NSLog(@"No existing key setting.");
         keyBinding = [[KeyBinding alloc] init];
         keyBinding.option = YES;
         keyBinding.command = YES;
         keyBinding.keyCode = 49; // Space
-        [[NSUserDefaults standardUserDefaults] setObject:keyBinding.dictionary forKey:AllkdicSettingKeyHotKey];
+        [[NSUserDefaults standardUserDefaults] setObject:keyBinding.dictionary forKey:UserDefaultsKey.HotKey];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
 
-    NSLog( @"Bind HotKey : %@", keyBinding );
+    NSLog(@"Bind HotKey : %@", keyBinding);
 
     UInt32 hotKeyModifiers = 0;
-    if( keyBinding.shift ) {
+    if (keyBinding.shift) {
         hotKeyModifiers += shiftKey;
     }
-    if( keyBinding.option ) {
+    if (keyBinding.option) {
         hotKeyModifiers += optionKey;
     }
-    if( keyBinding.control ) {
+    if (keyBinding.control) {
         hotKeyModifiers += controlKey;
     }
-    if( keyBinding.command ) {
+    if (keyBinding.command) {
         hotKeyModifiers += cmdKey;
     }
 
-    RegisterEventHotKey( (UInt32)keyBinding.keyCode, hotKeyModifiers, hotKeyId, GetApplicationEventTarget(), 0, &hotKeyRef );
+    RegisterEventHotKey((UInt32)keyBinding.keyCode, hotKeyModifiers, hotKeyId, GetApplicationEventTarget(), 0,
+                        &hotKeyRef);
 
     [[AllkdicManager sharedInstance].contentViewController updateHotKeyLabel];
 }
 
 + (void)unregisterHotKey
 {
-    NSLog( @"Unbind HotKey" );
-    UnregisterEventHotKey( hotKeyRef );
+    NSLog (@"Unbind HotKey");
+    UnregisterEventHotKey(hotKeyRef);
 }
 
 
 #pragma mark -
 #pragma mark HotKey
 
-OSStatus hotKeyHandler( EventHandlerCallRef nextHandler, EventRef theEvent, void *userData )
+OSStatus hotKeyHandler(EventHandlerCallRef nextHandler, EventRef theEvent, void *userData)
 {
     [[AllkdicManager sharedInstance] open];
     return noErr;
