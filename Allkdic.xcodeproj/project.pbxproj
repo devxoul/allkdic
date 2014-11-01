@@ -212,8 +212,8 @@
 			isa = PBXGroup;
 			children = (
 				0349451D19FBB01700D7AEE2 /* main.swift */,
-				0367292D17B00CD90074D249 /* Allkdic-Info.plist */,
 				0349451819FB8D8000D7AEE2 /* Allkdic-Bridging-Header.h */,
+				0367292D17B00CD90074D249 /* Allkdic-Info.plist */,
 				0367293317B00CEC0074D249 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
