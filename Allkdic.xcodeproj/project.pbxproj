@@ -36,7 +36,6 @@
 		0367294517B029CD0074D249 /* icon_settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 0367294417B029CD0074D249 /* icon_settings.png */; };
 		0367294D17B031FA0074D249 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0367294C17B031FA0074D249 /* icon.png */; };
 		0367294F17B032DF0074D249 /* icon.iconset in Resources */ = {isa = PBXBuildFile; fileRef = 0367294E17B032DF0074D249 /* icon.iconset */; };
-		0367297017B045BF0074D249 /* NSWindow+CanBecomeKeyWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 0367295C17B0458D0074D249 /* NSWindow+CanBecomeKeyWindow.m */; };
 		0367297717B052B70074D249 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 0367297617B052B70074D249 /* dsa_pub.pem */; };
 		038DDCA81A051BE700754ECC /* KeyBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038DDCA71A051BE700754ECC /* KeyBinding.swift */; };
 		038DDCAA1A051DA800754ECC /* KeyMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038DDCA91A051DA800754ECC /* KeyMap.swift */; };
@@ -94,8 +93,6 @@
 		0367294417B029CD0074D249 /* icon_settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_settings.png; sourceTree = "<group>"; };
 		0367294C17B031FA0074D249 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		0367294E17B032DF0074D249 /* icon.iconset */ = {isa = PBXFileReference; lastKnownFileType = folder.iconset; path = icon.iconset; sourceTree = "<group>"; };
-		0367295B17B0458D0074D249 /* NSWindow+CanBecomeKeyWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSWindow+CanBecomeKeyWindow.h"; sourceTree = "<group>"; };
-		0367295C17B0458D0074D249 /* NSWindow+CanBecomeKeyWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSWindow+CanBecomeKeyWindow.m"; sourceTree = "<group>"; };
 		0367297617B052B70074D249 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		038DDCA71A051BE700754ECC /* KeyBinding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyBinding.swift; path = Allkdic/Models/KeyBinding.swift; sourceTree = SOURCE_ROOT; };
 		038DDCA91A051DA800754ECC /* KeyMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyMap.swift; path = Allkdic/Models/KeyMap.swift; sourceTree = SOURCE_ROOT; };
@@ -256,8 +253,6 @@
 		0367295A17B0458D0074D249 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				0367295B17B0458D0074D249 /* NSWindow+CanBecomeKeyWindow.h */,
-				0367295C17B0458D0074D249 /* NSWindow+CanBecomeKeyWindow.m */,
 				0349455819FCF08100D7AEE2 /* WebView+Key.h */,
 				0349455919FCF0A900D7AEE2 /* WebView+Key.m */,
 			);
@@ -357,7 +352,6 @@
 				0362B0CE19FD2D2B00C88610 /* WindowController.swift in Sources */,
 				0349452219FBB68D00D7AEE2 /* Constants.swift in Sources */,
 				0349451E19FBB01700D7AEE2 /* main.swift in Sources */,
-				0367297017B045BF0074D249 /* NSWindow+CanBecomeKeyWindow.m in Sources */,
 				0315897519FD5069002D5A7C /* Label.swift in Sources */,
 				0320F9F218AA099400D989F6 /* AnalyticsHelper.m in Sources */,
 				0315897819FD50E1002D5A7C /* LabelButton.swift in Sources */,
