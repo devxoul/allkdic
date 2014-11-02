@@ -111,9 +111,9 @@ public func ==(left: KeyBinding, right: KeyBinding) -> Bool {
         return keyMap[keyCode]
     }
 
-    public class func keyCodeFormKeyString(keyString: String) -> Int {
+    public class func keyCodeFormKeyString(string: String) -> Int {
         for (keyCode, keyString) in keyMap {
-            if keyString == keyString {
+            if keyString == string {
                 return keyCode
             }
         }

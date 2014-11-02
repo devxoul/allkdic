@@ -27,11 +27,13 @@
 		0362B0CC19FD146B00C88610 /* PreferenceWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0362B0CB19FD146B00C88610 /* PreferenceWindowController.swift */; };
 		0362B0CE19FD2D2B00C88610 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0362B0CD19FD2D2B00C88610 /* WindowController.swift */; };
 		0367293617B00CEC0074D249 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0367293317B00CEC0074D249 /* InfoPlist.strings */; };
+		0367297017B045BF0074D249 /* NSWindow+CanBecomeKeyWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 0367295C17B0458D0074D249 /* NSWindow+CanBecomeKeyWindow.m */; };
 		0367297717B052B70074D249 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 0367297617B052B70074D249 /* dsa_pub.pem */; };
 		038DDCA81A051BE700754ECC /* KeyBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038DDCA71A051BE700754ECC /* KeyBinding.swift */; };
 		038DDCAA1A051DA800754ECC /* KeyMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038DDCA91A051DA800754ECC /* KeyMap.swift */; };
-		03A5C4981A05FD61001122AB /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0320F9F018AA099400D989F6 /* Sparkle.framework */; };
 		03A5C49C1A05FDFF001122AB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03A5C49B1A05FDFF001122AB /* Images.xcassets */; };
+		03A5C49D1A061E66001122AB /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0320F9F018AA099400D989F6 /* Sparkle.framework */; };
+		03A5C49E1A061E66001122AB /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0320F9F018AA099400D989F6 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		03C0861D17B064480070A164 /* LoginUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C0861C17B064480070A164 /* LoginUtil.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
@@ -43,6 +45,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				0349455719FCA13100D7AEE2 /* Snappy.framework in CopyFiles */,
+				03A5C49E1A061E66001122AB /* Sparkle.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +83,8 @@
 		0362B0CD19FD2D2B00C88610 /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 		0367292D17B00CD90074D249 /* Allkdic-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Allkdic-Info.plist"; path = "Allkdic/Allkdic-Info.plist"; sourceTree = SOURCE_ROOT; };
 		0367293417B00CEC0074D249 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Allkdic/en.lproj/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
+		0367295B17B0458D0074D249 /* NSWindow+CanBecomeKeyWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSWindow+CanBecomeKeyWindow.h"; sourceTree = "<group>"; };
+		0367295C17B0458D0074D249 /* NSWindow+CanBecomeKeyWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSWindow+CanBecomeKeyWindow.m"; sourceTree = "<group>"; };
 		0367297617B052B70074D249 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		038DDCA71A051BE700754ECC /* KeyBinding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyBinding.swift; path = Allkdic/Models/KeyBinding.swift; sourceTree = SOURCE_ROOT; };
 		038DDCA91A051DA800754ECC /* KeyMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyMap.swift; path = Allkdic/Models/KeyMap.swift; sourceTree = SOURCE_ROOT; };
@@ -95,7 +100,7 @@
 			files = (
 				0320F9FD18AA6D9000D989F6 /* Security.framework in Frameworks */,
 				0322CFA517AF3A6C007E832C /* Carbon.framework in Frameworks */,
-				03A5C4981A05FD61001122AB /* Sparkle.framework in Frameworks */,
+				03A5C49D1A061E66001122AB /* Sparkle.framework in Frameworks */,
 				0322CF9E17AE9BBB007E832C /* WebKit.framework in Frameworks */,
 				0322CF7E17AE9965007E832C /* Cocoa.framework in Frameworks */,
 			);
@@ -235,6 +240,8 @@
 		0367295A17B0458D0074D249 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				0367295B17B0458D0074D249 /* NSWindow+CanBecomeKeyWindow.h */,
+				0367295C17B0458D0074D249 /* NSWindow+CanBecomeKeyWindow.m */,
 				0349455819FCF08100D7AEE2 /* WebView+Key.h */,
 				0349455919FCF0A900D7AEE2 /* WebView+Key.m */,
 			);
@@ -330,6 +337,7 @@
 				0362B0CE19FD2D2B00C88610 /* WindowController.swift in Sources */,
 				0349452219FBB68D00D7AEE2 /* Constants.swift in Sources */,
 				0349451E19FBB01700D7AEE2 /* main.swift in Sources */,
+				0367297017B045BF0074D249 /* NSWindow+CanBecomeKeyWindow.m in Sources */,
 				0315897519FD5069002D5A7C /* Label.swift in Sources */,
 				0320F9F218AA099400D989F6 /* AnalyticsHelper.m in Sources */,
 				0315897819FD50E1002D5A7C /* LabelButton.swift in Sources */,

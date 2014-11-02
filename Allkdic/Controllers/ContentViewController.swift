@@ -35,6 +35,7 @@ public class ContentViewController: NSViewController {
     let indicator = NSProgressIndicator(frame: NSZeroRect)
     let menuButton = NSButton()
     let mainMenu = NSMenu()
+    let dictionaryMenu = NSMenu()
 
     override public func loadView() {
         self.view = NSView(frame: CGRectMake(0, 0, 405, 566))
@@ -97,16 +98,47 @@ public class ContentViewController: NSViewController {
             make.centerY.equalTo(self.separatorView.snp_top).dividedBy(2)
         }
 
-        let menuItems = [
+        let mainMenuItems = [
+            NSMenuItem(title: "사전", action: nil, keyEquivalent: ""),
             NSMenuItem(title: "환경설정", action: "showPreferenceWindow", keyEquivalent: ""),
             NSMenuItem(title: "올ㅋ사전에 관하여", action: "showAboutWindow", keyEquivalent: ""),
             NSMenuItem.separatorItem(),
             NSMenuItem(title: "올ㅋ사전 종료", action: "quit", keyEquivalent: ""),
         ]
-        for menuItem in menuItems {
-            self.mainMenu.addItem(menuItem)
+
+        for mainMenuItem in mainMenuItems {
+            self.mainMenu.addItem(mainMenuItem)
         }
 
+        //
+        // Dictionary Sub Menu
+        //
+        mainMenuItems[0].submenu = self.dictionaryMenu
+
+        let dictionaryKeyModifierMask = Int(
+            NSEventModifierFlags.CommandKeyMask.rawValue | NSEventModifierFlags.ShiftKeyMask.rawValue
+        )
+
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        var selectedDictionaryName = userDefaults.stringForKey(UserDefaultsKey.SelectedDictionaryName)
+        if selectedDictionaryName? == nil {
+            selectedDictionaryName = DictionaryName.Naver
+            userDefaults.setValue(selectedDictionaryName, forKey: UserDefaultsKey.SelectedDictionaryName)
+            userDefaults.synchronize()
+        }
+
+        for (i, info) in enumerate(DictionaryInfo) {
+            let dictionaryMenuItem = NSMenuItem()
+            dictionaryMenuItem.title = info[DictionaryInfoKey.Title]!
+            dictionaryMenuItem.tag = i
+            dictionaryMenuItem.action = "swapDictionary:"
+            dictionaryMenuItem.keyEquivalent = "\(i + 1)"
+            dictionaryMenuItem.keyEquivalentModifierMask = dictionaryKeyModifierMask
+            if selectedDictionaryName == info[DictionaryInfoKey.Name] {
+                dictionaryMenuItem.state = NSOnState
+            }
+            self.dictionaryMenu.addItem(dictionaryMenuItem)
+        }
         self.navigateToMain()
     }
 
@@ -126,7 +158,14 @@ public class ContentViewController: NSViewController {
     // MARK: - WebView
 
     func navigateToMain() {
-        self.webView.mainFrameURL = "http://endic.naver.com/popManager.nhn?m=miniPopMain"
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        let selectedDictionaryName = userDefaults.stringForKey(UserDefaultsKey.SelectedDictionaryName)
+        let selectedDictionary = DictionaryInfo.filter {
+            return $0[DictionaryInfoKey.Name] == selectedDictionaryName
+        }[0]
+        let URL = selectedDictionary[DictionaryInfoKey.URL]
+
+        self.webView.mainFrameURL = URL
         self.indicator.startAnimation(self)
         self.indicator.hidden = false
     }
@@ -186,6 +225,10 @@ public class ContentViewController: NSViewController {
             AllkdicManager.sharedInstance().close()
             break
 
+        case (true, false, false, true, let index) where 18...(18 + DictionaryInfo.count) ~= index:
+            self.swapDictionary(index - 18)
+            break
+
         default:
             break
         }
@@ -196,6 +239,45 @@ public class ContentViewController: NSViewController {
 
     func showMenu() {
         self.mainMenu.popUpMenuPositioningItem(self.mainMenu.itemAtIndex(0), atLocation:self.menuButton.frame.origin, inView:self.view)
+    }
+
+    /// Swap dictionary to given index.
+    ///
+    /// :param: sender `Int` or `NSMenuItem`. If `NSMenuItem` is given, guess dictionary's index with `tag` property.
+    func swapDictionary(sender: AnyObject?) {
+        if sender? == nil {
+            return
+        }
+
+        var index: Int?
+        if sender! is Int {
+            index = sender! as? Int
+        } else if sender! is NSMenuItem {
+            index = sender!.tag()
+        }
+
+        if index? == nil {
+            return
+        }
+
+        let selectedDictionary = DictionaryInfo[index!]
+        let dictionaryName = selectedDictionary[DictionaryInfoKey.Name]!
+
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        if dictionaryName == userDefaults.stringForKey(UserDefaultsKey.SelectedDictionaryName) {
+            return
+        }
+        userDefaults.setValue(dictionaryName, forKey: UserDefaultsKey.SelectedDictionaryName)
+        userDefaults.synchronize()
+
+        NSLog("Swap dictionary: \(dictionaryName)")
+
+        for menuItem in self.dictionaryMenu.itemArray {
+            (menuItem as NSMenuItem).state = NSOffState
+        }
+        self.dictionaryMenu.itemWithTag(index!)?.state = NSOnState
+
+        self.navigateToMain()
     }
 
     func showPreferenceWindow() {
