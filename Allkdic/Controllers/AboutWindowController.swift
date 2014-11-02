@@ -48,7 +48,7 @@ class AboutWindowController: WindowController {
         self.contentView.addSubview(copyrightLabel)
 
 
-        self.logoView.image = NSImage(named: "icon")
+        self.logoView.image = NSImage(named: "AppIcon")
         self.logoView.snp_makeConstraints { make in
             make.centerX.equalTo(self.contentView)
             make.top.equalTo(34)
