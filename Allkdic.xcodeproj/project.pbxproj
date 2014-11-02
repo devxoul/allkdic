@@ -15,7 +15,6 @@
 		0320F9FD18AA6D9000D989F6 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0320F9FC18AA6D9000D989F6 /* Security.framework */; };
 		0322CF7E17AE9965007E832C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0322CF7D17AE9965007E832C /* Cocoa.framework */; };
 		0322CF9E17AE9BBB007E832C /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0322CF9D17AE9BBB007E832C /* WebKit.framework */; };
-		0322CFA317AF389B007E832C /* statusicon_default.png in Resources */ = {isa = PBXBuildFile; fileRef = 0322CFA117AF389B007E832C /* statusicon_default.png */; };
 		0322CFA517AF3A6C007E832C /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0322CFA417AF3A6C007E832C /* Carbon.framework */; };
 		0349451719FB8D4D00D7AEE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349451619FB8D4D00D7AEE2 /* AppDelegate.swift */; };
 		0349451A19FB9D1800D7AEE2 /* AKHotKeyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0349451919FB9D1800D7AEE2 /* AKHotKeyManager.m */; };
@@ -28,14 +27,11 @@
 		0362B0CC19FD146B00C88610 /* PreferenceWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0362B0CB19FD146B00C88610 /* PreferenceWindowController.swift */; };
 		0362B0CE19FD2D2B00C88610 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0362B0CD19FD2D2B00C88610 /* WindowController.swift */; };
 		0367293617B00CEC0074D249 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0367293317B00CEC0074D249 /* InfoPlist.strings */; };
-		0367294217B016A80074D249 /* line.png in Resources */ = {isa = PBXBuildFile; fileRef = 0367294117B016A80074D249 /* line.png */; };
-		0367294517B029CD0074D249 /* icon_settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 0367294417B029CD0074D249 /* icon_settings.png */; };
-		0367294D17B031FA0074D249 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0367294C17B031FA0074D249 /* icon.png */; };
-		0367294F17B032DF0074D249 /* icon.iconset in Resources */ = {isa = PBXBuildFile; fileRef = 0367294E17B032DF0074D249 /* icon.iconset */; };
 		0367297717B052B70074D249 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 0367297617B052B70074D249 /* dsa_pub.pem */; };
 		038DDCA81A051BE700754ECC /* KeyBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038DDCA71A051BE700754ECC /* KeyBinding.swift */; };
 		038DDCAA1A051DA800754ECC /* KeyMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038DDCA91A051DA800754ECC /* KeyMap.swift */; };
 		03A5C4981A05FD61001122AB /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0320F9F018AA099400D989F6 /* Sparkle.framework */; };
+		03A5C49C1A05FDFF001122AB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03A5C49B1A05FDFF001122AB /* Images.xcassets */; };
 		03C0861D17B064480070A164 /* LoginUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C0861C17B064480070A164 /* LoginUtil.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
@@ -68,7 +64,6 @@
 		0322CF8117AE9965007E832C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		0322CF8217AE9965007E832C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0322CF9D17AE9BBB007E832C /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
-		0322CFA117AF389B007E832C /* statusicon_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = statusicon_default.png; sourceTree = "<group>"; };
 		0322CFA417AF3A6C007E832C /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		0349451619FB8D4D00D7AEE2 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Allkdic/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
 		0349451819FB8D8000D7AEE2 /* Allkdic-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Allkdic-Bridging-Header.h"; path = "Allkdic/Allkdic-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
@@ -85,13 +80,10 @@
 		0362B0CD19FD2D2B00C88610 /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 		0367292D17B00CD90074D249 /* Allkdic-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Allkdic-Info.plist"; path = "Allkdic/Allkdic-Info.plist"; sourceTree = SOURCE_ROOT; };
 		0367293417B00CEC0074D249 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Allkdic/en.lproj/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
-		0367294117B016A80074D249 /* line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = line.png; sourceTree = "<group>"; };
-		0367294417B029CD0074D249 /* icon_settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_settings.png; sourceTree = "<group>"; };
-		0367294C17B031FA0074D249 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
-		0367294E17B032DF0074D249 /* icon.iconset */ = {isa = PBXFileReference; lastKnownFileType = folder.iconset; path = icon.iconset; sourceTree = "<group>"; };
 		0367297617B052B70074D249 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		038DDCA71A051BE700754ECC /* KeyBinding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyBinding.swift; path = Allkdic/Models/KeyBinding.swift; sourceTree = SOURCE_ROOT; };
 		038DDCA91A051DA800754ECC /* KeyMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyMap.swift; path = Allkdic/Models/KeyMap.swift; sourceTree = SOURCE_ROOT; };
+		03A5C49B1A05FDFF001122AB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		03C0861B17B064480070A164 /* LoginUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginUtil.h; path = Allkdic/LoginUtil.h; sourceTree = SOURCE_ROOT; };
 		03C0861C17B064480070A164 /* LoginUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginUtil.m; path = Allkdic/LoginUtil.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -145,7 +137,6 @@
 		0322CF7117AE9964007E832C = {
 			isa = PBXGroup;
 			children = (
-				0367294C17B031FA0074D249 /* icon.png */,
 				0322CF8317AE9965007E832C /* Allkdic */,
 				0322CF9F17AF389B007E832C /* Resources */,
 				0320F9EA18AA099400D989F6 /* Third Party */,
@@ -216,11 +207,8 @@
 		0322CF9F17AF389B007E832C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				03A5C49B1A05FDFF001122AB /* Images.xcassets */,
 				0367297617B052B70074D249 /* dsa_pub.pem */,
-				0367294E17B032DF0074D249 /* icon.iconset */,
-				0322CFA117AF389B007E832C /* statusicon_default.png */,
-				0367294117B016A80074D249 /* line.png */,
-				0367294417B029CD0074D249 /* icon_settings.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -318,12 +306,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0322CFA317AF389B007E832C /* statusicon_default.png in Resources */,
+				03A5C49C1A05FDFF001122AB /* Images.xcassets in Resources */,
 				0367293617B00CEC0074D249 /* InfoPlist.strings in Resources */,
-				0367294217B016A80074D249 /* line.png in Resources */,
-				0367294517B029CD0074D249 /* icon_settings.png in Resources */,
-				0367294D17B031FA0074D249 /* icon.png in Resources */,
-				0367294F17B032DF0074D249 /* icon.iconset in Resources */,
 				0367297717B052B70074D249 /* dsa_pub.pem in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -429,6 +413,7 @@
 		0322CF9817AE9965007E832C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -453,6 +438,7 @@
 		0322CF9917AE9965007E832C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
