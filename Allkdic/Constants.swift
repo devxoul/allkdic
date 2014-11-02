@@ -46,18 +46,21 @@ struct DictionaryInfoKey {
     static let Name = "Name"
     static let Title = "Title"
     static let URL = "URL"
+    static let URLPattern = "URLPattern"
 }
 
 let DictionaryInfo = [
     [
         DictionaryInfoKey.Name: DictionaryName.Naver,
         DictionaryInfoKey.Title: "네이버 사전",
-        DictionaryInfoKey.URL: "http://endic.naver.com/popManager.nhn?m=miniPopMain"
+        DictionaryInfoKey.URL: "http://endic.naver.com/popManager.nhn?m=miniPopMain",
+        DictionaryInfoKey.URLPattern: "[a-z]+(?=\\.naver\\.com)",
     ],
     [
         DictionaryInfoKey.Name: DictionaryName.Daum,
         DictionaryInfoKey.Title: "다음 사전",
-        DictionaryInfoKey.URL: "http://small.dic.daum.net/"
+        DictionaryInfoKey.URL: "http://small.dic.daum.net/",
+        DictionaryInfoKey.URLPattern: "(?<=[?&]dic=)[a-z]+",
     ]
 ]
 
@@ -87,4 +90,5 @@ struct AnalyticsLabel {
     static let Japanese = "Japanese"
     static let Chinese = "Chinese"
     static let French = "French"
+    static let Russian = "Russian"
 }

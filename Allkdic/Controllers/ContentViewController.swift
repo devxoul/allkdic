@@ -39,6 +39,7 @@ public class ContentViewController: NSViewController {
 
     override public func loadView() {
         self.view = NSView(frame: CGRectMake(0, 0, 405, 566))
+        self.view.autoresizingMask = .ViewNotSizable
         self.view.appearance = NSAppearance(named: NSAppearanceNameAqua)
 
         self.view.addSubview(self.titleLabel)
@@ -178,21 +179,40 @@ public class ContentViewController: NSViewController {
         forFrame frame: WebFrame!) {
 
         let URLString = URL.absoluteString! as NSString
-        if !URLString.containsString("query=") {
+        if !URLString.containsString("query=") && !URLString.containsString("q=") {
             return
         }
 
-        let dictionaryTypesForPrefix = [
-            "endic": AnalyticsLabel.English,
-            "krdic": AnalyticsLabel.Korean,
-            "hanja": AnalyticsLabel.Hanja,
-            "jpdic": AnalyticsLabel.Japanese,
-            "cndic": AnalyticsLabel.Chinese,
-            "frdic": AnalyticsLabel.French,
+        let URLPatternsForDictionaryType = [
+            AnalyticsLabel.English:  ["endic", "eng", "ee"],
+            AnalyticsLabel.Korean:   ["krdic", "kor"],
+            AnalyticsLabel.Hanja:    ["hanja"],
+            AnalyticsLabel.Japanese: ["jpdic", "jp"],
+            AnalyticsLabel.Chinese:  ["cndic", "ch"],
+            AnalyticsLabel.French:   ["frdic", "fr"],
+            AnalyticsLabel.Russian:  ["ru"],
         ]
 
-        for (prefix, type) in dictionaryTypesForPrefix {
-            if URLString.hasPrefix("http://\(prefix)") {
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        let selectedDictionaryName = userDefaults.stringForKey(UserDefaultsKey.SelectedDictionaryName)
+        let selectedDictionary = DictionaryInfo.filter {
+            return $0[DictionaryInfoKey.Name] == selectedDictionaryName
+        }[0]
+
+        let URLPattern = selectedDictionary[DictionaryInfoKey.URLPattern]!
+        let regex = NSRegularExpression(pattern: URLPattern, options: .CaseInsensitive, error: nil)
+        if regex? == nil {
+            return
+        }
+        let result = regex!.firstMatchInString(URLString, options: .allZeros, range: NSMakeRange(0, URLString.length))
+        if result? == nil {
+            return
+        }
+        let range = result?.rangeAtIndex(0)
+        let pattern = URLString.substringWithRange(range!)
+
+        for (type, patterns) in URLPatternsForDictionaryType {
+            if contains(patterns, pattern) {
                 AnalyticsHelper.sharedInstance().recordCachedEventWithCategory(
                     AnalyticsCategory.Allkdic,
                     action: AnalyticsAction.Search,
