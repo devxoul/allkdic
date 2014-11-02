@@ -440,9 +440,7 @@
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/Third\\ Party",
-					"$(PROJECT_DIR)/Third",
-					Party,
+					"\"$(PROJECT_DIR)/Third Party\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "";
@@ -465,9 +463,7 @@
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/Third\\ Party",
-					"$(PROJECT_DIR)/Third",
-					Party,
+					"\"$(PROJECT_DIR)/Third Party\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "";
