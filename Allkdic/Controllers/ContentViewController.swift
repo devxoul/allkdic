@@ -39,6 +39,7 @@ public class ContentViewController: NSViewController {
 
     override public func loadView() {
         self.view = NSView(frame: CGRectMake(0, 0, 405, 566))
+        self.view.appearance = NSAppearance(named: NSAppearanceNameAqua)
 
         self.view.addSubview(self.titleLabel)
         self.titleLabel.textColor = NSColor.controlTextColor()
