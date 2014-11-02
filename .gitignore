@@ -1,5 +1,9 @@
 *.xcuserstate
 *.xccheckout
+*.xcworkspace
 xcuserdata
+
+Pods/
+Podfile.lock
 
 .DS_Store

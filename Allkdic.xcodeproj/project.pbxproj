@@ -7,11 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0303EDE81A066C8D00076CDF /* Snappy.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0303EDE51A066C8900076CDF /* Snappy.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0315897319FD4E0D002D5A7C /* AboutWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0315897219FD4E0D002D5A7C /* AboutWindowController.swift */; };
 		0315897519FD5069002D5A7C /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0315897419FD5069002D5A7C /* Label.swift */; };
 		0315897819FD50E1002D5A7C /* LabelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0315897719FD50E1002D5A7C /* LabelButton.swift */; };
-		0320F9F118AA099400D989F6 /* AnalyticsEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 0320F9ED18AA099400D989F6 /* AnalyticsEvent.m */; };
-		0320F9F218AA099400D989F6 /* AnalyticsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0320F9EF18AA099400D989F6 /* AnalyticsHelper.m */; };
 		0320F9FD18AA6D9000D989F6 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0320F9FC18AA6D9000D989F6 /* Security.framework */; };
 		0322CF7E17AE9965007E832C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0322CF7D17AE9965007E832C /* Cocoa.framework */; };
 		0322CF9E17AE9BBB007E832C /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0322CF9D17AE9BBB007E832C /* WebKit.framework */; };
@@ -22,7 +21,6 @@
 		0349452019FBB24100D7AEE2 /* AllkdicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349451F19FBB24100D7AEE2 /* AllkdicManager.swift */; };
 		0349452219FBB68D00D7AEE2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349452119FBB68D00D7AEE2 /* Constants.swift */; };
 		0349452419FBEE7100D7AEE2 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349452319FBEE7100D7AEE2 /* ContentViewController.swift */; };
-		0349455719FCA13100D7AEE2 /* Snappy.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0349455419FCA12600D7AEE2 /* Snappy.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0349455A19FCF0A900D7AEE2 /* WebView+Key.m in Sources */ = {isa = PBXBuildFile; fileRef = 0349455919FCF0A900D7AEE2 /* WebView+Key.m */; };
 		0362B0CC19FD146B00C88610 /* PreferenceWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0362B0CB19FD146B00C88610 /* PreferenceWindowController.swift */; };
 		0362B0CE19FD2D2B00C88610 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0362B0CD19FD2D2B00C88610 /* WindowController.swift */; };
@@ -31,35 +29,31 @@
 		0367297717B052B70074D249 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 0367297617B052B70074D249 /* dsa_pub.pem */; };
 		038DDCA81A051BE700754ECC /* KeyBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038DDCA71A051BE700754ECC /* KeyBinding.swift */; };
 		038DDCAA1A051DA800754ECC /* KeyMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038DDCA91A051DA800754ECC /* KeyMap.swift */; };
+		038DDCAD1A0536EA00754ECC /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0322CF8017AE9965007E832C /* AppKit.framework */; };
 		03A5C49C1A05FDFF001122AB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03A5C49B1A05FDFF001122AB /* Images.xcassets */; };
-		03A5C49D1A061E66001122AB /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0320F9F018AA099400D989F6 /* Sparkle.framework */; };
-		03A5C49E1A061E66001122AB /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0320F9F018AA099400D989F6 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		03C0861D17B064480070A164 /* LoginUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C0861C17B064480070A164 /* LoginUtil.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		2B196FBCA8AC1E46EB050A7B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D5D84DBF171FC96413F04265 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		0367297417B051280074D249 /* CopyFiles */ = {
+		0303EDE91A066C8D00076CDF /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				0349455719FCA13100D7AEE2 /* Snappy.framework in CopyFiles */,
-				03A5C49E1A061E66001122AB /* Sparkle.framework in CopyFiles */,
+				0303EDE81A066C8D00076CDF /* Snappy.framework in Embed Frameworks */,
 			);
+			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0303EDE51A066C8900076CDF /* Snappy.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Snappy.framework; sourceTree = "<group>"; };
 		0315897219FD4E0D002D5A7C /* AboutWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutWindowController.swift; sourceTree = "<group>"; };
 		0315897419FD5069002D5A7C /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Label.swift; path = Allkdic/Controls/Label.swift; sourceTree = SOURCE_ROOT; };
 		0315897719FD50E1002D5A7C /* LabelButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LabelButton.swift; path = Allkdic/Controls/LabelButton.swift; sourceTree = SOURCE_ROOT; };
-		0320F9EC18AA099400D989F6 /* AnalyticsEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnalyticsEvent.h; sourceTree = "<group>"; };
-		0320F9ED18AA099400D989F6 /* AnalyticsEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnalyticsEvent.m; sourceTree = "<group>"; };
-		0320F9EE18AA099400D989F6 /* AnalyticsHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnalyticsHelper.h; sourceTree = "<group>"; };
-		0320F9EF18AA099400D989F6 /* AnalyticsHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnalyticsHelper.m; sourceTree = "<group>"; };
-		0320F9F018AA099400D989F6 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		0320F9FC18AA6D9000D989F6 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		0322CF7A17AE9965007E832C /* Allkdic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Allkdic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0322CF7D17AE9965007E832C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -76,7 +70,6 @@
 		0349451F19FBB24100D7AEE2 /* AllkdicManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AllkdicManager.swift; path = Allkdic/Managers/AllkdicManager.swift; sourceTree = SOURCE_ROOT; };
 		0349452119FBB68D00D7AEE2 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Allkdic/Constants.swift; sourceTree = SOURCE_ROOT; };
 		0349452319FBEE7100D7AEE2 /* ContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
-		0349455419FCA12600D7AEE2 /* Snappy.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Snappy.framework; path = "Third Party/Snappy.framework"; sourceTree = SOURCE_ROOT; };
 		0349455819FCF08100D7AEE2 /* WebView+Key.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WebView+Key.h"; sourceTree = "<group>"; };
 		0349455919FCF0A900D7AEE2 /* WebView+Key.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WebView+Key.m"; sourceTree = "<group>"; };
 		0362B0CB19FD146B00C88610 /* PreferenceWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceWindowController.swift; sourceTree = "<group>"; };
@@ -91,6 +84,9 @@
 		03A5C49B1A05FDFF001122AB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		03C0861B17B064480070A164 /* LoginUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginUtil.h; path = Allkdic/LoginUtil.h; sourceTree = SOURCE_ROOT; };
 		03C0861C17B064480070A164 /* LoginUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginUtil.m; path = Allkdic/LoginUtil.m; sourceTree = SOURCE_ROOT; };
+		2E78F3D61C060A3A00C1CAC1 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		9CF50E65AF462DCCD5388442 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		D5D84DBF171FC96413F04265 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,17 +94,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				038DDCAD1A0536EA00754ECC /* AppKit.framework in Frameworks */,
 				0320F9FD18AA6D9000D989F6 /* Security.framework in Frameworks */,
 				0322CFA517AF3A6C007E832C /* Carbon.framework in Frameworks */,
-				03A5C49D1A061E66001122AB /* Sparkle.framework in Frameworks */,
 				0322CF9E17AE9BBB007E832C /* WebKit.framework in Frameworks */,
 				0322CF7E17AE9965007E832C /* Cocoa.framework in Frameworks */,
+				2B196FBCA8AC1E46EB050A7B /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0303EDE41A066C8900076CDF /* Snappy */ = {
+			isa = PBXGroup;
+			children = (
+				0303EDE51A066C8900076CDF /* Snappy.framework */,
+			);
+			name = Snappy;
+			path = Allkdic/Snappy;
+			sourceTree = SOURCE_ROOT;
+		};
 		0315897619FD506D002D5A7C /* Controls */ = {
 			isa = PBXGroup;
 			children = (
@@ -118,35 +124,14 @@
 			name = Controls;
 			sourceTree = "<group>";
 		};
-		0320F9EA18AA099400D989F6 /* Third Party */ = {
-			isa = PBXGroup;
-			children = (
-				0320F9EB18AA099400D989F6 /* SimpleCocoaGoogleAnalytics */,
-				0320F9F018AA099400D989F6 /* Sparkle.framework */,
-				0349455419FCA12600D7AEE2 /* Snappy.framework */,
-			);
-			path = "Third Party";
-			sourceTree = "<group>";
-		};
-		0320F9EB18AA099400D989F6 /* SimpleCocoaGoogleAnalytics */ = {
-			isa = PBXGroup;
-			children = (
-				0320F9EC18AA099400D989F6 /* AnalyticsEvent.h */,
-				0320F9ED18AA099400D989F6 /* AnalyticsEvent.m */,
-				0320F9EE18AA099400D989F6 /* AnalyticsHelper.h */,
-				0320F9EF18AA099400D989F6 /* AnalyticsHelper.m */,
-			);
-			path = SimpleCocoaGoogleAnalytics;
-			sourceTree = "<group>";
-		};
 		0322CF7117AE9964007E832C = {
 			isa = PBXGroup;
 			children = (
 				0322CF8317AE9965007E832C /* Allkdic */,
 				0322CF9F17AF389B007E832C /* Resources */,
-				0320F9EA18AA099400D989F6 /* Third Party */,
 				0322CF7C17AE9965007E832C /* Frameworks */,
 				0322CF7B17AE9965007E832C /* Products */,
+				E8F9185393147B8ECD161271 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -166,6 +151,7 @@
 				0322CF9D17AE9BBB007E832C /* WebKit.framework */,
 				0322CF7D17AE9965007E832C /* Cocoa.framework */,
 				0322CF7F17AE9965007E832C /* Other Frameworks */,
+				D5D84DBF171FC96413F04265 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -192,6 +178,7 @@
 				0367295D17B0458D0074D249 /* Controllers */,
 				0324201017E38EC3003025E3 /* Models */,
 				0367295A17B0458D0074D249 /* Categories */,
+				0303EDE41A066C8900076CDF /* Snappy */,
 				0322CF8417AE9965007E832C /* Supporting Files */,
 			);
 			name = Allkdic;
@@ -261,6 +248,15 @@
 			path = Allkdic/Controllers;
 			sourceTree = SOURCE_ROOT;
 		};
+		E8F9185393147B8ECD161271 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9CF50E65AF462DCCD5388442 /* Pods.debug.xcconfig */,
+				2E78F3D61C060A3A00C1CAC1 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -268,10 +264,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0322CF9717AE9965007E832C /* Build configuration list for PBXNativeTarget "Allkdic" */;
 			buildPhases = (
+				C60E6D822A187974A1A628FA /* Check Pods Manifest.lock */,
 				0322CF7617AE9964007E832C /* Sources */,
 				0322CF7717AE9964007E832C /* Frameworks */,
 				0322CF7817AE9964007E832C /* Resources */,
-				0367297417B051280074D249 /* CopyFiles */,
+				6F85DC489B98FD151546756D /* Copy Pods Resources */,
+				0303EDE91A066C8D00076CDF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -321,6 +319,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6F85DC489B98FD151546756D /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C60E6D822A187974A1A628FA /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0322CF7617AE9964007E832C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -330,7 +361,6 @@
 				0315897319FD4E0D002D5A7C /* AboutWindowController.swift in Sources */,
 				0362B0CC19FD146B00C88610 /* PreferenceWindowController.swift in Sources */,
 				0349451A19FB9D1800D7AEE2 /* AKHotKeyManager.m in Sources */,
-				0320F9F118AA099400D989F6 /* AnalyticsEvent.m in Sources */,
 				0349452019FBB24100D7AEE2 /* AllkdicManager.swift in Sources */,
 				0349455A19FCF0A900D7AEE2 /* WebView+Key.m in Sources */,
 				0349451719FB8D4D00D7AEE2 /* AppDelegate.swift in Sources */,
@@ -339,7 +369,6 @@
 				0349451E19FBB01700D7AEE2 /* main.swift in Sources */,
 				0367297017B045BF0074D249 /* NSWindow+CanBecomeKeyWindow.m in Sources */,
 				0315897519FD5069002D5A7C /* Label.swift in Sources */,
-				0320F9F218AA099400D989F6 /* AnalyticsHelper.m in Sources */,
 				0315897819FD50E1002D5A7C /* LabelButton.swift in Sources */,
 				038DDCA81A051BE700754ECC /* KeyBinding.swift in Sources */,
 				038DDCAA1A051DA800754ECC /* KeyMap.swift in Sources */,
@@ -374,6 +403,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Allkdic";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -407,6 +437,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Allkdic";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -420,15 +451,14 @@
 		};
 		0322CF9817AE9965007E832C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9CF50E65AF462DCCD5388442 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(PROJECT_DIR)/Third Party\"",
-					"$(PROJECT_DIR)/Third",
-					Party,
+					"$(PROJECT_DIR)/Allkdic/Snappy",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "";
@@ -436,7 +466,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = Allkdic;
-				SDKROOT = macosx10.10;
+				SDKROOT = macosx;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Allkdic/Allkdic-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				WRAPPER_EXTENSION = app;
@@ -445,15 +475,14 @@
 		};
 		0322CF9917AE9965007E832C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2E78F3D61C060A3A00C1CAC1 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(PROJECT_DIR)/Third Party\"",
-					"$(PROJECT_DIR)/Third",
-					Party,
+					"$(PROJECT_DIR)/Allkdic/Snappy",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "";
@@ -461,7 +490,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = Allkdic;
-				SDKROOT = macosx10.10;
+				SDKROOT = macosx;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Allkdic/Allkdic-Bridging-Header.h";
 				WRAPPER_EXTENSION = app;
 			};
