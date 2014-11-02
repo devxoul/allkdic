@@ -73,13 +73,14 @@ struct AnalyticsCategory {
 struct AnalyticsAction {
     static let Open = "Open"
     static let Close = "Close"
+    static let Dictionary = "Dictionary" // Use `DictionaryName` as Label
     static let Search = "Search"
     static let UpdateHotKey = "UpdateHotKey"
     static let CheckForUpdate = "CheckForUpdate"
     static let ViewOnGitHub = "ViewOnGitHub"
 }
 
-struct AnalyticsValue {
+struct AnalyticsLabel {
     static let English = "English"
     static let Korean = "Korean"
     static let Hanja = "Hanja"

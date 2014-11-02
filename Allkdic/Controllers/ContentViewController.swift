@@ -183,12 +183,12 @@ public class ContentViewController: NSViewController {
         }
 
         let dictionaryTypesForPrefix = [
-            "endic": AnalyticsValue.English,
-            "krdic": AnalyticsValue.Korean,
-            "hanja": AnalyticsValue.Hanja,
-            "jpdic": AnalyticsValue.Japanese,
-            "cndic": AnalyticsValue.Chinese,
-            "frdic": AnalyticsValue.French,
+            "endic": AnalyticsLabel.English,
+            "krdic": AnalyticsLabel.Korean,
+            "hanja": AnalyticsLabel.Hanja,
+            "jpdic": AnalyticsLabel.Japanese,
+            "cndic": AnalyticsLabel.Chinese,
+            "frdic": AnalyticsLabel.French,
         ]
 
         for (prefix, type) in dictionaryTypesForPrefix {
@@ -277,6 +277,13 @@ public class ContentViewController: NSViewController {
             (menuItem as NSMenuItem).state = NSOffState
         }
         self.dictionaryMenu.itemWithTag(index!)?.state = NSOnState
+
+        AnalyticsHelper.sharedInstance().recordCachedEventWithCategory(
+            AnalyticsCategory.Allkdic,
+            action: AnalyticsAction.Dictionary,
+            label: dictionaryName,
+            value: nil
+        )
 
         self.navigateToMain()
     }
