@@ -12,8 +12,6 @@
 		0315897819FD50E1002D5A7C /* LabelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0315897719FD50E1002D5A7C /* LabelButton.swift */; };
 		0320F9F118AA099400D989F6 /* AnalyticsEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 0320F9ED18AA099400D989F6 /* AnalyticsEvent.m */; };
 		0320F9F218AA099400D989F6 /* AnalyticsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0320F9EF18AA099400D989F6 /* AnalyticsHelper.m */; };
-		0320F9F618AA62C000D989F6 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0320F9F018AA099400D989F6 /* Sparkle.framework */; };
-		0320F9F718AA62FB00D989F6 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0320F9F018AA099400D989F6 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		0320F9FD18AA6D9000D989F6 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0320F9FC18AA6D9000D989F6 /* Security.framework */; };
 		0322CF7E17AE9965007E832C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0322CF7D17AE9965007E832C /* Cocoa.framework */; };
 		0322CF9E17AE9BBB007E832C /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0322CF9D17AE9BBB007E832C /* WebKit.framework */; };
@@ -25,8 +23,6 @@
 		0349452019FBB24100D7AEE2 /* AllkdicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349451F19FBB24100D7AEE2 /* AllkdicManager.swift */; };
 		0349452219FBB68D00D7AEE2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349452119FBB68D00D7AEE2 /* Constants.swift */; };
 		0349452419FBEE7100D7AEE2 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349452319FBEE7100D7AEE2 /* ContentViewController.swift */; };
-		0349455519FCA12600D7AEE2 /* Snappy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0349455419FCA12600D7AEE2 /* Snappy.framework */; };
-		0349455619FCA13100D7AEE2 /* Snappy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0349455419FCA12600D7AEE2 /* Snappy.framework */; };
 		0349455719FCA13100D7AEE2 /* Snappy.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0349455419FCA12600D7AEE2 /* Snappy.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0349455A19FCF0A900D7AEE2 /* WebView+Key.m in Sources */ = {isa = PBXBuildFile; fileRef = 0349455919FCF0A900D7AEE2 /* WebView+Key.m */; };
 		0362B0CC19FD146B00C88610 /* PreferenceWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0362B0CB19FD146B00C88610 /* PreferenceWindowController.swift */; };
@@ -39,6 +35,7 @@
 		0367297717B052B70074D249 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 0367297617B052B70074D249 /* dsa_pub.pem */; };
 		038DDCA81A051BE700754ECC /* KeyBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038DDCA71A051BE700754ECC /* KeyBinding.swift */; };
 		038DDCAA1A051DA800754ECC /* KeyMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038DDCA91A051DA800754ECC /* KeyMap.swift */; };
+		03A5C4981A05FD61001122AB /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0320F9F018AA099400D989F6 /* Sparkle.framework */; };
 		03C0861D17B064480070A164 /* LoginUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C0861C17B064480070A164 /* LoginUtil.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
@@ -49,7 +46,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				0320F9F718AA62FB00D989F6 /* Sparkle.framework in CopyFiles */,
 				0349455719FCA13100D7AEE2 /* Snappy.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -106,10 +102,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0320F9FD18AA6D9000D989F6 /* Security.framework in Frameworks */,
-				0320F9F618AA62C000D989F6 /* Sparkle.framework in Frameworks */,
 				0322CFA517AF3A6C007E832C /* Carbon.framework in Frameworks */,
-				0349455519FCA12600D7AEE2 /* Snappy.framework in Frameworks */,
-				0349455619FCA13100D7AEE2 /* Snappy.framework in Frameworks */,
+				03A5C4981A05FD61001122AB /* Sparkle.framework in Frameworks */,
 				0322CF9E17AE9BBB007E832C /* WebKit.framework in Frameworks */,
 				0322CF7E17AE9965007E832C /* Cocoa.framework in Frameworks */,
 			);
@@ -437,10 +431,11 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(PROJECT_DIR)/Third Party\"",
+					"$(PROJECT_DIR)/Third",
+					Party,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "";
@@ -460,10 +455,11 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(PROJECT_DIR)/Third Party\"",
+					"$(PROJECT_DIR)/Third",
+					Party,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "";
