@@ -101,9 +101,10 @@ public class ContentViewController: NSViewController {
         }
 
         let mainMenuItems = [
-            NSMenuItem(title: "사전", action: nil, keyEquivalent: ""),
-            NSMenuItem(title: "환경설정", action: "showPreferenceWindow", keyEquivalent: ""),
+            NSMenuItem(title: "사전 바꾸기", action: nil, keyEquivalent: ""),
+            NSMenuItem.separatorItem(),
             NSMenuItem(title: "올ㅋ사전에 관하여", action: "showAboutWindow", keyEquivalent: ""),
+            NSMenuItem(title: "환경설정...", action: "showPreferenceWindow", keyEquivalent: ""),
             NSMenuItem.separatorItem(),
             NSMenuItem(title: "올ㅋ사전 종료", action: "quit", keyEquivalent: ""),
         ]
