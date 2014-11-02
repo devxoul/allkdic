@@ -104,7 +104,7 @@ public class ContentViewController: NSViewController {
             NSMenuItem(title: "사전 바꾸기", action: nil, keyEquivalent: ""),
             NSMenuItem.separatorItem(),
             NSMenuItem(title: "올ㅋ사전에 관하여", action: "showAboutWindow", keyEquivalent: ""),
-            NSMenuItem(title: "환경설정...", action: "showPreferenceWindow", keyEquivalent: ""),
+            NSMenuItem(title: "환경설정...", action: "showPreferenceWindow", keyEquivalent: ","),
             NSMenuItem.separatorItem(),
             NSMenuItem(title: "올ㅋ사전 종료", action: "quit", keyEquivalent: ""),
         ]
@@ -248,7 +248,13 @@ public class ContentViewController: NSViewController {
             break
 
         case (true, false, false, true, let index) where 18...(18 + DictionaryInfo.count) ~= index:
+            // Command + 1, 2, 3, ...
             self.swapDictionary(index - 18)
+            break
+
+        case (false, false, false, true, KeyBinding.keyCodeFormKeyString(",")):
+            // Command + 1, 2, 3, ...
+            self.showPreferenceWindow()
             break
 
         default:
