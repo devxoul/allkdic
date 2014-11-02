@@ -31,7 +31,38 @@ struct BundleInfo {
 @objc class UserDefaultsKey {
     class var IgnoreApplicationFolderWarning: String { return "AKIgnoreApplicationFolder" }
     class var HotKey: String { return "AllkdicSettingKeyHotKey" }
+    class var SelectedDictionaryName: String { return "SelectedDictionaryName" }
 }
+
+
+// MARK: - Dictionary
+
+struct DictionaryName {
+    static let Naver = "Naver"
+    static let Daum = "Daum"
+}
+
+struct DictionaryInfoKey {
+    static let Name = "Name"
+    static let Title = "Title"
+    static let URL = "URL"
+}
+
+let DictionaryInfo = [
+    [
+        DictionaryInfoKey.Name: DictionaryName.Naver,
+        DictionaryInfoKey.Title: "네이버 사전",
+        DictionaryInfoKey.URL: "http://endic.naver.com/popManager.nhn?m=miniPopMain"
+    ],
+    [
+        DictionaryInfoKey.Name: DictionaryName.Daum,
+        DictionaryInfoKey.Title: "다음 사전",
+        DictionaryInfoKey.URL: "http://small.dic.daum.net/"
+    ]
+]
+
+
+// MARK: - Google Analytics
 
 struct AnalyticsCategory {
     static let Allkdic = "Allkdic"
