@@ -30,8 +30,9 @@
 		0367297717B052B70074D249 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 0367297617B052B70074D249 /* dsa_pub.pem */; };
 		038DDCA81A051BE700754ECC /* KeyBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038DDCA71A051BE700754ECC /* KeyBinding.swift */; };
 		038DDCAA1A051DA800754ECC /* KeyMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038DDCA91A051DA800754ECC /* KeyMap.swift */; };
-		03A5C4981A05FD61001122AB /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0320F9F018AA099400D989F6 /* Sparkle.framework */; };
 		03A5C49C1A05FDFF001122AB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03A5C49B1A05FDFF001122AB /* Images.xcassets */; };
+		03A5C49D1A061E66001122AB /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0320F9F018AA099400D989F6 /* Sparkle.framework */; };
+		03A5C49E1A061E66001122AB /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0320F9F018AA099400D989F6 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		03C0861D17B064480070A164 /* LoginUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C0861C17B064480070A164 /* LoginUtil.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				0349455719FCA13100D7AEE2 /* Snappy.framework in CopyFiles */,
+				03A5C49E1A061E66001122AB /* Sparkle.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,7 +97,7 @@
 			files = (
 				0320F9FD18AA6D9000D989F6 /* Security.framework in Frameworks */,
 				0322CFA517AF3A6C007E832C /* Carbon.framework in Frameworks */,
-				03A5C4981A05FD61001122AB /* Sparkle.framework in Frameworks */,
+				03A5C49D1A061E66001122AB /* Sparkle.framework in Frameworks */,
 				0322CF9E17AE9BBB007E832C /* WebKit.framework in Frameworks */,
 				0322CF7E17AE9965007E832C /* Cocoa.framework in Frameworks */,
 			);
