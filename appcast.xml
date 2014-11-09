@@ -89,6 +89,7 @@
         <item>
             <title>Version 1.2.0</title>
             <pubDate>Mon, Nov 3 2014 22:34:00 GMT+0900 (KST)</pubDate>
+            <sparkle:minimumSystemVersion>10.9</sparkle:minimumSystemVersion>
             <enclosure url="https://github.com/devxoul/allkdic/releases/download/v1.2.0/Allkdic-1.2.0.app.zip"
                 sparkle:version="395"
                 sparkle:shortVersionString="1.2.0"
@@ -106,6 +107,7 @@
         <item>
             <title>Version 1.2.1</title>
             <pubDate>Mon, Nov 10 2014 04:15:00 GMT+0900 (KST)</pubDate>
+            <sparkle:minimumSystemVersion>10.9</sparkle:minimumSystemVersion>
             <enclosure url="https://github.com/devxoul/allkdic/releases/download/v1.2.1/Allkdic-1.2.1.app.zip"
                 sparkle:version="396"
                 sparkle:shortVersionString="1.2.1"
