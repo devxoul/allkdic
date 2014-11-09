@@ -15,6 +15,7 @@
 		0322CF7E17AE9965007E832C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0322CF7D17AE9965007E832C /* Cocoa.framework */; };
 		0322CF9E17AE9BBB007E832C /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0322CF9D17AE9BBB007E832C /* WebKit.framework */; };
 		0322CFA517AF3A6C007E832C /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0322CFA417AF3A6C007E832C /* Carbon.framework */; };
+		0328DE081A0FA00D00160E93 /* AllkdicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0328DE071A0FA00D00160E93 /* AllkdicTests.swift */; };
 		0349451719FB8D4D00D7AEE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349451619FB8D4D00D7AEE2 /* AppDelegate.swift */; };
 		0349451A19FB9D1800D7AEE2 /* AKHotKeyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0349451919FB9D1800D7AEE2 /* AKHotKeyManager.m */; };
 		0349451E19FBB01700D7AEE2 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349451D19FBB01700D7AEE2 /* main.swift */; };
@@ -34,6 +35,16 @@
 		03C0861D17B064480070A164 /* LoginUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C0861C17B064480070A164 /* LoginUtil.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		2B196FBCA8AC1E46EB050A7B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D5D84DBF171FC96413F04265 /* libPods.a */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0328DE091A0FA00D00160E93 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0322CF7217AE9964007E832C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0322CF7917AE9964007E832C;
+			remoteInfo = Allkdic;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		0303EDE91A066C8D00076CDF /* Embed Frameworks */ = {
@@ -62,6 +73,9 @@
 		0322CF8217AE9965007E832C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0322CF9D17AE9BBB007E832C /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		0322CFA417AF3A6C007E832C /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
+		0328DE031A0FA00D00160E93 /* AllkdicTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AllkdicTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0328DE061A0FA00D00160E93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0328DE071A0FA00D00160E93 /* AllkdicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllkdicTests.swift; sourceTree = "<group>"; };
 		0349451619FB8D4D00D7AEE2 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Allkdic/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
 		0349451819FB8D8000D7AEE2 /* Allkdic-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Allkdic-Bridging-Header.h"; path = "Allkdic/Allkdic-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		0349451919FB9D1800D7AEE2 /* AKHotKeyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AKHotKeyManager.m; path = Allkdic/Managers/AKHotKeyManager.m; sourceTree = SOURCE_ROOT; };
@@ -102,6 +116,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0328DE001A0FA00D00160E93 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -128,6 +149,7 @@
 			children = (
 				0322CF8317AE9965007E832C /* Allkdic */,
 				0322CF9F17AF389B007E832C /* Resources */,
+				0328DE041A0FA00D00160E93 /* AllkdicTests */,
 				0322CF7C17AE9965007E832C /* Frameworks */,
 				0322CF7B17AE9965007E832C /* Products */,
 				E8F9185393147B8ECD161271 /* Pods */,
@@ -138,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				0322CF7A17AE9965007E832C /* Allkdic.app */,
+				0328DE031A0FA00D00160E93 /* AllkdicTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -213,6 +236,23 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		0328DE041A0FA00D00160E93 /* AllkdicTests */ = {
+			isa = PBXGroup;
+			children = (
+				0328DE071A0FA00D00160E93 /* AllkdicTests.swift */,
+				0328DE051A0FA00D00160E93 /* Supporting Files */,
+			);
+			path = AllkdicTests;
+			sourceTree = "<group>";
+		};
+		0328DE051A0FA00D00160E93 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0328DE061A0FA00D00160E93 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		0349451B19FB9D1D00D7AEE2 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -278,6 +318,24 @@
 			productReference = 0322CF7A17AE9965007E832C /* Allkdic.app */;
 			productType = "com.apple.product-type.application";
 		};
+		0328DE021A0FA00D00160E93 /* AllkdicTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0328DE0B1A0FA00D00160E93 /* Build configuration list for PBXNativeTarget "AllkdicTests" */;
+			buildPhases = (
+				0328DDFF1A0FA00D00160E93 /* Sources */,
+				0328DE001A0FA00D00160E93 /* Frameworks */,
+				0328DE011A0FA00D00160E93 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0328DE0A1A0FA00D00160E93 /* PBXTargetDependency */,
+			);
+			name = AllkdicTests;
+			productName = AllkdicTests;
+			productReference = 0328DE031A0FA00D00160E93 /* AllkdicTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -286,6 +344,12 @@
 			attributes = {
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = Joyfl;
+				TargetAttributes = {
+					0328DE021A0FA00D00160E93 = {
+						CreatedOnToolsVersion = 6.1;
+						TestTargetID = 0322CF7917AE9964007E832C;
+					};
+				};
 			};
 			buildConfigurationList = 0322CF7517AE9964007E832C /* Build configuration list for PBXProject "Allkdic" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -300,6 +364,7 @@
 			projectRoot = "";
 			targets = (
 				0322CF7917AE9964007E832C /* Allkdic */,
+				0328DE021A0FA00D00160E93 /* AllkdicTests */,
 			);
 		};
 /* End PBXProject section */
@@ -312,6 +377,13 @@
 				03A5C49C1A05FDFF001122AB /* Images.xcassets in Resources */,
 				0367293617B00CEC0074D249 /* InfoPlist.strings in Resources */,
 				0367297717B052B70074D249 /* dsa_pub.pem in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0328DE011A0FA00D00160E93 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,7 +446,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0328DDFF1A0FA00D00160E93 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0328DE081A0FA00D00160E93 /* AllkdicTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0328DE0A1A0FA00D00160E93 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0322CF7917AE9964007E832C /* Allkdic */;
+			targetProxy = 0328DE091A0FA00D00160E93 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		0367293317B00CEC0074D249 /* InfoPlist.strings */ = {
@@ -494,6 +582,68 @@
 			};
 			name = Release;
 		};
+		0328DE0C1A0FA00D00160E93 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = AllkdicTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Allkdic.app/Contents/MacOS/Allkdic";
+			};
+			name = Debug;
+		};
+		0328DE0D1A0FA00D00160E93 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = AllkdicTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Allkdic.app/Contents/MacOS/Allkdic";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -514,6 +664,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		0328DE0B1A0FA00D00160E93 /* Build configuration list for PBXNativeTarget "AllkdicTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0328DE0C1A0FA00D00160E93 /* Debug */,
+				0328DE0D1A0FA00D00160E93 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
