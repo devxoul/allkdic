@@ -154,8 +154,12 @@ class AboutWindowController: WindowController {
     func styleButton(button: NSButton) {
         button.setButtonType(.MomentaryPushInButton)
         button.bezelStyle = .RoundedBezelStyle
-        button.controlSize = .SmallControlSize
         button.font = NSFont.systemFontOfSize(NSFont.systemFontSizeForControlSize(.SmallControlSize))
+        if NSAppKitVersionNumberInt > NSAppKitVersionNumber10_9 {
+            button.controlSize = .SmallControlSize
+        } else if let cell = button.cell() as? NSButtonCell {
+            cell.controlSize = .SmallControlSize
+        }
     }
 
     override func showWindow(sender: AnyObject?) {

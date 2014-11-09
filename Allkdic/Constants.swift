@@ -22,6 +22,8 @@
  SOFTWARE.
 */
 
+var NSAppKitVersionNumberInt: Int32 { return Int32(floor(NSAppKitVersionNumber)) }
+
 struct BundleInfo {
     static let Version = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as String
     static let Build = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleVersion") as String
