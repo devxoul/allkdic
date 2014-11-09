@@ -86,7 +86,7 @@
                 ]]>
             </description>
         </item>
-        <!--<item>
+        <item>
             <title>Version 1.2.0</title>
             <pubDate>Mon, Nov 3 2014 22:34:00 GMT+0900 (KST)</pubDate>
             <enclosure url="https://github.com/devxoul/allkdic/releases/download/v1.2.0/Allkdic-1.2.0.app.zip"
@@ -102,6 +102,24 @@
                 * 개발자가 레티나 살 돈이 없어서 아이콘이 깨진다는 걸 모르다가 이제서야 제대로 된 레티나 디스플레이를 지원합니다. (아직 Macbook Pro 2011 Early를 사용합니다 ㅠㅠ)
                 ]]>
             </description>
-        </item>-->
+        </item>
+        <item>
+            <title>Version 1.2.1</title>
+            <pubDate>Mon, Nov 10 2014 04:15:00 GMT+0900 (KST)</pubDate>
+            <enclosure url="https://github.com/devxoul/allkdic/releases/download/v1.2.1/Allkdic-1.2.1.app.zip"
+                sparkle:version="396"
+                sparkle:shortVersionString="1.2.1"
+                sparkle:dsaSignature="MCwCFEzSRLwE1ce3KM6kzZZmlI50HYPsAhQOkhv2uhheTY+18NsVuxdgtBG6ng=="
+                length="2567839"
+                type="application/octet-stream" />
+            <description>
+                <![CDATA[
+                <h3>올ㅋ사전 1.2.1</h3>
+                * OS X Mavericks 에서 실행이 되지 않는 문제를 해결했습니다.<br />
+                * 이제 올ㅋ사전에서 다음사전을 이용할 수 있게 되었습니다. 오른쪽 상단의 메뉴 버튼을 눌러서 원하는 사전을 선택해보세요.<br />
+                * 개발자가 레티나 살 돈이 없어서 아이콘이 깨진다는 걸 모르다가 이제서야 제대로 된 레티나 디스플레이를 지원합니다. (아직 Macbook Pro 2011 Early를 사용합니다 ㅠㅠ)
+                ]]>
+            </description>
+        </item>
 	</channel>
 </rss>
