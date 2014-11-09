@@ -180,7 +180,8 @@ public class ContentViewController: NSViewController {
         forFrame frame: WebFrame!) {
 
         let URLString = URL.absoluteString! as NSString
-        if !URLString.containsString("query=") && !URLString.containsString("q=") {
+        if URLString.rangeOfString("query=").location == NSNotFound
+            && URLString.rangeOfString("q=").location == NSNotFound {
             return
         }
 
