@@ -672,6 +672,7 @@
 				0328DE0D1A0FA00D00160E93 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
