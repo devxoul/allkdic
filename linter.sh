@@ -33,7 +33,7 @@ conditions=$(echo "$EXTENSIONS" | sed -E "s/(^,*|,*$)//g" | sed -E "s/([a-z]+)/-
 files=$(find "$SRCROOT" \( $conditions \) -type f -not -wholename "*/*.framework/*")
 for f in $files
 do
-    message=$(awk -v len="$MAX_LINE_LENGTH" '{ if (length > len) print "    \x1b[31m" "\xe2\x9c\x97" "\033[0m", FILENAME, "at line", NR ":", "line too long (" length, ">", len ")" }' $f)
+    message=$(gawk -v len="$MAX_LINE_LENGTH" '{ if (length > len) print "    \x1b[31m" "\xe2\x9c\x97" "\033[0m", FILENAME, "at line", NR ":", "line too long (" length, ">", len ")" }' $f)
     if [ -n "$message" ]
     then
         echo "$message"
