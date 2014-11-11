@@ -267,7 +267,11 @@ public class ContentViewController: NSViewController {
     // MARK: - Menu
 
     func showMenu() {
-        self.mainMenu.popUpMenuPositioningItem(self.mainMenu.itemAtIndex(0), atLocation:self.menuButton.frame.origin, inView:self.view)
+        self.mainMenu.popUpMenuPositioningItem(
+            self.mainMenu.itemAtIndex(0),
+            atLocation:self.menuButton.frame.origin,
+            inView:self.view
+        )
     }
 
     /// Swap dictionary to given index.
