@@ -1,7 +1,7 @@
 language: objective-c
 osx_image: xcode61
 before_install:
-  - sh lint.sh
+  - sh linter.sh
   - gem install cocoapods -v '0.34.4'
 xcode_workspace: Allkdic.xcworkspace
 xcode_scheme: Allkdic
