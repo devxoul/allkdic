@@ -28,6 +28,10 @@ SRCROOT="Allkdic"
 EXTENSIONS="h,m,swift"
 MAX_LINE_LENGTH=119
 
+COLOR_GREEN="\033[0;32m"
+COLOR_NORMAL="\033[0m"
+CHECK_MARK="\xe2\x9c\x93"
+
 ret=0
 conditions=$(echo "$EXTENSIONS" | sed -E "s/(^,*|,*$)//g" | sed -E "s/([a-z]+)/-name \*\.\1/g" | sed "s/,/ -o /g")
 files=$(find "$SRCROOT" \( $conditions \) -type f -not -wholename "*/*.framework/*")
@@ -40,5 +44,10 @@ do
         ret=1
     fi
 done
+
+if [ $ret == 0 ]
+then
+    echo "    $COLOR_GREEN$CHECK_MARK$COLOR_NORMAL Lint passed"
+fi
 
 exit $ret
