@@ -40,7 +40,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let ga = AnalyticsHelper.sharedInstance()
         ga.beginPeriodicReportingWithAccount("UA-42976442-2", name:"올ㅋ사전", version: BundleInfo.Version)
 
-        SUUpdater.sharedUpdater().checkForUpdatesInBackground()
+        self.checkForUpdatesInBackground()
+        NSTimer.scheduledTimerWithTimeInterval(30 * 60, target:self, selector:"checkForUpdatesInBackground",
+            userInfo:nil, repeats:true)
     }
 
     func applicationWillTerminate(notification: NSNotification) {
@@ -145,5 +147,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         task.waitUntilExit()
 
         exit(0)
+    }
+
+    func checkForUpdatesInBackground() {
+        SUUpdater.sharedUpdater().checkForUpdatesInBackground()
     }
 }
