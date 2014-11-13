@@ -91,7 +91,7 @@ public class ContentViewController: NSViewController {
 
         self.view.addSubview(self.menuButton)
         self.menuButton.title = ""
-        self.menuButton.bezelStyle = .HelpButtonBezelStyle
+        self.menuButton.bezelStyle = .RoundedDisclosureBezelStyle
         self.menuButton.setButtonType(.MomentaryPushInButton)
         self.menuButton.target = self
         self.menuButton.action = "showMenu"
