@@ -45,9 +45,9 @@ do
     fi
 done
 
-if [ $ret == 0 ]
+if [ $ret = 0 ]
 then
-    echo "    $COLOR_GREEN$CHECK_MARK$COLOR_NORMAL Lint passed"
+    echo -e "    $COLOR_GREEN$CHECK_MARK$COLOR_NORMAL Lint passed"
 fi
 
 exit $ret
