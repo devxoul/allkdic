@@ -1,6 +1,8 @@
 # 올ㅋ사전
 
-[![Release](http://img.shields.io/github/release/devxoul/allkdic.svg)](https://github.com/devxoul/allkdic/releases) [![Build Status](https://travis-ci.org/devxoul/allkdic.svg?branch=master)](https://travis-ci.org/devxoul/allkdic) [![Gratipay](http://img.shields.io/gratipay/devxoul.svg)](https://gratipay.com/devxoul)
+[![Release](http://img.shields.io/github/release/devxoul/allkdic.svg?style=flat)](https://github.com/devxoul/allkdic/releases?style=flat)
+[![Build Status](http://img.shields.io/travis/devxoul/allkdic/master.svg?style=flat)](https://travis-ci.org/devxoul/allkdic)
+[![Gratipay](http://img.shields.io/gratipay/devxoul.svg?style=flat)](https://gratipay.com/devxoul)
 
 
 맥에서 Option + Command + Space를 누르면 영어사전이 뙇!!!!
