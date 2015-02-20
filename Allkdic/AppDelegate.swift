@@ -21,6 +21,8 @@
 // SOFTWARE.
 
 import AppKit
+import SimpleCocoaAnalytics
+import Sparkle
 
 class AppDelegate: NSObject, NSApplicationDelegate {
 

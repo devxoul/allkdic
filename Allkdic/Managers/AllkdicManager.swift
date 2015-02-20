@@ -21,6 +21,7 @@
 // SOFTWARE.
 
 import AppKit
+import SimpleCocoaAnalytics
 
 private let _sharedInstance = AllkdicManager()
 

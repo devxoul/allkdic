@@ -22,8 +22,6 @@
  SOFTWARE.
 */
 
-#import "AnalyticsHelper.h"
-
 #import "AKHotKeyManager.h"
 #import "LoginUtil.h"
 

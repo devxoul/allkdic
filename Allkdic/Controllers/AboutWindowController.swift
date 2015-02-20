@@ -21,7 +21,9 @@
 // SOFTWARE.
 
 import AppKit
-import Snappy
+import SimpleCocoaAnalytics
+import Snap
+import Sparkle
 
 class AboutWindowController: WindowController {
 

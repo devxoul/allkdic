@@ -21,7 +21,8 @@
 // SOFTWARE.
 
 import AppKit
-import Snappy
+import SimpleCocoaAnalytics
+import Snap
 import WebKit
 
 public class ContentViewController: NSViewController {
