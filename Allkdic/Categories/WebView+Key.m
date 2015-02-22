@@ -20,6 +20,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+#import "Allkdic-Swift.h"
 #import "WebView+Key.h"
 
 @implementation WebView (Key)
@@ -27,24 +28,24 @@
 - (BOOL)performKeyEquivalent:(NSEvent *)theEvent
 {
     if (theEvent.modifierFlags & NSCommandKeyMask) {
-        NSString *chars = theEvent.charactersIgnoringModifiers;
+        CGKeyCode keyCode = theEvent.keyCode;
 
-        if ([chars isEqualToString:@"a"]) {
+        if (keyCode == [KeyBinding keyCodeFormKeyString:@"a"]) {
             [self selectAll:self];
             return YES;
         }
 
-        if ([chars isEqualToString:@"x"]) {
+        if (keyCode == [KeyBinding keyCodeFormKeyString:@"x"]) {
             [self cut:self];
             return YES;
         }
 
-        if ([chars isEqualToString:@"c"]) {
+        if (keyCode == [KeyBinding keyCodeFormKeyString:@"c"]) {
             [self copy:self];
             return YES;
         }
 
-        if ([chars isEqualToString:@"v"]) {
+        if (keyCode == [KeyBinding keyCodeFormKeyString:@"v"]) {
             [self paste:self];
             return YES;
         }
