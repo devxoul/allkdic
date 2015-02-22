@@ -6,7 +6,7 @@
 		<!--<item>
 			<title>Version 1.0.0</title>
 			<pubDate>Tue, Aug 06 2013 07:59:26 GMT+0900 (KST)</pubDate>
-			<enclosure url="https://github.com/devxoul/allkdic/releases/download/v1.0.0/Allkdic-1.0.0.app.zip"
+			<enclosure url="https://github.com/devxoul/allkdic/releases/download/1.0.0/Allkdic-1.0.0.app.zip"
 				sparkle:version="5"
 				sparkle:shortVersionString="1.0.0"
 				sparkle:dsaSignature="MEUCIQDb1VEhac9Tbg6cDN/FHbkNlZbjqUQW4WGXAE2x1FMn1gIgEhB7mF2jJluGSmf8t1ttg0mOuVxl+60LiovFqaf89LU="
@@ -16,7 +16,7 @@
 		<item>
 			<title>Version 1.0.1</title>
 			<pubDate>Tue, Aug 06 2013 06:28:37 GMT+0900 (KST)</pubDate>
-			<enclosure url="https://github.com/devxoul/allkdic/releases/download/v1.0.1/Allkdic-1.0.1.app.zip"
+			<enclosure url="https://github.com/devxoul/allkdic/releases/download/1.0.1/Allkdic-1.0.1.app.zip"
 				sparkle:version="213"
 				sparkle:shortVersionString="1.0.1"
 				sparkle:dsaSignature="MCwCFCMxldMR8Xm6dJSamOe1dSUMFm//AhRL/7Z3zjaEOQSvv3O+TsxCpvM5AA=="
@@ -24,7 +24,7 @@
 				type="application/octet-stream" />
 			<description>
 				<![CDATA[
-				<h1 style="color: red">자동 업데이트가 불가능합니다. <a href="https://github.com/devxoul/allkdic/releases/download/v1.0.1/Allkdic-1.0.1.app.zip">이곳</a>에서 직접 다운로드해주세요!! ㅠㅠ</h1>
+				<h1 style="color: red">자동 업데이트가 불가능합니다. <a href="https://github.com/devxoul/allkdic/releases/download/1.0.1/Allkdic-1.0.1.app.zip">이곳</a>에서 직접 다운로드해주세요!! ㅠㅠ</h1>
 				<h3>올ㅋ사전 1.0.1</h3>
 				* 단축키 변경이 가능해졌습니다.<br />
 				* 새 업데이트가 있을 경우에만 업데이트 UI를 띄우도록 변경했습니다.<br />
@@ -37,7 +37,7 @@
         <item>
             <title>Version 1.1.0</title>
             <pubDate>Web, Feb 12 2014 01:33:00 GMT+0900 (KST)</pubDate>
-            <enclosure url="https://github.com/devxoul/allkdic/releases/download/v1.1.0/Allkdic-1.1.0.app.zip"
+            <enclosure url="https://github.com/devxoul/allkdic/releases/download/1.1.0/Allkdic-1.1.0.app.zip"
                 sparkle:version="336"
                 sparkle:shortVersionString="1.1.0"
                 sparkle:dsaSignature="MCwCFEYXNg8Ra6LWxz/VQuW8dzOt8ltKAhRb5muVrRa/ypQxrp4cTMXZ3l8wnQ=="
@@ -45,7 +45,7 @@
                 type="application/octet-stream" />
             <description>
                 <![CDATA[
-                <h1 style="color: red">자동 업데이트가 불가능합니다. <a href="https://github.com/devxoul/allkdic/releases/download/v1.1.0/Allkdic-1.1.0.app.zip">이곳</a>에서 직접 다운로드해주세요!! ㅠㅠ</h1>
+                <h1 style="color: red">자동 업데이트가 불가능합니다. <a href="https://github.com/devxoul/allkdic/releases/download/1.1.0/Allkdic-1.1.0.app.zip">이곳</a>에서 직접 다운로드해주세요!! ㅠㅠ</h1>
                 <h3>올ㅋ사전 1.1.0</h3>
                 * 올ㅋ사전이 애플리케이션 폴더에 없을 경우 확인창을 띄우도록 변경했습니다.<br />
                 * 이미 실행중인 올ㅋ사전이 있을 경우 종료시킵니다.<br />
@@ -56,7 +56,7 @@
         <item>
             <title>Version 1.1.1</title>
             <pubDate>Tue, Aug 03 2014 22:39:00 GMT+0900 (KST)</pubDate>
-            <enclosure url="https://github.com/devxoul/allkdic/releases/download/v1.1.1/Allkdic-1.1.1.app.zip"
+            <enclosure url="https://github.com/devxoul/allkdic/releases/download/1.1.1/Allkdic-1.1.1.app.zip"
                 sparkle:version="359"
                 sparkle:shortVersionString="1.1.1"
                 sparkle:dsaSignature="MCwCFDT+ln2GuwoktNaymeYKnIL4iLzzAhRUiMm/Tsvl3PY3O1GioJyOqDm7Ig=="
@@ -73,7 +73,7 @@
         <item>
             <title>Version 1.1.2</title>
             <pubDate>Fri, Sep 26 2014 02:00:00 GMT+0900 (KST)</pubDate>
-            <enclosure url="https://github.com/devxoul/allkdic/releases/download/v1.1.2/Allkdic-1.1.2.app.zip"
+            <enclosure url="https://github.com/devxoul/allkdic/releases/download/1.1.2/Allkdic-1.1.2.app.zip"
                 sparkle:version="394"
                 sparkle:shortVersionString="1.1.2"
                 sparkle:dsaSignature="MCwCFDtxUMoXzyDzohDcIt8kqkojuGbNAhQzNN0ArbPehiF69G0DNfw+Eg/9gg=="
@@ -90,7 +90,7 @@
             <title>Version 1.2.0</title>
             <pubDate>Mon, Nov 3 2014 22:34:00 GMT+0900 (KST)</pubDate>
             <sparkle:minimumSystemVersion>10.9</sparkle:minimumSystemVersion>
-            <enclosure url="https://github.com/devxoul/allkdic/releases/download/v1.2.0/Allkdic-1.2.0.app.zip"
+            <enclosure url="https://github.com/devxoul/allkdic/releases/download/1.2.0/Allkdic-1.2.0.app.zip"
                 sparkle:version="395"
                 sparkle:shortVersionString="1.2.0"
                 sparkle:dsaSignature="MCwCFEQ5+dgth3aEVU41r3bDvs2dbDMkAhRlFJ/6AHXSgvaGnT1GNjjSlqsUVA=="
@@ -108,7 +108,7 @@
             <title>Version 1.2.1</title>
             <pubDate>Mon, Nov 10 2014 04:15:00 GMT+0900 (KST)</pubDate>
             <sparkle:minimumSystemVersion>10.9</sparkle:minimumSystemVersion>
-            <enclosure url="https://github.com/devxoul/allkdic/releases/download/v1.2.1/Allkdic-1.2.1.app.zip"
+            <enclosure url="https://github.com/devxoul/allkdic/releases/download/1.2.1/Allkdic-1.2.1.app.zip"
                 sparkle:version="396"
                 sparkle:shortVersionString="1.2.1"
                 sparkle:dsaSignature="MCwCFEzSRLwE1ce3KM6kzZZmlI50HYPsAhQOkhv2uhheTY+18NsVuxdgtBG6ng=="
