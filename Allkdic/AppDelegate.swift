@@ -33,9 +33,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         AKHotKeyManager.registerHotKey()
 
-        if !LoginUtil.willStartAtLogin() {
-            LoginUtil.setStartAtLoginEnabled(true)
-        }
+        LoginItem.register()
 
         let ga = AnalyticsHelper.sharedInstance()
         ga.beginPeriodicReportingWithAccount("UA-42976442-2", name:"올ㅋ사전", version: BundleInfo.Version)

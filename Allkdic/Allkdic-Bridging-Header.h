@@ -23,6 +23,5 @@
 */
 
 #import "AKHotKeyManager.h"
-#import "LoginUtil.h"
 
 #import <Sparkle/SUUpdater.h>
