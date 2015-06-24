@@ -31,7 +31,7 @@ public class Label: NSTextField {
         self.backgroundColor = NSColor.clearColor()
     }
 
-    convenience override init() {
+    convenience init() {
         self.init(frame: CGRectZero)
     }
 

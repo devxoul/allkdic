@@ -34,8 +34,8 @@ public class LabelButton: Label {
     override public func mouseUp(theEvent: NSEvent?) {
         self.textColor = self.normalTextColor
 
-        if theEvent? != nil {
-            let point = theEvent!.locationInWindow
+        if let event = theEvent {
+            let point = event.locationInWindow
             let rect = CGRectInset(self.frame, -10, -30)
 
             if NSPointInRect(point, rect) {

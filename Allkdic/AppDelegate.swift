@@ -91,10 +91,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func isInApplicationFolder() -> Bool {
         let bundlePath = NSBundle.mainBundle().bundlePath
-        let paths = NSSearchPathForDirectoriesInDomains(.ApplicationDirectory, .AllDomainsMask, true) as [String]
-        for path in paths {
-            if bundlePath.hasPrefix(path) {
-                return true
+        if let paths = NSSearchPathForDirectoriesInDomains(.ApplicationDirectory, .AllDomainsMask, true) as? [String] {
+            for path in paths {
+                if bundlePath.hasPrefix(path) {
+                    return true
+                }
             }
         }
         return false
@@ -104,7 +105,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let sourcePath = NSBundle.mainBundle().bundlePath
         let bundleName = sourcePath.lastPathComponent
         let applicationPaths = NSSearchPathForDirectoriesInDomains(.ApplicationDirectory, .LocalDomainMask, true)
-        let destPath = (applicationPaths.last as NSString).stringByAppendingPathComponent(bundleName)
+        let destPath = applicationPaths.last!.stringByAppendingPathComponent(bundleName)
 
         let fileManager = NSFileManager.defaultManager()
         let existing = fileManager.fileExistsAtPath(destPath)
@@ -131,13 +132,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Copy to `/Application` folder.
         var error: NSError?
         fileManager.copyItemAtPath(sourcePath, toPath: destPath, error: &error)
-        if error? != nil {
+        if let error = error {
             NSLog("Error copying file: \(error)")
         }
 
         // Remove downloaded app to trash
         fileManager.removeItemAtPath(sourcePath, error: &error)
-        if error? != nil {
+        if let error = error {
             NSLog("Error removing downloaded file: \(error)")
         }
 

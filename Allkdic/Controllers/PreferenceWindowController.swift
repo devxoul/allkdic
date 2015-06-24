@@ -127,17 +127,13 @@ class PreferenceWindowController: WindowController, NSTextFieldDelegate {
     }
 
     override func controlTextDidChange(notification: NSNotification?) {
-        if notification? == nil {
-            return
-        }
-        let textField = notification?.object as NSTextField
-        if textField == self.hotKeyTextField {
-            textField.stringValue = ""
+        if notification?.object as? NSTextField == self.hotKeyTextField {
+            self.hotKeyTextField.stringValue = ""
         }
     }
 
     func handleKeyBinding(keyBinding: KeyBinding?) {
-        if keyBinding? == nil {
+        if keyBinding == nil {
             return
         }
 
@@ -169,7 +165,7 @@ class PreferenceWindowController: WindowController, NSTextFieldDelegate {
         }
 
         let keyString = KeyBinding.keyStringFormKeyCode(keyBinding!.keyCode)
-        if keyString? == nil {
+        if keyString == nil {
             return
         }
         self.keyLabel.stringValue = keyString!.capitalizedString

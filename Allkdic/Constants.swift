@@ -23,9 +23,9 @@
 var NSAppKitVersionNumberInt: Int32 { return Int32(floor(NSAppKitVersionNumber)) }
 
 struct BundleInfo {
-    static let Version = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as String
-    static let Build = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleVersion") as String
-    static let BundleName = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleName") as String
+    static let Version = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as! String
+    static let Build = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleVersion") as! String
+    static let BundleName = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleName") as! String
 }
 
 @objc class UserDefaultsKey {
