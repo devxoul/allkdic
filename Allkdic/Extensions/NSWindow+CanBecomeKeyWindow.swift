@@ -24,7 +24,7 @@ import AppKit
 
 extension NSWindow {
     // NSPopover의 window가 Key Window가 될 수 있어야 popover 안에 있는 control들을 사용가능함.
-    func canBecomeKeyWindow() -> Bool {
-        return true
-    }
+//    func canBecomeKeyWindow() -> Bool {
+//        return true
+//    }
 }

@@ -123,7 +123,7 @@ public class ContentViewController: NSViewController {
 
         let userDefaults = NSUserDefaults.standardUserDefaults()
         var selectedDictionaryName = userDefaults.stringForKey(UserDefaultsKey.SelectedDictionaryName)
-        if selectedDictionaryName? == nil {
+        if selectedDictionaryName == nil {
             selectedDictionaryName = DictionaryName.Naver
             userDefaults.setValue(selectedDictionaryName, forKey: UserDefaultsKey.SelectedDictionaryName)
             userDefaults.synchronize()
@@ -173,14 +173,12 @@ public class ContentViewController: NSViewController {
     }
 
     override public func webView(sender: WebView!,
-        willPerformClientRedirectToURL URL: NSURL!,
-        delay seconds: NSTimeInterval,
-        fireDate date: NSDate!,
-        forFrame frame: WebFrame!) {
-
-        let URLString = URL.absoluteString! as NSString
-        if URLString.rangeOfString("query=").location == NSNotFound
-            && URLString.rangeOfString("q=").location == NSNotFound {
+                                 willPerformClientRedirectToURL URL: NSURL!,
+                                 delay seconds: NSTimeInterval,
+                                 fireDate date: NSDate!,
+                                 forFrame frame: WebFrame!) {
+        let URLString = URL.absoluteString!
+        if URLString.rangeOfString("query=") == nil && URLString.rangeOfString("q=") == nil {
             return
         }
 
@@ -201,16 +199,13 @@ public class ContentViewController: NSViewController {
         }[0]
 
         let URLPattern = selectedDictionary[DictionaryInfoKey.URLPattern]!
-        let regex = NSRegularExpression(pattern: URLPattern, options: .CaseInsensitive, error: nil)
-        if regex? == nil {
+        let regex = NSRegularExpression(pattern: URLPattern, options: .CaseInsensitive, error: nil)!
+        let result = regex.firstMatchInString(URLString, options: .allZeros, range: NSMakeRange(0, count(URLString)))
+        if result == nil {
             return
         }
-        let result = regex!.firstMatchInString(URLString, options: .allZeros, range: NSMakeRange(0, URLString.length))
-        if result? == nil {
-            return
-        }
-        let range = result?.rangeAtIndex(0)
-        let pattern = URLString.substringWithRange(range!)
+        let range = result!.rangeAtIndex(0)
+        let pattern = (URLString as NSString).substringWithRange(range)
 
         for (type, patterns) in URLPatternsForDictionaryType {
             if contains(patterns, pattern) {
@@ -232,10 +227,7 @@ public class ContentViewController: NSViewController {
     }
 
     func javascript(script: String) -> AnyObject? {
-        if self.webView.mainFrameDocument? == nil {
-            return nil
-        }
-        return self.webView.mainFrameDocument!.evaluateWebScript(script)
+        return self.webView.mainFrameDocument?.evaluateWebScript(script)
     }
 
     public func handleKeyBinding(keyBinding: KeyBinding) {
@@ -277,7 +269,7 @@ public class ContentViewController: NSViewController {
     ///
     /// :param: sender `Int` or `NSMenuItem`. If `NSMenuItem` is given, guess dictionary's index with `tag` property.
     func swapDictionary(sender: AnyObject?) {
-        if sender? == nil {
+        if sender == nil {
             return
         }
 
@@ -288,7 +280,7 @@ public class ContentViewController: NSViewController {
             index = sender!.tag()
         }
 
-        if index? == nil {
+        if index == nil {
             return
         }
 
@@ -305,7 +297,7 @@ public class ContentViewController: NSViewController {
         NSLog("Swap dictionary: \(dictionaryName)")
 
         for menuItem in self.dictionaryMenu.itemArray {
-            (menuItem as NSMenuItem).state = NSOffState
+            (menuItem as! NSMenuItem).state = NSOffState
         }
         self.dictionaryMenu.itemWithTag(index!)?.state = NSOnState
 

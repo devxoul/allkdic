@@ -1,8 +1,7 @@
 language: objective-c
-osx_image: xcode61
+osx_image: beta-xcode6.3
 before_install:
   - brew install gawk
   - bash linter.sh
-  - gem install cocoapods -v '0.36.0.beta.2'
 xcode_workspace: Allkdic.xcworkspace
 xcode_scheme: Allkdic

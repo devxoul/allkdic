@@ -48,7 +48,7 @@ class AllkdicManager: NSObject {
         self.statusItem.target = self
         self.statusItem.action = "open"
 
-        let button = self.statusItem.valueForKey("_button") as NSButton
+        let button = self.statusItem.valueForKey("_button") as! NSButton
         button.focusRingType = .None
         button.setButtonType(.PushOnPushOffButton)
 
@@ -70,7 +70,7 @@ class AllkdicManager: NSObject {
             return
         }
 
-        let button = self.statusItem.valueForKey("_button") as NSButton
+        let button = self.statusItem.valueForKey("_button") as! NSButton
         button.state = NSOnState
 
         NSApp.activateIgnoringOtherApps(true)
@@ -92,7 +92,7 @@ class AllkdicManager: NSObject {
             return
         }
 
-        let button = self.statusItem.valueForKey("_button") as NSButton
+        let button = self.statusItem.valueForKey("_button") as! NSButton
         button.state = NSOffState
 
         self.popover.close()
@@ -108,15 +108,12 @@ class AllkdicManager: NSObject {
     func handleKeyCode(keyCode: UInt16, flags: NSEventModifierFlags, windowNumber: Int) {
         let keyBinding = KeyBinding(keyCode: Int(keyCode), flags: Int(flags.rawValue))
 
-        let window = NSApp.windowWithWindowNumber(windowNumber)
-        if window? == nil {
-            return
-        }
-
-        if window!.dynamicType.className() == "NSStatusBarWindow" {
-            self.contentViewController.handleKeyBinding(keyBinding)
-        } else if window!.windowController()? != nil && window!.windowController()! is PreferenceWindowController {
-            window!.windowController()!.handleKeyBinding(keyBinding)
+        if let window = NSApp.windowWithWindowNumber(windowNumber) {
+            if window.dynamicType.className() == "NSStatusBarWindow" {
+                self.contentViewController.handleKeyBinding(keyBinding)
+            } else if let windowController = window.windowController() as? PreferenceWindowController {
+                windowController.handleKeyBinding(keyBinding)
+            }
         }
     }
 }

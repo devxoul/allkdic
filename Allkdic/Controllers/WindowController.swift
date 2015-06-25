@@ -26,7 +26,7 @@ class WindowController: NSWindowController, NSWindowDelegate {
 
     var contentView: NSView {
         get {
-            return self.window!.contentView as NSView
+            return self.window!.contentView as! NSView
         }
         set {
             self.window!.contentView = newValue

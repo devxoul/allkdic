@@ -24,7 +24,7 @@ private let _dictionaryKeys = ["keyCode", "shift", "control", "option", "command
 
 public func ==(left: KeyBinding, right: KeyBinding) -> Bool {
     for key in _dictionaryKeys {
-        if left.valueForKey(key) as Int != right.valueForKey(key) as Int {
+        if left.valueForKey(key) as? Int != right.valueForKey(key) as? Int {
             return false
         }
     }
@@ -54,9 +54,8 @@ public func ==(left: KeyBinding, right: KeyBinding) -> Bool {
             keys.append("Command")
         }
 
-        let keyString = self.dynamicType.keyStringFormKeyCode(self.keyCode)
-        if keyString? != nil {
-            keys.append(keyString!.capitalizedString)
+        if let keyString = self.dynamicType.keyStringFormKeyCode(self.keyCode) {
+            keys.append(keyString.capitalizedString)
         }
 
         return " + ".join(keys)
@@ -86,12 +85,11 @@ public func ==(left: KeyBinding, right: KeyBinding) -> Bool {
 
     @objc public init(dictionary: [NSObject: AnyObject]?) {
         super.init()
-        if dictionary? == nil {
+        if dictionary == nil {
             return
         }
         for key in _dictionaryKeys {
-            let value = dictionary![key] as? Int
-            if value? != nil {
+            if let value = dictionary![key] as? Int {
                 self.setValue(value, forKey: key)
             }
         }
