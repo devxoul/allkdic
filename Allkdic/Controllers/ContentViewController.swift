@@ -121,26 +121,22 @@ public class ContentViewController: NSViewController {
             NSEventModifierFlags.CommandKeyMask.rawValue | NSEventModifierFlags.ShiftKeyMask.rawValue
         )
 
-        let userDefaults = NSUserDefaults.standardUserDefaults()
-        var selectedDictionaryName = userDefaults.stringForKey(UserDefaultsKey.SelectedDictionaryName)
-        if selectedDictionaryName == nil {
-            selectedDictionaryName = DictionaryName.Naver
-            userDefaults.setValue(selectedDictionaryName, forKey: UserDefaultsKey.SelectedDictionaryName)
-            userDefaults.synchronize()
-        }
+        let selectedDictionary = DictionaryType.selectedDictionary
 
-        for (i, info) in enumerate(DictionaryInfo) {
+        // dictionary submenu
+        for (i, dictionary) in enumerate(DictionaryType.allTypes) {
             let dictionaryMenuItem = NSMenuItem()
-            dictionaryMenuItem.title = info[DictionaryInfoKey.Title]!
+            dictionaryMenuItem.title = dictionary.title
             dictionaryMenuItem.tag = i
             dictionaryMenuItem.action = "swapDictionary:"
             dictionaryMenuItem.keyEquivalent = "\(i + 1)"
             dictionaryMenuItem.keyEquivalentModifierMask = dictionaryKeyModifierMask
-            if selectedDictionaryName == info[DictionaryInfoKey.Name] {
+            if dictionary == selectedDictionary {
                 dictionaryMenuItem.state = NSOnState
             }
             self.dictionaryMenu.addItem(dictionaryMenuItem)
         }
+
         self.navigateToMain()
     }
 
@@ -160,14 +156,7 @@ public class ContentViewController: NSViewController {
     // MARK: - WebView
 
     func navigateToMain() {
-        let userDefaults = NSUserDefaults.standardUserDefaults()
-        let selectedDictionaryName = userDefaults.stringForKey(UserDefaultsKey.SelectedDictionaryName)
-        let selectedDictionary = DictionaryInfo.filter {
-            return $0[DictionaryInfoKey.Name] == selectedDictionaryName
-        }[0]
-        let URL = selectedDictionary[DictionaryInfoKey.URL]
-
-        self.webView.mainFrameURL = URL
+        self.webView.mainFrameURL = DictionaryType.selectedDictionary.URLString
         self.indicator.startAnimation(self)
         self.indicator.hidden = false
     }
@@ -192,13 +181,7 @@ public class ContentViewController: NSViewController {
             AnalyticsLabel.Russian:  ["ru"],
         ]
 
-        let userDefaults = NSUserDefaults.standardUserDefaults()
-        let selectedDictionaryName = userDefaults.stringForKey(UserDefaultsKey.SelectedDictionaryName)
-        let selectedDictionary = DictionaryInfo.filter {
-            return $0[DictionaryInfoKey.Name] == selectedDictionaryName
-        }[0]
-
-        let URLPattern = selectedDictionary[DictionaryInfoKey.URLPattern]!
+        let URLPattern = DictionaryType.selectedDictionary.URLPattern
         let regex = NSRegularExpression(pattern: URLPattern, options: .CaseInsensitive, error: nil)!
         let result = regex.firstMatchInString(URLString, options: .allZeros, range: NSMakeRange(0, count(URLString)))
         if result == nil {
@@ -239,7 +222,7 @@ public class ContentViewController: NSViewController {
             PopoverController.sharedInstance().close()
             break
 
-        case (true, false, false, true, let index) where 18...(18 + DictionaryInfo.count) ~= index:
+        case (true, false, false, true, let index) where 18...(18 + DictionaryType.allTypes.count) ~= index:
             // Command + 1, 2, 3, ...
             self.swapDictionary(index - 18)
             break
@@ -284,17 +267,9 @@ public class ContentViewController: NSViewController {
             return
         }
 
-        let selectedDictionary = DictionaryInfo[index!]
-        let dictionaryName = selectedDictionary[DictionaryInfoKey.Name]!
-
-        let userDefaults = NSUserDefaults.standardUserDefaults()
-        if dictionaryName == userDefaults.stringForKey(UserDefaultsKey.SelectedDictionaryName) {
-            return
-        }
-        userDefaults.setValue(dictionaryName, forKey: UserDefaultsKey.SelectedDictionaryName)
-        userDefaults.synchronize()
-
-        NSLog("Swap dictionary: \(dictionaryName)")
+        let selectedDictionary = DictionaryType.allTypes[index!]
+        DictionaryType.selectedDictionary = selectedDictionary
+        NSLog("Swap dictionary: \(selectedDictionary.name)")
 
         for menuItem in self.dictionaryMenu.itemArray {
             (menuItem as! NSMenuItem).state = NSOffState
@@ -304,7 +279,7 @@ public class ContentViewController: NSViewController {
         AnalyticsHelper.sharedInstance().recordCachedEventWithCategory(
             AnalyticsCategory.Allkdic,
             action: AnalyticsAction.Dictionary,
-            label: dictionaryName,
+            label: selectedDictionary.name,
             value: nil
         )
 

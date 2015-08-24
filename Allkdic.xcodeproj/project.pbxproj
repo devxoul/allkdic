@@ -33,6 +33,7 @@
 		038DDCAA1A051DA800754ECC /* KeyMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038DDCA91A051DA800754ECC /* KeyMap.swift */; };
 		038DDCAD1A0536EA00754ECC /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0322CF8017AE9965007E832C /* AppKit.framework */; };
 		03A5C49C1A05FDFF001122AB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03A5C49B1A05FDFF001122AB /* Images.xcassets */; };
+		03CA9D971B8B720F000558EC /* DictionaryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CA9D961B8B720F000558EC /* DictionaryType.swift */; };
 		D29FCA7C881A07C7B10053C7 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 609979FA74B410CEF173FA53 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -95,6 +96,7 @@
 		038DDCA71A051BE700754ECC /* KeyBinding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyBinding.swift; path = Allkdic/Models/KeyBinding.swift; sourceTree = SOURCE_ROOT; };
 		038DDCA91A051DA800754ECC /* KeyMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyMap.swift; path = Allkdic/Models/KeyMap.swift; sourceTree = SOURCE_ROOT; };
 		03A5C49B1A05FDFF001122AB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		03CA9D961B8B720F000558EC /* DictionaryType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryType.swift; sourceTree = SOURCE_ROOT; };
 		2E78F3D61C060A3A00C1CAC1 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		609979FA74B410CEF173FA53 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CF50E65AF462DCCD5388442 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 		0324201017E38EC3003025E3 /* Types */ = {
 			isa = PBXGroup;
 			children = (
+				03CA9D961B8B720F000558EC /* DictionaryType.swift */,
 				038DDCA91A051DA800754ECC /* KeyMap.swift */,
 				038DDCA71A051BE700754ECC /* KeyBinding.swift */,
 			);
@@ -436,6 +439,7 @@
 				030E7FBA1B3B2F00009B3EB8 /* LoginItem.swift in Sources */,
 				0315897319FD4E0D002D5A7C /* AboutWindowController.swift in Sources */,
 				030E7FB71B3B2EB2009B3EB8 /* NSWindow+CanBecomeKeyWindow.swift in Sources */,
+				03CA9D971B8B720F000558EC /* DictionaryType.swift in Sources */,
 				0362B0CC19FD146B00C88610 /* PreferenceWindowController.swift in Sources */,
 				0349451A19FB9D1800D7AEE2 /* AKHotKeyManager.m in Sources */,
 				0349452019FBB24100D7AEE2 /* PopoverController.swift in Sources */,
