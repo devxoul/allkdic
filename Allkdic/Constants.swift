@@ -35,36 +35,6 @@ struct BundleInfo {
 }
 
 
-// MARK: - Dictionary
-
-struct DictionaryName {
-    static let Naver = "Naver"
-    static let Daum = "Daum"
-}
-
-struct DictionaryInfoKey {
-    static let Name = "Name"
-    static let Title = "Title"
-    static let URL = "URL"
-    static let URLPattern = "URLPattern"
-}
-
-let DictionaryInfo = [
-    [
-        DictionaryInfoKey.Name: DictionaryName.Naver,
-        DictionaryInfoKey.Title: "네이버 사전",
-        DictionaryInfoKey.URL: "http://endic.naver.com/popManager.nhn?m=miniPopMain",
-        DictionaryInfoKey.URLPattern: "[a-z]+(?=\\.naver\\.com)",
-    ],
-    [
-        DictionaryInfoKey.Name: DictionaryName.Daum,
-        DictionaryInfoKey.Title: "다음 사전",
-        DictionaryInfoKey.URL: "http://small.dic.daum.net/",
-        DictionaryInfoKey.URLPattern: "(?<=[?&]dic=)[a-z]+",
-    ]
-]
-
-
 // MARK: - Google Analytics
 
 struct AnalyticsCategory {
