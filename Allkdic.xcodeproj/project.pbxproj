@@ -198,7 +198,7 @@
 				0349451B19FB9D1D00D7AEE2 /* Managers */,
 				0315897619FD506D002D5A7C /* Controls */,
 				0367295D17B0458D0074D249 /* Controllers */,
-				0324201017E38EC3003025E3 /* Models */,
+				0324201017E38EC3003025E3 /* Types */,
 				030E7FAE1B3B2EB2009B3EB8 /* Utils */,
 				0322CF8417AE9965007E832C /* Supporting Files */,
 			);
@@ -226,13 +226,13 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		0324201017E38EC3003025E3 /* Models */ = {
+		0324201017E38EC3003025E3 /* Types */ = {
 			isa = PBXGroup;
 			children = (
 				038DDCA91A051DA800754ECC /* KeyMap.swift */,
 				038DDCA71A051BE700754ECC /* KeyBinding.swift */,
 			);
-			name = Models;
+			name = Types;
 			sourceTree = "<group>";
 		};
 		0328DE041A0FA00D00160E93 /* AllkdicTests */ = {
