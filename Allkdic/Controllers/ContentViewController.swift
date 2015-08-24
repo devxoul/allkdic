@@ -148,8 +148,7 @@ public class ContentViewController: NSViewController {
     }
 
     public func focusOnTextArea() {
-        self.javascript("ac_input.focus()")
-        self.javascript("ac_input.select()")
+        self.javascript(DictionaryType.selectedDictionary.inputFocusingScript)
     }
 
 

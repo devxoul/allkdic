@@ -79,4 +79,11 @@ public enum DictionaryType: String {
         }
     }
 
+    public var inputFocusingScript: String {
+        switch self {
+        case .Naver: return "ac_input.focus(); ac_input.select()"
+        case .Daum: return "q.focus(); q.select()"
+        }
+    }
+
 }
