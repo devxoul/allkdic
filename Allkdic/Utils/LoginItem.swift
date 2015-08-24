@@ -21,7 +21,7 @@
 // SOFTWARE.
 
 
-import AppKit
+import Cocoa
 
 
 public class LoginItem {

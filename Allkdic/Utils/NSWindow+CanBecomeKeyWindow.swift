@@ -20,7 +20,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-import AppKit
+import Cocoa
 
 extension NSWindow {
     // NSPopover의 window가 Key Window가 될 수 있어야 popover 안에 있는 control들을 사용가능함.

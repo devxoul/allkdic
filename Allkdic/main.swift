@@ -22,7 +22,7 @@
  SOFTWARE.
 */
 
-import AppKit
+import Cocoa
 
 autoreleasepool { () -> () in
     let application = NSApplication.sharedApplication()
