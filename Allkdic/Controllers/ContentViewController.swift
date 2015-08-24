@@ -37,7 +37,7 @@ public class ContentViewController: NSViewController {
     let dictionaryMenu = NSMenu()
 
     override public func loadView() {
-        self.view = NSView(frame: CGRectMake(0, 0, 405, 566))
+        self.view = NSView(frame: CGRect(x: 0, y: 0, width: 405, height: 566))
         self.view.autoresizingMask = .ViewNotSizable
         self.view.appearance = NSAppearance(named: NSAppearanceNameAqua)
 
@@ -50,7 +50,7 @@ public class ContentViewController: NSViewController {
         self.titleLabel.action = "navigateToMain"
         self.titleLabel.snp_makeConstraints { make in
             make.top.equalTo(10)
-            make.centerX.equalTo(self.view)
+            make.centerX.equalTo(0)
         }
 
         self.view.addSubview(self.hotKeyLabel)
@@ -58,15 +58,14 @@ public class ContentViewController: NSViewController {
         self.hotKeyLabel.font = NSFont.systemFontOfSize(NSFont.smallSystemFontSize())
         self.hotKeyLabel.snp_makeConstraints { make in
             make.top.equalTo(self.titleLabel.snp_bottom).offset(2)
-            make.centerX.equalTo(self.view)
+            make.centerX.equalTo(0)
         }
 
         self.view.addSubview(self.separatorView)
         self.separatorView.image = NSImage(named: "line")
         self.separatorView.snp_makeConstraints { make in
             make.top.equalTo(self.hotKeyLabel.snp_bottom).offset(8)
-            make.centerX.equalTo(self.view)
-            make.width.equalTo(self.view)
+            make.centerX.width.equalTo(0)
             make.height.equalTo(2)
         }
 
@@ -75,7 +74,7 @@ public class ContentViewController: NSViewController {
         self.webView.shouldUpdateWhileOffscreen = true
         self.webView.snp_makeConstraints { make in
             make.top.equalTo(self.separatorView.snp_bottom)
-            make.left.right.bottom.equalTo(self.view)
+            make.left.right.bottom.equalTo(0)
         }
 
         self.view.addSubview(self.indicator)
@@ -95,7 +94,7 @@ public class ContentViewController: NSViewController {
         self.menuButton.target = self
         self.menuButton.action = "showMenu"
         self.menuButton.snp_makeConstraints { make in
-            make.right.equalTo(self.view).offset(-10)
+            make.right.equalTo(-10)
             make.centerY.equalTo(self.separatorView.snp_top).dividedBy(2)
         }
 
