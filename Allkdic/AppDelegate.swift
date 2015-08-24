@@ -31,10 +31,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         self.terminateAlreadyRunning()
         ApplicationFolder.moveToApplicationFolderIfNeeded()
         LoginItem.register()
-        AKHotKeyManager.registerHotKey()
 
         let ga = AnalyticsHelper.sharedInstance()
         ga.beginPeriodicReportingWithAccount("UA-42976442-2", name:"올ㅋ사전", version: BundleInfo.Version)
+
+        PopoverController.sharedInstance()
+        AKHotKeyManager.registerHotKey()
 
         self.checkForUpdatesInBackground()
         NSTimer.scheduledTimerWithTimeInterval(30 * 60,

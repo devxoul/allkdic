@@ -22,7 +22,7 @@
 		0349451719FB8D4D00D7AEE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349451619FB8D4D00D7AEE2 /* AppDelegate.swift */; };
 		0349451A19FB9D1800D7AEE2 /* AKHotKeyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0349451919FB9D1800D7AEE2 /* AKHotKeyManager.m */; };
 		0349451E19FBB01700D7AEE2 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349451D19FBB01700D7AEE2 /* main.swift */; };
-		0349452019FBB24100D7AEE2 /* AllkdicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349451F19FBB24100D7AEE2 /* AllkdicManager.swift */; };
+		0349452019FBB24100D7AEE2 /* PopoverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349451F19FBB24100D7AEE2 /* PopoverController.swift */; };
 		0349452219FBB68D00D7AEE2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349452119FBB68D00D7AEE2 /* Constants.swift */; };
 		0349452419FBEE7100D7AEE2 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349452319FBEE7100D7AEE2 /* ContentViewController.swift */; };
 		0362B0CC19FD146B00C88610 /* PreferenceWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0362B0CB19FD146B00C88610 /* PreferenceWindowController.swift */; };
@@ -84,7 +84,7 @@
 		0349451919FB9D1800D7AEE2 /* AKHotKeyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AKHotKeyManager.m; path = Allkdic/Managers/AKHotKeyManager.m; sourceTree = SOURCE_ROOT; };
 		0349451C19FB9D2B00D7AEE2 /* AKHotKeyManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AKHotKeyManager.h; path = Allkdic/Managers/AKHotKeyManager.h; sourceTree = SOURCE_ROOT; };
 		0349451D19FBB01700D7AEE2 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = main.swift; path = Allkdic/main.swift; sourceTree = SOURCE_ROOT; };
-		0349451F19FBB24100D7AEE2 /* AllkdicManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AllkdicManager.swift; path = Allkdic/Managers/AllkdicManager.swift; sourceTree = SOURCE_ROOT; };
+		0349451F19FBB24100D7AEE2 /* PopoverController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PopoverController.swift; path = Allkdic/Managers/PopoverController.swift; sourceTree = SOURCE_ROOT; };
 		0349452119FBB68D00D7AEE2 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Allkdic/Constants.swift; sourceTree = SOURCE_ROOT; };
 		0349452319FBEE7100D7AEE2 /* ContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		0362B0CB19FD146B00C88610 /* PreferenceWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceWindowController.swift; sourceTree = "<group>"; };
@@ -255,7 +255,6 @@
 		0349451B19FB9D1D00D7AEE2 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				0349451F19FBB24100D7AEE2 /* AllkdicManager.swift */,
 				0349451C19FB9D2B00D7AEE2 /* AKHotKeyManager.h */,
 				0349451919FB9D1800D7AEE2 /* AKHotKeyManager.m */,
 			);
@@ -265,6 +264,7 @@
 		0367295D17B0458D0074D249 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0349451F19FBB24100D7AEE2 /* PopoverController.swift */,
 				0349452319FBEE7100D7AEE2 /* ContentViewController.swift */,
 				0362B0CD19FD2D2B00C88610 /* WindowController.swift */,
 				0362B0CB19FD146B00C88610 /* PreferenceWindowController.swift */,
@@ -438,7 +438,7 @@
 				030E7FB71B3B2EB2009B3EB8 /* NSWindow+CanBecomeKeyWindow.swift in Sources */,
 				0362B0CC19FD146B00C88610 /* PreferenceWindowController.swift in Sources */,
 				0349451A19FB9D1800D7AEE2 /* AKHotKeyManager.m in Sources */,
-				0349452019FBB24100D7AEE2 /* AllkdicManager.swift in Sources */,
+				0349452019FBB24100D7AEE2 /* PopoverController.swift in Sources */,
 				0349451719FB8D4D00D7AEE2 /* AppDelegate.swift in Sources */,
 				030E7FBC1B3B3053009B3EB8 /* ApplicationFolder.swift in Sources */,
 				0362B0CE19FD2D2B00C88610 /* WindowController.swift in Sources */,

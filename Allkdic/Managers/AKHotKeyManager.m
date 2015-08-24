@@ -80,7 +80,7 @@ EventHotKeyRef hotKeyRef;
     RegisterEventHotKey((UInt32)keyBinding.keyCode, hotKeyModifiers, hotKeyId, GetApplicationEventTarget(), 0,
                         &hotKeyRef);
 
-    [[AllkdicManager sharedInstance].contentViewController updateHotKeyLabel];
+    [[PopoverController sharedInstance].contentViewController updateHotKeyLabel];
 }
 
 + (void)unregisterHotKey
@@ -95,7 +95,7 @@ EventHotKeyRef hotKeyRef;
 
 OSStatus hotKeyHandler(EventHandlerCallRef nextHandler, EventRef theEvent, void *userData)
 {
-    [[AllkdicManager sharedInstance] open];
+    [[PopoverController sharedInstance] open];
     return noErr;
 }
 

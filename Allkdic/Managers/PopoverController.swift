@@ -23,58 +23,62 @@
 import AppKit
 import SimpleCocoaAnalytics
 
-private let _sharedInstance = AllkdicManager()
 
-class AllkdicManager: NSObject {
+private let _sharedInstance = PopoverController()
 
-    let statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(-1) // NSVariableStatusItemLength
-    let popover = NSPopover()
 
-    let contentViewController = ContentViewController()
-    let preferenceWindowController = PreferenceWindowController()
-    let aboutWindowController = AboutWindowController()
+public class PopoverController: NSObject {
 
-    class func sharedInstance() -> AllkdicManager {
+    private let statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(-1) // NSVariableStatusItemLength
+    private var statusButton: NSButton {
+        return self.statusItem.valueForKey("_button") as! NSButton
+    }
+    private let popover = NSPopover()
+
+    internal let contentViewController = ContentViewController()
+    internal let preferenceWindowController = PreferenceWindowController()
+    internal let aboutWindowController = AboutWindowController()
+
+
+    public class func sharedInstance() -> PopoverController {
         return _sharedInstance
     }
 
-    override init() {
+
+    public override init() {
         super.init()
 
         let icon = NSImage(named: "statusicon_default")
         icon?.setTemplate(true)
         self.statusItem.image = icon
-
         self.statusItem.target = self
         self.statusItem.action = "open"
 
-        let button = self.statusItem.valueForKey("_button") as! NSButton
-        button.focusRingType = .None
-        button.setButtonType(.PushOnPushOffButton)
+        self.statusButton.focusRingType = .None
+        self.statusButton.setButtonType(.PushOnPushOffButton)
 
         self.popover.contentViewController = self.contentViewController
 
-        NSEvent.addGlobalMonitorForEventsMatchingMask(.LeftMouseUpMask | .LeftMouseDownMask, handler: { event in
+        NSEvent.addGlobalMonitorForEventsMatchingMask(.LeftMouseUpMask | .LeftMouseDownMask) { _ in
             self.close()
-        })
+        }
 
-        NSEvent.addLocalMonitorForEventsMatchingMask(.KeyDownMask, handler: { (event) -> NSEvent in
+        NSEvent.addLocalMonitorForEventsMatchingMask(.KeyDownMask) { event in
             self.handleKeyCode(event.keyCode, flags: event.modifierFlags, windowNumber: event.windowNumber)
             return event
-        })
+        }
     }
 
-    func open() {
+    public func open() {
         if self.popover.shown {
             self.close()
             return
         }
 
-        let button = self.statusItem.valueForKey("_button") as! NSButton
-        button.state = NSOnState
+        self.statusButton.state = NSOnState
 
         NSApp.activateIgnoringOtherApps(true)
-        self.popover.showRelativeToRect(NSZeroRect, ofView: button, preferredEdge: NSMaxYEdge)
+        self.popover.showRelativeToRect(NSRect.zeroRect, ofView: self.statusButton, preferredEdge: NSMaxYEdge)
         self.contentViewController.updateHotKeyLabel()
         self.contentViewController.focusOnTextArea()
 
@@ -87,14 +91,12 @@ class AllkdicManager: NSObject {
         )
     }
 
-    func close() {
+    public func close() {
         if !self.popover.shown {
             return
         }
 
-        let button = self.statusItem.valueForKey("_button") as! NSButton
-        button.state = NSOffState
-
+        self.statusButton.state = NSOffState
         self.popover.close()
 
         AnalyticsHelper.sharedInstance().recordCachedEventWithCategory(
@@ -105,11 +107,11 @@ class AllkdicManager: NSObject {
         )
     }
 
-    func handleKeyCode(keyCode: UInt16, flags: NSEventModifierFlags, windowNumber: Int) {
+    public func handleKeyCode(keyCode: UInt16, flags: NSEventModifierFlags, windowNumber: Int) {
         let keyBinding = KeyBinding(keyCode: Int(keyCode), flags: Int(flags.rawValue))
 
         if let window = NSApp.windowWithWindowNumber(windowNumber) {
-            if window.dynamicType.className() == "NSStatusBarWindow" {
+            if contains(["NSStatusBarWindow", "_NSPopoverWindow"], window.dynamicType.className()) {
                 self.contentViewController.handleKeyBinding(keyBinding)
             } else if let windowController = window.windowController() as? PreferenceWindowController {
                 windowController.handleKeyBinding(keyBinding)

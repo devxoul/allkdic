@@ -174,7 +174,7 @@ class PreferenceWindowController: WindowController, NSTextFieldDelegate {
         NSUserDefaults.standardUserDefaults().setObject(keyBinding!.toDictionary(), forKey: UserDefaultsKey.HotKey)
         NSUserDefaults.standardUserDefaults().synchronize()
 
-        AllkdicManager.sharedInstance().contentViewController.updateHotKeyLabel()
+        PopoverController.sharedInstance().contentViewController.updateHotKeyLabel()
 
         AnalyticsHelper.sharedInstance().recordCachedEventWithCategory(
             AnalyticsCategory.Preference,

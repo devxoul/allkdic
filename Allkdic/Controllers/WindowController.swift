@@ -55,7 +55,7 @@ class WindowController: NSWindowController, NSWindowDelegate {
     }
 
     override func showWindow(sender: AnyObject?) {
-        AllkdicManager.sharedInstance().close()
+        PopoverController.sharedInstance().close()
         self.window?.level = Int(CGWindowLevelForKey(Int32(kCGScreenSaverWindowLevelKey))) // NSScreenSaverWindowLevel
         super.showWindow(sender)
     }

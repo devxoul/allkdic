@@ -236,7 +236,7 @@ public class ContentViewController: NSViewController {
         switch key {
         case (false, false, false, false, 53):
             // ESC
-            AllkdicManager.sharedInstance().close()
+            PopoverController.sharedInstance().close()
             break
 
         case (true, false, false, true, let index) where 18...(18 + DictionaryInfo.count) ~= index:
@@ -312,11 +312,11 @@ public class ContentViewController: NSViewController {
     }
 
     func showPreferenceWindow() {
-        AllkdicManager.sharedInstance().preferenceWindowController.showWindow(self)
+        PopoverController.sharedInstance().preferenceWindowController.showWindow(self)
     }
 
     func showAboutWindow() {
-        AllkdicManager.sharedInstance().aboutWindowController.showWindow(self)
+        PopoverController.sharedInstance().aboutWindowController.showWindow(self)
     }
 
     func quit() {
