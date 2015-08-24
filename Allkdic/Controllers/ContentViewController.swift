@@ -22,7 +22,7 @@
 
 import AppKit
 import SimpleCocoaAnalytics
-import Snap
+import SnapKit
 import WebKit
 
 public class ContentViewController: NSViewController {
@@ -57,14 +57,14 @@ public class ContentViewController: NSViewController {
         self.hotKeyLabel.textColor = NSColor.headerColor()
         self.hotKeyLabel.font = NSFont.systemFontOfSize(NSFont.smallSystemFontSize())
         self.hotKeyLabel.snp_makeConstraints { make in
-            make.top.equalTo(self.titleLabel.snp_bottom).with.offset(2)
+            make.top.equalTo(self.titleLabel.snp_bottom).offset(2)
             make.centerX.equalTo(self.view)
         }
 
         self.view.addSubview(self.separatorView)
         self.separatorView.image = NSImage(named: "line")
         self.separatorView.snp_makeConstraints { make in
-            make.top.equalTo(self.hotKeyLabel.snp_bottom).with.offset(8)
+            make.top.equalTo(self.hotKeyLabel.snp_bottom).offset(8)
             make.centerX.equalTo(self.view)
             make.width.equalTo(self.view)
             make.height.equalTo(2)
@@ -75,7 +75,7 @@ public class ContentViewController: NSViewController {
         self.webView.shouldUpdateWhileOffscreen = true
         self.webView.snp_makeConstraints { make in
             make.top.equalTo(self.separatorView.snp_bottom)
-            make.left.right.and.bottom.equalTo(self.view)
+            make.left.right.bottom.equalTo(self.view)
         }
 
         self.view.addSubview(self.indicator)
@@ -95,7 +95,7 @@ public class ContentViewController: NSViewController {
         self.menuButton.target = self
         self.menuButton.action = "showMenu"
         self.menuButton.snp_makeConstraints { make in
-            make.right.equalTo(self.view).with.offset(-10)
+            make.right.equalTo(self.view).offset(-10)
             make.centerY.equalTo(self.separatorView.snp_top).dividedBy(2)
         }
 

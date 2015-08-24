@@ -22,7 +22,7 @@
 
 import AppKit
 import SimpleCocoaAnalytics
-import Snap
+import SnapKit
 import Sparkle
 
 class AboutWindowController: WindowController {
@@ -52,7 +52,7 @@ class AboutWindowController: WindowController {
         self.logoView.snp_makeConstraints { make in
             make.centerX.equalTo(self.contentView)
             make.top.equalTo(34)
-            make.width.and.height.equalTo(87)
+            make.width.height.equalTo(87)
         }
 
         self.titleLabel.font = NSFont.boldSystemFontOfSize(23)
@@ -61,7 +61,7 @@ class AboutWindowController: WindowController {
         self.titleLabel.sizeToFit()
         self.titleLabel.snp_makeConstraints { make in
             make.centerX.equalTo(self.contentView)
-            make.top.equalTo(self.logoView.snp_bottom).with.offset(10)
+            make.top.equalTo(self.logoView.snp_bottom).offset(10)
         }
 
         self.versionLabel.font = NSFont.systemFontOfSize(11)
@@ -70,7 +70,7 @@ class AboutWindowController: WindowController {
         self.versionLabel.sizeToFit()
         self.versionLabel.snp_makeConstraints { make in
             make.centerX.equalTo(self.contentView)
-            make.top.equalTo(self.titleLabel.snp_bottom).with.offset(10)
+            make.top.equalTo(self.titleLabel.snp_bottom).offset(10)
         }
 
         self.styleButton(self.checkForUpdatesButton)
@@ -78,7 +78,7 @@ class AboutWindowController: WindowController {
         self.checkForUpdatesButton.target = self
         self.checkForUpdatesButton.action = "checkForUpdates"
         self.checkForUpdatesButton.snp_makeConstraints { make in
-            make.top.equalTo(self.versionLabel.snp_bottom).with.offset(15)
+            make.top.equalTo(self.versionLabel.snp_bottom).offset(15)
             make.centerX.equalTo(self.contentView)
             make.width.equalTo(156)
         }
@@ -103,7 +103,7 @@ class AboutWindowController: WindowController {
                     make.top.equalTo(keyLabels.last!.snp_bottom).offset(8)
                 }
                 make.left.equalTo(10)
-                make.right.equalTo(self.contentView.snp_centerX).with.offset(-15)
+                make.right.equalTo(self.contentView.snp_centerX).offset(-15)
             }
             keyLabels.append(keyLabel)
 
@@ -113,8 +113,8 @@ class AboutWindowController: WindowController {
             valueLabel.stringValue = value
             valueLabel.snp_makeConstraints { make in
                 make.top.equalTo(keyLabel)
-                make.left.equalTo(keyLabel.snp_right).with.offset(4)
-                make.right.equalTo(self.contentView).with.offset(-10)
+                make.left.equalTo(keyLabel.snp_right).offset(4)
+                make.right.equalTo(self.contentView).offset(-10)
             }
         }
 
@@ -123,7 +123,7 @@ class AboutWindowController: WindowController {
         self.viewOnGitHubButton.target = self
         self.viewOnGitHubButton.action = "viewOnGitHub"
         self.viewOnGitHubButton.snp_makeConstraints { make in
-            make.top.equalTo(keyLabels.last!.snp_bottom).with.offset(15)
+            make.top.equalTo(keyLabels.last!.snp_bottom).offset(15)
             make.centerX.equalTo(self.contentView)
             make.width.equalTo(self.checkForUpdatesButton)
         }
@@ -133,7 +133,7 @@ class AboutWindowController: WindowController {
         self.quitButton.target = self
         self.quitButton.action = "quit"
         self.quitButton.snp_makeConstraints { make in
-            make.top.equalTo(self.viewOnGitHubButton.snp_bottom).with.offset(10)
+            make.top.equalTo(self.viewOnGitHubButton.snp_bottom).offset(10)
             make.centerX.equalTo(self.contentView)
             make.width.equalTo(self.checkForUpdatesButton)
         }
@@ -142,7 +142,7 @@ class AboutWindowController: WindowController {
         self.copyrightLabel.font = NSFont.systemFontOfSize(9)
         self.copyrightLabel.stringValue = "Copyright © 2013-2014 Suyeol Jeon. All Rights Reserved."
         self.copyrightLabel.snp_makeConstraints { make in
-            make.top.equalTo(self.quitButton.snp_bottom).with.offset(20)
+            make.top.equalTo(self.quitButton.snp_bottom).offset(20)
             make.centerX.equalTo(self.contentView)
         }
     }

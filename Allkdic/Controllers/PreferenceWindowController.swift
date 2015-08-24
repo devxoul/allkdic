@@ -22,7 +22,7 @@
 
 import AppKit
 import SimpleCocoaAnalytics
-import Snap
+import SnapKit
 
 class PreferenceWindowController: WindowController, NSTextFieldDelegate {
 
@@ -62,7 +62,7 @@ class PreferenceWindowController: WindowController, NSTextFieldDelegate {
         self.hotKeyTextField.snp_makeConstraints { make in
             make.width.equalTo(140)
             make.height.equalTo(22)
-            make.left.equalTo(self.label.snp_right).with.offset(5)
+            make.left.equalTo(self.label.snp_right).offset(5)
             make.centerY.equalTo(self.contentView)
         }
 
@@ -70,7 +70,7 @@ class PreferenceWindowController: WindowController, NSTextFieldDelegate {
         self.shiftLabel.stringValue = "⇧"
         self.shiftLabel.sizeToFit()
         self.shiftLabel.snp_makeConstraints { make in
-            make.left.equalTo(self.hotKeyTextField).with.offset(4)
+            make.left.equalTo(self.hotKeyTextField).offset(4)
             make.centerY.equalTo(self.hotKeyTextField)
         }
 
@@ -78,7 +78,7 @@ class PreferenceWindowController: WindowController, NSTextFieldDelegate {
         self.controlLabel.stringValue = "⌃"
         self.controlLabel.sizeToFit()
         self.controlLabel.snp_makeConstraints { make in
-            make.left.equalTo(self.shiftLabel.snp_right).with.offset(-3)
+            make.left.equalTo(self.shiftLabel.snp_right).offset(-3)
             make.centerY.equalTo(self.hotKeyTextField)
         }
 
@@ -86,7 +86,7 @@ class PreferenceWindowController: WindowController, NSTextFieldDelegate {
         self.altLabel.stringValue = "⌥"
         self.altLabel.sizeToFit()
         self.altLabel.snp_makeConstraints { make in
-            make.left.equalTo(self.controlLabel.snp_right).with.offset(-3)
+            make.left.equalTo(self.controlLabel.snp_right).offset(-3)
             make.centerY.equalTo(self.hotKeyTextField)
         }
 
@@ -94,13 +94,13 @@ class PreferenceWindowController: WindowController, NSTextFieldDelegate {
         self.commandLabel.stringValue = "⌘"
         self.commandLabel.sizeToFit()
         self.commandLabel.snp_makeConstraints { make in
-            make.left.equalTo(self.altLabel.snp_right).with.offset(-3)
+            make.left.equalTo(self.altLabel.snp_right).offset(-3)
             make.centerY.equalTo(self.hotKeyTextField)
         }
 
         self.keyLabel.font = NSFont.systemFontOfSize(13)
         self.keyLabel.snp_makeConstraints { make in
-            make.left.equalTo(self.commandLabel.snp_right).with.offset(-3)
+            make.left.equalTo(self.commandLabel.snp_right).offset(-3)
             make.centerY.equalTo(self.hotKeyTextField)
         }
     }
