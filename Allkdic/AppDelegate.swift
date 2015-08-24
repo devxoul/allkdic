@@ -24,25 +24,27 @@ import AppKit
 import SimpleCocoaAnalytics
 import Sparkle
 
+
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(notification: NSNotification) {
         self.terminateAlreadyRunning()
-
-        self.moveToApplicationFolderIfNeeded()
-
-        AKHotKeyManager.registerHotKey()
-
-        if !LoginUtil.willStartAtLogin() {
-            LoginUtil.setStartAtLoginEnabled(true)
-        }
+        ApplicationFolder.moveToApplicationFolderIfNeeded()
+        LoginItem.register()
 
         let ga = AnalyticsHelper.sharedInstance()
         ga.beginPeriodicReportingWithAccount("UA-42976442-2", name:"올ㅋ사전", version: BundleInfo.Version)
 
+        PopoverController.sharedInstance()
+        AKHotKeyManager.registerHotKey()
+
         self.checkForUpdatesInBackground()
-        NSTimer.scheduledTimerWithTimeInterval(30 * 60, target:self, selector:"checkForUpdatesInBackground",
-            userInfo:nil, repeats:true)
+        NSTimer.scheduledTimerWithTimeInterval(30 * 60,
+            target: self,
+            selector: "checkForUpdatesInBackground",
+            userInfo: nil,
+            repeats: true
+        )
     }
 
     func applicationWillTerminate(notification: NSNotification) {
@@ -55,99 +57,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let cmd = "ps aux | grep 'Contents/MacOS/Allkdic' | awk '{ if($2 != \(pid)) print $2 }' | xargs kill -9"
         let task = NSTask.launchedTaskWithLaunchPath("/bin/sh", arguments: ["-c", cmd])
         task.waitUntilExit()
-    }
-
-    func moveToApplicationFolderIfNeeded() {
-        let userDefaults = NSUserDefaults.standardUserDefaults()
-        let ignore = userDefaults.boolForKey(UserDefaultsKey.IgnoreApplicationFolderWarning)
-        if ignore {
-            return
-        }
-
-        if self.isInApplicationFolder() {
-            return
-        }
-
-        let alert = NSAlert()
-        alert.messageText = "올ㅋ사전이 애플리케이션 폴더에 있지 않습니다."
-        alert.informativeText = "자동 업데이트 등의 기능이 원활하게 이루어지지 않을 수 있습니다.\n지금 이동하시겠습니까?"
-        alert.addButtonWithTitle("이동")
-        alert.addButtonWithTitle("취소")
-        alert.addButtonWithTitle("다시 묻지 않음")
-
-        let response = alert.runModal()
-
-        // 다시 묻지 않음
-        if response == 1002 {
-            userDefaults.setObject(true, forKey: UserDefaultsKey.IgnoreApplicationFolderWarning)
-            userDefaults.synchronize()
-        }
-
-        // 이동
-        else if response == 1000 {
-            self.moveToApplicationFolder()
-        }
-    }
-
-    func isInApplicationFolder() -> Bool {
-        let bundlePath = NSBundle.mainBundle().bundlePath
-        if let paths = NSSearchPathForDirectoriesInDomains(.ApplicationDirectory, .AllDomainsMask, true) as? [String] {
-            for path in paths {
-                if bundlePath.hasPrefix(path) {
-                    return true
-                }
-            }
-        }
-        return false
-    }
-
-    func moveToApplicationFolder() {
-        let sourcePath = NSBundle.mainBundle().bundlePath
-        let bundleName = sourcePath.lastPathComponent
-        let applicationPaths = NSSearchPathForDirectoriesInDomains(.ApplicationDirectory, .LocalDomainMask, true)
-        let destPath = applicationPaths.last!.stringByAppendingPathComponent(bundleName)
-
-        let fileManager = NSFileManager.defaultManager()
-        let existing = fileManager.fileExistsAtPath(destPath)
-        if existing {
-            // Terminate running process at destination path.
-            let cmd = "ps aux | grep '\(destPath)' | awk '{print $2}' | xargs kill -9"
-            let task = NSTask.launchedTaskWithLaunchPath("/bin/sh", arguments: ["-c", cmd])
-            task.waitUntilExit()
-
-            // Move existing app to trash
-            let success = NSWorkspace.sharedWorkspace().performFileOperation(
-                NSWorkspaceRecycleOperation,
-                source: destPath.stringByDeletingLastPathComponent,
-                destination: "",
-                files: [bundleName],
-                tag: nil
-            )
-
-            if !success {
-                NSLog("Failed to trash existing app.")
-            }
-        }
-
-        // Copy to `/Application` folder.
-        var error: NSError?
-        fileManager.copyItemAtPath(sourcePath, toPath: destPath, error: &error)
-        if let error = error {
-            NSLog("Error copying file: \(error)")
-        }
-
-        // Remove downloaded app to trash
-        fileManager.removeItemAtPath(sourcePath, error: &error)
-        if let error = error {
-            NSLog("Error removing downloaded file: \(error)")
-        }
-
-        // Run new app
-        let cmd = "open \(destPath)"
-        let task = NSTask.launchedTaskWithLaunchPath("/bin/sh", arguments: ["-c", cmd])
-        task.waitUntilExit()
-
-        exit(0)
     }
 
     func checkForUpdatesInBackground() {

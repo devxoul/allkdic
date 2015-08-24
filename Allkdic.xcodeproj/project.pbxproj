@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		030E7FB71B3B2EB2009B3EB8 /* NSWindow+CanBecomeKeyWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030E7FB21B3B2EB2009B3EB8 /* NSWindow+CanBecomeKeyWindow.swift */; };
+		030E7FB81B3B2EB2009B3EB8 /* WebView+Key.m in Sources */ = {isa = PBXBuildFile; fileRef = 030E7FB41B3B2EB2009B3EB8 /* WebView+Key.m */; };
+		030E7FBA1B3B2F00009B3EB8 /* LoginItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030E7FB91B3B2F00009B3EB8 /* LoginItem.swift */; };
+		030E7FBC1B3B3053009B3EB8 /* ApplicationFolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030E7FBB1B3B3053009B3EB8 /* ApplicationFolder.swift */; };
 		0315897319FD4E0D002D5A7C /* AboutWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0315897219FD4E0D002D5A7C /* AboutWindowController.swift */; };
 		0315897519FD5069002D5A7C /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0315897419FD5069002D5A7C /* Label.swift */; };
 		0315897819FD50E1002D5A7C /* LabelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0315897719FD50E1002D5A7C /* LabelButton.swift */; };
@@ -18,11 +22,9 @@
 		0349451719FB8D4D00D7AEE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349451619FB8D4D00D7AEE2 /* AppDelegate.swift */; };
 		0349451A19FB9D1800D7AEE2 /* AKHotKeyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0349451919FB9D1800D7AEE2 /* AKHotKeyManager.m */; };
 		0349451E19FBB01700D7AEE2 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349451D19FBB01700D7AEE2 /* main.swift */; };
-		0349452019FBB24100D7AEE2 /* AllkdicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349451F19FBB24100D7AEE2 /* AllkdicManager.swift */; };
+		0349452019FBB24100D7AEE2 /* PopoverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349451F19FBB24100D7AEE2 /* PopoverController.swift */; };
 		0349452219FBB68D00D7AEE2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349452119FBB68D00D7AEE2 /* Constants.swift */; };
 		0349452419FBEE7100D7AEE2 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349452319FBEE7100D7AEE2 /* ContentViewController.swift */; };
-		0349455A19FCF0A900D7AEE2 /* WebView+Key.m in Sources */ = {isa = PBXBuildFile; fileRef = 0349455919FCF0A900D7AEE2 /* WebView+Key.m */; };
-		03579FB41A069C6E00A82B3B /* NSWindow+CanBecomeKeyWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03579FB31A069C6E00A82B3B /* NSWindow+CanBecomeKeyWindow.swift */; };
 		0362B0CC19FD146B00C88610 /* PreferenceWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0362B0CB19FD146B00C88610 /* PreferenceWindowController.swift */; };
 		0362B0CE19FD2D2B00C88610 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0362B0CD19FD2D2B00C88610 /* WindowController.swift */; };
 		0367293617B00CEC0074D249 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0367293317B00CEC0074D249 /* InfoPlist.strings */; };
@@ -31,7 +33,6 @@
 		038DDCAA1A051DA800754ECC /* KeyMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038DDCA91A051DA800754ECC /* KeyMap.swift */; };
 		038DDCAD1A0536EA00754ECC /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0322CF8017AE9965007E832C /* AppKit.framework */; };
 		03A5C49C1A05FDFF001122AB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03A5C49B1A05FDFF001122AB /* Images.xcassets */; };
-		03C0861D17B064480070A164 /* LoginUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C0861C17B064480070A164 /* LoginUtil.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D29FCA7C881A07C7B10053C7 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 609979FA74B410CEF173FA53 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -59,6 +60,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		030E7FB21B3B2EB2009B3EB8 /* NSWindow+CanBecomeKeyWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSWindow+CanBecomeKeyWindow.swift"; sourceTree = "<group>"; };
+		030E7FB31B3B2EB2009B3EB8 /* WebView+Key.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WebView+Key.h"; sourceTree = "<group>"; };
+		030E7FB41B3B2EB2009B3EB8 /* WebView+Key.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WebView+Key.m"; sourceTree = "<group>"; };
+		030E7FB91B3B2F00009B3EB8 /* LoginItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginItem.swift; sourceTree = "<group>"; };
+		030E7FBB1B3B3053009B3EB8 /* ApplicationFolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationFolder.swift; sourceTree = "<group>"; };
 		0315897219FD4E0D002D5A7C /* AboutWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutWindowController.swift; sourceTree = "<group>"; };
 		0315897419FD5069002D5A7C /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Label.swift; path = Allkdic/Controls/Label.swift; sourceTree = SOURCE_ROOT; };
 		0315897719FD50E1002D5A7C /* LabelButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LabelButton.swift; path = Allkdic/Controls/LabelButton.swift; sourceTree = SOURCE_ROOT; };
@@ -78,12 +84,9 @@
 		0349451919FB9D1800D7AEE2 /* AKHotKeyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AKHotKeyManager.m; path = Allkdic/Managers/AKHotKeyManager.m; sourceTree = SOURCE_ROOT; };
 		0349451C19FB9D2B00D7AEE2 /* AKHotKeyManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AKHotKeyManager.h; path = Allkdic/Managers/AKHotKeyManager.h; sourceTree = SOURCE_ROOT; };
 		0349451D19FBB01700D7AEE2 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = main.swift; path = Allkdic/main.swift; sourceTree = SOURCE_ROOT; };
-		0349451F19FBB24100D7AEE2 /* AllkdicManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AllkdicManager.swift; path = Allkdic/Managers/AllkdicManager.swift; sourceTree = SOURCE_ROOT; };
+		0349451F19FBB24100D7AEE2 /* PopoverController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PopoverController.swift; path = Allkdic/Managers/PopoverController.swift; sourceTree = SOURCE_ROOT; };
 		0349452119FBB68D00D7AEE2 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Allkdic/Constants.swift; sourceTree = SOURCE_ROOT; };
 		0349452319FBEE7100D7AEE2 /* ContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
-		0349455819FCF08100D7AEE2 /* WebView+Key.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WebView+Key.h"; sourceTree = "<group>"; };
-		0349455919FCF0A900D7AEE2 /* WebView+Key.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WebView+Key.m"; sourceTree = "<group>"; };
-		03579FB31A069C6E00A82B3B /* NSWindow+CanBecomeKeyWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSWindow+CanBecomeKeyWindow.swift"; path = "Allkdic/Extensions/NSWindow+CanBecomeKeyWindow.swift"; sourceTree = SOURCE_ROOT; };
 		0362B0CB19FD146B00C88610 /* PreferenceWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceWindowController.swift; sourceTree = "<group>"; };
 		0362B0CD19FD2D2B00C88610 /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 		0367292D17B00CD90074D249 /* Allkdic-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Allkdic-Info.plist"; path = "Allkdic/Allkdic-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -92,8 +95,6 @@
 		038DDCA71A051BE700754ECC /* KeyBinding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyBinding.swift; path = Allkdic/Models/KeyBinding.swift; sourceTree = SOURCE_ROOT; };
 		038DDCA91A051DA800754ECC /* KeyMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyMap.swift; path = Allkdic/Models/KeyMap.swift; sourceTree = SOURCE_ROOT; };
 		03A5C49B1A05FDFF001122AB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		03C0861B17B064480070A164 /* LoginUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginUtil.h; path = Allkdic/LoginUtil.h; sourceTree = SOURCE_ROOT; };
-		03C0861C17B064480070A164 /* LoginUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginUtil.m; path = Allkdic/LoginUtil.m; sourceTree = SOURCE_ROOT; };
 		2E78F3D61C060A3A00C1CAC1 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		609979FA74B410CEF173FA53 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CF50E65AF462DCCD5388442 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -123,6 +124,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		030E7FAE1B3B2EB2009B3EB8 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				030E7FBB1B3B3053009B3EB8 /* ApplicationFolder.swift */,
+				030E7FB91B3B2F00009B3EB8 /* LoginItem.swift */,
+				030E7FB21B3B2EB2009B3EB8 /* NSWindow+CanBecomeKeyWindow.swift */,
+				030E7FB31B3B2EB2009B3EB8 /* WebView+Key.h */,
+				030E7FB41B3B2EB2009B3EB8 /* WebView+Key.m */,
+			);
+			name = Utils;
+			path = Allkdic/Utils;
+			sourceTree = SOURCE_ROOT;
+		};
 		0315897619FD506D002D5A7C /* Controls */ = {
 			isa = PBXGroup;
 			children = (
@@ -181,13 +195,11 @@
 			children = (
 				0349452119FBB68D00D7AEE2 /* Constants.swift */,
 				0349451619FB8D4D00D7AEE2 /* AppDelegate.swift */,
-				03C0861B17B064480070A164 /* LoginUtil.h */,
-				03C0861C17B064480070A164 /* LoginUtil.m */,
 				0349451B19FB9D1D00D7AEE2 /* Managers */,
 				0315897619FD506D002D5A7C /* Controls */,
 				0367295D17B0458D0074D249 /* Controllers */,
-				0324201017E38EC3003025E3 /* Models */,
-				0367295A17B0458D0074D249 /* Extensions */,
+				0324201017E38EC3003025E3 /* Types */,
+				030E7FAE1B3B2EB2009B3EB8 /* Utils */,
 				0322CF8417AE9965007E832C /* Supporting Files */,
 			);
 			name = Allkdic;
@@ -214,13 +226,13 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		0324201017E38EC3003025E3 /* Models */ = {
+		0324201017E38EC3003025E3 /* Types */ = {
 			isa = PBXGroup;
 			children = (
 				038DDCA91A051DA800754ECC /* KeyMap.swift */,
 				038DDCA71A051BE700754ECC /* KeyBinding.swift */,
 			);
-			name = Models;
+			name = Types;
 			sourceTree = "<group>";
 		};
 		0328DE041A0FA00D00160E93 /* AllkdicTests */ = {
@@ -243,27 +255,16 @@
 		0349451B19FB9D1D00D7AEE2 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				0349451F19FBB24100D7AEE2 /* AllkdicManager.swift */,
 				0349451C19FB9D2B00D7AEE2 /* AKHotKeyManager.h */,
 				0349451919FB9D1800D7AEE2 /* AKHotKeyManager.m */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
 		};
-		0367295A17B0458D0074D249 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				03579FB31A069C6E00A82B3B /* NSWindow+CanBecomeKeyWindow.swift */,
-				0349455819FCF08100D7AEE2 /* WebView+Key.h */,
-				0349455919FCF0A900D7AEE2 /* WebView+Key.m */,
-			);
-			name = Extensions;
-			path = Allkdic/Categories;
-			sourceTree = SOURCE_ROOT;
-		};
 		0367295D17B0458D0074D249 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0349451F19FBB24100D7AEE2 /* PopoverController.swift */,
 				0349452319FBEE7100D7AEE2 /* ContentViewController.swift */,
 				0362B0CD19FD2D2B00C88610 /* WindowController.swift */,
 				0362B0CB19FD146B00C88610 /* PreferenceWindowController.swift */,
@@ -431,13 +432,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				0349452419FBEE7100D7AEE2 /* ContentViewController.swift in Sources */,
-				03579FB41A069C6E00A82B3B /* NSWindow+CanBecomeKeyWindow.swift in Sources */,
+				030E7FB81B3B2EB2009B3EB8 /* WebView+Key.m in Sources */,
+				030E7FBA1B3B2F00009B3EB8 /* LoginItem.swift in Sources */,
 				0315897319FD4E0D002D5A7C /* AboutWindowController.swift in Sources */,
+				030E7FB71B3B2EB2009B3EB8 /* NSWindow+CanBecomeKeyWindow.swift in Sources */,
 				0362B0CC19FD146B00C88610 /* PreferenceWindowController.swift in Sources */,
 				0349451A19FB9D1800D7AEE2 /* AKHotKeyManager.m in Sources */,
-				0349452019FBB24100D7AEE2 /* AllkdicManager.swift in Sources */,
-				0349455A19FCF0A900D7AEE2 /* WebView+Key.m in Sources */,
+				0349452019FBB24100D7AEE2 /* PopoverController.swift in Sources */,
 				0349451719FB8D4D00D7AEE2 /* AppDelegate.swift in Sources */,
+				030E7FBC1B3B3053009B3EB8 /* ApplicationFolder.swift in Sources */,
 				0362B0CE19FD2D2B00C88610 /* WindowController.swift in Sources */,
 				0349452219FBB68D00D7AEE2 /* Constants.swift in Sources */,
 				0349451E19FBB01700D7AEE2 /* main.swift in Sources */,
@@ -445,7 +448,6 @@
 				0315897819FD50E1002D5A7C /* LabelButton.swift in Sources */,
 				038DDCA81A051BE700754ECC /* KeyBinding.swift in Sources */,
 				038DDCAA1A051DA800754ECC /* KeyMap.swift in Sources */,
-				03C0861D17B064480070A164 /* LoginUtil.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

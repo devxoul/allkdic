@@ -164,7 +164,7 @@ class AboutWindowController: WindowController {
 
     override func showWindow(sender: AnyObject?) {
         super.showWindow(sender)
-        AllkdicManager.sharedInstance().close()
+        PopoverController.sharedInstance().close()
         AnalyticsHelper.sharedInstance().recordScreenWithName("AboutWindow")
     }
 
