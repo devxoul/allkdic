@@ -177,6 +177,7 @@ public class ContentViewController: NSViewController {
             AnalyticsLabel.Chinese:  ["cndic", "ch"],
             AnalyticsLabel.French:   ["frdic", "fr"],
             AnalyticsLabel.Russian:  ["ru"],
+            AnalyticsLabel.Spanish:  ["spdic"],
         ]
 
         let URLPattern = DictionaryType.selectedDictionary.URLPattern
