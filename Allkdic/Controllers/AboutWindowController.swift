@@ -139,7 +139,7 @@ class AboutWindowController: WindowController {
 
         self.copyrightLabel.textColor = NSColor.headerColor()
         self.copyrightLabel.font = NSFont.systemFontOfSize(9)
-        self.copyrightLabel.stringValue = "Copyright © 2013-2014 Suyeol Jeon. All Rights Reserved."
+        self.copyrightLabel.stringValue = "Copyright © 2013 Suyeol Jeon. All Rights Reserved."
         self.copyrightLabel.snp_makeConstraints { make in
             make.top.equalTo(self.quitButton.snp_bottom).offset(20)
             make.centerX.equalTo(self.contentView)
