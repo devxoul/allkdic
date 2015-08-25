@@ -65,7 +65,7 @@ public class ContentViewController: NSViewController {
         self.separatorView.image = NSImage(named: "line")
         self.separatorView.snp_makeConstraints { make in
             make.top.equalTo(self.hotKeyLabel.snp_bottom).offset(8)
-            make.centerX.width.equalTo(0)
+            make.left.right.equalTo(0)
             make.height.equalTo(2)
         }
 
