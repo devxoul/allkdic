@@ -21,7 +21,6 @@
 // SOFTWARE.
 
 import Cocoa
-import SimpleCocoaAnalytics
 
 
 class AppDelegate: NSObject, NSApplicationDelegate {

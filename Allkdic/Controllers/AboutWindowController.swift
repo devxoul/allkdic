@@ -21,8 +21,6 @@
 // SOFTWARE.
 
 import Cocoa
-import SimpleCocoaAnalytics
-import SnapKit
 
 class AboutWindowController: WindowController {
 

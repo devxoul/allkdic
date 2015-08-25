@@ -22,4 +22,7 @@
  SOFTWARE.
 */
 
+#import "AnalyticsEvent.h"
+#import "AnalyticsHelper.h"
+
 #import "AKHotKeyManager.h"
