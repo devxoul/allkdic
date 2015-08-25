@@ -23,14 +23,13 @@
 import Cocoa
 import SimpleCocoaAnalytics
 import SnapKit
-import Sparkle
 
 class AboutWindowController: WindowController {
 
     let logoView = NSImageView()
     let titleLabel = Label()
     let versionLabel = Label()
-    let checkForUpdatesButton = NSButton()
+    let appstoreButton = NSButton()
     let viewOnGitHubButton = NSButton()
     let quitButton = NSButton()
     let copyrightLabel = Label()
@@ -42,7 +41,7 @@ class AboutWindowController: WindowController {
         self.contentView.addSubview(logoView)
         self.contentView.addSubview(titleLabel)
         self.contentView.addSubview(versionLabel)
-        self.contentView.addSubview(checkForUpdatesButton)
+        self.contentView.addSubview(appstoreButton)
         self.contentView.addSubview(viewOnGitHubButton)
         self.contentView.addSubview(quitButton)
         self.contentView.addSubview(copyrightLabel)
@@ -73,11 +72,11 @@ class AboutWindowController: WindowController {
             make.top.equalTo(self.titleLabel.snp_bottom).offset(10)
         }
 
-        self.styleButton(self.checkForUpdatesButton)
-        self.checkForUpdatesButton.title = "업데이트 확인..."
-        self.checkForUpdatesButton.target = self
-        self.checkForUpdatesButton.action = "checkForUpdates"
-        self.checkForUpdatesButton.snp_makeConstraints { make in
+        self.styleButton(self.appstoreButton)
+        self.appstoreButton.title = "AppStore에서 보기..."
+        self.appstoreButton.target = self
+        self.appstoreButton.action = "openAppStore"
+        self.appstoreButton.snp_makeConstraints { make in
             make.top.equalTo(self.versionLabel.snp_bottom).offset(15)
             make.centerX.equalTo(self.contentView)
             make.width.equalTo(156)
@@ -98,7 +97,7 @@ class AboutWindowController: WindowController {
             keyLabel.stringValue = key
             keyLabel.snp_makeConstraints { make in
                 if keyLabels.count == 0 {
-                    make.top.equalTo(self.checkForUpdatesButton.snp_bottom).offset(15)
+                    make.top.equalTo(self.appstoreButton.snp_bottom).offset(15)
                 } else {
                     make.top.equalTo(keyLabels.last!.snp_bottom).offset(8)
                 }
@@ -125,7 +124,7 @@ class AboutWindowController: WindowController {
         self.viewOnGitHubButton.snp_makeConstraints { make in
             make.top.equalTo(keyLabels.last!.snp_bottom).offset(15)
             make.centerX.equalTo(self.contentView)
-            make.width.equalTo(self.checkForUpdatesButton)
+            make.width.equalTo(self.appstoreButton)
         }
 
         self.styleButton(self.quitButton)
@@ -135,7 +134,7 @@ class AboutWindowController: WindowController {
         self.quitButton.snp_makeConstraints { make in
             make.top.equalTo(self.viewOnGitHubButton.snp_bottom).offset(10)
             make.centerX.equalTo(self.contentView)
-            make.width.equalTo(self.checkForUpdatesButton)
+            make.width.equalTo(self.appstoreButton)
         }
 
         self.copyrightLabel.textColor = NSColor.headerColor()
@@ -168,14 +167,18 @@ class AboutWindowController: WindowController {
         AnalyticsHelper.sharedInstance().recordScreenWithName("AboutWindow")
     }
 
-    func checkForUpdates() {
+    func openAppStore() {
         AnalyticsHelper.sharedInstance().recordCachedEventWithCategory(
             AnalyticsCategory.About,
             action: AnalyticsAction.CheckForUpdate,
             label: nil,
             value: nil
         )
-        SUUpdater.sharedUpdater().checkForUpdates(self)
+
+        let appStoreID = "1033453958"
+        let appStoreURLString = "macappstore://itunes.apple.com/app/id\(appStoreID)?mt=12"
+        let appStoreURL = NSURL(string: appStoreURLString)!
+        NSWorkspace.sharedWorkspace().openURL(appStoreURL)
     }
 
     func viewOnGitHub() {
