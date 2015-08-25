@@ -550,6 +550,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Allkdic/Allkdic-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				OTHER_CODE_SIGN_FLAGS = "--deep";
 				PRODUCT_NAME = Allkdic;
 				SDKROOT = macosx;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Allkdic/Allkdic-Bridging-Header.h";
@@ -571,6 +572,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Allkdic/Allkdic-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				OTHER_CODE_SIGN_FLAGS = "--deep";
 				PRODUCT_NAME = Allkdic;
 				SDKROOT = macosx;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Allkdic/Allkdic-Bridging-Header.h";
