@@ -22,7 +22,6 @@
 
 import Cocoa
 import SimpleCocoaAnalytics
-import Sparkle
 
 
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -37,14 +36,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         PopoverController.sharedInstance()
         AKHotKeyManager.registerHotKey()
-
-        self.checkForUpdatesInBackground()
-        NSTimer.scheduledTimerWithTimeInterval(30 * 60,
-            target: self,
-            selector: "checkForUpdatesInBackground",
-            userInfo: nil,
-            repeats: true
-        )
     }
 
     func applicationWillTerminate(notification: NSNotification) {
@@ -57,9 +48,5 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let cmd = "ps aux | grep 'Contents/MacOS/Allkdic' | awk '{ if($2 != \(pid)) print $2 }' | xargs kill -9"
         let task = NSTask.launchedTaskWithLaunchPath("/bin/sh", arguments: ["-c", cmd])
         task.waitUntilExit()
-    }
-
-    func checkForUpdatesInBackground() {
-        SUUpdater.sharedUpdater().checkForUpdatesInBackground()
     }
 }

@@ -23,5 +23,3 @@
 */
 
 #import "AKHotKeyManager.h"
-
-#import <Sparkle/SUUpdater.h>
