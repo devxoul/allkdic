@@ -61,4 +61,5 @@ struct AnalyticsLabel {
     static let Chinese = "Chinese"
     static let French = "French"
     static let Russian = "Russian"
+    static let Spanish = "Spanish"
 }

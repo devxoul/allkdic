@@ -26,10 +26,11 @@ public enum DictionaryType: String {
 
     case Naver = "Naver"
     case Daum = "Daum"
+    case NaverMobile = "NaverMobile"
 
 
     static var allTypes: [DictionaryType] {
-        return [.Naver, .Daum]
+        return [.Naver, .Daum, .NaverMobile]
     }
 
     static var selectedDictionary: DictionaryType {
@@ -62,6 +63,7 @@ public enum DictionaryType: String {
         switch self {
         case .Naver: return "네이버 사전"
         case .Daum: return "다음 사전"
+        case .NaverMobile: return "네이버 모바일 사전"
         }
     }
 
@@ -69,6 +71,7 @@ public enum DictionaryType: String {
         switch self {
         case .Naver: return "http://endic.naver.com/popManager.nhn?m=miniPopMain"
         case .Daum: return "http://small.dic.daum.net/"
+        case .NaverMobile: return "http://m.dic.naver.com/"
         }
     }
 
@@ -76,6 +79,7 @@ public enum DictionaryType: String {
         switch self {
         case .Naver: return "[a-z]+(?=\\.naver\\.com)"
         case .Daum: return "(?<=[?&]dic=)[a-z]+"
+        case .NaverMobile: return "(?<=m\\.)[a-z]+(?=\\.naver\\.com)"
         }
     }
 
@@ -83,6 +87,7 @@ public enum DictionaryType: String {
         switch self {
         case .Naver: return "ac_input.focus(); ac_input.select()"
         case .Daum: return "q.focus(); q.select()"
+        case .NaverMobile: return "ac_input.focus(); ac_input.select()"
         }
     }
 
