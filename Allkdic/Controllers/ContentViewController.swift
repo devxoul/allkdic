@@ -116,10 +116,6 @@ public class ContentViewController: NSViewController {
         //
         mainMenuItems[0].submenu = self.dictionaryMenu
 
-        let dictionaryKeyModifierMask = Int(
-            NSEventModifierFlags.CommandKeyMask.rawValue | NSEventModifierFlags.ShiftKeyMask.rawValue
-        )
-
         let selectedDictionary = DictionaryType.selectedDictionary
 
         // dictionary submenu
@@ -129,7 +125,7 @@ public class ContentViewController: NSViewController {
             dictionaryMenuItem.tag = i
             dictionaryMenuItem.action = "swapDictionary:"
             dictionaryMenuItem.keyEquivalent = "\(i + 1)"
-            dictionaryMenuItem.keyEquivalentModifierMask = dictionaryKeyModifierMask
+            dictionaryMenuItem.keyEquivalentModifierMask = Int(NSEventModifierFlags.CommandKeyMask.rawValue)
             if dictionary == selectedDictionary {
                 dictionaryMenuItem.state = NSOnState
             }
@@ -220,13 +216,13 @@ public class ContentViewController: NSViewController {
             PopoverController.sharedInstance().close()
             break
 
-        case (true, false, false, true, let index) where 18...(18 + DictionaryType.allTypes.count) ~= index:
-            // Command + 1, 2, 3, ...
+        case (_, false, false, true, let index) where 18...(18 + DictionaryType.allTypes.count) ~= index:
+            // Command + [Shift] + 1, 2, 3, ...
             self.swapDictionary(index - 18)
             break
 
         case (false, false, false, true, KeyBinding.keyCodeFormKeyString(",")):
-            // Command + 1, 2, 3, ...
+            // Command + ,
             self.showPreferenceWindow()
             break
 
@@ -261,7 +257,7 @@ public class ContentViewController: NSViewController {
             index = sender!.tag()
         }
 
-        if index == nil {
+        if index == nil || index >= DictionaryType.allTypes.count {
             return
         }
 
