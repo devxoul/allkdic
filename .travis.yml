@@ -3,5 +3,8 @@ osx_image: beta-xcode6.3
 before_install:
   - brew install gawk
   - bash linter.sh
-xcode_workspace: Allkdic.xcworkspace
-xcode_scheme: Allkdic
+  - sudo gem install cocoaseeds
+install:
+  - seed install
+script:
+  - xctool -project Allkdic.xcodeproj -scheme Allkdic CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO build test -parallelize

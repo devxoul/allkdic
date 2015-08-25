@@ -21,7 +21,6 @@
 // SOFTWARE.
 
 import Cocoa
-import SimpleCocoaAnalytics
 
 
 private let _sharedInstance = PopoverController()
