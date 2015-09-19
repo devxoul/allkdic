@@ -58,7 +58,7 @@ public func ==(left: KeyBinding, right: KeyBinding) -> Bool {
             keys.append(keyString.capitalizedString)
         }
 
-        return " + ".join(keys)
+        return keys.joinWithSeparator(" + ")
     }
 
     @objc public override init() {

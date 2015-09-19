@@ -90,7 +90,7 @@ class AboutWindowController: WindowController {
         for (key, value) in credits {
             let keyLabel = Label()
             self.contentView.addSubview(keyLabel)
-            keyLabel.alignment = .RightTextAlignment
+            keyLabel.alignment = .Right
             keyLabel.font = NSFont.boldSystemFontOfSize(NSFont.smallSystemFontSize())
             keyLabel.stringValue = key
             keyLabel.snp_makeConstraints { make in
@@ -152,9 +152,9 @@ class AboutWindowController: WindowController {
         button.setButtonType(.MomentaryPushInButton)
         button.bezelStyle = .RoundedBezelStyle
         button.font = NSFont.systemFontOfSize(NSFont.systemFontSizeForControlSize(.SmallControlSize))
-        if NSAppKitVersionNumberInt > NSAppKitVersionNumber10_9 {
+        if #available(OSX 10.10, *) {
             button.controlSize = .SmallControlSize
-        } else if let cell = button.cell() as? NSButtonCell {
+        } else if let cell = button.cell as? NSButtonCell {
             cell.controlSize = .SmallControlSize
         }
     }

@@ -48,7 +48,7 @@ public class PopoverController: NSObject {
         super.init()
 
         let icon = NSImage(named: "statusicon_default")
-        icon?.setTemplate(true)
+        icon?.template = true
         self.statusItem.image = icon
         self.statusItem.target = self
         self.statusItem.action = "open"
@@ -58,7 +58,7 @@ public class PopoverController: NSObject {
 
         self.popover.contentViewController = self.contentViewController
 
-        NSEvent.addGlobalMonitorForEventsMatchingMask(.LeftMouseUpMask | .LeftMouseDownMask) { _ in
+        NSEvent.addGlobalMonitorForEventsMatchingMask([.LeftMouseUpMask, .LeftMouseDownMask]) { _ in
             self.close()
         }
 
@@ -77,7 +77,7 @@ public class PopoverController: NSObject {
         self.statusButton.state = NSOnState
 
         NSApp.activateIgnoringOtherApps(true)
-        self.popover.showRelativeToRect(NSRect.zeroRect, ofView: self.statusButton, preferredEdge: NSMaxYEdge)
+        self.popover.showRelativeToRect(.zero, ofView: self.statusButton, preferredEdge: .MaxY)
         self.contentViewController.updateHotKeyLabel()
         self.contentViewController.focusOnTextArea()
 
@@ -110,9 +110,9 @@ public class PopoverController: NSObject {
         let keyBinding = KeyBinding(keyCode: Int(keyCode), flags: Int(flags.rawValue))
 
         if let window = NSApp.windowWithWindowNumber(windowNumber) {
-            if contains(["NSStatusBarWindow", "_NSPopoverWindow"], window.dynamicType.className()) {
+            if ["NSStatusBarWindow", "_NSPopoverWindow"].contains(window.dynamicType.className()) {
                 self.contentViewController.handleKeyBinding(keyBinding)
-            } else if let windowController = window.windowController() as? PreferenceWindowController {
+            } else if let windowController = window.windowController as? PreferenceWindowController {
                 windowController.handleKeyBinding(keyBinding)
             }
         }

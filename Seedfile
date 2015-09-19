@@ -4,4 +4,4 @@ github "stephenlind/SimpleCocoaGoogleAnalytics", "0.1.0", :files => [
   "SimpleCocoaAnalytics/AnalyticsEvent.{h,m}",
   "SimpleCocoaAnalytics/AnalyticsHelper.{h,m}",
 ]
-github "SnapKit/SnapKit", "0.13.0", :files => "Source/*.{swift,h}"
+github "SnapKit/SnapKit", "develop", :files => "Source/*.{swift,h}"

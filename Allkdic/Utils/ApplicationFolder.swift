@@ -54,11 +54,10 @@ public class ApplicationFolder {
 
     public class func isInApplicationFolder() -> Bool {
         let bundlePath = NSBundle.mainBundle().bundlePath
-        if let paths = NSSearchPathForDirectoriesInDomains(.ApplicationDirectory, .AllDomainsMask, true) as? [String] {
-            for path in paths {
-                if bundlePath.hasPrefix(path) {
-                    return true
-                }
+        let paths = NSSearchPathForDirectoriesInDomains(.ApplicationDirectory, .AllDomainsMask, true)
+        for path in paths {
+            if bundlePath.hasPrefix(path) {
+                return true
             }
         }
         return false
@@ -66,9 +65,9 @@ public class ApplicationFolder {
 
     public class func moveToApplicationFolder() {
         let sourcePath = NSBundle.mainBundle().bundlePath
-        let bundleName = sourcePath.lastPathComponent
+        let bundleName = (sourcePath as NSString).lastPathComponent
         let applicationPaths = NSSearchPathForDirectoriesInDomains(.ApplicationDirectory, .LocalDomainMask, true)
-        let destPath = applicationPaths.last!.stringByAppendingPathComponent(bundleName)
+        let destPath = (applicationPaths.last! as NSString).stringByAppendingPathComponent(bundleName)
 
         let fileManager = NSFileManager.defaultManager()
         let existing = fileManager.fileExistsAtPath(destPath)
@@ -81,7 +80,7 @@ public class ApplicationFolder {
             // Move existing app to trash
             let success = NSWorkspace.sharedWorkspace().performFileOperation(
                 NSWorkspaceRecycleOperation,
-                source: destPath.stringByDeletingLastPathComponent,
+                source: (destPath as NSString).stringByDeletingLastPathComponent,
                 destination: "",
                 files: [bundleName],
                 tag: nil
@@ -93,15 +92,16 @@ public class ApplicationFolder {
         }
 
         // Copy to `/Application` folder.
-        var error: NSError?
-        fileManager.copyItemAtPath(sourcePath, toPath: destPath, error: &error)
-        if let error = error {
+        do {
+            try fileManager.copyItemAtPath(sourcePath, toPath: destPath)
+        } catch let error as NSError {
             NSLog("Error copying file: \(error)")
         }
 
-        // Remove downloaded app to trash
-        fileManager.removeItemAtPath(sourcePath, error: &error)
-        if let error = error {
+        do {
+            // Remove downloaded app to trash
+            try fileManager.removeItemAtPath(sourcePath)
+        } catch let error as NSError {
             NSLog("Error removing downloaded file: \(error)")
         }
 
