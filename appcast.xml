@@ -134,11 +134,9 @@
                 type="application/octet-stream" />
             <description>
                 <![CDATA[
+                <h1>자동 업데이트 중단 안내 (꼭 읽어주세요!)</h1>
+                <h2>올ㅋ사전이 앱스토어에 등록되었기 때문에 자동 업데이트가 중단됩니다. <a href="https://itunes.apple.com/kr/app/allkdic/id1033453958?l=en&mt=12">여기</a>를 눌러서 앱스토어로 이동하신 후, 새 버전을 받아주세요.</h2>
                 <a href="https://itunes.apple.com/kr/app/allkdic/id1033453958?l=en&mt=12"><img src="https://devimages.apple.com.edgekey.net/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg" width="100%"></a>
-                <h1>올ㅋ사전이 Mac AppStore에 등록됐습니다! (↑클릭)</h1>
-                <h2>(와 짝짝짝 축하축하 폭죽 펑펑 🎉🎉)</h2>
-
-                <h3 style="color: #B22222">[중요] 앞으로 모든 업데이트는 AppStore를 통해 이루어질 예정입니다. 기존 버전을 종료하고 위 로고를 클릭해서 AppStore에서 새 버전을 설치해주세요.</h3>
 
                 <h3>올ㅋ사전 종료 방법</h3>
                 <img src="https://cloud.githubusercontent.com/assets/931655/9810476/1045f366-58ac-11e5-9e2b-87aa8a32edee.png">
