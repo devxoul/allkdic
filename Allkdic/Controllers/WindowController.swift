@@ -26,7 +26,7 @@ class WindowController: NSWindowController, NSWindowDelegate {
 
     var contentView: NSView {
         get {
-            return self.window!.contentView as! NSView
+            return self.window!.contentView!
         }
         set {
             self.window!.contentView = newValue
@@ -42,7 +42,7 @@ class WindowController: NSWindowController, NSWindowDelegate {
             windowSize.height
         )
         let mask = NSTitledWindowMask | NSClosableWindowMask
-        let window = NSWindow(contentRect: rect, styleMask: mask, backing: .Buffered, defer: false)
+        let window = NSWindow(contentRect: rect, styleMask: mask, backing: .Buffered, `defer`: false)
         super.init(window: window)
 
         window.delegate = self
@@ -56,7 +56,7 @@ class WindowController: NSWindowController, NSWindowDelegate {
 
     override func showWindow(sender: AnyObject?) {
         PopoverController.sharedInstance().close()
-        self.window?.level = Int(CGWindowLevelForKey(Int32(kCGScreenSaverWindowLevelKey))) // NSScreenSaverWindowLevel
+        self.window?.level = Int(CGWindowLevelForKey(.ScreenSaverWindowLevelKey))
         super.showWindow(sender)
     }
 }

@@ -27,7 +27,7 @@ import Cocoa
 public class LoginItem {
 
     private static var URL: NSURL {
-        return NSURL(fileURLWithPath: NSBundle.mainBundle().bundlePath)!
+        return NSURL(fileURLWithPath: NSBundle.mainBundle().bundlePath)
     }
 
     private class var loginItemsList: LSSharedFileList {
@@ -46,7 +46,7 @@ public class LoginItem {
         for item in self.loginItems {
             var URLRef: Unmanaged<CFURL>?
             let error = LSSharedFileListItemResolve(item, LSSharedFileListResolutionFlags(0), &URLRef, nil)
-            if let URLRef = URLRef where error == noErr && CFEqual(URLRef.takeUnretainedValue(), self.URL) != 0 {
+            if let URLRef = URLRef where error == noErr && CFEqual(URLRef.takeUnretainedValue(), self.URL) {
                 return item
             }
         }

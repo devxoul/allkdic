@@ -22,15 +22,13 @@
 
 import Cocoa
 
-var NSAppKitVersionNumberInt: Int32 { return Int32(floor(NSAppKitVersionNumber)) }
-
 struct BundleInfo {
     static let Version = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as! String
     static let Build = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleVersion") as! String
     static let BundleName = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleName") as! String
 }
 
-@objc class UserDefaultsKey {
+@objc class UserDefaultsKey: NSObject {
     class var IgnoreApplicationFolderWarning: String { return "AKIgnoreApplicationFolder" }
     class var HotKey: String { return "AllkdicSettingKeyHotKey" }
     class var SelectedDictionaryName: String { return "SelectedDictionaryName" }

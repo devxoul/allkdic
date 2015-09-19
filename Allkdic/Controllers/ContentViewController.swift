@@ -117,7 +117,7 @@ public class ContentViewController: NSViewController {
         let selectedDictionary = DictionaryType.selectedDictionary
 
         // dictionary submenu
-        for (i, dictionary) in enumerate(DictionaryType.allTypes) {
+        for (i, dictionary) in DictionaryType.allTypes.enumerate() {
             let dictionaryMenuItem = NSMenuItem()
             dictionaryMenuItem.title = dictionary.title
             dictionaryMenuItem.tag = i
@@ -151,55 +151,6 @@ public class ContentViewController: NSViewController {
         self.webView.mainFrameURL = DictionaryType.selectedDictionary.URLString
         self.indicator.startAnimation(self)
         self.indicator.hidden = false
-    }
-
-    override public func webView(sender: WebView!,
-                                 willPerformClientRedirectToURL URL: NSURL!,
-                                 delay seconds: NSTimeInterval,
-                                 fireDate date: NSDate!,
-                                 forFrame frame: WebFrame!) {
-        let URLString = URL.absoluteString!
-        if URLString.rangeOfString("query=") == nil && URLString.rangeOfString("q=") == nil {
-            return
-        }
-
-        let URLPatternsForDictionaryType = [
-            AnalyticsLabel.English:  ["endic", "eng", "ee"],
-            AnalyticsLabel.Korean:   ["krdic", "kor"],
-            AnalyticsLabel.Hanja:    ["hanja"],
-            AnalyticsLabel.Japanese: ["jpdic", "jp"],
-            AnalyticsLabel.Chinese:  ["cndic", "ch"],
-            AnalyticsLabel.French:   ["frdic", "fr"],
-            AnalyticsLabel.Russian:  ["ru"],
-            AnalyticsLabel.Spanish:  ["spdic"],
-        ]
-
-        let URLPattern = DictionaryType.selectedDictionary.URLPattern
-        let regex = NSRegularExpression(pattern: URLPattern, options: .CaseInsensitive, error: nil)!
-        let result = regex.firstMatchInString(URLString, options: .allZeros, range: NSMakeRange(0, count(URLString)))
-        if result == nil {
-            return
-        }
-        let range = result!.rangeAtIndex(0)
-        let pattern = (URLString as NSString).substringWithRange(range)
-
-        for (type, patterns) in URLPatternsForDictionaryType {
-            if contains(patterns, pattern) {
-                AnalyticsHelper.sharedInstance().recordCachedEventWithCategory(
-                    AnalyticsCategory.Allkdic,
-                    action: AnalyticsAction.Search,
-                    label: type,
-                    value: nil
-                )
-                break
-            }
-        }
-    }
-
-    override public func webView(sender: WebView!, didFinishLoadForFrame frame: WebFrame!) {
-        self.indicator.stopAnimation(self)
-        self.indicator.hidden = true
-        self.focusOnTextArea()
     }
 
     func javascript(script: String) -> AnyObject? {
@@ -243,7 +194,8 @@ public class ContentViewController: NSViewController {
 
     /// Swap dictionary to given index.
     ///
-    /// :param: sender `Int` or `NSMenuItem`. If `NSMenuItem` is given, guess dictionary's index with `tag` property.
+    /// - parameter sender: `Int` or `NSMenuItem`. If `NSMenuItem` is given, guess dictionary's index with `tag`
+    ///                     property.
     func swapDictionary(sender: AnyObject?) {
         if sender == nil {
             return
@@ -265,7 +217,7 @@ public class ContentViewController: NSViewController {
         NSLog("Swap dictionary: \(selectedDictionary.name)")
 
         for menuItem in self.dictionaryMenu.itemArray {
-            (menuItem as! NSMenuItem).state = NSOffState
+            menuItem.state = NSOffState
         }
         self.dictionaryMenu.itemWithTag(index!)?.state = NSOnState
 
@@ -290,4 +242,60 @@ public class ContentViewController: NSViewController {
     func quit() {
         exit(0)
     }
+}
+
+
+// MARK: - WebFrameLoadDelegate
+
+extension ContentViewController: WebFrameLoadDelegate {
+
+    public func webView(sender: WebView!,
+                        willPerformClientRedirectToURL URL: NSURL!,
+                        delay seconds: NSTimeInterval,
+                        fireDate date: NSDate!,
+                        forFrame frame: WebFrame!) {
+        let URLString = URL.absoluteString
+        if URLString.rangeOfString("query=") == nil && URLString.rangeOfString("q=") == nil {
+            return
+        }
+
+        let URLPatternsForDictionaryType = [
+            AnalyticsLabel.English:  ["endic", "eng", "ee"],
+            AnalyticsLabel.Korean:   ["krdic", "kor"],
+            AnalyticsLabel.Hanja:    ["hanja"],
+            AnalyticsLabel.Japanese: ["jpdic", "jp"],
+            AnalyticsLabel.Chinese:  ["cndic", "ch"],
+            AnalyticsLabel.French:   ["frdic", "fr"],
+            AnalyticsLabel.Russian:  ["ru"],
+            AnalyticsLabel.Spanish:  ["spdic"],
+        ]
+
+        let URLPattern = DictionaryType.selectedDictionary.URLPattern
+        let regex = try! NSRegularExpression(pattern: URLPattern, options: .CaseInsensitive)
+        let regexRange = NSMakeRange(0, URLString.characters.count)
+        guard let result = regex.firstMatchInString(URLString, options: [], range: regexRange) else {
+            return
+        }
+        let range = result.rangeAtIndex(0)
+        let pattern = (URLString as NSString).substringWithRange(range)
+
+        for (type, patterns) in URLPatternsForDictionaryType {
+            if patterns.contains(pattern) {
+                AnalyticsHelper.sharedInstance().recordCachedEventWithCategory(
+                    AnalyticsCategory.Allkdic,
+                    action: AnalyticsAction.Search,
+                    label: type,
+                    value: nil
+                )
+                break
+            }
+        }
+    }
+
+    public func webView(sender: WebView!, didFinishLoadForFrame frame: WebFrame!) {
+        self.indicator.stopAnimation(self)
+        self.indicator.hidden = true
+        self.focusOnTextArea()
+    }
+
 }
