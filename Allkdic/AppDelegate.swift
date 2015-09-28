@@ -26,8 +26,6 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(notification: NSNotification) {
-        self.terminateAlreadyRunning()
-        ApplicationFolder.moveToApplicationFolderIfNeeded()
         LoginItem.register()
 
         let ga = AnalyticsHelper.sharedInstance()
@@ -40,12 +38,5 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationWillTerminate(notification: NSNotification) {
         AnalyticsHelper.sharedInstance().handleApplicationWillClose()
         NSUserDefaults.standardUserDefaults().synchronize()
-    }
-
-    func terminateAlreadyRunning() {
-        let pid = NSProcessInfo.processInfo().processIdentifier
-        let cmd = "ps aux | grep 'Contents/MacOS/Allkdic' | awk '{ if($2 != \(pid)) print $2 }' | xargs kill -9"
-        let task = NSTask.launchedTaskWithLaunchPath("/bin/sh", arguments: ["-c", cmd])
-        task.waitUntilExit()
     }
 }

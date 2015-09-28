@@ -10,7 +10,6 @@
 		030E7FB71B3B2EB2009B3EB8 /* NSWindow+CanBecomeKeyWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 030E7FB21B3B2EB2009B3EB8 /* NSWindow+CanBecomeKeyWindow.m */; };
 		030E7FB81B3B2EB2009B3EB8 /* WebView+Key.m in Sources */ = {isa = PBXBuildFile; fileRef = 030E7FB41B3B2EB2009B3EB8 /* WebView+Key.m */; };
 		030E7FBA1B3B2F00009B3EB8 /* LoginItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030E7FB91B3B2F00009B3EB8 /* LoginItem.swift */; };
-		030E7FBC1B3B3053009B3EB8 /* ApplicationFolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030E7FBB1B3B3053009B3EB8 /* ApplicationFolder.swift */; };
 		0315897319FD4E0D002D5A7C /* AboutWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0315897219FD4E0D002D5A7C /* AboutWindowController.swift */; };
 		0315897519FD5069002D5A7C /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0315897419FD5069002D5A7C /* Label.swift */; };
 		0315897819FD50E1002D5A7C /* LabelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0315897719FD50E1002D5A7C /* LabelButton.swift */; };
@@ -92,7 +91,6 @@
 		030E7FB31B3B2EB2009B3EB8 /* WebView+Key.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WebView+Key.h"; sourceTree = "<group>"; };
 		030E7FB41B3B2EB2009B3EB8 /* WebView+Key.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WebView+Key.m"; sourceTree = "<group>"; };
 		030E7FB91B3B2F00009B3EB8 /* LoginItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginItem.swift; sourceTree = "<group>"; };
-		030E7FBB1B3B3053009B3EB8 /* ApplicationFolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationFolder.swift; sourceTree = "<group>"; };
 		0315897219FD4E0D002D5A7C /* AboutWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutWindowController.swift; sourceTree = "<group>"; };
 		0315897419FD5069002D5A7C /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Label.swift; path = Allkdic/Controls/Label.swift; sourceTree = SOURCE_ROOT; };
 		0315897719FD50E1002D5A7C /* LabelButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LabelButton.swift; path = Allkdic/Controls/LabelButton.swift; sourceTree = SOURCE_ROOT; };
@@ -173,7 +171,6 @@
 			children = (
 				03CA9DA11B8C60D2000558EC /* AKHotKeyManager.h */,
 				03CA9DA21B8C60D2000558EC /* AKHotKeyManager.m */,
-				030E7FBB1B3B3053009B3EB8 /* ApplicationFolder.swift */,
 				030E7FB91B3B2F00009B3EB8 /* LoginItem.swift */,
 				030E7FB21B3B2EB2009B3EB8 /* NSWindow+CanBecomeKeyWindow.m */,
 				030E7FB31B3B2EB2009B3EB8 /* WebView+Key.h */,
@@ -472,7 +469,6 @@
 				03CA9DA31B8C60D2000558EC /* AKHotKeyManager.m in Sources */,
 				03CA9D9C1B8C60B3000558EC /* DictionaryType.swift in Sources */,
 				0349451719FB8D4D00D7AEE2 /* AppDelegate.swift in Sources */,
-				030E7FBC1B3B3053009B3EB8 /* ApplicationFolder.swift in Sources */,
 				0362B0CE19FD2D2B00C88610 /* WindowController.swift in Sources */,
 				0349452219FBB68D00D7AEE2 /* Constants.swift in Sources */,
 				0349451E19FBB01700D7AEE2 /* main.swift in Sources */,
