@@ -405,6 +405,9 @@
 				TargetAttributes = {
 					0322CF7917AE9964007E832C = {
 						SystemCapabilities = {
+							com.apple.ApplicationGroups.Mac = {
+								enabled = 1;
+							};
 							com.apple.Sandbox = {
 								enabled = 1;
 							};
