@@ -1,7 +1,29 @@
-/* 
+/*
   Localizable.strings
   Allkdic
 
   Created by 전수열 on 9/28/15.
   Copyright © 2015 Joyfl. All rights reserved.
 */
+
+"change_dictionary" = "사전 바꾸기";
+"about" = "올ㅋ사전에 관하여";
+"preferences" = "환경설정";
+"quit" = "올ㅋ사전 종료";
+
+"naver_dictionary" = "네이버 사전";
+"daum_dictionary" = "다음 사전";
+"naver_mobile_dictionary" = "네이버 모바일 사전";
+
+"version" = "버전";
+"open_in_appstore" = "AppStore에서 보기...";
+"credit_developed_by" = "개발";
+"credit_named_by" = "작명";
+"credit_thanks_to" = "도움";
+"전수열" = "전수열";
+"하상욱" = "하상욱";
+"설진석" = "설진석";
+"thanks_to_chicken" = " (치킨사줌)";
+"view_on_github" = "GitHub에서 보기...";
+
+"shortcut" = "단축키";

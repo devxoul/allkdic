@@ -33,6 +33,7 @@
 		03CA9DA01B8C60BE000558EC /* PopoverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CA9D9F1B8C60BE000558EC /* PopoverController.swift */; };
 		03CA9DA31B8C60D2000558EC /* AKHotKeyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 03CA9DA21B8C60D2000558EC /* AKHotKeyManager.m */; };
 		03E6E1C21BB93AD5006448C0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 03E6E1C41BB93AD5006448C0 /* Localizable.strings */; };
+		03E6E1C71BB93B60006448C0 /* LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E6E1C61BB93B60006448C0 /* LocalizedString.swift */; settings = {ASSET_TAGS = (); }; };
 		04FC87BF4AA112A720FDBA30 /* SnapKit_EdgeInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C0B33F2E52E441CCB92DC1 /* SnapKit_EdgeInsets.swift */; };
 		06481AE66B7F15AB71687CB2 /* AnalyticsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B2F381C9AA362BCC79693916 /* AnalyticsHelper.m */; };
 		0C11D2EBB9EC322FF832B125 /* SnapKit_SnapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91702AC77C9AB1B29460E711 /* SnapKit_SnapKit.swift */; };
@@ -124,6 +125,7 @@
 		03CA9DA41B8C6895000558EC /* Allkdic.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Allkdic.entitlements; path = Allkdic/Allkdic.entitlements; sourceTree = SOURCE_ROOT; };
 		03E6E1C31BB93AD5006448C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		03E6E1C51BB93AEB006448C0 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
+		03E6E1C61BB93B60006448C0 /* LocalizedString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizedString.swift; sourceTree = "<group>"; };
 		0A88AE70AADF4D8AB5BF7D74 /* SnapKit_LayoutConstraint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SnapKit_LayoutConstraint.swift; path = Seeds/SnapKit/Source/SnapKit_LayoutConstraint.swift; sourceTree = "<group>"; };
 		13324489317BB4E9C2EB8312 /* SnapKit_ConstraintItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SnapKit_ConstraintItem.swift; path = Seeds/SnapKit/Source/SnapKit_ConstraintItem.swift; sourceTree = "<group>"; };
 		2911DBAEA79DE1EC81BD0A00 /* SnapKit_ConstraintMaker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SnapKit_ConstraintMaker.swift; path = Seeds/SnapKit/Source/SnapKit_ConstraintMaker.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				030E7FB21B3B2EB2009B3EB8 /* NSWindow+CanBecomeKeyWindow.m */,
 				030E7FB31B3B2EB2009B3EB8 /* WebView+Key.h */,
 				030E7FB41B3B2EB2009B3EB8 /* WebView+Key.m */,
+				03E6E1C61BB93B60006448C0 /* LocalizedString.swift */,
 			);
 			name = Utils;
 			path = Allkdic/Utils;
@@ -499,6 +502,7 @@
 				15B4F58F55AEEFDDBBA13D41 /* SnapKit_LayoutConstraint.swift in Sources */,
 				49A665C29C8CC38B2AF34F67 /* SnapKit_SnapKit.swift in Sources */,
 				6CD012B5532A76D5C062587F /* SnapKit_View+SnapKit.swift in Sources */,
+				03E6E1C71BB93B60006448C0 /* LocalizedString.swift in Sources */,
 				3A7CAE9F979468492E99E561 /* SnapKit_ViewController+SnapKit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
