@@ -34,7 +34,7 @@ class AboutWindowController: WindowController {
 
     init() {
         super.init(windowSize: CGSizeMake(310, 408))
-        self.window!.title = "올ㅋ사전에 관하여"
+        self.window!.title = gettext("about")
 
         self.contentView.addSubview(logoView)
         self.contentView.addSubview(titleLabel)
@@ -54,7 +54,7 @@ class AboutWindowController: WindowController {
 
         self.titleLabel.font = NSFont.boldSystemFontOfSize(23)
         self.titleLabel.textColor = NSColor.controlTextColor()
-        self.titleLabel.stringValue = "올ㅋ사전"
+        self.titleLabel.stringValue = BundleInfo.BundleName
         self.titleLabel.sizeToFit()
         self.titleLabel.snp_makeConstraints { make in
             make.centerX.equalTo(self.contentView)
@@ -63,7 +63,7 @@ class AboutWindowController: WindowController {
 
         self.versionLabel.font = NSFont.systemFontOfSize(11)
         self.versionLabel.textColor = NSColor.headerColor()
-        self.versionLabel.stringValue = "버전: \(BundleInfo.Version)"
+        self.versionLabel.stringValue = gettext("version") + ": \(BundleInfo.Version)"
         self.versionLabel.sizeToFit()
         self.versionLabel.snp_makeConstraints { make in
             make.centerX.equalTo(self.contentView)
@@ -71,7 +71,7 @@ class AboutWindowController: WindowController {
         }
 
         self.styleButton(self.appstoreButton)
-        self.appstoreButton.title = "AppStore에서 보기..."
+        self.appstoreButton.title = gettext("open_in_appstore")
         self.appstoreButton.target = self
         self.appstoreButton.action = "openAppStore"
         self.appstoreButton.snp_makeConstraints { make in
@@ -81,9 +81,9 @@ class AboutWindowController: WindowController {
         }
 
         let credits = [
-            ("개발", "전수열"),
-            ("작명", "하상욱"),
-            ("도움", "설진석 (치킨사줌)"),
+            (gettext("credit_developed_by"), gettext("전수열")),
+            (gettext("credit_named_by"), gettext("하상욱")),
+            (gettext("credit_thanks_to"), gettext("설진석") + gettext("thanks_to_chicken"))
         ]
         var keyLabels = [Label]()
 
@@ -116,7 +116,7 @@ class AboutWindowController: WindowController {
         }
 
         self.styleButton(self.viewOnGitHubButton)
-        self.viewOnGitHubButton.title = "View on GitHub..."
+        self.viewOnGitHubButton.title = gettext("view_on_github")
         self.viewOnGitHubButton.target = self
         self.viewOnGitHubButton.action = "viewOnGitHub"
         self.viewOnGitHubButton.snp_makeConstraints { make in
@@ -126,7 +126,7 @@ class AboutWindowController: WindowController {
         }
 
         self.styleButton(self.quitButton)
-        self.quitButton.title = "올ㅋ사전 종료"
+        self.quitButton.title = gettext("quit")
         self.quitButton.target = self
         self.quitButton.action = "quit"
         self.quitButton.snp_makeConstraints { make in

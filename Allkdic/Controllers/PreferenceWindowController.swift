@@ -36,7 +36,7 @@ class PreferenceWindowController: WindowController, NSTextFieldDelegate {
 
     init() {
         super.init(windowSize: CGSizeMake(310, 200))
-        self.window!.title = "환경설정"
+        self.window!.title = gettext("preferences")
 
         self.contentView.addSubview(self.label)
         self.contentView.addSubview(self.hotKeyTextField)
@@ -47,7 +47,7 @@ class PreferenceWindowController: WindowController, NSTextFieldDelegate {
         self.contentView.addSubview(self.keyLabel)
 
         self.label.font = NSFont.systemFontOfSize(13)
-        self.label.stringValue = "단축키:"
+        self.label.stringValue = gettext("shortcut") + ":"
         self.label.sizeToFit()
         self.label.snp_makeConstraints { make in
             make.left.equalTo(60)

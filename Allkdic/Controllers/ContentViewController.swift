@@ -42,7 +42,7 @@ public class ContentViewController: NSViewController {
         self.view.addSubview(self.titleLabel)
         self.titleLabel.textColor = NSColor.controlTextColor()
         self.titleLabel.font = NSFont.systemFontOfSize(16)
-        self.titleLabel.stringValue = "올ㅋ사전"
+        self.titleLabel.stringValue = BundleInfo.BundleName
         self.titleLabel.sizeToFit()
         self.titleLabel.target = self
         self.titleLabel.action = "navigateToMain"
@@ -97,12 +97,12 @@ public class ContentViewController: NSViewController {
         }
 
         let mainMenuItems = [
-            NSMenuItem(title: "사전 바꾸기", action: nil, keyEquivalent: ""),
+            NSMenuItem(title: gettext("change_dictionary"), action: nil, keyEquivalent: ""),
             NSMenuItem.separatorItem(),
-            NSMenuItem(title: "올ㅋ사전에 관하여", action: "showAboutWindow", keyEquivalent: ""),
-            NSMenuItem(title: "환경설정...", action: "showPreferenceWindow", keyEquivalent: ","),
+            NSMenuItem(title: gettext("about"), action: "showAboutWindow", keyEquivalent: ""),
+            NSMenuItem(title: gettext("preferences") + "...", action: "showPreferenceWindow", keyEquivalent: ","),
             NSMenuItem.separatorItem(),
-            NSMenuItem(title: "올ㅋ사전 종료", action: "quit", keyEquivalent: ""),
+            NSMenuItem(title: gettext("quit"), action: "quit", keyEquivalent: ""),
         ]
 
         for mainMenuItem in mainMenuItems {

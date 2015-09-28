@@ -61,9 +61,9 @@ public enum DictionaryType: String {
 
     public var title: String {
         switch self {
-        case .Naver: return "네이버 사전"
-        case .Daum: return "다음 사전"
-        case .NaverMobile: return "네이버 모바일 사전"
+        case .Naver: return gettext("naver_dictionary")
+        case .Daum: return gettext("daum_dictionary")
+        case .NaverMobile: return gettext("naver_mobile_dictionary")
         }
     }
 
