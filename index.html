@@ -60,9 +60,10 @@
       <small>올ㅋ사전<br />for Mac</small>
       </h1>
       <br />
-      <a class="btn btn-large btn-info btn-download">Download</a>
-      <br />
-      Version: <span class="version">Loading...</span>
+      <a href="https://itunes.apple.com/kr/app/allkdic/id1033453958?l=en&mt=12">
+        <img src="https://camo.githubusercontent.com/266b8b7cdafc163dda5f9feb751e600acf4e770c/68747470733a2f2f646576696d616765732e6170706c652e636f6d2e656467656b65792e6e65742f6170702d73746f72652f6d61726b6574696e672f67756964656c696e65732f696d616765732f62616467652d646f776e6c6f61642d6f6e2d7468652d6170702d73746f72652e737667" target="_blank">
+      </a>
+      <p>↑ 꽁짜 (Free)</p>
     </div>
 
     <section>
@@ -95,23 +96,11 @@
 
     <section>
       <h1>올ㅋ</h1>
-      <a class="btn btn-large btn-info btn-download">Download</a>
-      <br />
-      Version: <span class="version">Loading...</span>
+      <a href="https://itunes.apple.com/kr/app/allkdic/id1033453958?l=en&mt=12">
+        <img src="https://camo.githubusercontent.com/266b8b7cdafc163dda5f9feb751e600acf4e770c/68747470733a2f2f646576696d616765732e6170706c652e636f6d2e656467656b65792e6e65742f6170702d73746f72652f6d61726b6574696e672f67756964656c696e65732f696d616765732f62616467652d646f776e6c6f61642d6f6e2d7468652d6170702d73746f72652e737667" target="_blank">
+      </a>
+      <p>↑ 꽁짜 (Free)</p>
     </section>
-
-    <script>
-      $('.btn-download').button('loading');
-
-      $.get('https://api.github.com/repos/devxoul/allkdic/releases', function(data) {
-        var release = data[0]
-        var version = release.tag_name.replace('v', '');
-        var downloadUrl = release.assets[0].browser_download_url;
-        $('.version').text(version);
-        $('.btn-download').attr('href', downloadUrl);
-        $('.btn-download').button('reset');
-      });
-    </script>
   </div>
 
   <footer>
