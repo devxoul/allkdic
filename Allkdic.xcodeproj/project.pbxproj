@@ -416,7 +416,7 @@
 				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
-				ORGANIZATIONNAME = Joyfl;
+				ORGANIZATIONNAME = Allkdic;
 				TargetAttributes = {
 					0322CF7917AE9964007E832C = {
 						DevelopmentTeam = N2C267LBVY;
