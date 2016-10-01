@@ -33,16 +33,16 @@ class WindowController: NSWindowController, NSWindowDelegate {
         }
     }
 
-    init(windowSize: CGSize = CGSizeZero) {
-        let screenSize = NSScreen.mainScreen()!.frame.size
-        let rect = CGRectMake(
-            (screenSize.width - windowSize.width) / 2,
-            (screenSize.height - windowSize.height) / 2,
-            windowSize.width,
-            windowSize.height
+    init(windowSize: CGSize = CGSize.zero) {
+        let screenSize = NSScreen.main()!.frame.size
+        let rect = CGRect(
+            x: (screenSize.width - windowSize.width) / 2,
+            y: (screenSize.height - windowSize.height) / 2,
+            width: windowSize.width,
+            height: windowSize.height
         )
-        let mask = NSTitledWindowMask | NSClosableWindowMask
-        let window = NSWindow(contentRect: rect, styleMask: mask, backing: .Buffered, `defer`: false)
+        let mask: NSWindowStyleMask = [.titled, .closable]
+        let window = NSWindow(contentRect: rect, styleMask: mask, backing: .buffered, defer: false)
         super.init(window: window)
 
         window.delegate = self
@@ -54,9 +54,9 @@ class WindowController: NSWindowController, NSWindowDelegate {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override func showWindow(sender: AnyObject?) {
+    override func showWindow(_ sender: Any?) {
         PopoverController.sharedInstance().close()
-        self.window?.level = Int(CGWindowLevelForKey(.ScreenSaverWindowLevelKey))
+        self.window?.level = Int(CGWindowLevelForKey(.screenSaverWindow))
         super.showWindow(sender)
     }
 }

@@ -22,6 +22,8 @@
 
 import Cocoa
 
+import SimpleCocoaAnalytics
+
 class AboutWindowController: WindowController {
 
     let logoView = NSImageView()
@@ -33,7 +35,7 @@ class AboutWindowController: WindowController {
     let copyrightLabel = Label()
 
     init() {
-        super.init(windowSize: CGSizeMake(310, 408))
+        super.init(windowSize: CGSize(width: 310, height: 408))
         self.window!.title = gettext("about")
 
         self.contentView.addSubview(logoView)
@@ -46,36 +48,36 @@ class AboutWindowController: WindowController {
 
 
         self.logoView.image = NSImage(named: "AppIcon")
-        self.logoView.snp_makeConstraints { make in
+        self.logoView.snp.makeConstraints { make in
             make.centerX.equalTo(self.contentView)
             make.top.equalTo(34)
             make.width.height.equalTo(87)
         }
 
-        self.titleLabel.font = NSFont.boldSystemFontOfSize(23)
-        self.titleLabel.textColor = NSColor.controlTextColor()
+        self.titleLabel.font = NSFont.boldSystemFont(ofSize: 23)
+        self.titleLabel.textColor = NSColor.controlTextColor
         self.titleLabel.stringValue = BundleInfo.BundleName
         self.titleLabel.sizeToFit()
-        self.titleLabel.snp_makeConstraints { make in
+        self.titleLabel.snp.makeConstraints { make in
             make.centerX.equalTo(self.contentView)
-            make.top.equalTo(self.logoView.snp_bottom).offset(10)
+            make.top.equalTo(self.logoView.snp.bottom).offset(10)
         }
 
-        self.versionLabel.font = NSFont.systemFontOfSize(11)
-        self.versionLabel.textColor = NSColor.headerColor()
+        self.versionLabel.font = NSFont.systemFont(ofSize: 11)
+        self.versionLabel.textColor = NSColor.headerColor
         self.versionLabel.stringValue = gettext("version") + ": \(BundleInfo.Version)"
         self.versionLabel.sizeToFit()
-        self.versionLabel.snp_makeConstraints { make in
+        self.versionLabel.snp.makeConstraints { make in
             make.centerX.equalTo(self.contentView)
-            make.top.equalTo(self.titleLabel.snp_bottom).offset(10)
+            make.top.equalTo(self.titleLabel.snp.bottom).offset(10)
         }
 
         self.styleButton(self.appstoreButton)
         self.appstoreButton.title = gettext("open_in_appstore")
         self.appstoreButton.target = self
-        self.appstoreButton.action = "openAppStore"
-        self.appstoreButton.snp_makeConstraints { make in
-            make.top.equalTo(self.versionLabel.snp_bottom).offset(15)
+        self.appstoreButton.action = #selector(AboutWindowController.openAppStore)
+        self.appstoreButton.snp.makeConstraints { make in
+            make.top.equalTo(self.versionLabel.snp.bottom).offset(15)
             make.centerX.equalTo(self.contentView)
             make.width.equalTo(156)
         }
@@ -90,27 +92,27 @@ class AboutWindowController: WindowController {
         for (key, value) in credits {
             let keyLabel = Label()
             self.contentView.addSubview(keyLabel)
-            keyLabel.alignment = .Right
-            keyLabel.font = NSFont.boldSystemFontOfSize(NSFont.smallSystemFontSize())
+            keyLabel.alignment = .right
+            keyLabel.font = NSFont.boldSystemFont(ofSize: NSFont.smallSystemFontSize())
             keyLabel.stringValue = key
-            keyLabel.snp_makeConstraints { make in
+            keyLabel.snp.makeConstraints { make in
                 if keyLabels.count == 0 {
-                    make.top.equalTo(self.appstoreButton.snp_bottom).offset(15)
+                    make.top.equalTo(self.appstoreButton.snp.bottom).offset(15)
                 } else {
-                    make.top.equalTo(keyLabels.last!.snp_bottom).offset(8)
+                    make.top.equalTo(keyLabels.last!.snp.bottom).offset(8)
                 }
                 make.left.equalTo(10)
-                make.right.equalTo(self.contentView.snp_centerX).offset(-15)
+                make.right.equalTo(self.contentView.snp.centerX).offset(-15)
             }
             keyLabels.append(keyLabel)
 
             let valueLabel = Label()
             self.contentView.addSubview(valueLabel)
-            valueLabel.font = NSFont.systemFontOfSize(NSFont.smallSystemFontSize())
+            valueLabel.font = NSFont.systemFont(ofSize: NSFont.smallSystemFontSize())
             valueLabel.stringValue = value
-            valueLabel.snp_makeConstraints { make in
+            valueLabel.snp.makeConstraints { make in
                 make.top.equalTo(keyLabel)
-                make.left.equalTo(keyLabel.snp_right).offset(4)
+                make.left.equalTo(keyLabel.snp.right).offset(4)
                 make.right.equalTo(self.contentView).offset(-10)
             }
         }
@@ -118,9 +120,9 @@ class AboutWindowController: WindowController {
         self.styleButton(self.viewOnGitHubButton)
         self.viewOnGitHubButton.title = gettext("view_on_github")
         self.viewOnGitHubButton.target = self
-        self.viewOnGitHubButton.action = "viewOnGitHub"
-        self.viewOnGitHubButton.snp_makeConstraints { make in
-            make.top.equalTo(keyLabels.last!.snp_bottom).offset(15)
+        self.viewOnGitHubButton.action = #selector(AboutWindowController.viewOnGitHub)
+        self.viewOnGitHubButton.snp.makeConstraints { make in
+            make.top.equalTo(keyLabels.last!.snp.bottom).offset(15)
             make.centerX.equalTo(self.contentView)
             make.width.equalTo(self.appstoreButton)
         }
@@ -128,18 +130,18 @@ class AboutWindowController: WindowController {
         self.styleButton(self.quitButton)
         self.quitButton.title = gettext("quit")
         self.quitButton.target = self
-        self.quitButton.action = "quit"
-        self.quitButton.snp_makeConstraints { make in
-            make.top.equalTo(self.viewOnGitHubButton.snp_bottom).offset(10)
+        self.quitButton.action = #selector(AboutWindowController.quit)
+        self.quitButton.snp.makeConstraints { make in
+            make.top.equalTo(self.viewOnGitHubButton.snp.bottom).offset(10)
             make.centerX.equalTo(self.contentView)
             make.width.equalTo(self.appstoreButton)
         }
 
-        self.copyrightLabel.textColor = NSColor.headerColor()
-        self.copyrightLabel.font = NSFont.systemFontOfSize(9)
+        self.copyrightLabel.textColor = NSColor.headerColor
+        self.copyrightLabel.font = NSFont.systemFont(ofSize: 9)
         self.copyrightLabel.stringValue = "Copyright © 2013 Suyeol Jeon. All Rights Reserved."
-        self.copyrightLabel.snp_makeConstraints { make in
-            make.top.equalTo(self.quitButton.snp_bottom).offset(20)
+        self.copyrightLabel.snp.makeConstraints { make in
+            make.top.equalTo(self.quitButton.snp.bottom).offset(20)
             make.centerX.equalTo(self.contentView)
         }
     }
@@ -148,26 +150,26 @@ class AboutWindowController: WindowController {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func styleButton(button: NSButton) {
-        button.setButtonType(.MomentaryPushInButton)
-        button.bezelStyle = .RoundedBezelStyle
-        button.font = NSFont.systemFontOfSize(NSFont.systemFontSizeForControlSize(.SmallControlSize))
+    func styleButton(_ button: NSButton) {
+        button.setButtonType(.momentaryPushIn)
+        button.bezelStyle = .rounded
+        button.font = NSFont.systemFont(ofSize: NSFont.systemFontSize(for: .small))
         if #available(OSX 10.10, *) {
-            button.controlSize = .SmallControlSize
+            button.controlSize = .small
         } else if let cell = button.cell as? NSButtonCell {
-            cell.controlSize = .SmallControlSize
+            cell.controlSize = .small
         }
     }
 
-    override func showWindow(sender: AnyObject?) {
+    override func showWindow(_ sender: Any?) {
         super.showWindow(sender)
         PopoverController.sharedInstance().close()
-        AnalyticsHelper.sharedInstance().recordScreenWithName("AboutWindow")
+        AnalyticsHelper.sharedInstance().recordScreen(withName: "AboutWindow")
     }
 
     func openAppStore() {
-        AnalyticsHelper.sharedInstance().recordCachedEventWithCategory(
-            AnalyticsCategory.About,
+        AnalyticsHelper.sharedInstance().recordCachedEvent(
+            withCategory: AnalyticsCategory.About,
             action: AnalyticsAction.CheckForUpdate,
             label: nil,
             value: nil
@@ -175,18 +177,18 @@ class AboutWindowController: WindowController {
 
         let appStoreID = "1033453958"
         let appStoreURLString = "macappstore://itunes.apple.com/app/id\(appStoreID)?mt=12"
-        let appStoreURL = NSURL(string: appStoreURLString)!
-        NSWorkspace.sharedWorkspace().openURL(appStoreURL)
+        let appStoreURL = URL(string: appStoreURLString)!
+        NSWorkspace.shared().open(appStoreURL)
     }
 
     func viewOnGitHub() {
-        AnalyticsHelper.sharedInstance().recordCachedEventWithCategory(
-            AnalyticsCategory.About,
+        AnalyticsHelper.sharedInstance().recordCachedEvent(
+            withCategory: AnalyticsCategory.About,
             action: AnalyticsAction.ViewOnGitHub,
             label: nil,
             value: nil
         )
-        NSWorkspace.sharedWorkspace().openURL(NSURL(string: "https://github.com/devxoul/allkdic")!)
+        NSWorkspace.shared().open(URL(string: "https://github.com/devxoul/allkdic")!)
     }
 
     func quit() {

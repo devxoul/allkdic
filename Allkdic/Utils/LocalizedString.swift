@@ -8,6 +8,6 @@
 
 import Foundation
 
-func gettext(key: String) -> String {
+func gettext(_ key: String) -> String {
     return NSLocalizedString(key, comment: "")
 }

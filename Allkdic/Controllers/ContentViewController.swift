@@ -23,7 +23,9 @@
 import Cocoa
 import WebKit
 
-public class ContentViewController: NSViewController {
+import SimpleCocoaAnalytics
+
+open class ContentViewController: NSViewController {
 
     let titleLabel = LabelButton()
     let hotKeyLabel = Label()
@@ -34,35 +36,35 @@ public class ContentViewController: NSViewController {
     let mainMenu = NSMenu()
     let dictionaryMenu = NSMenu()
 
-    override public func loadView() {
+    override open func loadView() {
         self.view = NSView(frame: CGRect(x: 0, y: 0, width: 405, height: 566))
-        self.view.autoresizingMask = .ViewNotSizable
+        self.view.autoresizingMask = NSAutoresizingMaskOptions()
         self.view.appearance = NSAppearance(named: NSAppearanceNameAqua)
 
         self.view.addSubview(self.titleLabel)
-        self.titleLabel.textColor = NSColor.controlTextColor()
-        self.titleLabel.font = NSFont.systemFontOfSize(16)
+        self.titleLabel.textColor = NSColor.controlTextColor
+        self.titleLabel.font = NSFont.systemFont(ofSize: 16)
         self.titleLabel.stringValue = BundleInfo.BundleName
         self.titleLabel.sizeToFit()
         self.titleLabel.target = self
-        self.titleLabel.action = "navigateToMain"
-        self.titleLabel.snp_makeConstraints { make in
+        self.titleLabel.action = #selector(ContentViewController.navigateToMain)
+        self.titleLabel.snp.makeConstraints { make in
             make.top.equalTo(10)
             make.centerX.equalTo(0)
         }
 
         self.view.addSubview(self.hotKeyLabel)
-        self.hotKeyLabel.textColor = NSColor.headerColor()
-        self.hotKeyLabel.font = NSFont.systemFontOfSize(NSFont.smallSystemFontSize())
-        self.hotKeyLabel.snp_makeConstraints { make in
-            make.top.equalTo(self.titleLabel.snp_bottom).offset(2)
+        self.hotKeyLabel.textColor = NSColor.headerColor
+        self.hotKeyLabel.font = NSFont.systemFont(ofSize: NSFont.smallSystemFontSize())
+        self.hotKeyLabel.snp.makeConstraints { make in
+            make.top.equalTo(self.titleLabel.snp.bottom).offset(2)
             make.centerX.equalTo(0)
         }
 
         self.view.addSubview(self.separatorView)
         self.separatorView.image = NSImage(named: "line")
-        self.separatorView.snp_makeConstraints { make in
-            make.top.equalTo(self.hotKeyLabel.snp_bottom).offset(8)
+        self.separatorView.snp.makeConstraints { make in
+            make.top.equalTo(self.hotKeyLabel.snp.bottom).offset(8)
             make.left.right.equalTo(0)
             make.height.equalTo(2)
         }
@@ -70,39 +72,39 @@ public class ContentViewController: NSViewController {
         self.view.addSubview(self.webView)
         self.webView.frameLoadDelegate = self
         self.webView.shouldUpdateWhileOffscreen = true
-        self.webView.snp_makeConstraints { make in
-            make.top.equalTo(self.separatorView.snp_bottom)
+        self.webView.snp.makeConstraints { make in
+            make.top.equalTo(self.separatorView.snp.bottom)
             make.left.right.bottom.equalTo(0)
         }
 
         self.view.addSubview(self.indicator)
-        self.indicator.style = .SpinningStyle
-        self.indicator.controlSize = .SmallControlSize
-        self.indicator.displayedWhenStopped = false
+        self.indicator.style = .spinningStyle
+        self.indicator.controlSize = .small
+        self.indicator.isDisplayedWhenStopped = false
         self.indicator.sizeToFit()
-        self.indicator.snp_makeConstraints { make in
+        self.indicator.snp.makeConstraints { make in
             make.center.equalTo(self.webView)
             return
         }
 
         self.view.addSubview(self.menuButton)
         self.menuButton.title = ""
-        self.menuButton.bezelStyle = .RoundedDisclosureBezelStyle
-        self.menuButton.setButtonType(.MomentaryPushInButton)
+        self.menuButton.bezelStyle = .roundedDisclosure
+        self.menuButton.setButtonType(.momentaryPushIn)
         self.menuButton.target = self
-        self.menuButton.action = "showMenu"
-        self.menuButton.snp_makeConstraints { make in
+        self.menuButton.action = #selector(ContentViewController.showMenu)
+        self.menuButton.snp.makeConstraints { make in
             make.right.equalTo(-10)
-            make.centerY.equalTo(self.separatorView.snp_top).dividedBy(2)
+            make.centerY.equalTo(self.separatorView.snp.top).dividedBy(2)
         }
 
         let mainMenuItems = [
             NSMenuItem(title: gettext("change_dictionary"), action: nil, keyEquivalent: ""),
-            NSMenuItem.separatorItem(),
-            NSMenuItem(title: gettext("about"), action: "showAboutWindow", keyEquivalent: ""),
-            NSMenuItem(title: gettext("preferences") + "...", action: "showPreferenceWindow", keyEquivalent: ","),
-            NSMenuItem.separatorItem(),
-            NSMenuItem(title: gettext("quit"), action: "quit", keyEquivalent: ""),
+            NSMenuItem.separator(),
+            NSMenuItem(title: gettext("about"), action: #selector(ContentViewController.showAboutWindow), keyEquivalent: ""),
+            NSMenuItem(title: gettext("preferences") + "...", action: #selector(ContentViewController.showPreferenceWindow), keyEquivalent: ","),
+            NSMenuItem.separator(),
+            NSMenuItem(title: gettext("quit"), action: #selector(ContentViewController.quit), keyEquivalent: ""),
         ]
 
         for mainMenuItem in mainMenuItems {
@@ -117,13 +119,13 @@ public class ContentViewController: NSViewController {
         let selectedDictionary = DictionaryType.selectedDictionary
 
         // dictionary submenu
-        for (i, dictionary) in DictionaryType.allTypes.enumerate() {
+        for (i, dictionary) in DictionaryType.allTypes.enumerated() {
             let dictionaryMenuItem = NSMenuItem()
             dictionaryMenuItem.title = dictionary.title
             dictionaryMenuItem.tag = i
-            dictionaryMenuItem.action = "swapDictionary:"
+            dictionaryMenuItem.action = #selector(ContentViewController.swapDictionary(_:))
             dictionaryMenuItem.keyEquivalent = "\(i + 1)"
-            dictionaryMenuItem.keyEquivalentModifierMask = Int(NSEventModifierFlags.CommandKeyMask.rawValue)
+            dictionaryMenuItem.keyEquivalentModifierMask = .command
             if dictionary == selectedDictionary {
                 dictionaryMenuItem.state = NSOnState
             }
@@ -133,14 +135,14 @@ public class ContentViewController: NSViewController {
         self.navigateToMain()
     }
 
-    public func updateHotKeyLabel() {
-        let keyBindingData = NSUserDefaults.standardUserDefaults().dictionaryForKey(UserDefaultsKey.HotKey)
+    open func updateHotKeyLabel() {
+        let keyBindingData = UserDefaults.standard.dictionary(forKey: UserDefaultsKey.HotKey)
         let keyBinding = KeyBinding(dictionary: keyBindingData)
         self.hotKeyLabel.stringValue = keyBinding.description
         self.hotKeyLabel.sizeToFit()
     }
 
-    public func focusOnTextArea() {
+    open func focusOnTextArea() {
         self.javascript(DictionaryType.selectedDictionary.inputFocusingScript)
     }
 
@@ -150,14 +152,15 @@ public class ContentViewController: NSViewController {
     func navigateToMain() {
         self.webView.mainFrameURL = DictionaryType.selectedDictionary.URLString
         self.indicator.startAnimation(self)
-        self.indicator.hidden = false
+        self.indicator.isHidden = false
     }
 
-    func javascript(script: String) -> AnyObject? {
-        return self.webView.mainFrameDocument?.evaluateWebScript(script)
+    @discardableResult
+    func javascript(_ script: String) -> AnyObject? {
+        return self.webView.mainFrameDocument?.evaluateWebScript(script) as AnyObject?
     }
 
-    public func handleKeyBinding(keyBinding: KeyBinding) {
+    open func handleKeyBinding(_ keyBinding: KeyBinding) {
         let key = (keyBinding.shift, keyBinding.control, keyBinding.option, keyBinding.command, keyBinding.keyCode)
 
         switch key {
@@ -185,10 +188,10 @@ public class ContentViewController: NSViewController {
     // MARK: - Menu
 
     func showMenu() {
-        self.mainMenu.popUpMenuPositioningItem(
-            self.mainMenu.itemAtIndex(0),
-            atLocation:self.menuButton.frame.origin,
-            inView:self.view
+        self.mainMenu.popUp(
+            positioning: self.mainMenu.item(at: 0),
+            at:self.menuButton.frame.origin,
+            in:self.view
         )
     }
 
@@ -196,33 +199,29 @@ public class ContentViewController: NSViewController {
     ///
     /// - parameter sender: `Int` or `NSMenuItem`. If `NSMenuItem` is given, guess dictionary's index with `tag`
     ///                     property.
-    func swapDictionary(sender: AnyObject?) {
+    func swapDictionary(_ sender: Any?) {
         if sender == nil {
             return
         }
 
-        var index: Int?
-        if sender! is Int {
-            index = sender! as? Int
-        } else if sender! is NSMenuItem {
-            index = sender!.tag()
-        }
+        guard let index = (sender as? Int) ?? (sender as? NSMenuItem)?.tag,
+            index >= DictionaryType.allTypes.count else { return }
 
         if index == nil || index >= DictionaryType.allTypes.count {
             return
         }
 
-        let selectedDictionary = DictionaryType.allTypes[index!]
+        let selectedDictionary = DictionaryType.allTypes[index]
         DictionaryType.selectedDictionary = selectedDictionary
         NSLog("Swap dictionary: \(selectedDictionary.name)")
 
-        for menuItem in self.dictionaryMenu.itemArray {
+        for menuItem in self.dictionaryMenu.items {
             menuItem.state = NSOffState
         }
-        self.dictionaryMenu.itemWithTag(index!)?.state = NSOnState
+        self.dictionaryMenu.item(withTag: index)?.state = NSOnState
 
-        AnalyticsHelper.sharedInstance().recordCachedEventWithCategory(
-            AnalyticsCategory.Allkdic,
+        AnalyticsHelper.sharedInstance().recordCachedEvent(
+            withCategory: AnalyticsCategory.Allkdic,
             action: AnalyticsAction.Dictionary,
             label: selectedDictionary.name,
             value: nil
@@ -249,13 +248,13 @@ public class ContentViewController: NSViewController {
 
 extension ContentViewController: WebFrameLoadDelegate {
 
-    public func webView(sender: WebView!,
-                        willPerformClientRedirectToURL URL: NSURL!,
-                        delay seconds: NSTimeInterval,
-                        fireDate date: NSDate!,
-                        forFrame frame: WebFrame!) {
+    public func webView(_ sender: WebView!,
+                        willPerformClientRedirectTo URL: URL!,
+                        delay seconds: TimeInterval,
+                        fire date: Date!,
+                        for frame: WebFrame!) {
         let URLString = URL.absoluteString
-        if URLString.rangeOfString("query=") == nil && URLString.rangeOfString("q=") == nil {
+        if URLString.range(of: "query=") == nil && URLString.range(of: "q=") == nil {
             return
         }
 
@@ -271,18 +270,18 @@ extension ContentViewController: WebFrameLoadDelegate {
         ]
 
         let URLPattern = DictionaryType.selectedDictionary.URLPattern
-        let regex = try! NSRegularExpression(pattern: URLPattern, options: .CaseInsensitive)
+        let regex = try! NSRegularExpression(pattern: URLPattern, options: .caseInsensitive)
         let regexRange = NSMakeRange(0, URLString.characters.count)
-        guard let result = regex.firstMatchInString(URLString, options: [], range: regexRange) else {
+        guard let result = regex.firstMatch(in: URLString, options: [], range: regexRange) else {
             return
         }
-        let range = result.rangeAtIndex(0)
-        let pattern = (URLString as NSString).substringWithRange(range)
+        let range = result.rangeAt(0)
+        let pattern = (URLString as NSString).substring(with: range)
 
         for (type, patterns) in URLPatternsForDictionaryType {
             if patterns.contains(pattern) {
-                AnalyticsHelper.sharedInstance().recordCachedEventWithCategory(
-                    AnalyticsCategory.Allkdic,
+                AnalyticsHelper.sharedInstance().recordCachedEvent(
+                    withCategory: AnalyticsCategory.Allkdic,
                     action: AnalyticsAction.Search,
                     label: type,
                     value: nil
@@ -292,9 +291,9 @@ extension ContentViewController: WebFrameLoadDelegate {
         }
     }
 
-    public func webView(sender: WebView!, didFinishLoadForFrame frame: WebFrame!) {
+    public func webView(_ sender: WebView!, didFinishLoadFor frame: WebFrame!) {
         self.indicator.stopAnimation(self)
-        self.indicator.hidden = true
+        self.indicator.isHidden = true
         self.focusOnTextArea()
     }
 

@@ -35,7 +35,7 @@ public enum DictionaryType: String {
 
     static var selectedDictionary: DictionaryType {
         get {
-            if let name = NSUserDefaults.standardUserDefaults().stringForKey(UserDefaultsKey.SelectedDictionaryName),
+            if let name = UserDefaults.standard.string(forKey: UserDefaultsKey.SelectedDictionaryName),
                let dict = DictionaryType(name: name) {
                 return dict
             }
@@ -43,7 +43,7 @@ public enum DictionaryType: String {
             return .Naver
         }
         set {
-            let userDefaults = NSUserDefaults.standardUserDefaults()
+            let userDefaults = UserDefaults.standard
             userDefaults.setValue(newValue.name, forKey: UserDefaultsKey.SelectedDictionaryName)
             userDefaults.synchronize()
         }

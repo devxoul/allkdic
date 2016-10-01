@@ -22,6 +22,8 @@
 
 import Cocoa
 
+import SimpleCocoaAnalytics
+
 class PreferenceWindowController: WindowController, NSTextFieldDelegate {
 
     var keyBinding: KeyBinding?
@@ -35,7 +37,7 @@ class PreferenceWindowController: WindowController, NSTextFieldDelegate {
     let keyLabel = Label()
 
     init() {
-        super.init(windowSize: CGSizeMake(310, 200))
+        super.init(windowSize: CGSize(width: 310, height: 200))
         self.window!.title = gettext("preferences")
 
         self.contentView.addSubview(self.label)
@@ -46,59 +48,59 @@ class PreferenceWindowController: WindowController, NSTextFieldDelegate {
         self.contentView.addSubview(self.commandLabel)
         self.contentView.addSubview(self.keyLabel)
 
-        self.label.font = NSFont.systemFontOfSize(13)
+        self.label.font = NSFont.systemFont(ofSize: 13)
         self.label.stringValue = gettext("shortcut") + ":"
         self.label.sizeToFit()
-        self.label.snp_makeConstraints { make in
+        self.label.snp.makeConstraints { make in
             make.left.equalTo(60)
             make.centerY.equalTo(self.contentView)
         }
 
         self.hotKeyTextField.delegate = self
-        self.hotKeyTextField.font = NSFont.systemFontOfSize(13)
-        self.hotKeyTextField.selectable = true
-        self.hotKeyTextField.snp_makeConstraints { make in
+        self.hotKeyTextField.font = NSFont.systemFont(ofSize: 13)
+        self.hotKeyTextField.isSelectable = true
+        self.hotKeyTextField.snp.makeConstraints { make in
             make.width.equalTo(140)
             make.height.equalTo(22)
-            make.left.equalTo(self.label.snp_right).offset(5)
+            make.left.equalTo(self.label.snp.right).offset(5)
             make.centerY.equalTo(self.contentView)
         }
 
-        self.shiftLabel.font = NSFont.systemFontOfSize(13)
+        self.shiftLabel.font = NSFont.systemFont(ofSize: 13)
         self.shiftLabel.stringValue = "⇧"
         self.shiftLabel.sizeToFit()
-        self.shiftLabel.snp_makeConstraints { make in
+        self.shiftLabel.snp.makeConstraints { make in
             make.left.equalTo(self.hotKeyTextField).offset(4)
             make.centerY.equalTo(self.hotKeyTextField)
         }
 
-        self.controlLabel.font = NSFont.systemFontOfSize(13)
+        self.controlLabel.font = NSFont.systemFont(ofSize: 13)
         self.controlLabel.stringValue = "⌃"
         self.controlLabel.sizeToFit()
-        self.controlLabel.snp_makeConstraints { make in
-            make.left.equalTo(self.shiftLabel.snp_right).offset(-3)
+        self.controlLabel.snp.makeConstraints { make in
+            make.left.equalTo(self.shiftLabel.snp.right).offset(-3)
             make.centerY.equalTo(self.hotKeyTextField)
         }
 
-        self.altLabel.font = NSFont.systemFontOfSize(13)
+        self.altLabel.font = NSFont.systemFont(ofSize: 13)
         self.altLabel.stringValue = "⌥"
         self.altLabel.sizeToFit()
-        self.altLabel.snp_makeConstraints { make in
-            make.left.equalTo(self.controlLabel.snp_right).offset(-3)
+        self.altLabel.snp.makeConstraints { make in
+            make.left.equalTo(self.controlLabel.snp.right).offset(-3)
             make.centerY.equalTo(self.hotKeyTextField)
         }
 
-        self.commandLabel.font = NSFont.systemFontOfSize(13)
+        self.commandLabel.font = NSFont.systemFont(ofSize: 13)
         self.commandLabel.stringValue = "⌘"
         self.commandLabel.sizeToFit()
-        self.commandLabel.snp_makeConstraints { make in
-            make.left.equalTo(self.altLabel.snp_right).offset(-3)
+        self.commandLabel.snp.makeConstraints { make in
+            make.left.equalTo(self.altLabel.snp.right).offset(-3)
             make.centerY.equalTo(self.hotKeyTextField)
         }
 
-        self.keyLabel.font = NSFont.systemFontOfSize(13)
-        self.keyLabel.snp_makeConstraints { make in
-            make.left.equalTo(self.commandLabel.snp_right).offset(-3)
+        self.keyLabel.font = NSFont.systemFont(ofSize: 13)
+        self.keyLabel.snp.makeConstraints { make in
+            make.left.equalTo(self.commandLabel.snp.right).offset(-3)
             make.centerY.equalTo(self.hotKeyTextField)
         }
     }
@@ -107,30 +109,30 @@ class PreferenceWindowController: WindowController, NSTextFieldDelegate {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override func showWindow(sender: AnyObject?) {
+    override func showWindow(_ sender: Any?) {
         super.showWindow(sender)
 
         AKHotKeyManager.unregisterHotKey()
 
-        let keyBindingData = NSUserDefaults.standardUserDefaults().dictionaryForKey(UserDefaultsKey.HotKey)
+        let keyBindingData = UserDefaults.standard.dictionary(forKey: UserDefaultsKey.HotKey)
         let keyBinding = KeyBinding(dictionary: keyBindingData)
         self.handleKeyBinding(keyBinding)
 
-        AnalyticsHelper.sharedInstance().recordScreenWithName("PreferenceWindow")
+        AnalyticsHelper.sharedInstance().recordScreen(withName: "PreferenceWindow")
     }
 
-    func windowShouldClose(sender: AnyObject?) -> Bool {
+    func windowShouldClose(_ sender: AnyObject?) -> Bool {
         AKHotKeyManager.registerHotKey()
         return true
     }
 
-    override func controlTextDidChange(notification: NSNotification?) {
-        if notification?.object as? NSTextField == self.hotKeyTextField {
+    override func controlTextDidChange(_ notification: Notification) {
+        if notification.object as? NSTextField == self.hotKeyTextField {
             self.hotKeyTextField.stringValue = ""
         }
     }
 
-    func handleKeyBinding(keyBinding: KeyBinding?) {
+    func handleKeyBinding(_ keyBinding: KeyBinding?) {
         if keyBinding == nil {
             return
         }
@@ -139,43 +141,43 @@ class PreferenceWindowController: WindowController, NSTextFieldDelegate {
             return
         }
 
-        if self.keyBinding == keyBinding {
+        if self.keyBinding! == keyBinding! {
             return
         }
 
         self.keyBinding = keyBinding
-        self.shiftLabel.textColor = NSColor.lightGrayColor()
-        self.controlLabel.textColor = NSColor.lightGrayColor()
-        self.altLabel.textColor = NSColor.lightGrayColor()
-        self.commandLabel.textColor = NSColor.lightGrayColor()
+        self.shiftLabel.textColor = NSColor.lightGray
+        self.controlLabel.textColor = NSColor.lightGray
+        self.altLabel.textColor = NSColor.lightGray
+        self.commandLabel.textColor = NSColor.lightGray
 
         if keyBinding!.shift {
-            self.shiftLabel.textColor = NSColor.blackColor()
+            self.shiftLabel.textColor = NSColor.black
         }
         if keyBinding!.control {
-            self.controlLabel.textColor = NSColor.blackColor()
+            self.controlLabel.textColor = NSColor.black
         }
         if keyBinding!.option {
-            self.altLabel.textColor = NSColor.blackColor()
+            self.altLabel.textColor = NSColor.black
         }
         if keyBinding!.command {
-            self.commandLabel.textColor = NSColor.blackColor()
+            self.commandLabel.textColor = NSColor.black
         }
 
         let keyString = KeyBinding.keyStringFormKeyCode(keyBinding!.keyCode)
         if keyString == nil {
             return
         }
-        self.keyLabel.stringValue = keyString!.capitalizedString
+        self.keyLabel.stringValue = keyString!.capitalized
         self.keyLabel.sizeToFit()
 
-        NSUserDefaults.standardUserDefaults().setObject(keyBinding!.toDictionary(), forKey: UserDefaultsKey.HotKey)
-        NSUserDefaults.standardUserDefaults().synchronize()
+        UserDefaults.standard.set(keyBinding!.toDictionary(), forKey: UserDefaultsKey.HotKey)
+        UserDefaults.standard.synchronize()
 
         PopoverController.sharedInstance().contentViewController.updateHotKeyLabel()
 
-        AnalyticsHelper.sharedInstance().recordCachedEventWithCategory(
-            AnalyticsCategory.Preference,
+        AnalyticsHelper.sharedInstance().recordCachedEvent(
+            withCategory: AnalyticsCategory.Preference,
             action: AnalyticsAction.UpdateHotKey,
             label:nil,
             value:nil

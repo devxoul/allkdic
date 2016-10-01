@@ -23,9 +23,9 @@
 import Cocoa
 
 struct BundleInfo {
-    static let Version = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as! String
-    static let Build = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleVersion") as! String
-    static let BundleName = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleName") as! String
+    static let Version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
+    static let Build = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as! String
+    static let BundleName = Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as! String
 }
 
 @objc class UserDefaultsKey: NSObject {

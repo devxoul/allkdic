@@ -22,17 +22,17 @@
 
 import Cocoa
 
-public class Label: NSTextField {
+open class Label: NSTextField {
 
     override init(frame: NSRect) {
         super.init(frame: frame)
-        self.bezeled = false
-        self.editable = false
-        self.backgroundColor = NSColor.clearColor()
+        self.isBezeled = false
+        self.isEditable = false
+        self.backgroundColor = NSColor.clear
     }
 
     convenience init() {
-        self.init(frame: CGRectZero)
+        self.init(frame: CGRect.zero)
     }
 
     required public init?(coder: NSCoder) {

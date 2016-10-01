@@ -420,6 +420,7 @@
 				TargetAttributes = {
 					0322CF7917AE9964007E832C = {
 						DevelopmentTeam = N2C267LBVY;
+						LastSwiftMigration = 0800;
 						SystemCapabilities = {
 							com.apple.Sandbox = {
 								enabled = 1;
@@ -428,6 +429,7 @@
 					};
 					0328DE021A0FA00D00160E93 = {
 						CreatedOnToolsVersion = 6.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = 0322CF7917AE9964007E832C;
 					};
 				};
@@ -712,6 +714,7 @@
 				SDKROOT = macosx;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Allkdic/Allkdic-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -736,6 +739,7 @@
 				PRODUCT_NAME = Allkdic;
 				SDKROOT = macosx;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Allkdic/Allkdic-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -772,6 +776,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "kr.xoul.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Allkdic.app/Contents/MacOS/Allkdic";
 			};
 			name = Debug;
@@ -804,6 +809,7 @@
 				OTHER_SWIFT_FLAGS = "-D SNAPKIT_DEPLOYMENT_LEGACY";
 				PRODUCT_BUNDLE_IDENTIFIER = "kr.xoul.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Allkdic.app/Contents/MacOS/Allkdic";
 			};
 			name = Release;

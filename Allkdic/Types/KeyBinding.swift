@@ -24,14 +24,14 @@ private let _dictionaryKeys = ["keyCode", "shift", "control", "option", "command
 
 public func ==(left: KeyBinding, right: KeyBinding) -> Bool {
     for key in _dictionaryKeys {
-        if left.valueForKey(key) as? Int != right.valueForKey(key) as? Int {
+        if left.value(forKey: key) as? Int != right.value(forKey: key) as? Int {
             return false
         }
     }
     return true
 }
 
-@objc public class KeyBinding: NSObject {
+open class KeyBinding: NSObject {
 
     var keyCode: Int = 0
     var shift: Bool = false
@@ -39,7 +39,7 @@ public func ==(left: KeyBinding, right: KeyBinding) -> Bool {
     var option: Bool = false
     var command: Bool = false
 
-    override public var description: String {
+    override open var description: String {
         var keys = [String]()
         if self.shift {
             keys.append("Shift")
@@ -54,11 +54,11 @@ public func ==(left: KeyBinding, right: KeyBinding) -> Bool {
             keys.append("Command")
         }
 
-        if let keyString = self.dynamicType.keyStringFormKeyCode(self.keyCode) {
-            keys.append(keyString.capitalizedString)
+        if let keyString = type(of: self).keyStringFormKeyCode(self.keyCode) {
+            keys.append(keyString.capitalized)
         }
 
-        return keys.joinWithSeparator(" + ")
+        return keys.joined(separator: " + ")
     }
 
     @objc public override init() {
@@ -83,7 +83,7 @@ public func ==(left: KeyBinding, right: KeyBinding) -> Bool {
         }
     }
 
-    @objc public init(dictionary: [NSObject: AnyObject]?) {
+    @objc public init(dictionary: [AnyHashable: Any]?) {
         super.init()
         if dictionary == nil {
             return
@@ -95,19 +95,19 @@ public func ==(left: KeyBinding, right: KeyBinding) -> Bool {
         }
     }
 
-    public func toDictionary() -> [String: Int] {
+    open func toDictionary() -> [String: Int] {
         var dictionary = [String: Int]()
         for key in _dictionaryKeys {
-            dictionary[key] = self.valueForKey(key)!.integerValue
+            dictionary[key] = self.value(forKey: key) as! Int
         }
         return dictionary
     }
 
-    public class func keyStringFormKeyCode(keyCode: Int) -> String? {
+    open class func keyStringFormKeyCode(_ keyCode: Int) -> String? {
         return keyMap[keyCode]
     }
 
-    public class func keyCodeFormKeyString(string: String) -> Int {
+    open class func keyCodeFormKeyString(_ string: String) -> Int {
         for (keyCode, keyString) in keyMap {
             if keyString == string {
                 return keyCode
