@@ -419,6 +419,7 @@
 				ORGANIZATIONNAME = Joyfl;
 				TargetAttributes = {
 					0322CF7917AE9964007E832C = {
+						DevelopmentTeam = N2C267LBVY;
 						SystemCapabilities = {
 							com.apple.Sandbox = {
 								enabled = 1;
@@ -699,6 +700,7 @@
 				CODE_SIGN_ENTITLEMENTS = Allkdic/Allkdic.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = N2C267LBVY;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Allkdic/Allkdic-Info.plist";
@@ -723,6 +725,7 @@
 				CODE_SIGN_ENTITLEMENTS = Allkdic/Allkdic.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = N2C267LBVY;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Allkdic/Allkdic-Info.plist";
