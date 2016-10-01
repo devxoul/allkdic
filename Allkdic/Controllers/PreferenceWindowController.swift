@@ -133,17 +133,10 @@ class PreferenceWindowController: WindowController, NSTextFieldDelegate {
   }
 
   func handleKeyBinding(_ keyBinding: KeyBinding?) {
-    if keyBinding == nil {
-      return
-    }
-
-    if !keyBinding!.shift && !keyBinding!.control && !keyBinding!.option && !keyBinding!.command {
-      return
-    }
-
-    if self.keyBinding! == keyBinding! {
-      return
-    }
+    guard let keyBinding = keyBinding,
+      self.keyBinding != keyBinding,
+      keyBinding.shift || keyBinding.control || keyBinding.option || keyBinding.command
+    else { return }
 
     self.keyBinding = keyBinding
     self.shiftLabel.textColor = NSColor.lightGray
@@ -151,27 +144,24 @@ class PreferenceWindowController: WindowController, NSTextFieldDelegate {
     self.altLabel.textColor = NSColor.lightGray
     self.commandLabel.textColor = NSColor.lightGray
 
-    if keyBinding!.shift {
+    if keyBinding.shift {
       self.shiftLabel.textColor = NSColor.black
     }
-    if keyBinding!.control {
+    if keyBinding.control {
       self.controlLabel.textColor = NSColor.black
     }
-    if keyBinding!.option {
+    if keyBinding.option {
       self.altLabel.textColor = NSColor.black
     }
-    if keyBinding!.command {
+    if keyBinding.command {
       self.commandLabel.textColor = NSColor.black
     }
 
-    let keyString = KeyBinding.keyStringFormKeyCode(keyBinding!.keyCode)
-    if keyString == nil {
-      return
-    }
-    self.keyLabel.stringValue = keyString!.capitalized
+    guard let keyString = KeyBinding.keyStringFormKeyCode(keyBinding.keyCode) else { return }
+    self.keyLabel.stringValue = keyString.capitalized
     self.keyLabel.sizeToFit()
 
-    UserDefaults.standard.set(keyBinding!.toDictionary(), forKey: UserDefaultsKey.HotKey)
+    UserDefaults.standard.set(keyBinding.toDictionary(), forKey: UserDefaultsKey.HotKey)
     UserDefaults.standard.synchronize()
 
     PopoverController.sharedInstance().contentViewController.updateHotKeyLabel()
@@ -179,8 +169,8 @@ class PreferenceWindowController: WindowController, NSTextFieldDelegate {
     AnalyticsHelper.sharedInstance().recordCachedEvent(
       withCategory: AnalyticsCategory.Preference,
       action: AnalyticsAction.UpdateHotKey,
-      label:nil,
-      value:nil
+      label: nil,
+      value: nil
     )
   }
 }

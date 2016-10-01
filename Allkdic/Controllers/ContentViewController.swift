@@ -205,11 +205,8 @@ open class ContentViewController: NSViewController {
     }
 
     guard let index = (sender as? Int) ?? (sender as? NSMenuItem)?.tag,
-      index >= DictionaryType.allTypes.count else { return }
-
-    if index == nil || index >= DictionaryType.allTypes.count {
-      return
-    }
+      index < DictionaryType.allTypes.count
+    else { return }
 
     let selectedDictionary = DictionaryType.allTypes[index]
     DictionaryType.selectedDictionary = selectedDictionary
