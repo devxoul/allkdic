@@ -28,93 +28,93 @@ private let _sharedInstance = PopoverController()
 
 open class PopoverController: NSObject {
 
-    fileprivate let statusItem = NSStatusBar.system().statusItem(withLength: NSVariableStatusItemLength)
-    fileprivate var statusButton: NSButton {
-        return self.statusItem.value(forKey: "_button") as! NSButton
-    }
-    fileprivate let popover = NSPopover()
+  fileprivate let statusItem = NSStatusBar.system().statusItem(withLength: NSVariableStatusItemLength)
+  fileprivate var statusButton: NSButton {
+    return self.statusItem.value(forKey: "_button") as! NSButton
+  }
+  fileprivate let popover = NSPopover()
 
-    internal let contentViewController = ContentViewController()
-    internal let preferenceWindowController = PreferenceWindowController()
-    internal let aboutWindowController = AboutWindowController()
-
-
-    open class func sharedInstance() -> PopoverController {
-        return _sharedInstance
-    }
+  internal let contentViewController = ContentViewController()
+  internal let preferenceWindowController = PreferenceWindowController()
+  internal let aboutWindowController = AboutWindowController()
 
 
-    public override init() {
-        super.init()
+  open class func sharedInstance() -> PopoverController {
+    return _sharedInstance
+  }
 
-        let icon = NSImage(named: "statusicon_default")
-        icon?.isTemplate = true
-        self.statusItem.image = icon
-        self.statusItem.target = self
-        self.statusItem.action = #selector(PopoverController.open)
 
-        self.statusButton.focusRingType = .none
-        self.statusButton.setButtonType(.pushOnPushOff)
+  public override init() {
+    super.init()
 
-        self.popover.contentViewController = self.contentViewController
+    let icon = NSImage(named: "statusicon_default")
+    icon?.isTemplate = true
+    self.statusItem.image = icon
+    self.statusItem.target = self
+    self.statusItem.action = #selector(PopoverController.open)
 
-        NSEvent.addGlobalMonitorForEvents(matching: [.leftMouseUp, .leftMouseDown]) { _ in
-            self.close()
-        }
+    self.statusButton.focusRingType = .none
+    self.statusButton.setButtonType(.pushOnPushOff)
 
-        NSEvent.addLocalMonitorForEvents(matching: .keyDown) { event in
-            self.handleKeyCode(event.keyCode, flags: event.modifierFlags, windowNumber: event.windowNumber)
-            return event
-        }
+    self.popover.contentViewController = self.contentViewController
+
+    NSEvent.addGlobalMonitorForEvents(matching: [.leftMouseUp, .leftMouseDown]) { _ in
+      self.close()
     }
 
-    open func open() {
-        if self.popover.isShown {
-            self.close()
-            return
-        }
+    NSEvent.addLocalMonitorForEvents(matching: .keyDown) { event in
+      self.handleKeyCode(event.keyCode, flags: event.modifierFlags, windowNumber: event.windowNumber)
+      return event
+    }
+  }
 
-        self.statusButton.state = NSOnState
-
-        NSApp.activate(ignoringOtherApps: true)
-        self.popover.show(relativeTo: .zero, of: self.statusButton, preferredEdge: .maxY)
-        self.contentViewController.updateHotKeyLabel()
-        self.contentViewController.focusOnTextArea()
-
-        AnalyticsHelper.sharedInstance().recordScreen(withName: "AllkdicWindow")
-        AnalyticsHelper.sharedInstance().recordCachedEvent(
-            withCategory: AnalyticsCategory.Allkdic,
-            action: AnalyticsAction.Open,
-            label: nil,
-            value: nil
-        )
+  open func open() {
+    if self.popover.isShown {
+      self.close()
+      return
     }
 
-    open func close() {
-        if !self.popover.isShown {
-            return
-        }
+    self.statusButton.state = NSOnState
 
-        self.statusButton.state = NSOffState
-        self.popover.close()
+    NSApp.activate(ignoringOtherApps: true)
+    self.popover.show(relativeTo: .zero, of: self.statusButton, preferredEdge: .maxY)
+    self.contentViewController.updateHotKeyLabel()
+    self.contentViewController.focusOnTextArea()
 
-        AnalyticsHelper.sharedInstance().recordCachedEvent(
-            withCategory: AnalyticsCategory.Allkdic,
-            action: AnalyticsAction.Close,
-            label: nil,
-            value: nil
-        )
+    AnalyticsHelper.sharedInstance().recordScreen(withName: "AllkdicWindow")
+    AnalyticsHelper.sharedInstance().recordCachedEvent(
+      withCategory: AnalyticsCategory.Allkdic,
+      action: AnalyticsAction.Open,
+      label: nil,
+      value: nil
+    )
+  }
+
+  open func close() {
+    if !self.popover.isShown {
+      return
     }
 
-    open func handleKeyCode(_ keyCode: UInt16, flags: NSEventModifierFlags, windowNumber: Int) {
-        let keyBinding = KeyBinding(keyCode: Int(keyCode), flags: Int(flags.rawValue))
+    self.statusButton.state = NSOffState
+    self.popover.close()
 
-        if let window = NSApp.window(withWindowNumber: windowNumber) {
-            if ["NSStatusBarWindow", "_NSPopoverWindow"].contains(type(of: window).className()) {
-                self.contentViewController.handleKeyBinding(keyBinding)
-            } else if let windowController = window.windowController as? PreferenceWindowController {
-                windowController.handleKeyBinding(keyBinding)
-            }
-        }
+    AnalyticsHelper.sharedInstance().recordCachedEvent(
+      withCategory: AnalyticsCategory.Allkdic,
+      action: AnalyticsAction.Close,
+      label: nil,
+      value: nil
+    )
+  }
+
+  open func handleKeyCode(_ keyCode: UInt16, flags: NSEventModifierFlags, windowNumber: Int) {
+    let keyBinding = KeyBinding(keyCode: Int(keyCode), flags: Int(flags.rawValue))
+
+    if let window = NSApp.window(withWindowNumber: windowNumber) {
+      if ["NSStatusBarWindow", "_NSPopoverWindow"].contains(type(of: window).className()) {
+        self.contentViewController.handleKeyBinding(keyBinding)
+      } else if let windowController = window.windowController as? PreferenceWindowController {
+        windowController.handleKeyBinding(keyBinding)
+      }
     }
+  }
 }

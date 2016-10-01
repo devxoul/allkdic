@@ -26,50 +26,50 @@ import Cocoa
 
 open class LoginItem {
 
-    fileprivate static var URL: Foundation.URL {
-        return Foundation.URL(fileURLWithPath: Bundle.main.bundlePath)
-    }
+  fileprivate static var URL: Foundation.URL {
+    return Foundation.URL(fileURLWithPath: Bundle.main.bundlePath)
+  }
 
-    fileprivate class var loginItemsList: LSSharedFileList {
-        let type = kLSSharedFileListSessionLoginItems.takeUnretainedValue()
-        let list = LSSharedFileListCreate(nil, type, nil).takeUnretainedValue()
-        return list
-    }
+  fileprivate class var loginItemsList: LSSharedFileList {
+    let type = kLSSharedFileListSessionLoginItems.takeUnretainedValue()
+    let list = LSSharedFileListCreate(nil, type, nil).takeUnretainedValue()
+    return list
+  }
 
-    fileprivate class var loginItems: [LSSharedFileListItem] {
-        let list = self.loginItemsList
-        let items = LSSharedFileListCopySnapshot(list, nil).takeUnretainedValue() as? [LSSharedFileListItem]
-        return items ?? []
-    }
+  fileprivate class var loginItems: [LSSharedFileListItem] {
+    let list = self.loginItemsList
+    let items = LSSharedFileListCopySnapshot(list, nil).takeUnretainedValue() as? [LSSharedFileListItem]
+    return items ?? []
+  }
 
-    fileprivate class var loginItem: LSSharedFileListItem? {
-        for item in self.loginItems {
-            var URLRef: Unmanaged<CFURL>?
-            let error = LSSharedFileListItemResolve(item, LSSharedFileListResolutionFlags(0), &URLRef, nil)
-            if let URLRef = URLRef , error == noErr && CFEqual(URLRef.takeUnretainedValue(), self.URL as CFTypeRef!) {
-                return item
-            }
-        }
-        return nil
+  fileprivate class var loginItem: LSSharedFileListItem? {
+    for item in self.loginItems {
+      var URLRef: Unmanaged<CFURL>?
+      let error = LSSharedFileListItemResolve(item, LSSharedFileListResolutionFlags(0), &URLRef, nil)
+      if let URLRef = URLRef , error == noErr && CFEqual(URLRef.takeUnretainedValue(), self.URL as CFTypeRef!) {
+        return item
+      }
     }
+    return nil
+  }
 
-    open class func registered() -> Bool {
-        return self.loginItem != nil
-    }
+  open class func registered() -> Bool {
+    return self.loginItem != nil
+  }
 
-    open class func register() {
-        if self.loginItem == nil {
-            let beforeItem = kLSSharedFileListItemBeforeFirst.takeUnretainedValue()
-            let displayName = BundleInfo.BundleName as CFString
-            let URL = self.URL as CFURL
-            LSSharedFileListInsertItemURL(self.loginItemsList, beforeItem, displayName, nil, URL, nil, nil)
-        }
+  open class func register() {
+    if self.loginItem == nil {
+      let beforeItem = kLSSharedFileListItemBeforeFirst.takeUnretainedValue()
+      let displayName = BundleInfo.BundleName as CFString
+      let URL = self.URL as CFURL
+      LSSharedFileListInsertItemURL(self.loginItemsList, beforeItem, displayName, nil, URL, nil, nil)
     }
+  }
 
-    open class func unregister() {
-        if let loginItem = self.loginItem {
-            LSSharedFileListItemRemove(self.loginItemsList, loginItem)
-        }
+  open class func unregister() {
+    if let loginItem = self.loginItem {
+      LSSharedFileListItemRemove(self.loginItemsList, loginItem)
     }
+  }
 
 }

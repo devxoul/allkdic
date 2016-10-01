@@ -27,18 +27,18 @@ import SnapKit
 
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-    func applicationDidFinishLaunching(_ notification: Notification) {
-        LoginItem.register()
+  func applicationDidFinishLaunching(_ notification: Notification) {
+    LoginItem.register()
 
-        let ga = AnalyticsHelper.sharedInstance()
-        ga?.beginPeriodicReporting(withAccount: "UA-42976442-2", name:"올ㅋ사전", version: BundleInfo.Version)
+    let ga = AnalyticsHelper.sharedInstance()
+    ga?.beginPeriodicReporting(withAccount: "UA-42976442-2", name:"올ㅋ사전", version: BundleInfo.Version)
 
-        PopoverController.sharedInstance()
-        AKHotKeyManager.registerHotKey()
-    }
+    PopoverController.sharedInstance()
+    AKHotKeyManager.registerHotKey()
+  }
 
-    func applicationWillTerminate(_ notification: Notification) {
-        AnalyticsHelper.sharedInstance().handleApplicationWillClose()
-        UserDefaults.standard.synchronize()
-    }
+  func applicationWillTerminate(_ notification: Notification) {
+    AnalyticsHelper.sharedInstance().handleApplicationWillClose()
+    UserDefaults.standard.synchronize()
+  }
 }

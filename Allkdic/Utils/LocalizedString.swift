@@ -9,5 +9,5 @@
 import Foundation
 
 func gettext(_ key: String) -> String {
-    return NSLocalizedString(key, comment: "")
+  return NSLocalizedString(key, comment: "")
 }

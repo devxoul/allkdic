@@ -23,43 +23,43 @@
 import Cocoa
 
 struct BundleInfo {
-    static let Version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
-    static let Build = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as! String
-    static let BundleName = Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as! String
+  static let Version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
+  static let Build = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as! String
+  static let BundleName = Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as! String
 }
 
 @objc class UserDefaultsKey: NSObject {
-    class var IgnoreApplicationFolderWarning: String { return "AKIgnoreApplicationFolder" }
-    class var HotKey: String { return "AllkdicSettingKeyHotKey" }
-    class var SelectedDictionaryName: String { return "SelectedDictionaryName" }
+  class var IgnoreApplicationFolderWarning: String { return "AKIgnoreApplicationFolder" }
+  class var HotKey: String { return "AllkdicSettingKeyHotKey" }
+  class var SelectedDictionaryName: String { return "SelectedDictionaryName" }
 }
 
 
 // MARK: - Google Analytics
 
 struct AnalyticsCategory {
-    static let Allkdic = "Allkdic"
-    static let Preference = "Preference"
-    static let About = "About"
+  static let Allkdic = "Allkdic"
+  static let Preference = "Preference"
+  static let About = "About"
 }
 
 struct AnalyticsAction {
-    static let Open = "Open"
-    static let Close = "Close"
-    static let Dictionary = "Dictionary" // Use `DictionaryName` as Label
-    static let Search = "Search"
-    static let UpdateHotKey = "UpdateHotKey"
-    static let CheckForUpdate = "CheckForUpdate"
-    static let ViewOnGitHub = "ViewOnGitHub"
+  static let Open = "Open"
+  static let Close = "Close"
+  static let Dictionary = "Dictionary" // Use `DictionaryName` as Label
+  static let Search = "Search"
+  static let UpdateHotKey = "UpdateHotKey"
+  static let CheckForUpdate = "CheckForUpdate"
+  static let ViewOnGitHub = "ViewOnGitHub"
 }
 
 struct AnalyticsLabel {
-    static let English = "English"
-    static let Korean = "Korean"
-    static let Hanja = "Hanja"
-    static let Japanese = "Japanese"
-    static let Chinese = "Chinese"
-    static let French = "French"
-    static let Russian = "Russian"
-    static let Spanish = "Spanish"
+  static let English = "English"
+  static let Korean = "Korean"
+  static let Hanja = "Hanja"
+  static let Japanese = "Japanese"
+  static let Chinese = "Chinese"
+  static let French = "French"
+  static let Russian = "Russian"
+  static let Spanish = "Spanish"
 }

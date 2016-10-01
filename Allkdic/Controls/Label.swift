@@ -24,18 +24,18 @@ import Cocoa
 
 open class Label: NSTextField {
 
-    override init(frame: NSRect) {
-        super.init(frame: frame)
-        self.isBezeled = false
-        self.isEditable = false
-        self.backgroundColor = NSColor.clear
-    }
+  override init(frame: NSRect) {
+    super.init(frame: frame)
+    self.isBezeled = false
+    self.isEditable = false
+    self.backgroundColor = NSColor.clear
+  }
 
-    convenience init() {
-        self.init(frame: CGRect.zero)
-    }
+  convenience init() {
+    self.init(frame: CGRect.zero)
+  }
 
-    required public init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+  required public init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
 }
