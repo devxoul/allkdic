@@ -114,7 +114,7 @@ class PreferenceWindowController: WindowController, NSTextFieldDelegate {
 
     AKHotKeyManager.unregisterHotKey()
 
-    let keyBindingData = UserDefaults.standard.dictionary(forKey: UserDefaultsKey.HotKey)
+    let keyBindingData = UserDefaults.standard.dictionary(forKey: UserDefaultsKey.hotKey)
     let keyBinding = KeyBinding(dictionary: keyBindingData)
     self.handleKeyBinding(keyBinding)
 
@@ -161,14 +161,14 @@ class PreferenceWindowController: WindowController, NSTextFieldDelegate {
     self.keyLabel.stringValue = keyString.capitalized
     self.keyLabel.sizeToFit()
 
-    UserDefaults.standard.set(keyBinding.toDictionary(), forKey: UserDefaultsKey.HotKey)
+    UserDefaults.standard.set(keyBinding.toDictionary(), forKey: UserDefaultsKey.hotKey)
     UserDefaults.standard.synchronize()
 
     PopoverController.sharedInstance().contentViewController.updateHotKeyLabel()
 
     AnalyticsHelper.sharedInstance().recordCachedEvent(
-      withCategory: AnalyticsCategory.Preference,
-      action: AnalyticsAction.UpdateHotKey,
+      withCategory: AnalyticsCategory.preference,
+      action: AnalyticsAction.updateHotKey,
       label: nil,
       value: nil
     )

@@ -56,7 +56,7 @@ class AboutWindowController: WindowController {
 
     self.titleLabel.font = NSFont.boldSystemFont(ofSize: 23)
     self.titleLabel.textColor = NSColor.controlTextColor
-    self.titleLabel.stringValue = BundleInfo.BundleName
+    self.titleLabel.stringValue = BundleInfo.bundleName
     self.titleLabel.sizeToFit()
     self.titleLabel.snp.makeConstraints { make in
       make.centerX.equalTo(self.contentView)
@@ -65,7 +65,7 @@ class AboutWindowController: WindowController {
 
     self.versionLabel.font = NSFont.systemFont(ofSize: 11)
     self.versionLabel.textColor = NSColor.headerColor
-    self.versionLabel.stringValue = gettext("version") + ": \(BundleInfo.Version)"
+    self.versionLabel.stringValue = gettext("version") + ": \(BundleInfo.version)"
     self.versionLabel.sizeToFit()
     self.versionLabel.snp.makeConstraints { make in
       make.centerX.equalTo(self.contentView)
@@ -169,8 +169,8 @@ class AboutWindowController: WindowController {
 
   func openAppStore() {
     AnalyticsHelper.sharedInstance().recordCachedEvent(
-      withCategory: AnalyticsCategory.About,
-      action: AnalyticsAction.CheckForUpdate,
+      withCategory: AnalyticsCategory.about,
+      action: AnalyticsAction.checkForUpdate,
       label: nil,
       value: nil
     )
@@ -183,8 +183,8 @@ class AboutWindowController: WindowController {
 
   func viewOnGitHub() {
     AnalyticsHelper.sharedInstance().recordCachedEvent(
-      withCategory: AnalyticsCategory.About,
-      action: AnalyticsAction.ViewOnGitHub,
+      withCategory: AnalyticsCategory.about,
+      action: AnalyticsAction.viewOnGitHub,
       label: nil,
       value: nil
     )

@@ -31,7 +31,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     LoginItem.register()
 
     let ga = AnalyticsHelper.sharedInstance()
-    ga?.beginPeriodicReporting(withAccount: "UA-42976442-2", name:"올ㅋ사전", version: BundleInfo.Version)
+    ga?.beginPeriodicReporting(withAccount: "UA-42976442-2", name:"올ㅋ사전", version: BundleInfo.version)
 
     PopoverController.sharedInstance()
     AKHotKeyManager.registerHotKey()

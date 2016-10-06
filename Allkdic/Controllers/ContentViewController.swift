@@ -44,7 +44,7 @@ open class ContentViewController: NSViewController {
     self.view.addSubview(self.titleLabel)
     self.titleLabel.textColor = NSColor.controlTextColor
     self.titleLabel.font = NSFont.systemFont(ofSize: 16)
-    self.titleLabel.stringValue = BundleInfo.BundleName
+    self.titleLabel.stringValue = BundleInfo.bundleName
     self.titleLabel.sizeToFit()
     self.titleLabel.target = self
     self.titleLabel.action = #selector(ContentViewController.navigateToMain)
@@ -136,7 +136,7 @@ open class ContentViewController: NSViewController {
   }
 
   open func updateHotKeyLabel() {
-    let keyBindingData = UserDefaults.standard.dictionary(forKey: UserDefaultsKey.HotKey)
+    let keyBindingData = UserDefaults.standard.dictionary(forKey: UserDefaultsKey.hotKey)
     let keyBinding = KeyBinding(dictionary: keyBindingData)
     self.hotKeyLabel.stringValue = keyBinding.description
     self.hotKeyLabel.sizeToFit()
@@ -218,8 +218,8 @@ open class ContentViewController: NSViewController {
     self.dictionaryMenu.item(withTag: index)?.state = NSOnState
 
     AnalyticsHelper.sharedInstance().recordCachedEvent(
-      withCategory: AnalyticsCategory.Allkdic,
-      action: AnalyticsAction.Dictionary,
+      withCategory: AnalyticsCategory.allkdic,
+      action: AnalyticsAction.dictionary,
       label: selectedDictionary.name,
       value: nil
     )
@@ -256,14 +256,14 @@ extension ContentViewController: WebFrameLoadDelegate {
     }
 
     let URLPatternsForDictionaryType = [
-      AnalyticsLabel.English:  ["endic", "eng", "ee"],
-      AnalyticsLabel.Korean:   ["krdic", "kor"],
-      AnalyticsLabel.Hanja:    ["hanja"],
-      AnalyticsLabel.Japanese: ["jpdic", "jp"],
-      AnalyticsLabel.Chinese:  ["cndic", "ch"],
-      AnalyticsLabel.French:   ["frdic", "fr"],
-      AnalyticsLabel.Russian:  ["ru"],
-      AnalyticsLabel.Spanish:  ["spdic"],
+      AnalyticsLabel.english:  ["endic", "eng", "ee"],
+      AnalyticsLabel.korean:   ["krdic", "kor"],
+      AnalyticsLabel.hanja:    ["hanja"],
+      AnalyticsLabel.japanese: ["jpdic", "jp"],
+      AnalyticsLabel.chinese:  ["cndic", "ch"],
+      AnalyticsLabel.french:   ["frdic", "fr"],
+      AnalyticsLabel.russian:  ["ru"],
+      AnalyticsLabel.spanish:  ["spdic"],
       ]
 
     let URLPattern = DictionaryType.selectedDictionary.URLPattern
@@ -278,8 +278,8 @@ extension ContentViewController: WebFrameLoadDelegate {
     for (type, patterns) in URLPatternsForDictionaryType {
       if patterns.contains(pattern) {
         AnalyticsHelper.sharedInstance().recordCachedEvent(
-          withCategory: AnalyticsCategory.Allkdic,
-          action: AnalyticsAction.Search,
+          withCategory: AnalyticsCategory.allkdic,
+          action: AnalyticsAction.search,
           label: type,
           value: nil
         )

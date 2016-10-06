@@ -60,7 +60,7 @@ open class LoginItem {
   open class func register() {
     if self.loginItem == nil {
       let beforeItem = kLSSharedFileListItemBeforeFirst.takeUnretainedValue()
-      let displayName = BundleInfo.BundleName as CFString
+      let displayName = BundleInfo.bundleName as CFString
       let URL = self.URL as CFURL
       LSSharedFileListInsertItemURL(self.loginItemsList, beforeItem, displayName, nil, URL, nil, nil)
     }

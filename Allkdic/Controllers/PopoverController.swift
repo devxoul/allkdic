@@ -83,8 +83,8 @@ open class PopoverController: NSObject {
 
     AnalyticsHelper.sharedInstance().recordScreen(withName: "AllkdicWindow")
     AnalyticsHelper.sharedInstance().recordCachedEvent(
-      withCategory: AnalyticsCategory.Allkdic,
-      action: AnalyticsAction.Open,
+      withCategory: AnalyticsCategory.allkdic,
+      action: AnalyticsAction.open,
       label: nil,
       value: nil
     )
@@ -99,8 +99,8 @@ open class PopoverController: NSObject {
     self.popover.close()
 
     AnalyticsHelper.sharedInstance().recordCachedEvent(
-      withCategory: AnalyticsCategory.Allkdic,
-      action: AnalyticsAction.Close,
+      withCategory: AnalyticsCategory.allkdic,
+      action: AnalyticsAction.close,
       label: nil,
       value: nil
     )
