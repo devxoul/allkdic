@@ -23,96 +23,96 @@
 private let _dictionaryKeys = ["keyCode", "shift", "control", "option", "command"]
 
 public func ==(left: KeyBinding, right: KeyBinding) -> Bool {
-    for key in _dictionaryKeys {
-        if left.valueForKey(key) as? Int != right.valueForKey(key) as? Int {
-            return false
-        }
+  for key in _dictionaryKeys {
+    if left.value(forKey: key) as? Int != right.value(forKey: key) as? Int {
+      return false
     }
-    return true
+  }
+  return true
 }
 
-@objc public class KeyBinding: NSObject {
+open class KeyBinding: NSObject {
 
-    var keyCode: Int = 0
-    var shift: Bool = false
-    var control: Bool = false
-    var option: Bool = false
-    var command: Bool = false
+  var keyCode: Int = 0
+  var shift: Bool = false
+  var control: Bool = false
+  var option: Bool = false
+  var command: Bool = false
 
-    override public var description: String {
-        var keys = [String]()
-        if self.shift {
-            keys.append("Shift")
-        }
-        if self.control {
-            keys.append("Control")
-        }
-        if self.option {
-            keys.append("Option")
-        }
-        if self.command {
-            keys.append("Command")
-        }
-
-        if let keyString = self.dynamicType.keyStringFormKeyCode(self.keyCode) {
-            keys.append(keyString.capitalizedString)
-        }
-
-        return keys.joinWithSeparator(" + ")
+  override open var description: String {
+    var keys = [String]()
+    if self.shift {
+      keys.append("Shift")
+    }
+    if self.control {
+      keys.append("Control")
+    }
+    if self.option {
+      keys.append("Option")
+    }
+    if self.command {
+      keys.append("Command")
     }
 
-    @objc public override init() {
-        super.init()
+    if let keyString = type(of: self).keyStringFormKeyCode(self.keyCode) {
+      keys.append(keyString.capitalized)
     }
 
-    @objc public init(keyCode: Int, flags: Int) {
-        super.init()
-        self.keyCode = keyCode
-        for i in 0...6 {
-            if flags & (1 << i) != 0 {
-                if i == 0 {
-                    self.control = true
-                } else if i == 1 {
-                    self.shift = true
-                } else if i == 3 {
-                    self.command = true
-                } else if i == 5 {
-                    self.option = true
-                }
-            }
-        }
-    }
+    return keys.joined(separator: " + ")
+  }
 
-    @objc public init(dictionary: [NSObject: AnyObject]?) {
-        super.init()
-        if dictionary == nil {
-            return
-        }
-        for key in _dictionaryKeys {
-            if let value = dictionary![key] as? Int {
-                self.setValue(value, forKey: key)
-            }
-        }
-    }
+  @objc public override init() {
+    super.init()
+  }
 
-    public func toDictionary() -> [String: Int] {
-        var dictionary = [String: Int]()
-        for key in _dictionaryKeys {
-            dictionary[key] = self.valueForKey(key)!.integerValue
+  @objc public init(keyCode: Int, flags: Int) {
+    super.init()
+    self.keyCode = keyCode
+    for i in 0...6 {
+      if flags & (1 << i) != 0 {
+        if i == 0 {
+          self.control = true
+        } else if i == 1 {
+          self.shift = true
+        } else if i == 3 {
+          self.command = true
+        } else if i == 5 {
+          self.option = true
         }
-        return dictionary
+      }
     }
+  }
 
-    public class func keyStringFormKeyCode(keyCode: Int) -> String? {
-        return keyMap[keyCode]
+  @objc public init(dictionary: [AnyHashable: Any]?) {
+    super.init()
+    if dictionary == nil {
+      return
     }
+    for key in _dictionaryKeys {
+      if let value = dictionary![key] as? Int {
+        self.setValue(value, forKey: key)
+      }
+    }
+  }
 
-    public class func keyCodeFormKeyString(string: String) -> Int {
-        for (keyCode, keyString) in keyMap {
-            if keyString == string {
-                return keyCode
-            }
-        }
-        return NSNotFound
+  open func toDictionary() -> [String: Int] {
+    var dictionary = [String: Int]()
+    for key in _dictionaryKeys {
+      dictionary[key] = self.value(forKey: key) as! Int
     }
+    return dictionary
+  }
+
+  open class func keyStringFormKeyCode(_ keyCode: Int) -> String? {
+    return keyMap[keyCode]
+  }
+
+  open class func keyCodeFormKeyString(_ string: String) -> Int {
+    for (keyCode, keyString) in keyMap {
+      if keyString == string {
+        return keyCode
+      }
+    }
+    return NSNotFound
+  }
 }

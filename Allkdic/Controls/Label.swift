@@ -22,20 +22,20 @@
 
 import Cocoa
 
-public class Label: NSTextField {
+open class Label: NSTextField {
 
-    override init(frame: NSRect) {
-        super.init(frame: frame)
-        self.bezeled = false
-        self.editable = false
-        self.backgroundColor = NSColor.clearColor()
-    }
+  override init(frame: NSRect) {
+    super.init(frame: frame)
+    self.isBezeled = false
+    self.isEditable = false
+    self.backgroundColor = NSColor.clear
+  }
 
-    convenience init() {
-        self.init(frame: CGRectZero)
-    }
+  convenience init() {
+    self.init(frame: CGRect.zero)
+  }
 
-    required public init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+  required public init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
 }

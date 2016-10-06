@@ -24,71 +24,71 @@ import Cocoa
 
 public enum DictionaryType: String {
 
-    case Naver = "Naver"
-    case Daum = "Daum"
-    case NaverMobile = "NaverMobile"
+  case Naver = "Naver"
+  case Daum = "Daum"
+  case NaverMobile = "NaverMobile"
 
 
-    static var allTypes: [DictionaryType] {
-        return [.Naver, .Daum, .NaverMobile]
+  static var allTypes: [DictionaryType] {
+    return [.Naver, .Daum, .NaverMobile]
+  }
+
+  static var selectedDictionary: DictionaryType {
+    get {
+      if let name = UserDefaults.standard.string(forKey: UserDefaultsKey.selectedDictionaryName),
+        let dict = DictionaryType(name: name) {
+        return dict
+      }
+      self.selectedDictionary = .Naver
+      return .Naver
     }
-
-    static var selectedDictionary: DictionaryType {
-        get {
-            if let name = NSUserDefaults.standardUserDefaults().stringForKey(UserDefaultsKey.SelectedDictionaryName),
-               let dict = DictionaryType(name: name) {
-                return dict
-            }
-            self.selectedDictionary = .Naver
-            return .Naver
-        }
-        set {
-            let userDefaults = NSUserDefaults.standardUserDefaults()
-            userDefaults.setValue(newValue.name, forKey: UserDefaultsKey.SelectedDictionaryName)
-            userDefaults.synchronize()
-        }
+    set {
+      let userDefaults = UserDefaults.standard
+      userDefaults.setValue(newValue.name, forKey: UserDefaultsKey.selectedDictionaryName)
+      userDefaults.synchronize()
     }
+  }
 
 
-    public init?(name: String) {
-        self.init(rawValue: name)
+  public init?(name: String) {
+    self.init(rawValue: name)
+  }
+
+
+  public var name: String {
+    return self.rawValue
+  }
+
+  public var title: String {
+    switch self {
+    case .Naver: return gettext("naver_dictionary")
+    case .Daum: return gettext("daum_dictionary")
+    case .NaverMobile: return gettext("naver_mobile_dictionary")
     }
+  }
 
-
-    public var name: String {
-        return self.rawValue
+  public var URLString: String {
+    switch self {
+    case .Naver: return "http://endic.naver.com/popManager.nhn?m=miniPopMain"
+    case .Daum: return "http://small.dic.daum.net/"
+    case .NaverMobile: return "http://m.dic.naver.com/"
     }
+  }
 
-    public var title: String {
-        switch self {
-        case .Naver: return gettext("naver_dictionary")
-        case .Daum: return gettext("daum_dictionary")
-        case .NaverMobile: return gettext("naver_mobile_dictionary")
-        }
+  public var URLPattern: String {
+    switch self {
+    case .Naver: return "[a-z]+(?=\\.naver\\.com)"
+    case .Daum: return "(?<=[?&]dic=)[a-z]+"
+    case .NaverMobile: return "(?<=m\\.)[a-z]+(?=\\.naver\\.com)"
     }
+  }
 
-    public var URLString: String {
-        switch self {
-        case .Naver: return "http://endic.naver.com/popManager.nhn?m=miniPopMain"
-        case .Daum: return "http://small.dic.daum.net/"
-        case .NaverMobile: return "http://m.dic.naver.com/"
-        }
+  public var inputFocusingScript: String {
+    switch self {
+    case .Naver: return "ac_input.focus(); ac_input.select()"
+    case .Daum: return "q.focus(); q.select()"
+    case .NaverMobile: return "ac_input.focus(); ac_input.select()"
     }
-
-    public var URLPattern: String {
-        switch self {
-        case .Naver: return "[a-z]+(?=\\.naver\\.com)"
-        case .Daum: return "(?<=[?&]dic=)[a-z]+"
-        case .NaverMobile: return "(?<=m\\.)[a-z]+(?=\\.naver\\.com)"
-        }
-    }
-
-    public var inputFocusingScript: String {
-        switch self {
-        case .Naver: return "ac_input.focus(); ac_input.select()"
-        case .Daum: return "q.focus(); q.select()"
-        case .NaverMobile: return "ac_input.focus(); ac_input.select()"
-        }
-    }
+  }
 
 }

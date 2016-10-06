@@ -22,21 +22,23 @@
 
 import Cocoa
 
+import SimpleCocoaAnalytics
+import SnapKit
 
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-    func applicationDidFinishLaunching(notification: NSNotification) {
-        LoginItem.register()
+  func applicationDidFinishLaunching(_ notification: Notification) {
+    LoginItem.register()
 
-        let ga = AnalyticsHelper.sharedInstance()
-        ga.beginPeriodicReportingWithAccount("UA-42976442-2", name:"올ㅋ사전", version: BundleInfo.Version)
+    let ga = AnalyticsHelper.sharedInstance()
+    ga?.beginPeriodicReporting(withAccount: "UA-42976442-2", name:"올ㅋ사전", version: BundleInfo.version)
 
-        PopoverController.sharedInstance()
-        AKHotKeyManager.registerHotKey()
-    }
+    PopoverController.sharedInstance()
+    AKHotKeyManager.registerHotKey()
+  }
 
-    func applicationWillTerminate(notification: NSNotification) {
-        AnalyticsHelper.sharedInstance().handleApplicationWillClose()
-        NSUserDefaults.standardUserDefaults().synchronize()
-    }
+  func applicationWillTerminate(_ notification: Notification) {
+    AnalyticsHelper.sharedInstance().handleApplicationWillClose()
+    UserDefaults.standard.synchronize()
+  }
 }

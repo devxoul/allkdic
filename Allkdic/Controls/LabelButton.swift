@@ -22,25 +22,25 @@
 
 import Cocoa
 
-public class LabelButton: Label {
+open class LabelButton: Label {
 
-    public var normalTextColor: NSColor! = NSColor.blackColor()
-    public var highlightedTextColor: NSColor! = NSColor(white: 0.5, alpha: 1)
+  open var normalTextColor: NSColor! = NSColor.black
+  open var highlightedTextColor: NSColor! = NSColor(white: 0.5, alpha: 1)
 
-    override public func mouseDown(theEvent: NSEvent?) {
-        self.textColor = self.highlightedTextColor
+  override open func mouseDown(with theEvent: NSEvent?) {
+    self.textColor = self.highlightedTextColor
+  }
+
+  override open func mouseUp(with theEvent: NSEvent?) {
+    self.textColor = self.normalTextColor
+
+    if let event = theEvent {
+      let point = event.locationInWindow
+      let rect = self.frame.insetBy(dx: -10, dy: -30)
+
+      if NSPointInRect(point, rect) {
+        self.sendAction(self.action, to: self.target)
+      }
     }
-
-    override public func mouseUp(theEvent: NSEvent?) {
-        self.textColor = self.normalTextColor
-
-        if let event = theEvent {
-            let point = event.locationInWindow
-            let rect = CGRectInset(self.frame, -10, -30)
-
-            if NSPointInRect(point, rect) {
-                self.sendAction(self.action, to: self.target)
-            }
-        }
-    }
+  }
 }

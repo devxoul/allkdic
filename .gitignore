@@ -4,7 +4,6 @@
 xcuserdata
 
 Pods/
-Podfile.lock
-Seeds/
+vendor/
 
 .DS_Store

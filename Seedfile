@@ -1,7 +1,0 @@
-swift_seedname_prefix!
-
-github "stephenlind/SimpleCocoaGoogleAnalytics", "0.1.0", :files => [
-  "SimpleCocoaAnalytics/AnalyticsEvent.{h,m}",
-  "SimpleCocoaAnalytics/AnalyticsHelper.{h,m}",
-]
-github "SnapKit/SnapKit", "0.15.0", :files => "Source/*.{swift,h}"
