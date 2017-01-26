@@ -28,6 +28,7 @@ class PreferenceWindowController: WindowController, NSTextFieldDelegate {
 
   var keyBinding: KeyBinding?
 
+  let containerView = NSView()
   let label = Label()
   let hotKeyTextField = NSTextField()
   let shiftLabel = Label()
@@ -35,25 +36,41 @@ class PreferenceWindowController: WindowController, NSTextFieldDelegate {
   let altLabel = Label()
   let commandLabel = Label()
   let keyLabel = Label()
+  
+  let autostartLabel = Label()
+  let autostartCheckbox = NSButton()
 
   init() {
     super.init(windowSize: CGSize(width: 310, height: 200))
     self.window!.title = gettext("preferences")
 
-    self.contentView.addSubview(self.label)
-    self.contentView.addSubview(self.hotKeyTextField)
-    self.contentView.addSubview(self.shiftLabel)
-    self.contentView.addSubview(self.controlLabel)
-    self.contentView.addSubview(self.altLabel)
-    self.contentView.addSubview(self.commandLabel)
-    self.contentView.addSubview(self.keyLabel)
+    self.contentView.addSubview(self.containerView)
+    
+    self.containerView.addSubview(self.label)
+    self.containerView.addSubview(self.hotKeyTextField)
+    self.containerView.addSubview(self.shiftLabel)
+    self.containerView.addSubview(self.controlLabel)
+    self.containerView.addSubview(self.altLabel)
+    self.containerView.addSubview(self.commandLabel)
+    self.containerView.addSubview(self.keyLabel)
+    self.containerView.addSubview(self.autostartLabel)
+    self.containerView.addSubview(self.autostartCheckbox)
 
+    self.containerView.snp.makeConstraints { make in
+      make.margins.equalTo(0)
+      make.height.greaterThanOrEqualTo(54)
+      make.width.equalToSuperview()
+      make.left.equalToSuperview()
+      make.centerY.equalTo(self.contentView)
+    }
+    
     self.label.font = NSFont.systemFont(ofSize: 13)
     self.label.stringValue = gettext("shortcut") + ":"
     self.label.sizeToFit()
     self.label.snp.makeConstraints { make in
       make.left.equalTo(60)
-      make.centerY.equalTo(self.contentView)
+      make.top.equalToSuperview().offset(5)
+      make.centerY.equalTo(self.hotKeyTextField)
     }
 
     self.hotKeyTextField.delegate = self
@@ -63,7 +80,7 @@ class PreferenceWindowController: WindowController, NSTextFieldDelegate {
       make.width.equalTo(140)
       make.height.equalTo(22)
       make.left.equalTo(self.label.snp.right).offset(5)
-      make.centerY.equalTo(self.contentView)
+      make.top.equalToSuperview().offset(5)
     }
 
     self.shiftLabel.font = NSFont.systemFont(ofSize: 13)
@@ -102,6 +119,25 @@ class PreferenceWindowController: WindowController, NSTextFieldDelegate {
     self.keyLabel.snp.makeConstraints { make in
       make.left.equalTo(self.commandLabel.snp.right).offset(-3)
       make.centerY.equalTo(self.hotKeyTextField)
+    }
+    
+    self.autostartLabel.font = NSFont.systemFont(ofSize: 13)
+    self.autostartLabel.stringValue = gettext("autostart") + ":"
+    self.autostartLabel.sizeToFit()
+    self.autostartLabel.snp.makeConstraints { make in
+      make.left.equalTo(self.label.snp.left)
+      make.centerY.equalTo(self.autostartCheckbox.snp.centerY)
+    }
+    
+    self.autostartCheckbox.target = self
+    self.autostartCheckbox.title = ""
+    self.autostartCheckbox.state = LoginItem.enabled ? NSOnState : NSOffState
+    self.autostartCheckbox.action = #selector(toggleAutostart(_:))
+    self.autostartCheckbox.setButtonType(.switch)
+    self.autostartCheckbox.snp.makeConstraints { make in
+      make.right.equalTo(hotKeyTextField.snp.right)
+      make.height.equalTo(22)
+      make.top.equalTo(self.hotKeyTextField.snp.bottom).offset(5)
     }
   }
 
@@ -172,5 +208,9 @@ class PreferenceWindowController: WindowController, NSTextFieldDelegate {
       label: nil,
       value: nil
     )
+  }
+  
+  func toggleAutostart(_ sender: AnyObject) -> Void {
+    LoginItem.setEnabled(enabled: self.autostartCheckbox.state == NSOnState)
   }
 }
