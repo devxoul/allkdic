@@ -36,6 +36,11 @@
 		03E6E1C71BB93B60006448C0 /* LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E6E1C61BB93B60006448C0 /* LocalizedString.swift */; };
 		03E6E1CA1BB9414F006448C0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 03E6E1CC1BB9414F006448C0 /* InfoPlist.strings */; };
 		3CED7950FE8DA513C3F8AA2A /* Pods_Allkdic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10E1B558B5782782D50AAFC5 /* Pods_Allkdic.framework */; };
+		570F185A1E3B431200800516 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570F18591E3B431200800516 /* AppDelegate.swift */; };
+		570F185E1E3B431200800516 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 570F185D1E3B431200800516 /* Assets.xcassets */; };
+		570F18611E3B431200800516 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 570F185F1E3B431200800516 /* Main.storyboard */; };
+		570F18681E3B438E00800516 /* LauncherApplication.app in Copy Launcher Application */ = {isa = PBXBuildFile; fileRef = 570F18571E3B431200800516 /* LauncherApplication.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		570F186A1E3B43A100800516 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 570F18691E3B43A100800516 /* ServiceManagement.framework */; };
 		EE142C24D393638FF2B2C900 /* Pods_AllkdicTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7D5B649C88D15F0799011DA /* Pods_AllkdicTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +63,17 @@
 			files = (
 			);
 			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		570F18671E3B437000800516 /* Copy Launcher Application */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents/Library/LoginItems;
+			dstSubfolderSpec = 1;
+			files = (
+				570F18681E3B438E00800516 /* LauncherApplication.app in Copy Launcher Application */,
+			);
+			name = "Copy Launcher Application";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -113,6 +129,13 @@
 		3168059577FB037AF8298793 /* SnapKit_View+SnapKit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SnapKit_View+SnapKit.swift"; path = "Seeds/SnapKit/Source/SnapKit_View+SnapKit.swift"; sourceTree = "<group>"; };
 		3EB12F02D5E02A31C5C4503B /* SnapKit_Debugging.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SnapKit_Debugging.swift; path = Seeds/SnapKit/Source/SnapKit_Debugging.swift; sourceTree = "<group>"; };
 		55C0B33F2E52E441CCB92DC1 /* SnapKit_EdgeInsets.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SnapKit_EdgeInsets.swift; path = Seeds/SnapKit/Source/SnapKit_EdgeInsets.swift; sourceTree = "<group>"; };
+		570F18571E3B431200800516 /* LauncherApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LauncherApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		570F18591E3B431200800516 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		570F185D1E3B431200800516 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		570F18601E3B431200800516 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		570F18621E3B431200800516 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		570F18661E3B434B00800516 /* LauncherApplication.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LauncherApplication.entitlements; sourceTree = "<group>"; };
+		570F18691E3B43A100800516 /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
 		609979FA74B410CEF173FA53 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		62B2C774B5D5653DF4FEBA27 /* SnapKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SnapKit.h; path = Seeds/SnapKit/Source/SnapKit.h; sourceTree = "<group>"; };
 		65CF697D6A4D9ABD2323252B /* SnapKit_ConstraintRelation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SnapKit_ConstraintRelation.swift; path = Seeds/SnapKit/Source/SnapKit_ConstraintRelation.swift; sourceTree = "<group>"; };
@@ -134,6 +157,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				570F186A1E3B43A100800516 /* ServiceManagement.framework in Frameworks */,
 				038DDCAD1A0536EA00754ECC /* AppKit.framework in Frameworks */,
 				0320F9FD18AA6D9000D989F6 /* Security.framework in Frameworks */,
 				0322CFA517AF3A6C007E832C /* Carbon.framework in Frameworks */,
@@ -148,6 +172,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE142C24D393638FF2B2C900 /* Pods_AllkdicTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		570F18541E3B431200800516 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,6 +215,7 @@
 				0322CF8317AE9965007E832C /* Allkdic */,
 				0322CF9F17AF389B007E832C /* Resources */,
 				0328DE041A0FA00D00160E93 /* AllkdicTests */,
+				570F18581E3B431200800516 /* LauncherApplication */,
 				0322CF7C17AE9965007E832C /* Frameworks */,
 				0322CF7B17AE9965007E832C /* Products */,
 				0739FA024AB80925B32D64D1 /* Seeds */,
@@ -196,6 +228,7 @@
 			children = (
 				0322CF7A17AE9965007E832C /* Allkdic.app */,
 				0328DE031A0FA00D00160E93 /* AllkdicTests.xctest */,
+				570F18571E3B431200800516 /* LauncherApplication.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -203,6 +236,7 @@
 		0322CF7C17AE9965007E832C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				570F18691E3B43A100800516 /* ServiceManagement.framework */,
 				0320F9FC18AA6D9000D989F6 /* Security.framework */,
 				0322CFA417AF3A6C007E832C /* Carbon.framework */,
 				0322CF9D17AE9BBB007E832C /* WebKit.framework */,
@@ -331,6 +365,18 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		570F18581E3B431200800516 /* LauncherApplication */ = {
+			isa = PBXGroup;
+			children = (
+				570F18661E3B434B00800516 /* LauncherApplication.entitlements */,
+				570F18591E3B431200800516 /* AppDelegate.swift */,
+				570F185D1E3B431200800516 /* Assets.xcassets */,
+				570F185F1E3B431200800516 /* Main.storyboard */,
+				570F18621E3B431200800516 /* Info.plist */,
+			);
+			path = LauncherApplication;
+			sourceTree = "<group>";
+		};
 		AA5F02EE2E108F743C8D81FC /* SimpleCocoaGoogleAnalytics */ = {
 			isa = PBXGroup;
 			children = (
@@ -376,6 +422,7 @@
 				0303EDE91A066C8D00076CDF /* Embed Frameworks */,
 				8AEA309AFEC1A9953B3C7766 /* [CP] Embed Pods Frameworks */,
 				326D9BE283D5546F74B0805A /* [CP] Copy Pods Resources */,
+				570F18671E3B437000800516 /* Copy Launcher Application */,
 			);
 			buildRules = (
 			);
@@ -407,6 +454,23 @@
 			productReference = 0328DE031A0FA00D00160E93 /* AllkdicTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		570F18561E3B431200800516 /* LauncherApplication */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 570F18651E3B431200800516 /* Build configuration list for PBXNativeTarget "LauncherApplication" */;
+			buildPhases = (
+				570F18531E3B431200800516 /* Sources */,
+				570F18541E3B431200800516 /* Frameworks */,
+				570F18551E3B431200800516 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LauncherApplication;
+			productName = LauncherApplication;
+			productReference = 570F18571E3B431200800516 /* LauncherApplication.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -414,12 +478,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftMigration = 0700;
-				LastSwiftUpdateCheck = 0700;
+				LastSwiftUpdateCheck = 0820;
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = Allkdic;
 				TargetAttributes = {
 					0322CF7917AE9964007E832C = {
-						DevelopmentTeam = N2C267LBVY;
+						DevelopmentTeam = SHURBSH97H;
 						LastSwiftMigration = 0800;
 						SystemCapabilities = {
 							com.apple.Sandbox = {
@@ -432,6 +496,16 @@
 						LastSwiftMigration = 0800;
 						TestTargetID = 0322CF7917AE9964007E832C;
 					};
+					570F18561E3B431200800516 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = SHURBSH97H;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
+					};
 				};
 			};
 			buildConfigurationList = 0322CF7517AE9964007E832C /* Build configuration list for PBXProject "Allkdic" */;
@@ -441,6 +515,7 @@
 			knownRegions = (
 				en,
 				ko,
+				Base,
 			);
 			mainGroup = 0322CF7117AE9964007E832C;
 			productRefGroup = 0322CF7B17AE9965007E832C /* Products */;
@@ -449,6 +524,7 @@
 			targets = (
 				0322CF7917AE9964007E832C /* Allkdic */,
 				0328DE021A0FA00D00160E93 /* AllkdicTests */,
+				570F18561E3B431200800516 /* LauncherApplication */,
 			);
 		};
 /* End PBXProject section */
@@ -469,6 +545,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		570F18551E3B431200800516 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				570F185E1E3B431200800516 /* Assets.xcassets in Resources */,
+				570F18611E3B431200800516 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -532,7 +617,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		A64353CA39B829A8778A7F86 /* [CP] Check Pods Manifest.lock */ = {
@@ -547,7 +632,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		B058D2F54B6C1CDC4E930A2D /* [CP] Copy Pods Resources */ = {
@@ -601,6 +686,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		570F18531E3B431200800516 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				570F185A1E3B431200800516 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -628,6 +721,14 @@
 				03E6E1CD1BB94167006448C0 /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		570F185F1E3B431200800516 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				570F18601E3B431200800516 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -722,7 +823,7 @@
 				CODE_SIGN_ENTITLEMENTS = Allkdic/Allkdic.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = N2C267LBVY;
+				DEVELOPMENT_TEAM = SHURBSH97H;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Allkdic/Allkdic-Info.plist";
@@ -749,7 +850,7 @@
 				CODE_SIGN_ENTITLEMENTS = Allkdic/Allkdic.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = N2C267LBVY;
+				DEVELOPMENT_TEAM = SHURBSH97H;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Allkdic/Allkdic-Info.plist";
@@ -835,6 +936,63 @@
 			};
 			name = Release;
 		};
+		570F18631E3B431200800516 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CODE_SIGN_ENTITLEMENTS = LauncherApplication/LauncherApplication.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = SHURBSH97H;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = LauncherApplication/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.xoul.allkdic.LauncherApplication;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		570F18641E3B431200800516 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CODE_SIGN_ENTITLEMENTS = LauncherApplication/LauncherApplication.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = SHURBSH97H;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = LauncherApplication/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.xoul.allkdic.LauncherApplication;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -864,6 +1022,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		570F18651E3B431200800516 /* Build configuration list for PBXNativeTarget "LauncherApplication" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				570F18631E3B431200800516 /* Debug */,
+				570F18641E3B431200800516 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
