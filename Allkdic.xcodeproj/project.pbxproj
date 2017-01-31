@@ -483,7 +483,7 @@
 				ORGANIZATIONNAME = Allkdic;
 				TargetAttributes = {
 					0322CF7917AE9964007E832C = {
-						DevelopmentTeam = SHURBSH97H;
+						DevelopmentTeam = N2C267LBVY;
 						LastSwiftMigration = 0800;
 						SystemCapabilities = {
 							com.apple.Sandbox = {
@@ -498,7 +498,7 @@
 					};
 					570F18561E3B431200800516 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = SHURBSH97H;
+						DevelopmentTeam = N2C267LBVY;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Sandbox = {
@@ -823,7 +823,7 @@
 				CODE_SIGN_ENTITLEMENTS = Allkdic/Allkdic.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = SHURBSH97H;
+				DEVELOPMENT_TEAM = N2C267LBVY;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Allkdic/Allkdic-Info.plist";
@@ -850,7 +850,7 @@
 				CODE_SIGN_ENTITLEMENTS = Allkdic/Allkdic.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = SHURBSH97H;
+				DEVELOPMENT_TEAM = N2C267LBVY;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Allkdic/Allkdic-Info.plist";
@@ -949,7 +949,7 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = SHURBSH97H;
+				DEVELOPMENT_TEAM = N2C267LBVY;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				INFOPLIST_FILE = LauncherApplication/Info.plist;
@@ -978,7 +978,7 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
-				DEVELOPMENT_TEAM = SHURBSH97H;
+				DEVELOPMENT_TEAM = N2C267LBVY;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
@@ -1030,6 +1030,7 @@
 				570F18641E3B431200800516 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
