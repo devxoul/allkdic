@@ -24,7 +24,7 @@
 import Cocoa
 import ServiceManagement
 
-fileprivate let KEY_AUTOSTART = "autostart_at_login"
+fileprivate let KEY_AUTOSTART = "launch_at_login"
 
 open class LoginItem {
   

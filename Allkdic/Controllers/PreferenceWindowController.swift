@@ -122,7 +122,7 @@ class PreferenceWindowController: WindowController, NSTextFieldDelegate {
     }
     
     self.autostartLabel.font = NSFont.systemFont(ofSize: 13)
-    self.autostartLabel.stringValue = gettext("autostart") + ":"
+    self.autostartLabel.stringValue = gettext("launch_at_login") + ":"
     self.autostartLabel.sizeToFit()
     self.autostartLabel.snp.makeConstraints { make in
       make.left.equalTo(self.label.snp.left)
