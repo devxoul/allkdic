@@ -1,20 +1,16 @@
-/* 
-  Localizable.strings
+
+/*Localizable.strings
   Allkdic
 
   Created by 전수열 on 9/28/15.
-  Copyright © 2015 Allkdic. All rights reserved.
-*/
-
+  Copyright © 2015 Allkdic. All rights reserved.*/
 "change_dictionary" = "Dictionary";
 "about" = "About Allkdic";
 "preferences" = "Preferences";
 "quit" = "Quit Allkdic";
-
 "naver_dictionary" = "Naver Dictionary";
 "daum_dictionary" = "Daum Dictionary";
 "naver_mobile_dictionary" = "Naver Mobile Dictionary";
-
 "version" = "Version";
 "open_in_appstore" = "Open in AppStore...";
 "credit_developed_by" = "Developed by";
@@ -25,6 +21,5 @@
 "설진석" = "Jamie J. Seol";
 "thanks_to_chicken" = "\n(He treated me a chicken)";
 "view_on_github" = "View on GitHub...";
-
 "shortcut" = "Shortcut";
 "launch_at_login" = "Launch at login";
