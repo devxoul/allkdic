@@ -91,8 +91,8 @@ final class HotKeyServiceSpec: QuickSpec {
       }
 
       context("when the hot key is not registered") {
-        context("when there is a saved key binding") {
-          it("registers an event hot key with the saved key binding") {
+        context("when there is a saved hot key") {
+          it("registers an event hot key with the saved hot key") {
             // given
             Stubber.register(defaults.object) { _ in
               return ["keyCode": 10, "shift": 0, "control": 1, "option": 1, "command": 0]
@@ -108,8 +108,8 @@ final class HotKeyServiceSpec: QuickSpec {
           }
         }
 
-        context("when there is not a saved key binding") {
-          it("registers an event hot key with a default key binding") {
+        context("when there is not a saved hot key") {
+          it("registers an event hot key with a default hot key") {
             // given
             Stubber.register(defaults.object) { _ in nil }
 

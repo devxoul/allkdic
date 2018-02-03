@@ -53,6 +53,9 @@
 		0322CFA517AF3A6C007E832C /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0322CFA417AF3A6C007E832C /* Carbon.framework */; };
 		038DDCAD1A0536EA00754ECC /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0322CF8017AE9965007E832C /* AppKit.framework */; };
 		03FB3BF9202677AB00BB1396 /* AllkWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FB3BF8202677AB00BB1396 /* AllkWebView.swift */; };
+		03FB3BFB2026794E00BB1396 /* HotKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FB3BFA2026794E00BB1396 /* HotKey.swift */; };
+		03FB3BFF20267D0600BB1396 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FB3BFE20267D0600BB1396 /* Model.swift */; };
+		03FB3C022026822100BB1396 /* HotKeySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FB3C012026822100BB1396 /* HotKeySpec.swift */; };
 		3CED7950FE8DA513C3F8AA2A /* Pods_Allkdic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10E1B558B5782782D50AAFC5 /* Pods_Allkdic.framework */; };
 		570F18681E3B438E00800516 /* LauncherApplication.app in Copy Launcher Application */ = {isa = PBXBuildFile; fileRef = 570F18571E3B431200800516 /* LauncherApplication.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		570F186A1E3B43A100800516 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 570F18691E3B43A100800516 /* ServiceManagement.framework */; };
@@ -151,6 +154,9 @@
 		0322CFA417AF3A6C007E832C /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		0328DE031A0FA00D00160E93 /* AllkdicTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AllkdicTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		03FB3BF8202677AB00BB1396 /* AllkWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllkWebView.swift; sourceTree = "<group>"; };
+		03FB3BFA2026794E00BB1396 /* HotKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotKey.swift; sourceTree = "<group>"; };
+		03FB3BFE20267D0600BB1396 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		03FB3C012026822100BB1396 /* HotKeySpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotKeySpec.swift; sourceTree = "<group>"; };
 		10E1B558B5782782D50AAFC5 /* Pods_Allkdic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Allkdic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1289C12E15EAA94654859EBF /* Pods-AllkdicTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AllkdicTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AllkdicTests/Pods-AllkdicTests.debug.xcconfig"; sourceTree = "<group>"; };
 		21471B17CE0CA806CAD2A752 /* Pods-AllkdicTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AllkdicTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AllkdicTests/Pods-AllkdicTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -252,7 +258,9 @@
 			isa = PBXGroup;
 			children = (
 				031394B620262A6E00EC6576 /* Protocols */,
+				03FB3BFE20267D0600BB1396 /* Model.swift */,
 				030AB593202603DA00A99406 /* KeyMap.swift */,
+				03FB3BFA2026794E00BB1396 /* HotKey.swift */,
 				030AB594202603DA00A99406 /* KeyBinding.swift */,
 				030AB595202603DA00A99406 /* DictionaryType.swift */,
 			);
@@ -352,6 +360,7 @@
 				031394B2202628B700EC6576 /* Stubs */,
 				031394AF2026283300EC6576 /* Entry */,
 				031394DA202636E900EC6576 /* Services */,
+				03FB3C002026821C00BB1396 /* Models */,
 				031394E920264D7800EC6576 /* Utils */,
 			);
 			path = Sources;
@@ -492,6 +501,14 @@
 				0322CF8217AE9965007E832C /* Foundation.framework */,
 			);
 			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		03FB3C002026821C00BB1396 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				03FB3C012026822100BB1396 /* HotKeySpec.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		180470FCD07FA7E501DAD773 /* Pods */ = {
@@ -789,7 +806,9 @@
 				031394E420263C0300EC6576 /* UserDefaultsType.swift in Sources */,
 				030AB5C2202603DB00A99406 /* LoginItem.swift in Sources */,
 				03FB3BF9202677AB00BB1396 /* AllkWebView.swift in Sources */,
+				03FB3BFF20267D0600BB1396 /* Model.swift in Sources */,
 				030AB5CE202603DB00A99406 /* PopoverController.swift in Sources */,
+				03FB3BFB2026794E00BB1396 /* HotKey.swift in Sources */,
 				030AB5BD202603DB00A99406 /* Constants.swift in Sources */,
 				030AB5CA202603DB00A99406 /* ContentViewController.swift in Sources */,
 				031394B820262A7B00EC6576 /* AnalyticsHelperType.swift in Sources */,
@@ -809,6 +828,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03FB3C022026822100BB1396 /* HotKeySpec.swift in Sources */,
 				031394E620263CED00EC6576 /* StubUserDefaults.swift in Sources */,
 				031394B5202628C000EC6576 /* StubAnalyticsHelper.swift in Sources */,
 				031394AE2026280000EC6576 /* TestConfiguration.swift in Sources */,

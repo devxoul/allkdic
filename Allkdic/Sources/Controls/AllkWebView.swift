@@ -11,20 +11,20 @@ import WebKit
 final class AllkWebView: WebView {
   override func performKeyEquivalent(with event: NSEvent) -> Bool {
     if event.modifierFlags.contains(.command) {
-      switch Int(event.keyCode) {
-      case KeyBinding.keyCodeFormKeyString("a"):
+      switch event.keyCode {
+      case HotKey.code(from: "a")!:
         self.selectAll(self)
         return true
 
-      case KeyBinding.keyCodeFormKeyString("x"):
+      case HotKey.code(from: "x")!:
         self.cut(self)
         return true
 
-      case KeyBinding.keyCodeFormKeyString("c"):
+      case HotKey.code(from: "c")!:
         self.copy(self)
         return true
 
-      case KeyBinding.keyCodeFormKeyString("v"):
+      case HotKey.code(from: "v")!:
         self.paste(self)
         return true
 

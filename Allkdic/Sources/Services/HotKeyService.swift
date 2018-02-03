@@ -79,11 +79,10 @@ final class HotKeyService: HotKeyServiceType {
 
   private func registerHotKey() {
     guard self.eventHotKey == nil else { return }
-    let keyBinding = self.keyBinding()
-    let hotKeyModifiers = self.keyModifiers(from: keyBinding)
+    let hotKey = self.hotKey()
     let hotKeyID = EventHotKeyID(signature: fourCharCode("a", "l", "l", "k"), id: 0)
     let eventTarget = GetApplicationEventTarget()
-    _ = self.registerEventHotKey(UInt32(keyBinding.keyCode), hotKeyModifiers, hotKeyID, eventTarget, 0, &self.eventHotKey)
+    _ = self.registerEventHotKey(UInt32(hotKey.code), hotKey.carbonKeyModifiers, hotKeyID, eventTarget, 0, &self.eventHotKey)
   }
 
 
@@ -104,32 +103,12 @@ final class HotKeyService: HotKeyServiceType {
 
   // MARK: Utils
 
-  private func keyBinding() -> KeyBinding {
-    if let dictionary = self.userDefaultsService.value(forKey: .keyBinding) {
-      return KeyBinding(dictionary: dictionary)
+  private func hotKey() -> HotKey {
+    if let json = self.userDefaultsService.value(forKey: .hotKey), let hotKey = try? HotKey(json: json) {
+      return hotKey
     }
-    let keyBinding = KeyBinding()
-    keyBinding.option = true
-    keyBinding.command = true
-    keyBinding.keyCode = 49 // space
-    self.userDefaultsService.set(value: keyBinding.toDictionary(), forKey: .keyBinding)
-    return keyBinding
-  }
-
-  private func keyModifiers(from keyBinding: KeyBinding) -> UInt32 {
-    var hotKeyModifiers = 0
-    if keyBinding.shift {
-      hotKeyModifiers += shiftKey
-    }
-    if keyBinding.option {
-      hotKeyModifiers += optionKey
-    }
-    if keyBinding.control {
-      hotKeyModifiers += controlKey
-    }
-    if keyBinding.command {
-      hotKeyModifiers += cmdKey
-    }
-    return UInt32(hotKeyModifiers)
+    let hotKey = HotKey(code: 49, option: true, command: true) // option + command + space
+    try? self.userDefaultsService.set(value: hotKey.json() as? [String: Any], forKey: .hotKey)
+    return hotKey
   }
 }
