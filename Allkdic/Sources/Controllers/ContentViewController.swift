@@ -30,7 +30,7 @@ open class ContentViewController: NSViewController {
   let titleLabel = LabelButton()
   let hotKeyLabel = Label()
   let separatorView = NSImageView()
-  let webView = WebView()
+  let webView = AllkWebView()
   let indicator = NSProgressIndicator(frame: NSZeroRect)
   let menuButton = NSButton()
   let mainMenu = NSMenu()

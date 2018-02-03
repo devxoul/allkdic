@@ -17,7 +17,6 @@
 		030AB5BF202603DB00A99406 /* KeyBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030AB594202603DA00A99406 /* KeyBinding.swift */; };
 		030AB5C0202603DB00A99406 /* DictionaryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030AB595202603DA00A99406 /* DictionaryType.swift */; };
 		030AB5C2202603DB00A99406 /* LoginItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030AB598202603DA00A99406 /* LoginItem.swift */; };
-		030AB5C3202603DB00A99406 /* WebView+Key.m in Sources */ = {isa = PBXBuildFile; fileRef = 030AB599202603DA00A99406 /* WebView+Key.m */; };
 		030AB5C4202603DB00A99406 /* LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030AB59A202603DA00A99406 /* LocalizedString.swift */; };
 		030AB5C5202603DB00A99406 /* NSWindow+CanBecomeKeyWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 030AB59D202603DA00A99406 /* NSWindow+CanBecomeKeyWindow.m */; };
 		030AB5C6202603DB00A99406 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030AB59F202603DA00A99406 /* Label.swift */; };
@@ -53,6 +52,7 @@
 		0322CF9E17AE9BBB007E832C /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0322CF9D17AE9BBB007E832C /* WebKit.framework */; };
 		0322CFA517AF3A6C007E832C /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0322CFA417AF3A6C007E832C /* Carbon.framework */; };
 		038DDCAD1A0536EA00754ECC /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0322CF8017AE9965007E832C /* AppKit.framework */; };
+		03FB3BF9202677AB00BB1396 /* AllkWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FB3BF8202677AB00BB1396 /* AllkWebView.swift */; };
 		3CED7950FE8DA513C3F8AA2A /* Pods_Allkdic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10E1B558B5782782D50AAFC5 /* Pods_Allkdic.framework */; };
 		570F18681E3B438E00800516 /* LauncherApplication.app in Copy Launcher Application */ = {isa = PBXBuildFile; fileRef = 570F18571E3B431200800516 /* LauncherApplication.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		570F186A1E3B43A100800516 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 570F18691E3B43A100800516 /* ServiceManagement.framework */; };
@@ -108,9 +108,7 @@
 		030AB594202603DA00A99406 /* KeyBinding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyBinding.swift; sourceTree = "<group>"; };
 		030AB595202603DA00A99406 /* DictionaryType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryType.swift; sourceTree = "<group>"; };
 		030AB598202603DA00A99406 /* LoginItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginItem.swift; sourceTree = "<group>"; };
-		030AB599202603DA00A99406 /* WebView+Key.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WebView+Key.m"; sourceTree = "<group>"; };
 		030AB59A202603DA00A99406 /* LocalizedString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizedString.swift; sourceTree = "<group>"; };
-		030AB59C202603DA00A99406 /* WebView+Key.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WebView+Key.h"; sourceTree = "<group>"; };
 		030AB59D202603DA00A99406 /* NSWindow+CanBecomeKeyWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSWindow+CanBecomeKeyWindow.m"; sourceTree = "<group>"; };
 		030AB59F202603DA00A99406 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		030AB5A0202603DA00A99406 /* LabelButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelButton.swift; sourceTree = "<group>"; };
@@ -152,6 +150,7 @@
 		0322CF9D17AE9BBB007E832C /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		0322CFA417AF3A6C007E832C /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		0328DE031A0FA00D00160E93 /* AllkdicTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AllkdicTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		03FB3BF8202677AB00BB1396 /* AllkWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllkWebView.swift; sourceTree = "<group>"; };
 		10E1B558B5782782D50AAFC5 /* Pods_Allkdic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Allkdic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1289C12E15EAA94654859EBF /* Pods-AllkdicTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AllkdicTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AllkdicTests/Pods-AllkdicTests.debug.xcconfig"; sourceTree = "<group>"; };
 		21471B17CE0CA806CAD2A752 /* Pods-AllkdicTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AllkdicTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AllkdicTests/Pods-AllkdicTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -264,9 +263,7 @@
 			isa = PBXGroup;
 			children = (
 				030AB598202603DA00A99406 /* LoginItem.swift */,
-				030AB599202603DA00A99406 /* WebView+Key.m */,
 				030AB59A202603DA00A99406 /* LocalizedString.swift */,
-				030AB59C202603DA00A99406 /* WebView+Key.h */,
 				030AB59D202603DA00A99406 /* NSWindow+CanBecomeKeyWindow.m */,
 				031394E720264CC400EC6576 /* FourCharCode.swift */,
 			);
@@ -276,6 +273,7 @@
 		030AB59E202603DA00A99406 /* Controls */ = {
 			isa = PBXGroup;
 			children = (
+				03FB3BF8202677AB00BB1396 /* AllkWebView.swift */,
 				030AB59F202603DA00A99406 /* Label.swift */,
 				030AB5A0202603DA00A99406 /* LabelButton.swift */,
 			);
@@ -790,12 +788,12 @@
 				031394D4202631A400EC6576 /* main.swift in Sources */,
 				031394E420263C0300EC6576 /* UserDefaultsType.swift in Sources */,
 				030AB5C2202603DB00A99406 /* LoginItem.swift in Sources */,
+				03FB3BF9202677AB00BB1396 /* AllkWebView.swift in Sources */,
 				030AB5CE202603DB00A99406 /* PopoverController.swift in Sources */,
 				030AB5BD202603DB00A99406 /* Constants.swift in Sources */,
 				030AB5CA202603DB00A99406 /* ContentViewController.swift in Sources */,
 				031394B820262A7B00EC6576 /* AnalyticsHelperType.swift in Sources */,
 				031394E020263B7400EC6576 /* UserDefaultsService.swift in Sources */,
-				030AB5C3202603DB00A99406 /* WebView+Key.m in Sources */,
 				030AB5BF202603DB00A99406 /* KeyBinding.swift in Sources */,
 				030AB5C4202603DB00A99406 /* LocalizedString.swift in Sources */,
 				030AB5C5202603DB00A99406 /* NSWindow+CanBecomeKeyWindow.m in Sources */,
