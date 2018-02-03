@@ -20,6 +20,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+import Foundation
+
 private let _dictionaryKeys = ["keyCode", "shift", "control", "option", "command"]
 
 public func ==(left: KeyBinding, right: KeyBinding) -> Bool {

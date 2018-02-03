@@ -148,7 +148,8 @@ class PreferenceWindowController: WindowController, NSTextFieldDelegate {
   override func showWindow(_ sender: Any?) {
     super.showWindow(sender)
 
-    AKHotKeyManager.unregisterHotKey()
+    // TODO: Replace with HotKeyService
+    // AKHotKeyManager.unregisterHotKey()
 
     let keyBindingData = UserDefaults.standard.dictionary(forKey: _UserDefaultsKey.hotKey)
     let keyBinding = KeyBinding(dictionary: keyBindingData)
@@ -158,7 +159,8 @@ class PreferenceWindowController: WindowController, NSTextFieldDelegate {
   }
 
   func windowShouldClose(_ sender: AnyObject?) -> Bool {
-    AKHotKeyManager.registerHotKey()
+    // TODO: Replace with HotKeyService
+    // AKHotKeyManager.registerHotKey()
     return true
   }
 

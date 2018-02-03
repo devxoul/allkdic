@@ -16,7 +16,6 @@
 		030AB5BE202603DB00A99406 /* KeyMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030AB593202603DA00A99406 /* KeyMap.swift */; };
 		030AB5BF202603DB00A99406 /* KeyBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030AB594202603DA00A99406 /* KeyBinding.swift */; };
 		030AB5C0202603DB00A99406 /* DictionaryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030AB595202603DA00A99406 /* DictionaryType.swift */; };
-		030AB5C1202603DB00A99406 /* AKHotKeyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 030AB597202603DA00A99406 /* AKHotKeyManager.m */; };
 		030AB5C2202603DB00A99406 /* LoginItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030AB598202603DA00A99406 /* LoginItem.swift */; };
 		030AB5C3202603DB00A99406 /* WebView+Key.m in Sources */ = {isa = PBXBuildFile; fileRef = 030AB599202603DA00A99406 /* WebView+Key.m */; };
 		030AB5C4202603DB00A99406 /* LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030AB59A202603DA00A99406 /* LocalizedString.swift */; };
@@ -108,11 +107,9 @@
 		030AB593202603DA00A99406 /* KeyMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyMap.swift; sourceTree = "<group>"; };
 		030AB594202603DA00A99406 /* KeyBinding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyBinding.swift; sourceTree = "<group>"; };
 		030AB595202603DA00A99406 /* DictionaryType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryType.swift; sourceTree = "<group>"; };
-		030AB597202603DA00A99406 /* AKHotKeyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKHotKeyManager.m; sourceTree = "<group>"; };
 		030AB598202603DA00A99406 /* LoginItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginItem.swift; sourceTree = "<group>"; };
 		030AB599202603DA00A99406 /* WebView+Key.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WebView+Key.m"; sourceTree = "<group>"; };
 		030AB59A202603DA00A99406 /* LocalizedString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizedString.swift; sourceTree = "<group>"; };
-		030AB59B202603DA00A99406 /* AKHotKeyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKHotKeyManager.h; sourceTree = "<group>"; };
 		030AB59C202603DA00A99406 /* WebView+Key.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WebView+Key.h"; sourceTree = "<group>"; };
 		030AB59D202603DA00A99406 /* NSWindow+CanBecomeKeyWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSWindow+CanBecomeKeyWindow.m"; sourceTree = "<group>"; };
 		030AB59F202603DA00A99406 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
@@ -268,11 +265,9 @@
 		030AB596202603DA00A99406 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				030AB597202603DA00A99406 /* AKHotKeyManager.m */,
 				030AB598202603DA00A99406 /* LoginItem.swift */,
 				030AB599202603DA00A99406 /* WebView+Key.m */,
 				030AB59A202603DA00A99406 /* LocalizedString.swift */,
-				030AB59B202603DA00A99406 /* AKHotKeyManager.h */,
 				030AB59C202603DA00A99406 /* WebView+Key.h */,
 				030AB59D202603DA00A99406 /* NSWindow+CanBecomeKeyWindow.m */,
 				031394E720264CC400EC6576 /* FourCharCode.swift */,
@@ -792,7 +787,6 @@
 				030AB5CD202603DB00A99406 /* AboutWindowController.swift in Sources */,
 				031394E820264CC400EC6576 /* FourCharCode.swift in Sources */,
 				030AB5E52026050700A99406 /* AppDelegate.swift in Sources */,
-				030AB5C1202603DB00A99406 /* AKHotKeyManager.m in Sources */,
 				030AB5E3202604EE00A99406 /* AppDependency.swift in Sources */,
 				030AB5BE202603DB00A99406 /* KeyMap.swift in Sources */,
 				031394D4202631A400EC6576 /* main.swift in Sources */,
