@@ -1,3 +1,5 @@
+inhibit_all_warnings!
+
 platform :osx, '10.11'
 
 target 'Allkdic' do
@@ -8,11 +10,16 @@ target 'Allkdic' do
     :tag => '0.1.0'
 
   pod 'SnapKit'
+  pod 'Pure'
+  pod 'SafeCollection'
 
   target 'AllkdicTests' do
     inherit! :search_paths
-  end
 
+    pod 'Quick'
+    pod 'Nimble'
+    pod 'Stubber'
+  end
 end
 
 post_install do |installer|

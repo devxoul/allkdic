@@ -39,6 +39,7 @@ open class PopoverController: NSObject {
   internal let aboutWindowController = AboutWindowController()
 
 
+  @discardableResult
   @objc open class func sharedInstance() -> PopoverController {
     return _sharedInstance
   }

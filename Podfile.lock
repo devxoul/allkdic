@@ -1,10 +1,22 @@
 PODS:
+  - Nimble (7.0.3)
+  - Pure (1.0.0):
+    - Pure/Core (= 1.0.0)
+  - Pure/Core (1.0.0)
+  - Quick (1.2.0)
+  - SafeCollection (3.0.0)
   - SimpleCocoaAnalytics (0.1.0)
   - SnapKit (4.0.0)
+  - Stubber (1.2.0)
 
 DEPENDENCIES:
+  - Nimble
+  - Pure
+  - Quick
+  - SafeCollection
   - SimpleCocoaAnalytics (from `https://github.com/stephenlind/SimpleCocoaGoogleAnalytics`, tag `0.1.0`)
   - SnapKit
+  - Stubber
 
 EXTERNAL SOURCES:
   SimpleCocoaAnalytics:
@@ -17,9 +29,14 @@ CHECKOUT OPTIONS:
     :tag: 0.1.0
 
 SPEC CHECKSUMS:
+  Nimble: 7f5a9c447a33002645a071bddafbfb24ea70e0ac
+  Pure: b60f73ab5d35dd3aa61c2f203536020a30a92b92
+  Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
+  SafeCollection: 788f217f09b971f0a53920612cf00d1bb46144b7
   SimpleCocoaAnalytics: cc95e551884ec851002c668d15b71b8a73e92f56
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
+  Stubber: 68c7f9fad366d10dd256bd88b5247580effef62d
 
-PODFILE CHECKSUM: 967cab9875ae712491c00570ff1e836dab54b79f
+PODFILE CHECKSUM: f2299bb3739bd558e8a318f2714b806cf6b5fea0
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.4.0
