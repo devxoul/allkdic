@@ -7,38 +7,41 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		030E7FB71B3B2EB2009B3EB8 /* NSWindow+CanBecomeKeyWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 030E7FB21B3B2EB2009B3EB8 /* NSWindow+CanBecomeKeyWindow.m */; };
-		030E7FB81B3B2EB2009B3EB8 /* WebView+Key.m in Sources */ = {isa = PBXBuildFile; fileRef = 030E7FB41B3B2EB2009B3EB8 /* WebView+Key.m */; };
-		030E7FBA1B3B2F00009B3EB8 /* LoginItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030E7FB91B3B2F00009B3EB8 /* LoginItem.swift */; };
-		0315897319FD4E0D002D5A7C /* AboutWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0315897219FD4E0D002D5A7C /* AboutWindowController.swift */; };
-		0315897519FD5069002D5A7C /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0315897419FD5069002D5A7C /* Label.swift */; };
-		0315897819FD50E1002D5A7C /* LabelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0315897719FD50E1002D5A7C /* LabelButton.swift */; };
+		030AB5B7202603DB00A99406 /* Allkdic.sketch in Resources */ = {isa = PBXBuildFile; fileRef = 030AB583202603DA00A99406 /* Allkdic.sketch */; };
+		030AB5B8202603DB00A99406 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 030AB584202603DA00A99406 /* Images.xcassets */; };
+		030AB5B9202603DB00A99406 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 030AB585202603DA00A99406 /* dsa_pub.pem */; };
+		030AB5BA202603DB00A99406 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 030AB587202603DA00A99406 /* Localizable.strings */; };
+		030AB5BB202603DB00A99406 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 030AB589202603DA00A99406 /* InfoPlist.strings */; };
+		030AB5BD202603DB00A99406 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030AB591202603DA00A99406 /* Constants.swift */; };
+		030AB5BE202603DB00A99406 /* KeyMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030AB593202603DA00A99406 /* KeyMap.swift */; };
+		030AB5BF202603DB00A99406 /* KeyBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030AB594202603DA00A99406 /* KeyBinding.swift */; };
+		030AB5C0202603DB00A99406 /* DictionaryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030AB595202603DA00A99406 /* DictionaryType.swift */; };
+		030AB5C1202603DB00A99406 /* AKHotKeyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 030AB597202603DA00A99406 /* AKHotKeyManager.m */; };
+		030AB5C2202603DB00A99406 /* LoginItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030AB598202603DA00A99406 /* LoginItem.swift */; };
+		030AB5C3202603DB00A99406 /* WebView+Key.m in Sources */ = {isa = PBXBuildFile; fileRef = 030AB599202603DA00A99406 /* WebView+Key.m */; };
+		030AB5C4202603DB00A99406 /* LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030AB59A202603DA00A99406 /* LocalizedString.swift */; };
+		030AB5C5202603DB00A99406 /* NSWindow+CanBecomeKeyWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 030AB59D202603DA00A99406 /* NSWindow+CanBecomeKeyWindow.m */; };
+		030AB5C6202603DB00A99406 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030AB59F202603DA00A99406 /* Label.swift */; };
+		030AB5C7202603DB00A99406 /* LabelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030AB5A0202603DA00A99406 /* LabelButton.swift */; };
+		030AB5C8202603DB00A99406 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030AB5A1202603DA00A99406 /* AppDelegate.swift */; };
+		030AB5C9202603DB00A99406 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030AB5A3202603DA00A99406 /* main.swift */; };
+		030AB5CA202603DB00A99406 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030AB5A5202603DA00A99406 /* ContentViewController.swift */; };
+		030AB5CB202603DB00A99406 /* PreferenceWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030AB5A6202603DA00A99406 /* PreferenceWindowController.swift */; };
+		030AB5CC202603DB00A99406 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030AB5A7202603DA00A99406 /* WindowController.swift */; };
+		030AB5CD202603DB00A99406 /* AboutWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030AB5A8202603DA00A99406 /* AboutWindowController.swift */; };
+		030AB5CE202603DB00A99406 /* PopoverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030AB5A9202603DA00A99406 /* PopoverController.swift */; };
+		030AB5D2202603DB00A99406 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 030AB5B0202603DB00A99406 /* Main.storyboard */; };
+		030AB5D52026041300A99406 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 030AB5AF202603DB00A99406 /* Assets.xcassets */; };
+		030AB5D62026041500A99406 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 030AB5B0202603DB00A99406 /* Main.storyboard */; };
+		030AB5D72026044300A99406 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030AB5B6202603DB00A99406 /* AppDelegate.swift */; };
+		030AB5DF202604BA00A99406 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 030AB5DC202604BA00A99406 /* Info.plist */; };
+		030AB5E0202604BA00A99406 /* AllkdicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030AB5DE202604BA00A99406 /* AllkdicTests.swift */; };
 		0320F9FD18AA6D9000D989F6 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0320F9FC18AA6D9000D989F6 /* Security.framework */; };
 		0322CF7E17AE9965007E832C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0322CF7D17AE9965007E832C /* Cocoa.framework */; };
 		0322CF9E17AE9BBB007E832C /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0322CF9D17AE9BBB007E832C /* WebKit.framework */; };
 		0322CFA517AF3A6C007E832C /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0322CFA417AF3A6C007E832C /* Carbon.framework */; };
-		0328DE081A0FA00D00160E93 /* AllkdicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0328DE071A0FA00D00160E93 /* AllkdicTests.swift */; };
-		0349451719FB8D4D00D7AEE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349451619FB8D4D00D7AEE2 /* AppDelegate.swift */; };
-		0349451E19FBB01700D7AEE2 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349451D19FBB01700D7AEE2 /* main.swift */; };
-		0349452219FBB68D00D7AEE2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349452119FBB68D00D7AEE2 /* Constants.swift */; };
-		0349452419FBEE7100D7AEE2 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349452319FBEE7100D7AEE2 /* ContentViewController.swift */; };
-		0362B0CC19FD146B00C88610 /* PreferenceWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0362B0CB19FD146B00C88610 /* PreferenceWindowController.swift */; };
-		0362B0CE19FD2D2B00C88610 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0362B0CD19FD2D2B00C88610 /* WindowController.swift */; };
-		0367297717B052B70074D249 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 0367297617B052B70074D249 /* dsa_pub.pem */; };
 		038DDCAD1A0536EA00754ECC /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0322CF8017AE9965007E832C /* AppKit.framework */; };
-		03A5C49C1A05FDFF001122AB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03A5C49B1A05FDFF001122AB /* Images.xcassets */; };
-		03CA9D9C1B8C60B3000558EC /* DictionaryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CA9D991B8C60B3000558EC /* DictionaryType.swift */; };
-		03CA9D9D1B8C60B3000558EC /* KeyBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CA9D9A1B8C60B3000558EC /* KeyBinding.swift */; };
-		03CA9D9E1B8C60B3000558EC /* KeyMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CA9D9B1B8C60B3000558EC /* KeyMap.swift */; };
-		03CA9DA01B8C60BE000558EC /* PopoverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CA9D9F1B8C60BE000558EC /* PopoverController.swift */; };
-		03CA9DA31B8C60D2000558EC /* AKHotKeyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 03CA9DA21B8C60D2000558EC /* AKHotKeyManager.m */; };
-		03E6E1C21BB93AD5006448C0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 03E6E1C41BB93AD5006448C0 /* Localizable.strings */; };
-		03E6E1C71BB93B60006448C0 /* LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E6E1C61BB93B60006448C0 /* LocalizedString.swift */; };
-		03E6E1CA1BB9414F006448C0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 03E6E1CC1BB9414F006448C0 /* InfoPlist.strings */; };
 		3CED7950FE8DA513C3F8AA2A /* Pods_Allkdic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10E1B558B5782782D50AAFC5 /* Pods_Allkdic.framework */; };
-		570F185A1E3B431200800516 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570F18591E3B431200800516 /* AppDelegate.swift */; };
-		570F185E1E3B431200800516 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 570F185D1E3B431200800516 /* Assets.xcassets */; };
-		570F18611E3B431200800516 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 570F185F1E3B431200800516 /* Main.storyboard */; };
 		570F18681E3B438E00800516 /* LauncherApplication.app in Copy Launcher Application */ = {isa = PBXBuildFile; fileRef = 570F18571E3B431200800516 /* LauncherApplication.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		570F186A1E3B43A100800516 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 570F18691E3B43A100800516 /* ServiceManagement.framework */; };
 		EE142C24D393638FF2B2C900 /* Pods_AllkdicTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7D5B649C88D15F0799011DA /* Pods_AllkdicTests.framework */; };
@@ -79,13 +82,44 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		030E7FB21B3B2EB2009B3EB8 /* NSWindow+CanBecomeKeyWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSWindow+CanBecomeKeyWindow.m"; sourceTree = "<group>"; };
-		030E7FB31B3B2EB2009B3EB8 /* WebView+Key.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WebView+Key.h"; sourceTree = "<group>"; };
-		030E7FB41B3B2EB2009B3EB8 /* WebView+Key.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WebView+Key.m"; sourceTree = "<group>"; };
-		030E7FB91B3B2F00009B3EB8 /* LoginItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginItem.swift; sourceTree = "<group>"; };
-		0315897219FD4E0D002D5A7C /* AboutWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutWindowController.swift; sourceTree = "<group>"; };
-		0315897419FD5069002D5A7C /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Label.swift; path = Allkdic/Controls/Label.swift; sourceTree = SOURCE_ROOT; };
-		0315897719FD50E1002D5A7C /* LabelButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LabelButton.swift; path = Allkdic/Controls/LabelButton.swift; sourceTree = SOURCE_ROOT; };
+		030AB583202603DA00A99406 /* Allkdic.sketch */ = {isa = PBXFileReference; lastKnownFileType = file; path = Allkdic.sketch; sourceTree = "<group>"; };
+		030AB584202603DA00A99406 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		030AB585202603DA00A99406 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
+		030AB588202603DA00A99406 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		030AB58A202603DA00A99406 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		030AB58B202603DA00A99406 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
+		030AB58C202603DA00A99406 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		030AB58E202603DA00A99406 /* Allkdic.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Allkdic.entitlements; sourceTree = "<group>"; };
+		030AB58F202603DA00A99406 /* Allkdic-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Allkdic-Info.plist"; sourceTree = "<group>"; };
+		030AB591202603DA00A99406 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		030AB593202603DA00A99406 /* KeyMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyMap.swift; sourceTree = "<group>"; };
+		030AB594202603DA00A99406 /* KeyBinding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyBinding.swift; sourceTree = "<group>"; };
+		030AB595202603DA00A99406 /* DictionaryType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryType.swift; sourceTree = "<group>"; };
+		030AB597202603DA00A99406 /* AKHotKeyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKHotKeyManager.m; sourceTree = "<group>"; };
+		030AB598202603DA00A99406 /* LoginItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginItem.swift; sourceTree = "<group>"; };
+		030AB599202603DA00A99406 /* WebView+Key.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WebView+Key.m"; sourceTree = "<group>"; };
+		030AB59A202603DA00A99406 /* LocalizedString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizedString.swift; sourceTree = "<group>"; };
+		030AB59B202603DA00A99406 /* AKHotKeyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKHotKeyManager.h; sourceTree = "<group>"; };
+		030AB59C202603DA00A99406 /* WebView+Key.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WebView+Key.h"; sourceTree = "<group>"; };
+		030AB59D202603DA00A99406 /* NSWindow+CanBecomeKeyWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSWindow+CanBecomeKeyWindow.m"; sourceTree = "<group>"; };
+		030AB59F202603DA00A99406 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
+		030AB5A0202603DA00A99406 /* LabelButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelButton.swift; sourceTree = "<group>"; };
+		030AB5A1202603DA00A99406 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		030AB5A2202603DA00A99406 /* Allkdic-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Allkdic-Bridging-Header.h"; sourceTree = "<group>"; };
+		030AB5A3202603DA00A99406 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		030AB5A5202603DA00A99406 /* ContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
+		030AB5A6202603DA00A99406 /* PreferenceWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceWindowController.swift; sourceTree = "<group>"; };
+		030AB5A7202603DA00A99406 /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
+		030AB5A8202603DA00A99406 /* AboutWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutWindowController.swift; sourceTree = "<group>"; };
+		030AB5A9202603DA00A99406 /* PopoverController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverController.swift; sourceTree = "<group>"; };
+		030AB5AF202603DB00A99406 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		030AB5B1202603DB00A99406 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		030AB5B3202603DB00A99406 /* LauncherApplication.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = LauncherApplication.entitlements; sourceTree = "<group>"; };
+		030AB5B4202603DB00A99406 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		030AB5B6202603DB00A99406 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		030AB5D92026047B00A99406 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		030AB5DC202604BA00A99406 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		030AB5DE202604BA00A99406 /* AllkdicTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllkdicTests.swift; sourceTree = "<group>"; };
 		0320F9FC18AA6D9000D989F6 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		0322CF7A17AE9965007E832C /* Allkdic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Allkdic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0322CF7D17AE9965007E832C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -95,39 +129,10 @@
 		0322CF9D17AE9BBB007E832C /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		0322CFA417AF3A6C007E832C /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		0328DE031A0FA00D00160E93 /* AllkdicTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AllkdicTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0328DE061A0FA00D00160E93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0328DE071A0FA00D00160E93 /* AllkdicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllkdicTests.swift; sourceTree = "<group>"; };
-		0349451619FB8D4D00D7AEE2 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Allkdic/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
-		0349451819FB8D8000D7AEE2 /* Allkdic-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Allkdic-Bridging-Header.h"; path = "Allkdic/Allkdic-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
-		0349451D19FBB01700D7AEE2 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = main.swift; path = Allkdic/main.swift; sourceTree = SOURCE_ROOT; };
-		0349452119FBB68D00D7AEE2 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Allkdic/Constants.swift; sourceTree = SOURCE_ROOT; };
-		0349452319FBEE7100D7AEE2 /* ContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
-		0362B0CB19FD146B00C88610 /* PreferenceWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceWindowController.swift; sourceTree = "<group>"; };
-		0362B0CD19FD2D2B00C88610 /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
-		0367292D17B00CD90074D249 /* Allkdic-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Allkdic-Info.plist"; path = "Allkdic/Allkdic-Info.plist"; sourceTree = SOURCE_ROOT; };
-		0367297617B052B70074D249 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
-		03A5C49B1A05FDFF001122AB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		03CA9D991B8C60B3000558EC /* DictionaryType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryType.swift; sourceTree = "<group>"; };
-		03CA9D9A1B8C60B3000558EC /* KeyBinding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyBinding.swift; sourceTree = "<group>"; };
-		03CA9D9B1B8C60B3000558EC /* KeyMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyMap.swift; sourceTree = "<group>"; };
-		03CA9D9F1B8C60BE000558EC /* PopoverController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverController.swift; sourceTree = "<group>"; };
-		03CA9DA11B8C60D2000558EC /* AKHotKeyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKHotKeyManager.h; sourceTree = "<group>"; };
-		03CA9DA21B8C60D2000558EC /* AKHotKeyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKHotKeyManager.m; sourceTree = "<group>"; };
-		03CA9DA41B8C6895000558EC /* Allkdic.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Allkdic.entitlements; path = Allkdic/Allkdic.entitlements; sourceTree = SOURCE_ROOT; };
-		03E6E1C31BB93AD5006448C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		03E6E1C51BB93AEB006448C0 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
-		03E6E1C61BB93B60006448C0 /* LocalizedString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizedString.swift; sourceTree = "<group>"; };
-		03E6E1CB1BB9414F006448C0 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		03E6E1CD1BB94167006448C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		10E1B558B5782782D50AAFC5 /* Pods_Allkdic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Allkdic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1289C12E15EAA94654859EBF /* Pods-AllkdicTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AllkdicTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AllkdicTests/Pods-AllkdicTests.debug.xcconfig"; sourceTree = "<group>"; };
 		21471B17CE0CA806CAD2A752 /* Pods-AllkdicTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AllkdicTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AllkdicTests/Pods-AllkdicTests.release.xcconfig"; sourceTree = "<group>"; };
 		570F18571E3B431200800516 /* LauncherApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LauncherApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		570F18591E3B431200800516 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		570F185D1E3B431200800516 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		570F18601E3B431200800516 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		570F18621E3B431200800516 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		570F18661E3B434B00800516 /* LauncherApplication.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LauncherApplication.entitlements; sourceTree = "<group>"; };
 		570F18691E3B43A100800516 /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
 		609979FA74B410CEF173FA53 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D117649075B0CACAB9AA073 /* Pods-Allkdic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Allkdic.release.xcconfig"; path = "Pods/Target Support Files/Pods-Allkdic/Pods-Allkdic.release.xcconfig"; sourceTree = "<group>"; };
@@ -168,37 +173,172 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		030E7FAE1B3B2EB2009B3EB8 /* Utils */ = {
+		030AB581202603DA00A99406 /* Allkdic */ = {
 			isa = PBXGroup;
 			children = (
-				03CA9DA11B8C60D2000558EC /* AKHotKeyManager.h */,
-				03CA9DA21B8C60D2000558EC /* AKHotKeyManager.m */,
-				030E7FB91B3B2F00009B3EB8 /* LoginItem.swift */,
-				030E7FB21B3B2EB2009B3EB8 /* NSWindow+CanBecomeKeyWindow.m */,
-				030E7FB31B3B2EB2009B3EB8 /* WebView+Key.h */,
-				030E7FB41B3B2EB2009B3EB8 /* WebView+Key.m */,
-				03E6E1C61BB93B60006448C0 /* LocalizedString.swift */,
+				030AB590202603DA00A99406 /* Sources */,
+				030AB582202603DA00A99406 /* Resources */,
+				030AB58D202603DA00A99406 /* Supporting Files */,
 			);
-			name = Utils;
-			path = Allkdic/Utils;
-			sourceTree = SOURCE_ROOT;
+			path = Allkdic;
+			sourceTree = "<group>";
 		};
-		0315897619FD506D002D5A7C /* Controls */ = {
+		030AB582202603DA00A99406 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				0315897419FD5069002D5A7C /* Label.swift */,
-				0315897719FD50E1002D5A7C /* LabelButton.swift */,
+				030AB583202603DA00A99406 /* Allkdic.sketch */,
+				030AB584202603DA00A99406 /* Images.xcassets */,
+				030AB585202603DA00A99406 /* dsa_pub.pem */,
+				030AB586202603DA00A99406 /* Localizable */,
 			);
-			name = Controls;
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		030AB586202603DA00A99406 /* Localizable */ = {
+			isa = PBXGroup;
+			children = (
+				030AB587202603DA00A99406 /* Localizable.strings */,
+				030AB589202603DA00A99406 /* InfoPlist.strings */,
+			);
+			path = Localizable;
+			sourceTree = "<group>";
+		};
+		030AB58D202603DA00A99406 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				030AB58E202603DA00A99406 /* Allkdic.entitlements */,
+				030AB58F202603DA00A99406 /* Allkdic-Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		030AB590202603DA00A99406 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				030AB591202603DA00A99406 /* Constants.swift */,
+				030AB592202603DA00A99406 /* Types */,
+				030AB596202603DA00A99406 /* Utils */,
+				030AB59E202603DA00A99406 /* Controls */,
+				030AB5A1202603DA00A99406 /* AppDelegate.swift */,
+				030AB5A2202603DA00A99406 /* Allkdic-Bridging-Header.h */,
+				030AB5A3202603DA00A99406 /* main.swift */,
+				030AB5A4202603DA00A99406 /* Controllers */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		030AB592202603DA00A99406 /* Types */ = {
+			isa = PBXGroup;
+			children = (
+				030AB593202603DA00A99406 /* KeyMap.swift */,
+				030AB594202603DA00A99406 /* KeyBinding.swift */,
+				030AB595202603DA00A99406 /* DictionaryType.swift */,
+			);
+			path = Types;
+			sourceTree = "<group>";
+		};
+		030AB596202603DA00A99406 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				030AB597202603DA00A99406 /* AKHotKeyManager.m */,
+				030AB598202603DA00A99406 /* LoginItem.swift */,
+				030AB599202603DA00A99406 /* WebView+Key.m */,
+				030AB59A202603DA00A99406 /* LocalizedString.swift */,
+				030AB59B202603DA00A99406 /* AKHotKeyManager.h */,
+				030AB59C202603DA00A99406 /* WebView+Key.h */,
+				030AB59D202603DA00A99406 /* NSWindow+CanBecomeKeyWindow.m */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		030AB59E202603DA00A99406 /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				030AB59F202603DA00A99406 /* Label.swift */,
+				030AB5A0202603DA00A99406 /* LabelButton.swift */,
+			);
+			path = Controls;
+			sourceTree = "<group>";
+		};
+		030AB5A4202603DA00A99406 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				030AB5A5202603DA00A99406 /* ContentViewController.swift */,
+				030AB5A6202603DA00A99406 /* PreferenceWindowController.swift */,
+				030AB5A7202603DA00A99406 /* WindowController.swift */,
+				030AB5A8202603DA00A99406 /* AboutWindowController.swift */,
+				030AB5A9202603DA00A99406 /* PopoverController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		030AB5AA202603DA00A99406 /* AllkdicTests */ = {
+			isa = PBXGroup;
+			children = (
+				030AB5DD202604BA00A99406 /* Sources */,
+				030AB5DB202604BA00A99406 /* Supporting Files */,
+			);
+			path = AllkdicTests;
+			sourceTree = "<group>";
+		};
+		030AB5AD202603DB00A99406 /* LauncherApplication */ = {
+			isa = PBXGroup;
+			children = (
+				030AB5B5202603DB00A99406 /* Sources */,
+				030AB5AE202603DB00A99406 /* Resources */,
+				030AB5B2202603DB00A99406 /* Supporting Files */,
+			);
+			path = LauncherApplication;
+			sourceTree = "<group>";
+		};
+		030AB5AE202603DB00A99406 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				030AB5AF202603DB00A99406 /* Assets.xcassets */,
+				030AB5B0202603DB00A99406 /* Main.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		030AB5B2202603DB00A99406 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				030AB5B3202603DB00A99406 /* LauncherApplication.entitlements */,
+				030AB5B4202603DB00A99406 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		030AB5B5202603DB00A99406 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				030AB5B6202603DB00A99406 /* AppDelegate.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		030AB5DB202604BA00A99406 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				030AB5DC202604BA00A99406 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		030AB5DD202604BA00A99406 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				030AB5DE202604BA00A99406 /* AllkdicTests.swift */,
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		0322CF7117AE9964007E832C = {
 			isa = PBXGroup;
 			children = (
-				0322CF8317AE9965007E832C /* Allkdic */,
-				0322CF9F17AF389B007E832C /* Resources */,
-				0328DE041A0FA00D00160E93 /* AllkdicTests */,
-				570F18581E3B431200800516 /* LauncherApplication */,
+				030AB581202603DA00A99406 /* Allkdic */,
+				030AB5AA202603DA00A99406 /* AllkdicTests */,
+				030AB5AD202603DB00A99406 /* LauncherApplication */,
 				0322CF7C17AE9965007E832C /* Frameworks */,
 				0322CF7B17AE9965007E832C /* Products */,
 				180470FCD07FA7E501DAD773 /* Pods */,
@@ -218,6 +358,7 @@
 		0322CF7C17AE9965007E832C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				030AB5D92026047B00A99406 /* XCTest.framework */,
 				570F18691E3B43A100800516 /* ServiceManagement.framework */,
 				0320F9FC18AA6D9000D989F6 /* Security.framework */,
 				0322CFA417AF3A6C007E832C /* Carbon.framework */,
@@ -241,92 +382,6 @@
 			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
-		0322CF8317AE9965007E832C /* Allkdic */ = {
-			isa = PBXGroup;
-			children = (
-				03CA9DA41B8C6895000558EC /* Allkdic.entitlements */,
-				0349452119FBB68D00D7AEE2 /* Constants.swift */,
-				0349451619FB8D4D00D7AEE2 /* AppDelegate.swift */,
-				0315897619FD506D002D5A7C /* Controls */,
-				0367295D17B0458D0074D249 /* Controllers */,
-				03CA9D981B8C60B3000558EC /* Types */,
-				030E7FAE1B3B2EB2009B3EB8 /* Utils */,
-				0322CF8417AE9965007E832C /* Supporting Files */,
-			);
-			name = Allkdic;
-			path = PocketDictionary;
-			sourceTree = "<group>";
-		};
-		0322CF8417AE9965007E832C /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				0349451D19FBB01700D7AEE2 /* main.swift */,
-				0349451819FB8D8000D7AEE2 /* Allkdic-Bridging-Header.h */,
-				0367292D17B00CD90074D249 /* Allkdic-Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		0322CF9F17AF389B007E832C /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				03A5C49B1A05FDFF001122AB /* Images.xcassets */,
-				03E6E1BF1BB93AC7006448C0 /* Localizable */,
-				0367297617B052B70074D249 /* dsa_pub.pem */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		0328DE041A0FA00D00160E93 /* AllkdicTests */ = {
-			isa = PBXGroup;
-			children = (
-				0328DE071A0FA00D00160E93 /* AllkdicTests.swift */,
-				0328DE051A0FA00D00160E93 /* Supporting Files */,
-			);
-			path = AllkdicTests;
-			sourceTree = "<group>";
-		};
-		0328DE051A0FA00D00160E93 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				0328DE061A0FA00D00160E93 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		0367295D17B0458D0074D249 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				03CA9D9F1B8C60BE000558EC /* PopoverController.swift */,
-				0349452319FBEE7100D7AEE2 /* ContentViewController.swift */,
-				0362B0CD19FD2D2B00C88610 /* WindowController.swift */,
-				0362B0CB19FD146B00C88610 /* PreferenceWindowController.swift */,
-				0315897219FD4E0D002D5A7C /* AboutWindowController.swift */,
-			);
-			name = Controllers;
-			path = Allkdic/Controllers;
-			sourceTree = SOURCE_ROOT;
-		};
-		03CA9D981B8C60B3000558EC /* Types */ = {
-			isa = PBXGroup;
-			children = (
-				03CA9D991B8C60B3000558EC /* DictionaryType.swift */,
-				03CA9D9A1B8C60B3000558EC /* KeyBinding.swift */,
-				03CA9D9B1B8C60B3000558EC /* KeyMap.swift */,
-			);
-			name = Types;
-			path = Allkdic/Types;
-			sourceTree = SOURCE_ROOT;
-		};
-		03E6E1BF1BB93AC7006448C0 /* Localizable */ = {
-			isa = PBXGroup;
-			children = (
-				03E6E1C41BB93AD5006448C0 /* Localizable.strings */,
-				03E6E1CC1BB9414F006448C0 /* InfoPlist.strings */,
-			);
-			path = Localizable;
-			sourceTree = "<group>";
-		};
 		180470FCD07FA7E501DAD773 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -336,18 +391,6 @@
 				21471B17CE0CA806CAD2A752 /* Pods-AllkdicTests.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		570F18581E3B431200800516 /* LauncherApplication */ = {
-			isa = PBXGroup;
-			children = (
-				570F18661E3B434B00800516 /* LauncherApplication.entitlements */,
-				570F18591E3B431200800516 /* AppDelegate.swift */,
-				570F185D1E3B431200800516 /* Assets.xcassets */,
-				570F185F1E3B431200800516 /* Main.storyboard */,
-				570F18621E3B431200800516 /* Info.plist */,
-			);
-			path = LauncherApplication;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -477,10 +520,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03A5C49C1A05FDFF001122AB /* Images.xcassets in Resources */,
-				03E6E1CA1BB9414F006448C0 /* InfoPlist.strings in Resources */,
-				03E6E1C21BB93AD5006448C0 /* Localizable.strings in Resources */,
-				0367297717B052B70074D249 /* dsa_pub.pem in Resources */,
+				030AB5B7202603DB00A99406 /* Allkdic.sketch in Resources */,
+				030AB5BA202603DB00A99406 /* Localizable.strings in Resources */,
+				030AB5B9202603DB00A99406 /* dsa_pub.pem in Resources */,
+				030AB5B8202603DB00A99406 /* Images.xcassets in Resources */,
+				030AB5BB202603DB00A99406 /* InfoPlist.strings in Resources */,
+				030AB5D2202603DB00A99406 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -488,6 +533,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				030AB5DF202604BA00A99406 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -495,8 +541,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				570F185E1E3B431200800516 /* Assets.xcassets in Resources */,
-				570F18611E3B431200800516 /* Main.storyboard in Resources */,
+				030AB5D52026041300A99406 /* Assets.xcassets in Resources */,
+				030AB5D62026041500A99406 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -600,24 +646,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0349452419FBEE7100D7AEE2 /* ContentViewController.swift in Sources */,
-				030E7FB81B3B2EB2009B3EB8 /* WebView+Key.m in Sources */,
-				030E7FBA1B3B2F00009B3EB8 /* LoginItem.swift in Sources */,
-				0315897319FD4E0D002D5A7C /* AboutWindowController.swift in Sources */,
-				030E7FB71B3B2EB2009B3EB8 /* NSWindow+CanBecomeKeyWindow.m in Sources */,
-				0362B0CC19FD146B00C88610 /* PreferenceWindowController.swift in Sources */,
-				03CA9DA01B8C60BE000558EC /* PopoverController.swift in Sources */,
-				03CA9DA31B8C60D2000558EC /* AKHotKeyManager.m in Sources */,
-				03CA9D9C1B8C60B3000558EC /* DictionaryType.swift in Sources */,
-				0349451719FB8D4D00D7AEE2 /* AppDelegate.swift in Sources */,
-				0362B0CE19FD2D2B00C88610 /* WindowController.swift in Sources */,
-				0349452219FBB68D00D7AEE2 /* Constants.swift in Sources */,
-				0349451E19FBB01700D7AEE2 /* main.swift in Sources */,
-				0315897519FD5069002D5A7C /* Label.swift in Sources */,
-				03CA9D9D1B8C60B3000558EC /* KeyBinding.swift in Sources */,
-				03CA9D9E1B8C60B3000558EC /* KeyMap.swift in Sources */,
-				0315897819FD50E1002D5A7C /* LabelButton.swift in Sources */,
-				03E6E1C71BB93B60006448C0 /* LocalizedString.swift in Sources */,
+				030AB5CB202603DB00A99406 /* PreferenceWindowController.swift in Sources */,
+				030AB5CD202603DB00A99406 /* AboutWindowController.swift in Sources */,
+				030AB5C8202603DB00A99406 /* AppDelegate.swift in Sources */,
+				030AB5C9202603DB00A99406 /* main.swift in Sources */,
+				030AB5C1202603DB00A99406 /* AKHotKeyManager.m in Sources */,
+				030AB5BE202603DB00A99406 /* KeyMap.swift in Sources */,
+				030AB5C2202603DB00A99406 /* LoginItem.swift in Sources */,
+				030AB5CE202603DB00A99406 /* PopoverController.swift in Sources */,
+				030AB5BD202603DB00A99406 /* Constants.swift in Sources */,
+				030AB5CA202603DB00A99406 /* ContentViewController.swift in Sources */,
+				030AB5C3202603DB00A99406 /* WebView+Key.m in Sources */,
+				030AB5BF202603DB00A99406 /* KeyBinding.swift in Sources */,
+				030AB5C4202603DB00A99406 /* LocalizedString.swift in Sources */,
+				030AB5C5202603DB00A99406 /* NSWindow+CanBecomeKeyWindow.m in Sources */,
+				030AB5C6202603DB00A99406 /* Label.swift in Sources */,
+				030AB5CC202603DB00A99406 /* WindowController.swift in Sources */,
+				030AB5C7202603DB00A99406 /* LabelButton.swift in Sources */,
+				030AB5C0202603DB00A99406 /* DictionaryType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -625,7 +671,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0328DE081A0FA00D00160E93 /* AllkdicTests.swift in Sources */,
+				030AB5E0202604BA00A99406 /* AllkdicTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -633,7 +679,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				570F185A1E3B431200800516 /* AppDelegate.swift in Sources */,
+				030AB5D72026044300A99406 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -648,28 +694,28 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		03E6E1C41BB93AD5006448C0 /* Localizable.strings */ = {
+		030AB587202603DA00A99406 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				03E6E1C31BB93AD5006448C0 /* en */,
-				03E6E1C51BB93AEB006448C0 /* ko */,
+				030AB588202603DA00A99406 /* en */,
+				030AB58B202603DA00A99406 /* ko */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
-		03E6E1CC1BB9414F006448C0 /* InfoPlist.strings */ = {
+		030AB589202603DA00A99406 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				03E6E1CB1BB9414F006448C0 /* ko */,
-				03E6E1CD1BB94167006448C0 /* en */,
+				030AB58A202603DA00A99406 /* en */,
+				030AB58C202603DA00A99406 /* ko */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		570F185F1E3B431200800516 /* Main.storyboard */ = {
+		030AB5B0202603DB00A99406 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				570F18601E3B431200800516 /* Base */,
+				030AB5B1202603DB00A99406 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -772,23 +818,23 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 96936ED4D160D4E23FB31891 /* Pods-Allkdic.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = Allkdic/Allkdic.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "Allkdic/Supporting Files/Allkdic.entitlements";
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = N2C267LBVY;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "";
-				INFOPLIST_FILE = "$(SRCROOT)/Allkdic/Allkdic-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Allkdic/Supporting Files/Allkdic-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				OTHER_CODE_SIGN_FLAGS = "--deep";
 				OTHER_SWIFT_FLAGS = "$(inherited) -D SNAPKIT_DEPLOYMENT_LEGACY";
 				PRODUCT_BUNDLE_IDENTIFIER = kr.xoul.allkdic;
 				PRODUCT_NAME = Allkdic;
 				SDKROOT = macosx;
-				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Allkdic/Allkdic-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Allkdic/Sources/Allkdic-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				WRAPPER_EXTENSION = app;
@@ -799,23 +845,23 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8D117649075B0CACAB9AA073 /* Pods-Allkdic.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = Allkdic/Allkdic.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "Allkdic/Supporting Files/Allkdic.entitlements";
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = N2C267LBVY;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "";
-				INFOPLIST_FILE = "$(SRCROOT)/Allkdic/Allkdic-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Allkdic/Supporting Files/Allkdic-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				OTHER_CODE_SIGN_FLAGS = "--deep";
 				OTHER_SWIFT_FLAGS = "$(inherited) -D SNAPKIT_DEPLOYMENT_LEGACY";
 				PRODUCT_BUNDLE_IDENTIFIER = kr.xoul.allkdic;
 				PRODUCT_NAME = Allkdic;
 				SDKROOT = macosx;
-				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Allkdic/Allkdic-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Allkdic/Sources/Allkdic-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				WRAPPER_EXTENSION = app;
 			};
@@ -825,6 +871,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1289C12E15EAA94654859EBF /* Pods-AllkdicTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -845,7 +892,7 @@
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
-				INFOPLIST_FILE = AllkdicTests/Info.plist;
+				INFOPLIST_FILE = "AllkdicTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -862,6 +909,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 21471B17CE0CA806CAD2A752 /* Pods-AllkdicTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -879,7 +927,7 @@
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
-				INFOPLIST_FILE = AllkdicTests/Info.plist;
+				INFOPLIST_FILE = "AllkdicTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -900,14 +948,14 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CODE_SIGN_ENTITLEMENTS = LauncherApplication/LauncherApplication.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "LauncherApplication/Supporting Files/LauncherApplication.entitlements";
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = N2C267LBVY;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = LauncherApplication/Info.plist;
+				INFOPLIST_FILE = "LauncherApplication/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -929,7 +977,7 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CODE_SIGN_ENTITLEMENTS = LauncherApplication/LauncherApplication.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "LauncherApplication/Supporting Files/LauncherApplication.entitlements";
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
@@ -937,7 +985,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = LauncherApplication/Info.plist;
+				INFOPLIST_FILE = "LauncherApplication/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = NO;
