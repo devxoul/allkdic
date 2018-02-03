@@ -39,10 +39,16 @@
 		031394B5202628C000EC6576 /* StubAnalyticsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031394B4202628C000EC6576 /* StubAnalyticsHelper.swift */; };
 		031394B820262A7B00EC6576 /* AnalyticsHelperType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031394B720262A7B00EC6576 /* AnalyticsHelperType.swift */; };
 		031394D4202631A400EC6576 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031394D3202631A400EC6576 /* main.swift */; };
+		031394D9202632C600EC6576 /* HotKeyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031394D8202632C600EC6576 /* HotKeyService.swift */; };
+		031394DC202636E900EC6576 /* HotKeyServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031394DB202636E900EC6576 /* HotKeyServiceSpec.swift */; };
 		031394E020263B7400EC6576 /* UserDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031394DF20263B7400EC6576 /* UserDefaultsService.swift */; };
 		031394E220263BF300EC6576 /* UserDefaultsServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031394E120263BF300EC6576 /* UserDefaultsServiceSpec.swift */; };
 		031394E420263C0300EC6576 /* UserDefaultsType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031394E320263C0300EC6576 /* UserDefaultsType.swift */; };
 		031394E620263CED00EC6576 /* StubUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031394E520263CED00EC6576 /* StubUserDefaults.swift */; };
+		031394E820264CC400EC6576 /* FourCharCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031394E720264CC400EC6576 /* FourCharCode.swift */; };
+		031394EB20264D7D00EC6576 /* FourCharCodeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031394EA20264D7D00EC6576 /* FourCharCodeSpec.swift */; };
+		031394EE2026698000EC6576 /* StubHotKeyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031394ED2026698000EC6576 /* StubHotKeyService.swift */; };
+		031394F120266B0C00EC6576 /* StubPopoverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031394F020266B0C00EC6576 /* StubPopoverController.swift */; };
 		0320F9FD18AA6D9000D989F6 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0320F9FC18AA6D9000D989F6 /* Security.framework */; };
 		0322CF7E17AE9965007E832C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0322CF7D17AE9965007E832C /* Cocoa.framework */; };
 		0322CF9E17AE9BBB007E832C /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0322CF9D17AE9BBB007E832C /* WebKit.framework */; };
@@ -131,10 +137,16 @@
 		031394B4202628C000EC6576 /* StubAnalyticsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubAnalyticsHelper.swift; sourceTree = "<group>"; };
 		031394B720262A7B00EC6576 /* AnalyticsHelperType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsHelperType.swift; sourceTree = "<group>"; };
 		031394D3202631A400EC6576 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		031394D8202632C600EC6576 /* HotKeyService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotKeyService.swift; sourceTree = "<group>"; };
+		031394DB202636E900EC6576 /* HotKeyServiceSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotKeyServiceSpec.swift; sourceTree = "<group>"; };
 		031394DF20263B7400EC6576 /* UserDefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsService.swift; sourceTree = "<group>"; };
 		031394E120263BF300EC6576 /* UserDefaultsServiceSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsServiceSpec.swift; sourceTree = "<group>"; };
 		031394E320263C0300EC6576 /* UserDefaultsType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsType.swift; sourceTree = "<group>"; };
 		031394E520263CED00EC6576 /* StubUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubUserDefaults.swift; sourceTree = "<group>"; };
+		031394E720264CC400EC6576 /* FourCharCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourCharCode.swift; sourceTree = "<group>"; };
+		031394EA20264D7D00EC6576 /* FourCharCodeSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourCharCodeSpec.swift; sourceTree = "<group>"; };
+		031394ED2026698000EC6576 /* StubHotKeyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubHotKeyService.swift; sourceTree = "<group>"; };
+		031394F020266B0C00EC6576 /* StubPopoverController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubPopoverController.swift; sourceTree = "<group>"; };
 		0320F9FC18AA6D9000D989F6 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		0322CF7A17AE9965007E832C /* Allkdic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Allkdic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0322CF7D17AE9965007E832C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -263,6 +275,7 @@
 				030AB59B202603DA00A99406 /* AKHotKeyManager.h */,
 				030AB59C202603DA00A99406 /* WebView+Key.h */,
 				030AB59D202603DA00A99406 /* NSWindow+CanBecomeKeyWindow.m */,
+				031394E720264CC400EC6576 /* FourCharCode.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -348,6 +361,7 @@
 				031394B2202628B700EC6576 /* Stubs */,
 				031394AF2026283300EC6576 /* Entry */,
 				031394DA202636E900EC6576 /* Services */,
+				031394E920264D7800EC6576 /* Utils */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -374,6 +388,8 @@
 			isa = PBXGroup;
 			children = (
 				031394B3202628B700EC6576 /* Analytics */,
+				031394EC2026697A00EC6576 /* Services */,
+				031394EF20266B0500EC6576 /* Controllers */,
 				031394E520263CED00EC6576 /* StubUserDefaults.swift */,
 			);
 			path = Stubs;
@@ -400,6 +416,7 @@
 			isa = PBXGroup;
 			children = (
 				031394DF20263B7400EC6576 /* UserDefaultsService.swift */,
+				031394D8202632C600EC6576 /* HotKeyService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -408,8 +425,33 @@
 			isa = PBXGroup;
 			children = (
 				031394E120263BF300EC6576 /* UserDefaultsServiceSpec.swift */,
+				031394DB202636E900EC6576 /* HotKeyServiceSpec.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		031394E920264D7800EC6576 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				031394EA20264D7D00EC6576 /* FourCharCodeSpec.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		031394EC2026697A00EC6576 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				031394ED2026698000EC6576 /* StubHotKeyService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		031394EF20266B0500EC6576 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				031394F020266B0C00EC6576 /* StubPopoverController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		0322CF7117AE9964007E832C = {
@@ -748,6 +790,7 @@
 			files = (
 				030AB5CB202603DB00A99406 /* PreferenceWindowController.swift in Sources */,
 				030AB5CD202603DB00A99406 /* AboutWindowController.swift in Sources */,
+				031394E820264CC400EC6576 /* FourCharCode.swift in Sources */,
 				030AB5E52026050700A99406 /* AppDelegate.swift in Sources */,
 				030AB5C1202603DB00A99406 /* AKHotKeyManager.m in Sources */,
 				030AB5E3202604EE00A99406 /* AppDependency.swift in Sources */,
@@ -766,6 +809,7 @@
 				030AB5C5202603DB00A99406 /* NSWindow+CanBecomeKeyWindow.m in Sources */,
 				030AB5C6202603DB00A99406 /* Label.swift in Sources */,
 				030AB5CC202603DB00A99406 /* WindowController.swift in Sources */,
+				031394D9202632C600EC6576 /* HotKeyService.swift in Sources */,
 				030AB5C7202603DB00A99406 /* LabelButton.swift in Sources */,
 				030AB5C0202603DB00A99406 /* DictionaryType.swift in Sources */,
 			);
@@ -780,6 +824,10 @@
 				031394AE2026280000EC6576 /* TestConfiguration.swift in Sources */,
 				031394B12026283300EC6576 /* AppDelegateSpec.swift in Sources */,
 				031394E220263BF300EC6576 /* UserDefaultsServiceSpec.swift in Sources */,
+				031394F120266B0C00EC6576 /* StubPopoverController.swift in Sources */,
+				031394EE2026698000EC6576 /* StubHotKeyService.swift in Sources */,
+				031394DC202636E900EC6576 /* HotKeyServiceSpec.swift in Sources */,
+				031394EB20264D7D00EC6576 /* FourCharCodeSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

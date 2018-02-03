@@ -26,7 +26,11 @@ import SimpleCocoaAnalytics
 
 private let _sharedInstance = PopoverController()
 
-open class PopoverController: NSObject {
+protocol PopoverControllerType {
+  func open()
+}
+
+open class PopoverController: NSObject, PopoverControllerType {
 
   fileprivate let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
   fileprivate var statusButton: NSButton {

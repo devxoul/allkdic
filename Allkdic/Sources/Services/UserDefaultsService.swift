@@ -31,7 +31,7 @@ extension UserDefaultsKey: ExpressibleByStringLiteral {
 
 extension UserDefaultsKey {
   static var ignoreApplicationFolderWarning: Key<String> { return "AKIgnoreApplicationFolder" }
-  static var hotKey: Key<[String: Any]> { return "AllkdicSettingKeyHotKey" }
+  static var keyBinding: Key<[String: Int]> { return "AllkdicSettingKeyHotKey" }
   static var selectedDictionaryName: Key<String> { return "SelectedDictionaryName" }
 }
 

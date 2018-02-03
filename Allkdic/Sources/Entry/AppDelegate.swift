@@ -37,9 +37,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
       name: "올ㅋ사전",
       version: BundleInfo.version
     )
-
-    PopoverController.sharedInstance()
-    AKHotKeyManager.registerHotKey()
+    self.dependency.hotKeyService.register()
   }
 
   func applicationWillTerminate(_ notification: Notification) {
