@@ -7,7 +7,7 @@ target 'Allkdic' do
     :git => 'https://github.com/stephenlind/SimpleCocoaGoogleAnalytics',
     :tag => '0.1.0'
 
-  pod 'SnapKit', '~> 3.0'
+  pod 'SnapKit'
 
   target 'AllkdicTests' do
     inherit! :search_paths

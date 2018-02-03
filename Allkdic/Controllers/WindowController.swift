@@ -34,14 +34,14 @@ class WindowController: NSWindowController, NSWindowDelegate {
   }
 
   init(windowSize: CGSize = CGSize.zero) {
-    let screenSize = NSScreen.main()!.frame.size
+    let screenSize = NSScreen.main!.frame.size
     let rect = CGRect(
       x: (screenSize.width - windowSize.width) / 2,
       y: (screenSize.height - windowSize.height) / 2,
       width: windowSize.width,
       height: windowSize.height
     )
-    let mask: NSWindowStyleMask = [.titled, .closable]
+    let mask: NSWindow.StyleMask = [.titled, .closable]
     let window = NSWindow(contentRect: rect, styleMask: mask, backing: .buffered, defer: false)
     super.init(window: window)
 
@@ -56,7 +56,7 @@ class WindowController: NSWindowController, NSWindowDelegate {
 
   override func showWindow(_ sender: Any?) {
     PopoverController.sharedInstance().close()
-    self.window?.level = Int(CGWindowLevelForKey(.screenSaverWindow))
+    self.window?.level = NSWindow.Level(rawValue: Int(CGWindowLevelForKey(.screenSaverWindow)))
     super.showWindow(sender)
   }
 }

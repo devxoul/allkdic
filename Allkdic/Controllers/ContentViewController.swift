@@ -38,8 +38,8 @@ open class ContentViewController: NSViewController {
 
   override open func loadView() {
     self.view = NSView(frame: CGRect(x: 0, y: 0, width: 405, height: 566))
-    self.view.autoresizingMask = NSAutoresizingMaskOptions()
-    self.view.appearance = NSAppearance(named: NSAppearanceNameAqua)
+    self.view.autoresizingMask = NSView.AutoresizingMask()
+    self.view.appearance = NSAppearance(named: .aqua)
 
     self.view.addSubview(self.titleLabel)
     self.titleLabel.textColor = NSColor.controlTextColor
@@ -55,14 +55,14 @@ open class ContentViewController: NSViewController {
 
     self.view.addSubview(self.hotKeyLabel)
     self.hotKeyLabel.textColor = NSColor.headerColor
-    self.hotKeyLabel.font = NSFont.systemFont(ofSize: NSFont.smallSystemFontSize())
+    self.hotKeyLabel.font = NSFont.systemFont(ofSize: NSFont.smallSystemFontSize)
     self.hotKeyLabel.snp.makeConstraints { make in
       make.top.equalTo(self.titleLabel.snp.bottom).offset(2)
       make.centerX.equalTo(0)
     }
 
     self.view.addSubview(self.separatorView)
-    self.separatorView.image = NSImage(named: "line")
+    self.separatorView.image = NSImage(named: NSImage.Name(rawValue: "line"))
     self.separatorView.snp.makeConstraints { make in
       make.top.equalTo(self.hotKeyLabel.snp.bottom).offset(8)
       make.left.right.equalTo(0)
@@ -78,7 +78,7 @@ open class ContentViewController: NSViewController {
     }
 
     self.view.addSubview(self.indicator)
-    self.indicator.style = .spinningStyle
+    self.indicator.style = .spinning
     self.indicator.controlSize = .small
     self.indicator.isDisplayedWhenStopped = false
     self.indicator.sizeToFit()
@@ -127,7 +127,7 @@ open class ContentViewController: NSViewController {
       dictionaryMenuItem.keyEquivalent = "\(i + 1)"
       dictionaryMenuItem.keyEquivalentModifierMask = .command
       if dictionary == selectedDictionary {
-        dictionaryMenuItem.state = NSOnState
+        dictionaryMenuItem.state = .on
       }
       self.dictionaryMenu.addItem(dictionaryMenuItem)
     }
@@ -135,7 +135,7 @@ open class ContentViewController: NSViewController {
     self.navigateToMain()
   }
 
-  open func updateHotKeyLabel() {
+  @objc open func updateHotKeyLabel() {
     let keyBindingData = UserDefaults.standard.dictionary(forKey: UserDefaultsKey.hotKey)
     let keyBinding = KeyBinding(dictionary: keyBindingData)
     self.hotKeyLabel.stringValue = keyBinding.description
@@ -149,7 +149,7 @@ open class ContentViewController: NSViewController {
 
   // MARK: - WebView
 
-  func navigateToMain() {
+  @objc func navigateToMain() {
     self.webView.mainFrameURL = DictionaryType.selectedDictionary.URLString
     self.indicator.startAnimation(self)
     self.indicator.isHidden = false
@@ -187,7 +187,7 @@ open class ContentViewController: NSViewController {
 
   // MARK: - Menu
 
-  func showMenu() {
+  @objc func showMenu() {
     self.mainMenu.popUp(
       positioning: self.mainMenu.item(at: 0),
       at:self.menuButton.frame.origin,
@@ -199,7 +199,7 @@ open class ContentViewController: NSViewController {
   ///
   /// - parameter sender: `Int` or `NSMenuItem`. If `NSMenuItem` is given, guess dictionary's index with `tag`
   ///                     property.
-  func swapDictionary(_ sender: Any?) {
+  @objc func swapDictionary(_ sender: Any?) {
     if sender == nil {
       return
     }
@@ -213,9 +213,9 @@ open class ContentViewController: NSViewController {
     NSLog("Swap dictionary: \(selectedDictionary.name)")
 
     for menuItem in self.dictionaryMenu.items {
-      menuItem.state = NSOffState
+      menuItem.state = .off
     }
-    self.dictionaryMenu.item(withTag: index)?.state = NSOnState
+    self.dictionaryMenu.item(withTag: index)?.state = .on
 
     AnalyticsHelper.sharedInstance().recordCachedEvent(
       withCategory: AnalyticsCategory.allkdic,
@@ -227,15 +227,15 @@ open class ContentViewController: NSViewController {
     self.navigateToMain()
   }
 
-  func showPreferenceWindow() {
+  @objc func showPreferenceWindow() {
     PopoverController.sharedInstance().preferenceWindowController.showWindow(self)
   }
 
-  func showAboutWindow() {
+  @objc func showAboutWindow() {
     PopoverController.sharedInstance().aboutWindowController.showWindow(self)
   }
 
-  func quit() {
+  @objc func quit() {
     exit(0)
   }
 }
@@ -268,11 +268,11 @@ extension ContentViewController: WebFrameLoadDelegate {
 
     let URLPattern = DictionaryType.selectedDictionary.URLPattern
     let regex = try! NSRegularExpression(pattern: URLPattern, options: .caseInsensitive)
-    let regexRange = NSMakeRange(0, URLString.characters.count)
+    let regexRange = NSMakeRange(0, URLString.count)
     guard let result = regex.firstMatch(in: URLString, options: [], range: regexRange) else {
       return
     }
-    let range = result.rangeAt(0)
+    let range = result.range(at: 0)
     let pattern = (URLString as NSString).substring(with: range)
 
     for (type, patterns) in URLPatternsForDictionaryType {

@@ -131,7 +131,7 @@ class PreferenceWindowController: WindowController, NSTextFieldDelegate {
     
     self.autostartCheckbox.target = self
     self.autostartCheckbox.title = ""
-    self.autostartCheckbox.state = LoginItem.enabled ? NSOnState : NSOffState
+    self.autostartCheckbox.state = LoginItem.enabled ? .on : .off
     self.autostartCheckbox.action = #selector(toggleAutostart(_:))
     self.autostartCheckbox.setButtonType(.switch)
     self.autostartCheckbox.snp.makeConstraints { make in
@@ -210,7 +210,7 @@ class PreferenceWindowController: WindowController, NSTextFieldDelegate {
     )
   }
   
-  func toggleAutostart(_ sender: AnyObject) -> Void {
-    LoginItem.setEnabled(enabled: self.autostartCheckbox.state == NSOnState)
+  @objc func toggleAutostart(_ sender: AnyObject) -> Void {
+    LoginItem.setEnabled(enabled: self.autostartCheckbox.state == .on)
   }
 }
