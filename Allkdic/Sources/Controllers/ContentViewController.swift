@@ -136,7 +136,7 @@ open class ContentViewController: NSViewController {
   }
 
   @objc open func updateHotKeyLabel() {
-    let keyBindingData = UserDefaults.standard.dictionary(forKey: UserDefaultsKey.hotKey)
+    let keyBindingData = UserDefaults.standard.dictionary(forKey: _UserDefaultsKey.hotKey)
     let keyBinding = KeyBinding(dictionary: keyBindingData)
     self.hotKeyLabel.stringValue = keyBinding.description
     self.hotKeyLabel.sizeToFit()

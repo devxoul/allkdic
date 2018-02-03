@@ -39,6 +39,10 @@
 		031394B5202628C000EC6576 /* StubAnalyticsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031394B4202628C000EC6576 /* StubAnalyticsHelper.swift */; };
 		031394B820262A7B00EC6576 /* AnalyticsHelperType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031394B720262A7B00EC6576 /* AnalyticsHelperType.swift */; };
 		031394D4202631A400EC6576 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031394D3202631A400EC6576 /* main.swift */; };
+		031394E020263B7400EC6576 /* UserDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031394DF20263B7400EC6576 /* UserDefaultsService.swift */; };
+		031394E220263BF300EC6576 /* UserDefaultsServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031394E120263BF300EC6576 /* UserDefaultsServiceSpec.swift */; };
+		031394E420263C0300EC6576 /* UserDefaultsType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031394E320263C0300EC6576 /* UserDefaultsType.swift */; };
+		031394E620263CED00EC6576 /* StubUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031394E520263CED00EC6576 /* StubUserDefaults.swift */; };
 		0320F9FD18AA6D9000D989F6 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0320F9FC18AA6D9000D989F6 /* Security.framework */; };
 		0322CF7E17AE9965007E832C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0322CF7D17AE9965007E832C /* Cocoa.framework */; };
 		0322CF9E17AE9BBB007E832C /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0322CF9D17AE9BBB007E832C /* WebKit.framework */; };
@@ -127,6 +131,10 @@
 		031394B4202628C000EC6576 /* StubAnalyticsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubAnalyticsHelper.swift; sourceTree = "<group>"; };
 		031394B720262A7B00EC6576 /* AnalyticsHelperType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsHelperType.swift; sourceTree = "<group>"; };
 		031394D3202631A400EC6576 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		031394DF20263B7400EC6576 /* UserDefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsService.swift; sourceTree = "<group>"; };
+		031394E120263BF300EC6576 /* UserDefaultsServiceSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsServiceSpec.swift; sourceTree = "<group>"; };
+		031394E320263C0300EC6576 /* UserDefaultsType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsType.swift; sourceTree = "<group>"; };
+		031394E520263CED00EC6576 /* StubUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubUserDefaults.swift; sourceTree = "<group>"; };
 		0320F9FC18AA6D9000D989F6 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		0322CF7A17AE9965007E832C /* Allkdic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Allkdic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0322CF7D17AE9965007E832C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -224,6 +232,7 @@
 			children = (
 				030AB591202603DA00A99406 /* Constants.swift */,
 				030AB5E1202604E800A99406 /* Entry */,
+				031394D7202632C600EC6576 /* Services */,
 				030AB592202603DA00A99406 /* Types */,
 				030AB596202603DA00A99406 /* Utils */,
 				030AB59E202603DA00A99406 /* Controls */,
@@ -338,6 +347,7 @@
 				031394AD2026280000EC6576 /* TestConfiguration.swift */,
 				031394B2202628B700EC6576 /* Stubs */,
 				031394AF2026283300EC6576 /* Entry */,
+				031394DA202636E900EC6576 /* Services */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -364,6 +374,7 @@
 			isa = PBXGroup;
 			children = (
 				031394B3202628B700EC6576 /* Analytics */,
+				031394E520263CED00EC6576 /* StubUserDefaults.swift */,
 			);
 			path = Stubs;
 			sourceTree = "<group>";
@@ -380,8 +391,25 @@
 			isa = PBXGroup;
 			children = (
 				031394B720262A7B00EC6576 /* AnalyticsHelperType.swift */,
+				031394E320263C0300EC6576 /* UserDefaultsType.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		031394D7202632C600EC6576 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				031394DF20263B7400EC6576 /* UserDefaultsService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		031394DA202636E900EC6576 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				031394E120263BF300EC6576 /* UserDefaultsServiceSpec.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		0322CF7117AE9964007E832C = {
@@ -725,11 +753,13 @@
 				030AB5E3202604EE00A99406 /* AppDependency.swift in Sources */,
 				030AB5BE202603DB00A99406 /* KeyMap.swift in Sources */,
 				031394D4202631A400EC6576 /* main.swift in Sources */,
+				031394E420263C0300EC6576 /* UserDefaultsType.swift in Sources */,
 				030AB5C2202603DB00A99406 /* LoginItem.swift in Sources */,
 				030AB5CE202603DB00A99406 /* PopoverController.swift in Sources */,
 				030AB5BD202603DB00A99406 /* Constants.swift in Sources */,
 				030AB5CA202603DB00A99406 /* ContentViewController.swift in Sources */,
 				031394B820262A7B00EC6576 /* AnalyticsHelperType.swift in Sources */,
+				031394E020263B7400EC6576 /* UserDefaultsService.swift in Sources */,
 				030AB5C3202603DB00A99406 /* WebView+Key.m in Sources */,
 				030AB5BF202603DB00A99406 /* KeyBinding.swift in Sources */,
 				030AB5C4202603DB00A99406 /* LocalizedString.swift in Sources */,
@@ -745,9 +775,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				031394E620263CED00EC6576 /* StubUserDefaults.swift in Sources */,
 				031394B5202628C000EC6576 /* StubAnalyticsHelper.swift in Sources */,
 				031394AE2026280000EC6576 /* TestConfiguration.swift in Sources */,
 				031394B12026283300EC6576 /* AppDelegateSpec.swift in Sources */,
+				031394E220263BF300EC6576 /* UserDefaultsServiceSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

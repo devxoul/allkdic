@@ -47,7 +47,7 @@ EventHotKeyRef hotKeyRef;
     hotKeyId.signature = 'allk';
     hotKeyId.id = 0;
 
-    NSDictionary *data = [[NSUserDefaults standardUserDefaults] objectForKey:UserDefaultsKey.hotKey];
+    NSDictionary *data = [[NSUserDefaults standardUserDefaults] objectForKey:_UserDefaultsKey.hotKey];
     KeyBinding *keyBinding;
     if (data) {
         keyBinding = [[KeyBinding alloc] initWithDictionary:data];
@@ -57,7 +57,7 @@ EventHotKeyRef hotKeyRef;
         keyBinding.option = YES;
         keyBinding.command = YES;
         keyBinding.keyCode = 49; // Space
-        [[NSUserDefaults standardUserDefaults] setObject:[keyBinding toDictionary] forKey:UserDefaultsKey.hotKey];
+        [[NSUserDefaults standardUserDefaults] setObject:[keyBinding toDictionary] forKey:_UserDefaultsKey.hotKey];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
 

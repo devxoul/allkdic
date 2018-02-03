@@ -28,7 +28,7 @@ struct BundleInfo {
   static let bundleName = Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as! String
 }
 
-@objc class UserDefaultsKey: NSObject {
+@objc class _UserDefaultsKey: NSObject {
   @objc class var ignoreApplicationFolderWarning: String { return "AKIgnoreApplicationFolder" }
   @objc class var hotKey: String { return "AllkdicSettingKeyHotKey" }
   @objc class var selectedDictionaryName: String { return "SelectedDictionaryName" }

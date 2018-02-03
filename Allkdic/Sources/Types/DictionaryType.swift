@@ -35,7 +35,7 @@ public enum DictionaryType: String {
 
   static var selectedDictionary: DictionaryType {
     get {
-      if let name = UserDefaults.standard.string(forKey: UserDefaultsKey.selectedDictionaryName),
+      if let name = UserDefaults.standard.string(forKey: _UserDefaultsKey.selectedDictionaryName),
         let dict = DictionaryType(name: name) {
         return dict
       }
@@ -44,7 +44,7 @@ public enum DictionaryType: String {
     }
     set {
       let userDefaults = UserDefaults.standard
-      userDefaults.setValue(newValue.name, forKey: UserDefaultsKey.selectedDictionaryName)
+      userDefaults.setValue(newValue.name, forKey: _UserDefaultsKey.selectedDictionaryName)
       userDefaults.synchronize()
     }
   }
