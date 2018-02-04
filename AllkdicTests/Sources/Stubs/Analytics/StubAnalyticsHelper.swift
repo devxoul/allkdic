@@ -22,4 +22,8 @@ final class StubAnalyticsHelper: AnalyticsHelperType {
   func handleApplicationWillClose() {
     return Stubber.invoke(handleApplicationWillClose, args: (), default: Void())
   }
+
+  func recordCachedEvent(withCategory eventCategory: String!, action eventAction: String!, label eventLabel: String!, value eventValue: NSNumber!) {
+    return Stubber.invoke(recordCachedEvent, args: (eventCategory, eventAction, eventLabel, eventValue), default: Void())
+  }
 }

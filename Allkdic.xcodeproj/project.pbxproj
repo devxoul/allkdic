@@ -52,6 +52,13 @@
 		0322CF9E17AE9BBB007E832C /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0322CF9D17AE9BBB007E832C /* WebKit.framework */; };
 		0322CFA517AF3A6C007E832C /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0322CFA417AF3A6C007E832C /* Carbon.framework */; };
 		032811DB20268C9B00DDB783 /* TestAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032811DA20268C9B00DDB783 /* TestAppDelegate.swift */; };
+		0353B6052027375C00ECAF21 /* PopoverControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0353B6042027375C00ECAF21 /* PopoverControllerSpec.swift */; };
+		0353B607202737DA00ECAF21 /* StatusItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0353B606202737DA00ECAF21 /* StatusItemType.swift */; };
+		0353B609202739FC00ECAF21 /* StubStatusItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0353B608202739FC00ECAF21 /* StubStatusItem.swift */; };
+		0353B60B20273BC200ECAF21 /* PopoverType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0353B60A20273BC200ECAF21 /* PopoverType.swift */; };
+		0353B60D20273C9100ECAF21 /* StubPopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0353B60C20273C9100ECAF21 /* StubPopover.swift */; };
+		0353B60F20273F8200ECAF21 /* EventMonitorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0353B60E20273F8200ECAF21 /* EventMonitorType.swift */; };
+		0353B6112027406000ECAF21 /* StubEventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0353B6102027406000ECAF21 /* StubEventMonitor.swift */; };
 		038DDCAD1A0536EA00754ECC /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0322CF8017AE9965007E832C /* AppKit.framework */; };
 		03FB3BF9202677AB00BB1396 /* AllkWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FB3BF8202677AB00BB1396 /* AllkWebView.swift */; };
 		03FB3BFB2026794E00BB1396 /* HotKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FB3BFA2026794E00BB1396 /* HotKey.swift */; };
@@ -155,6 +162,13 @@
 		0322CFA417AF3A6C007E832C /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		032811DA20268C9B00DDB783 /* TestAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAppDelegate.swift; sourceTree = "<group>"; };
 		0328DE031A0FA00D00160E93 /* AllkdicTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AllkdicTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0353B6042027375C00ECAF21 /* PopoverControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverControllerSpec.swift; sourceTree = "<group>"; };
+		0353B606202737DA00ECAF21 /* StatusItemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusItemType.swift; sourceTree = "<group>"; };
+		0353B608202739FC00ECAF21 /* StubStatusItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubStatusItem.swift; sourceTree = "<group>"; };
+		0353B60A20273BC200ECAF21 /* PopoverType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverType.swift; sourceTree = "<group>"; };
+		0353B60C20273C9100ECAF21 /* StubPopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubPopover.swift; sourceTree = "<group>"; };
+		0353B60E20273F8200ECAF21 /* EventMonitorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventMonitorType.swift; sourceTree = "<group>"; };
+		0353B6102027406000ECAF21 /* StubEventMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubEventMonitor.swift; sourceTree = "<group>"; };
 		03FB3BF8202677AB00BB1396 /* AllkWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllkWebView.swift; sourceTree = "<group>"; };
 		03FB3BFA2026794E00BB1396 /* HotKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotKey.swift; sourceTree = "<group>"; };
 		03FB3BFE20267D0600BB1396 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -363,6 +377,7 @@
 				031394AF2026283300EC6576 /* Entry */,
 				031394DA202636E900EC6576 /* Services */,
 				03FB3C002026821C00BB1396 /* Models */,
+				0353B6032027375400ECAF21 /* Controllers */,
 				031394E920264D7800EC6576 /* Utils */,
 			);
 			path = Sources;
@@ -394,6 +409,9 @@
 				031394EC2026697A00EC6576 /* Services */,
 				031394EF20266B0500EC6576 /* Controllers */,
 				031394E520263CED00EC6576 /* StubUserDefaults.swift */,
+				0353B608202739FC00ECAF21 /* StubStatusItem.swift */,
+				0353B60C20273C9100ECAF21 /* StubPopover.swift */,
+				0353B6102027406000ECAF21 /* StubEventMonitor.swift */,
 			);
 			path = Stubs;
 			sourceTree = "<group>";
@@ -411,6 +429,9 @@
 			children = (
 				031394B720262A7B00EC6576 /* AnalyticsHelperType.swift */,
 				031394E320263C0300EC6576 /* UserDefaultsType.swift */,
+				0353B606202737DA00ECAF21 /* StatusItemType.swift */,
+				0353B60A20273BC200ECAF21 /* PopoverType.swift */,
+				0353B60E20273F8200ECAF21 /* EventMonitorType.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -512,6 +533,14 @@
 				032811DA20268C9B00DDB783 /* TestAppDelegate.swift */,
 			);
 			path = Entry;
+			sourceTree = "<group>";
+		};
+		0353B6032027375400ECAF21 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0353B6042027375C00ECAF21 /* PopoverControllerSpec.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		03FB3C002026821C00BB1396 /* Models */ = {
@@ -817,11 +846,14 @@
 				031394E420263C0300EC6576 /* UserDefaultsType.swift in Sources */,
 				030AB5C2202603DB00A99406 /* LoginItem.swift in Sources */,
 				03FB3BF9202677AB00BB1396 /* AllkWebView.swift in Sources */,
+				0353B60F20273F8200ECAF21 /* EventMonitorType.swift in Sources */,
+				0353B607202737DA00ECAF21 /* StatusItemType.swift in Sources */,
 				03FB3BFF20267D0600BB1396 /* Model.swift in Sources */,
 				030AB5CE202603DB00A99406 /* PopoverController.swift in Sources */,
 				03FB3BFB2026794E00BB1396 /* HotKey.swift in Sources */,
 				030AB5BD202603DB00A99406 /* Constants.swift in Sources */,
 				030AB5CA202603DB00A99406 /* ContentViewController.swift in Sources */,
+				0353B60B20273BC200ECAF21 /* PopoverType.swift in Sources */,
 				031394B820262A7B00EC6576 /* AnalyticsHelperType.swift in Sources */,
 				031394E020263B7400EC6576 /* UserDefaultsService.swift in Sources */,
 				030AB5BF202603DB00A99406 /* KeyBinding.swift in Sources */,
@@ -843,11 +875,15 @@
 				031394E620263CED00EC6576 /* StubUserDefaults.swift in Sources */,
 				031394B5202628C000EC6576 /* StubAnalyticsHelper.swift in Sources */,
 				031394AE2026280000EC6576 /* TestConfiguration.swift in Sources */,
+				0353B6112027406000ECAF21 /* StubEventMonitor.swift in Sources */,
+				0353B6052027375C00ECAF21 /* PopoverControllerSpec.swift in Sources */,
 				031394B12026283300EC6576 /* AppDelegateSpec.swift in Sources */,
 				031394E220263BF300EC6576 /* UserDefaultsServiceSpec.swift in Sources */,
 				032811DB20268C9B00DDB783 /* TestAppDelegate.swift in Sources */,
 				031394F120266B0C00EC6576 /* StubPopoverController.swift in Sources */,
+				0353B60D20273C9100ECAF21 /* StubPopover.swift in Sources */,
 				031394EE2026698000EC6576 /* StubHotKeyService.swift in Sources */,
+				0353B609202739FC00ECAF21 /* StubStatusItem.swift in Sources */,
 				031394DC202636E900EC6576 /* HotKeyServiceSpec.swift in Sources */,
 				031394EB20264D7D00EC6576 /* FourCharCodeSpec.swift in Sources */,
 			);

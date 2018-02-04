@@ -15,6 +15,8 @@ protocol AnalyticsHelperType {
     version appVersion: String!
   )
   func handleApplicationWillClose()
+  func recordCachedEvent(withCategory eventCategory: String!, action eventAction: String!, label eventLabel: String!, value eventValue: NSNumber!)
 }
 
-extension AnalyticsHelper: AnalyticsHelperType {}
+extension AnalyticsHelper: AnalyticsHelperType {
+}
