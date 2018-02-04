@@ -51,6 +51,7 @@
 		0322CF7E17AE9965007E832C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0322CF7D17AE9965007E832C /* Cocoa.framework */; };
 		0322CF9E17AE9BBB007E832C /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0322CF9D17AE9BBB007E832C /* WebKit.framework */; };
 		0322CFA517AF3A6C007E832C /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0322CFA417AF3A6C007E832C /* Carbon.framework */; };
+		032811DB20268C9B00DDB783 /* TestAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032811DA20268C9B00DDB783 /* TestAppDelegate.swift */; };
 		038DDCAD1A0536EA00754ECC /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0322CF8017AE9965007E832C /* AppKit.framework */; };
 		03FB3BF9202677AB00BB1396 /* AllkWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FB3BF8202677AB00BB1396 /* AllkWebView.swift */; };
 		03FB3BFB2026794E00BB1396 /* HotKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FB3BFA2026794E00BB1396 /* HotKey.swift */; };
@@ -152,6 +153,7 @@
 		0322CF8217AE9965007E832C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0322CF9D17AE9BBB007E832C /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		0322CFA417AF3A6C007E832C /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
+		032811DA20268C9B00DDB783 /* TestAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAppDelegate.swift; sourceTree = "<group>"; };
 		0328DE031A0FA00D00160E93 /* AllkdicTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AllkdicTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		03FB3BF8202677AB00BB1396 /* AllkWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllkWebView.swift; sourceTree = "<group>"; };
 		03FB3BFA2026794E00BB1396 /* HotKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotKey.swift; sourceTree = "<group>"; };
@@ -387,6 +389,7 @@
 		031394B2202628B700EC6576 /* Stubs */ = {
 			isa = PBXGroup;
 			children = (
+				032811D920268C9400DDB783 /* Entry */,
 				031394B3202628B700EC6576 /* Analytics */,
 				031394EC2026697A00EC6576 /* Services */,
 				031394EF20266B0500EC6576 /* Controllers */,
@@ -501,6 +504,14 @@
 				0322CF8217AE9965007E832C /* Foundation.framework */,
 			);
 			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		032811D920268C9400DDB783 /* Entry */ = {
+			isa = PBXGroup;
+			children = (
+				032811DA20268C9B00DDB783 /* TestAppDelegate.swift */,
+			);
+			path = Entry;
 			sourceTree = "<group>";
 		};
 		03FB3C002026821C00BB1396 /* Models */ = {
@@ -834,6 +845,7 @@
 				031394AE2026280000EC6576 /* TestConfiguration.swift in Sources */,
 				031394B12026283300EC6576 /* AppDelegateSpec.swift in Sources */,
 				031394E220263BF300EC6576 /* UserDefaultsServiceSpec.swift in Sources */,
+				032811DB20268C9B00DDB783 /* TestAppDelegate.swift in Sources */,
 				031394F120266B0C00EC6576 /* StubPopoverController.swift in Sources */,
 				031394EE2026698000EC6576 /* StubHotKeyService.swift in Sources */,
 				031394DC202636E900EC6576 /* HotKeyServiceSpec.swift in Sources */,

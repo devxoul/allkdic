@@ -64,6 +64,19 @@
             ReferencedContainer = "container:Allkdic.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
+      <CommandLineArguments>
+         <CommandLineArgument
+            argument = "test"
+            isEnabled = "YES">
+         </CommandLineArgument>
+      </CommandLineArguments>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "OS_ACTIVITY_MODE"
+            value = "disable"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>

@@ -8,9 +8,14 @@
 
 import AppKit
 
-autoreleasepool {
-  let application = NSApplication.shared
-  let delegate = AppDelegate(dependency: AppDependency.resolve())
-  application.delegate = delegate
-  application.run()
+func appDelegate() -> NSApplicationDelegate {
+  if let cls = NSClassFromString("AllkdicTests.TestAppDelegate") as? (NSObject & NSApplicationDelegate).Type {
+    return cls.init()
+  } else {
+    return AppDelegate(dependency: AppDependency.resolve())
+  }
 }
+
+let application = NSApplication.shared
+application.delegate = appDelegate()
+_ = NSApplicationMain(CommandLine.argc, CommandLine.unsafeArgv)
