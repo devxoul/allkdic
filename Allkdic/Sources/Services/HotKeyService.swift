@@ -65,6 +65,7 @@ final class HotKeyService: HotKeyServiceType {
 
   // MARK: Registering Hot Key
 
+  // TODO: Notify to popover controller when the new hot key is registered
   func register() {
     self.installHander()
     self.registerHotKey()
