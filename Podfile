@@ -8,9 +8,4 @@ target 'Allkdic' do
     :tag => '0.1.0'
 
   pod 'SnapKit', '~> 5.0'
-
-  target 'AllkdicTests' do
-    inherit! :search_paths
-  end
-
 end
