@@ -1,0 +1,37 @@
+targets:
+  Allkdic:
+    type: application
+    platform: macOS
+    sources:
+      - path: Sources
+      - path: Resources
+      - path: Supporting Files
+        excludes:
+          - Allkdic-Info.plist
+    dependencies:
+      - sdk: AppKit.framework
+      - sdk: Carbon.framework
+      - sdk: Foundation.framework
+      - sdk: WebKit.framework
+    attributes:
+      ProvisioningStyle: Manual
+    settings:
+      base:
+        PRODUCT_NAME: Allkdic
+        PRODUCT_BUNDLE_IDENTIFIER: kr.xoul.allkdic
+        MARKETING_VERSION: 1.4.0
+        CURRENT_PROJECT_VERSION: 404
+        INFOPLIST_FILE: "$(SRCROOT)/Projects/Allkdic/Supporting Files/Allkdic-Info.plist"
+        TARGETED_DEVICE_FAMILY: 1
+        DEVELOPMENT_TEAM: N2C267LBVY
+        CODE_SIGN_ENTITLEMENTS: ${SRCROOT}/Projects/Allkdic/Supporting Files/Allkdic.entitlements
+        SWIFT_OBJC_BRIDGING_HEADER: "$(SRCROOT)/Projects/Allkdic/Supporting Files/Allkdic-Bridging-Header.h"
+
+schemes:
+  Allkdic:
+    build:
+      targets:
+        Allkdic: all
+    run:
+      environmentVariables:
+        OS_ACTIVITY_MODE: disable

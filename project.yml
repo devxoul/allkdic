@@ -1,0 +1,22 @@
+name: Allkdic
+options:
+  deploymentTarget:
+    macOS: 10.12
+  defaultConfig: Release
+  createIntermediateGroups: true
+  transitivelyLinkDependencies: true
+  tabWidth: 2
+  indentWidth: 2
+
+settings:
+  base:
+    SWIFT_VERSION: 5.1
+    CLANG_ENABLE_MODULES: YES
+  configs:
+    debug:
+      COPY_PHASE_STRIP: NO
+    release:
+      COPY_PHASE_STRIP: NO
+
+include:
+  - Projects/Allkdic/project.yml
