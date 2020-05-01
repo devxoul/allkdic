@@ -1,3 +1,4 @@
 # Testing
 github "Quick/Quick"
 github "Quick/Nimble"
+github "devxoul/Stubber"

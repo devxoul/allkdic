@@ -5,6 +5,7 @@ targets:
       - sdk: XCTest.framework
       - carthage: Nimble
       - carthage: Quick
+      - carthage: Stubber
 
   TestingTests:
     templates: [UnitTest]

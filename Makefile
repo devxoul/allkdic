@@ -7,7 +7,9 @@ project:
 	bundle exec pod install
 
 carthage_bootstrap:
-	carthage bootstrap --platform macOS --cache-builds
+	carthage checkout
+	find Carthage/Checkouts -mindepth 1 -maxdepth 1 -type d -exec bash -c 'cd "$$1" && (test -d *.xcodeproj || swift package generate-xcodeproj)' -- {} \;
+	carthage build --platform macOS --cache-builds
 	rome upload --platform macOS --cache-prefix $$(make swift_version) --concurrently
 
 swift_version:

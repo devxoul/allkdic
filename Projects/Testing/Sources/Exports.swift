@@ -7,3 +7,4 @@
 
 @_exported import Nimble
 @_exported import Quick
+@_exported import Stubber
