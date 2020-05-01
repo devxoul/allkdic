@@ -1,0 +1,8 @@
+targets:
+  Testing:
+    templates: [Framework]
+
+  TestingTests:
+    templates: [UnitTest]
+    templateAttributes:
+      testTarget: Testing

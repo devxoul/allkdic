@@ -13,6 +13,8 @@ targets:
       - sdk: Carbon.framework
       - sdk: Foundation.framework
       - sdk: WebKit.framework
+      - carthage: Swinject
+      - carthage: SwinjectAutoregistration
     attributes:
       ProvisioningStyle: Manual
     settings:
@@ -31,6 +33,8 @@ targets:
     templates: [UnitTest]
     templateAttributes:
       testTarget: Allkdic
+    dependencies:
+      - target: Testing
 
 schemes:
   Allkdic:

@@ -1,4 +1,24 @@
 targetTemplates:
+  Framework:
+    type: framework
+    platform: macOS
+    sources:
+      - path: ${target_name}/Sources
+        optional: true
+      - path: ${target_name}/Supporting Files
+        optional: true
+    dependencies:
+      - sdk: Foundation.framework
+    settings:
+      PRODUCT_NAME: ${target_name}
+      PRODUCT_BUNDLE_IDENTIFIER: $(PRODUCT_NAME)
+      INFOPLIST_FILE: $(SRCROOT)/Projects/Info.plist
+      DEFINES_MODULE: YES
+    scheme:
+      testTargets:
+        - ${target_name}Tests
+      gatherCoverageData: true
+
   UnitTest:
     type: bundle.unit-test
     platform: macOS
