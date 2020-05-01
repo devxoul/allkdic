@@ -15,6 +15,11 @@ targets:
         INFOPLIST_FILE: "$(SRCROOT)/Projects/LauncherApplication/Supporting Files/Info.plist"
         CODE_SIGN_ENTITLEMENTS: ${SRCROOT}/Projects/LauncherApplication/Supporting Files/LauncherApplication.entitlements
 
+  LauncherApplicationTests:
+    templates: [UnitTest]
+    templateAttributes:
+      testTarget: LauncherApplication
+
 schemes:
   LauncherApplication:
     build:
@@ -23,3 +28,6 @@ schemes:
     run:
       environmentVariables:
         OS_ACTIVITY_MODE: disable
+    test:
+      gatherCoverageData: true
+      targets: [LauncherApplicationTests]

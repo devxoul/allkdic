@@ -27,6 +27,11 @@ targets:
         CODE_SIGN_ENTITLEMENTS: ${SRCROOT}/Projects/Allkdic/Supporting Files/Allkdic.entitlements
         SWIFT_OBJC_BRIDGING_HEADER: "$(SRCROOT)/Projects/Allkdic/Supporting Files/Allkdic-Bridging-Header.h"
 
+  AllkdicTests:
+    templates: [UnitTest]
+    templateAttributes:
+      testTarget: Allkdic
+
 schemes:
   Allkdic:
     build:
@@ -35,3 +40,6 @@ schemes:
     run:
       environmentVariables:
         OS_ACTIVITY_MODE: disable
+    test:
+      gatherCoverageData: true
+      targets: [AllkdicTests]
