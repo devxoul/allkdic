@@ -1,0 +1,25 @@
+targets:
+  LauncherApplication:
+    type: application
+    platform: macOS
+    sources:
+      - path: Sources
+      - path: Resources
+      - path: Supporting Files
+        excludes:
+            - Info.plist
+    settings:
+      base:
+        PRODUCT_NAME: LauncherApplication
+        PRODUCT_BUNDLE_IDENTIFIER: kr.xoul.allkdic.LauncherApplication
+        INFOPLIST_FILE: "$(SRCROOT)/Projects/LauncherApplication/Supporting Files/Info.plist"
+        CODE_SIGN_ENTITLEMENTS: ${SRCROOT}/Projects/LauncherApplication/Supporting Files/LauncherApplication.entitlements
+
+schemes:
+  LauncherApplication:
+    build:
+      targets:
+        LauncherApplication: all
+    run:
+      environmentVariables:
+        OS_ACTIVITY_MODE: disable
