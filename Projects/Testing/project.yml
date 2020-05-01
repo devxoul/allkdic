@@ -1,6 +1,10 @@
 targets:
   Testing:
     templates: [Framework]
+    dependencies:
+      - sdk: XCTest.framework
+      - carthage: Nimble
+      - carthage: Quick
 
   TestingTests:
     templates: [UnitTest]
