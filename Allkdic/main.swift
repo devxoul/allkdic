@@ -25,7 +25,7 @@
 import Cocoa
 
 autoreleasepool { () -> () in
-  let application = NSApplication.shared()
+  let application = NSApplication.shared
   let delegate = AppDelegate()
   application.delegate = delegate
   application.run()

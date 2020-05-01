@@ -28,18 +28,18 @@ private let _sharedInstance = PopoverController()
 
 open class PopoverController: NSObject {
 
-  fileprivate let statusItem = NSStatusBar.system().statusItem(withLength: NSVariableStatusItemLength)
+  fileprivate let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
   fileprivate var statusButton: NSButton {
     return self.statusItem.value(forKey: "_button") as! NSButton
   }
   fileprivate let popover = NSPopover()
 
-  internal let contentViewController = ContentViewController()
+  @objc internal let contentViewController = ContentViewController()
   internal let preferenceWindowController = PreferenceWindowController()
   internal let aboutWindowController = AboutWindowController()
 
 
-  open class func sharedInstance() -> PopoverController {
+  @objc open class func sharedInstance() -> PopoverController {
     return _sharedInstance
   }
 
@@ -68,13 +68,13 @@ open class PopoverController: NSObject {
     }
   }
 
-  open func open() {
+  @objc open func open() {
     if self.popover.isShown {
       self.close()
       return
     }
 
-    self.statusButton.state = NSOnState
+    self.statusButton.state = .on
 
     NSApp.activate(ignoringOtherApps: true)
     self.popover.show(relativeTo: .zero, of: self.statusButton, preferredEdge: .maxY)
@@ -95,7 +95,7 @@ open class PopoverController: NSObject {
       return
     }
 
-    self.statusButton.state = NSOffState
+    self.statusButton.state = .off
     self.popover.close()
 
     AnalyticsHelper.sharedInstance().recordCachedEvent(
@@ -106,7 +106,7 @@ open class PopoverController: NSObject {
     )
   }
 
-  open func handleKeyCode(_ keyCode: UInt16, flags: NSEventModifierFlags, windowNumber: Int) {
+  open func handleKeyCode(_ keyCode: UInt16, flags: NSEvent.ModifierFlags, windowNumber: Int) {
     let keyBinding = KeyBinding(keyCode: Int(keyCode), flags: Int(flags.rawValue))
 
     if let window = NSApp.window(withWindowNumber: windowNumber) {
