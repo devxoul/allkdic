@@ -1,5 +1,6 @@
 *.xcuserstate
 *.xccheckout
+*.xcodeproj
 *.xcworkspace
 xcuserdata
 
