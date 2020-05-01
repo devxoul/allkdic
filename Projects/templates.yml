@@ -1,0 +1,17 @@
+targetTemplates:
+  UnitTest:
+    type: bundle.unit-test
+    platform: macOS
+    sources:
+      - path: ${testTarget}/Tests
+        optional: true
+    dependencies:
+      - target: ${testTarget}
+    settings:
+      WRAPPER_EXTENSION: xctest
+      PRODUCT_NAME: ${target_name}
+      PRODUCT_BUNDLE_IDENTIFIER: $(PRODUCT_NAME)
+      BUNDLE_LOADER: $(TEST_HOST)
+      INFOPLIST_FILE: $(SRCROOT)/Projects/Info.plist
+    profile:
+      config: Debug

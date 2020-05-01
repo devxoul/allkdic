@@ -21,3 +21,4 @@ settings:
 include:
   - Projects/Allkdic/project.yml
   - Projects/LauncherApplication/project.yml
+  - Projects/templates.yml
