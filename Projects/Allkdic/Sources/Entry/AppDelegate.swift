@@ -25,7 +25,12 @@ import Cocoa
 import SimpleCocoaAnalytics
 import SnapKit
 
-class AppDelegate: NSObject, NSApplicationDelegate {
+final class AppDelegate: NSObject, NSApplicationDelegate {
+  private let dependency: AppDependency
+
+  init(dependency: AppDependency) {
+    self.dependency = dependency
+  }
 
   func applicationDidFinishLaunching(_ notification: Notification) {
     let ga = AnalyticsHelper.sharedInstance()

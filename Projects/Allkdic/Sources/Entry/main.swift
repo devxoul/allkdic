@@ -22,11 +22,11 @@
  SOFTWARE.
 */
 
-import Cocoa
+import AppKit
 
-autoreleasepool { () -> () in
+autoreleasepool {
   let application = NSApplication.shared
-  let delegate = AppDelegate()
+  let delegate = AppDelegate(dependency: AppDependency.resolve())
   application.delegate = delegate
   application.run()
 }
