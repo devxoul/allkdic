@@ -1,3 +1,7 @@
+# DI
+github "Swinject/Swinject"
+github "Swinject/SwinjectAutoregistration"
+
 # Testing
 github "Quick/Quick"
 github "Quick/Nimble"
