@@ -14,6 +14,7 @@ struct AppDependency {
 extension AppDependency {
   static func resolve() -> AppDependency {
     let assemblies: [Assembly] = [
+      AnalyticsAssembly(),
     ]
     let container = Container()
     let assembler = Assembler(assemblies, container: container)
