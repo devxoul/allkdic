@@ -33,15 +33,17 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
   }
 
   func applicationDidFinishLaunching(_ notification: Notification) {
-    let ga = AnalyticsHelper.sharedInstance()
-    ga?.beginPeriodicReporting(withAccount: "UA-42976442-2", name:"올ㅋ사전", version: BundleInfo.version)
+    self.dependency.analyticsHelper.beginPeriodicReporting(
+      withAccount: "UA-42976442-2",
+      name:"올ㅋ사전",
+      version: BundleInfo.version
+    )
 
     PopoverController.sharedInstance()
     AKHotKeyManager.registerHotKey()
   }
 
   func applicationWillTerminate(_ notification: Notification) {
-    AnalyticsHelper.sharedInstance().handleApplicationWillClose()
-    UserDefaults.standard.synchronize()
+    self.dependency.analyticsHelper.handleApplicationWillClose()
   }
 }

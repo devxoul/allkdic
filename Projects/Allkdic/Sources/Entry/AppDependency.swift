@@ -9,6 +9,7 @@ import Swinject
 import SwinjectAutoregistration
 
 struct AppDependency {
+  let analyticsHelper: AnalyticsHelperProtocol
 }
 
 extension AppDependency {
