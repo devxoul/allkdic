@@ -15,6 +15,7 @@ targets:
       - sdk: WebKit.framework
       - carthage: Swinject
       - carthage: SwinjectAutoregistration
+      - carthage: Testables
     attributes:
       ProvisioningStyle: Manual
     settings:
