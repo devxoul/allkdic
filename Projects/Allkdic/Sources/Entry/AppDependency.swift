@@ -17,7 +17,7 @@ extension AppDependency {
     let assemblies: [Assembly] = [
       AnalyticsAssembly(),
     ]
-    let container = Container()
+    let container = Container(defaultObjectScope: .graph)
     let assembler = Assembler(assemblies, container: container)
     let resolver = assembler.resolver
 
