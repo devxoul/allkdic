@@ -48,12 +48,12 @@ EventHotKeyRef hotKeyRef;
     hotKeyId.id = 0;
 
     NSDictionary *data = [[NSUserDefaults standardUserDefaults] objectForKey:UserDefaultsKey.hotKey];
-    KeyBinding *keyBinding;
+    LegacyKeyBinding *keyBinding;
     if (data) {
-        keyBinding = [[KeyBinding alloc] initWithDictionary:data];
+        keyBinding = [[LegacyKeyBinding alloc] initWithDictionary:data];
     } else {
         NSLog(@"No existing key setting.");
-        keyBinding = [[KeyBinding alloc] init];
+        keyBinding = [[LegacyKeyBinding alloc] init];
         keyBinding.option = YES;
         keyBinding.command = YES;
         keyBinding.keyCode = 49; // Space

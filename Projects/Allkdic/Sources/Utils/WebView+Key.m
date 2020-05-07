@@ -30,22 +30,22 @@
     if (theEvent.modifierFlags & NSCommandKeyMask) {
         CGKeyCode keyCode = theEvent.keyCode;
 
-        if (keyCode == [KeyBinding keyCodeFormKeyString:@"a"]) {
+        if (keyCode == [LegacyKeyBinding keyCodeFormKeyString:@"a"]) {
             [self selectAll:self];
             return YES;
         }
 
-        if (keyCode == [KeyBinding keyCodeFormKeyString:@"x"]) {
+        if (keyCode == [LegacyKeyBinding keyCodeFormKeyString:@"x"]) {
             [self cut:self];
             return YES;
         }
 
-        if (keyCode == [KeyBinding keyCodeFormKeyString:@"c"]) {
+        if (keyCode == [LegacyKeyBinding keyCodeFormKeyString:@"c"]) {
             [self copy:self];
             return YES;
         }
 
-        if (keyCode == [KeyBinding keyCodeFormKeyString:@"v"]) {
+        if (keyCode == [LegacyKeyBinding keyCodeFormKeyString:@"v"]) {
             [self paste:self];
             return YES;
         }

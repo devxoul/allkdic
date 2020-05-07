@@ -137,7 +137,7 @@ open class ContentViewController: NSViewController {
 
   @objc open func updateHotKeyLabel() {
     let keyBindingData = UserDefaults.standard.dictionary(forKey: UserDefaultsKey.hotKey)
-    let keyBinding = KeyBinding(dictionary: keyBindingData)
+    let keyBinding = LegacyKeyBinding(dictionary: keyBindingData)
     self.hotKeyLabel.stringValue = keyBinding.description
     self.hotKeyLabel.sizeToFit()
   }
@@ -160,7 +160,7 @@ open class ContentViewController: NSViewController {
     return self.webView.mainFrameDocument?.evaluateWebScript(script) as AnyObject?
   }
 
-  open func handleKeyBinding(_ keyBinding: KeyBinding) {
+  open func handleKeyBinding(_ keyBinding: LegacyKeyBinding) {
     let key = (keyBinding.shift, keyBinding.control, keyBinding.option, keyBinding.command, keyBinding.keyCode)
 
     switch key {
@@ -174,7 +174,7 @@ open class ContentViewController: NSViewController {
       self.swapDictionary(index - 18)
       break
 
-    case (false, false, false, true, KeyBinding.keyCodeFormKeyString(",")):
+    case (false, false, false, true, LegacyKeyBinding.keyCodeFormKeyString(",")):
       // Command + ,
       self.showPreferenceWindow()
       break

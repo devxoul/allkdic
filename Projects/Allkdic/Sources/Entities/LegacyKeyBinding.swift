@@ -22,7 +22,7 @@
 
 private let _dictionaryKeys = ["keyCode", "shift", "control", "option", "command"]
 
-public func ==(left: KeyBinding, right: KeyBinding) -> Bool {
+public func ==(left: LegacyKeyBinding, right: LegacyKeyBinding) -> Bool {
   for key in _dictionaryKeys {
     if left.value(forKey: key) as? Int != right.value(forKey: key) as? Int {
       return false
@@ -31,7 +31,7 @@ public func ==(left: KeyBinding, right: KeyBinding) -> Bool {
   return true
 }
 
-@objc open class KeyBinding: NSObject {
+@objc open class LegacyKeyBinding: NSObject {
 
   @objc var keyCode: Int = 0
   @objc var shift: Bool = false

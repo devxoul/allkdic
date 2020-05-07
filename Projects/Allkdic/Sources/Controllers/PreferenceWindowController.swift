@@ -26,7 +26,7 @@ import SimpleCocoaAnalytics
 
 class PreferenceWindowController: WindowController, NSTextFieldDelegate {
 
-  var keyBinding: KeyBinding?
+  var keyBinding: LegacyKeyBinding?
 
   let containerView = NSView()
   let label = Label()
@@ -151,7 +151,7 @@ class PreferenceWindowController: WindowController, NSTextFieldDelegate {
     AKHotKeyManager.unregisterHotKey()
 
     let keyBindingData = UserDefaults.standard.dictionary(forKey: UserDefaultsKey.hotKey)
-    let keyBinding = KeyBinding(dictionary: keyBindingData)
+    let keyBinding = LegacyKeyBinding(dictionary: keyBindingData)
     self.handleKeyBinding(keyBinding)
 
     AnalyticsHelper.sharedInstance().recordScreen(withName: "PreferenceWindow")
@@ -168,7 +168,7 @@ class PreferenceWindowController: WindowController, NSTextFieldDelegate {
     }
   }
 
-  func handleKeyBinding(_ keyBinding: KeyBinding?) {
+  func handleKeyBinding(_ keyBinding: LegacyKeyBinding?) {
     guard let keyBinding = keyBinding,
       self.keyBinding != keyBinding,
       keyBinding.shift || keyBinding.control || keyBinding.option || keyBinding.command
@@ -193,7 +193,7 @@ class PreferenceWindowController: WindowController, NSTextFieldDelegate {
       self.commandLabel.textColor = NSColor.black
     }
 
-    guard let keyString = KeyBinding.keyStringFormKeyCode(keyBinding.keyCode) else { return }
+    guard let keyString = LegacyKeyBinding.keyStringFormKeyCode(keyBinding.keyCode) else { return }
     self.keyLabel.stringValue = keyString.capitalized
     self.keyLabel.sizeToFit()
 

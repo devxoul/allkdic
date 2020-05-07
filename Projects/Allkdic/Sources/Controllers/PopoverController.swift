@@ -107,7 +107,7 @@ open class PopoverController: NSObject {
   }
 
   open func handleKeyCode(_ keyCode: UInt16, flags: NSEvent.ModifierFlags, windowNumber: Int) {
-    let keyBinding = KeyBinding(keyCode: Int(keyCode), flags: Int(flags.rawValue))
+    let keyBinding = LegacyKeyBinding(keyCode: Int(keyCode), flags: Int(flags.rawValue))
 
     if let window = NSApp.window(withWindowNumber: windowNumber) {
       if ["NSStatusBarWindow", "_NSPopoverWindow"].contains(type(of: window).className()) {
