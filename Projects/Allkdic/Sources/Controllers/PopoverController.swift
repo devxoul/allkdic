@@ -26,7 +26,7 @@ import SimpleCocoaAnalytics
 
 private let _sharedInstance = PopoverController()
 
-open class PopoverController: NSObject {
+class PopoverController: NSObject {
 
   fileprivate let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
   fileprivate var statusButton: NSButton {
@@ -39,12 +39,12 @@ open class PopoverController: NSObject {
   internal let aboutWindowController = AboutWindowController()
 
 
-  @objc open class func sharedInstance() -> PopoverController {
+  @objc class func sharedInstance() -> PopoverController {
     return _sharedInstance
   }
 
 
-  public override init() {
+  override init() {
     super.init()
 
     let icon = NSImage(named: "statusicon_default")
@@ -74,7 +74,7 @@ open class PopoverController: NSObject {
     NotificationCenter.default.removeObserver(self)
   }
 
-  @objc open func open() {
+  @objc func open() {
     if self.popover.isShown {
       self.close()
       return
@@ -96,7 +96,7 @@ open class PopoverController: NSObject {
     )
   }
 
-  open func close() {
+  func close() {
     if !self.popover.isShown {
       return
     }
@@ -112,7 +112,7 @@ open class PopoverController: NSObject {
     )
   }
 
-  open func handleKeyCode(_ keyCode: UInt16, flags: NSEvent.ModifierFlags, windowNumber: Int) {
+  func handleKeyCode(_ keyCode: UInt16, flags: NSEvent.ModifierFlags, windowNumber: Int) {
     let keyBinding = LegacyKeyBinding(keyCode: Int(keyCode), flags: Int(flags.rawValue))
 
     if let window = NSApp.window(withWindowNumber: windowNumber) {
