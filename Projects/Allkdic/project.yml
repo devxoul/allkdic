@@ -13,6 +13,7 @@ targets:
       - sdk: Carbon.framework
       - sdk: Foundation.framework
       - sdk: WebKit.framework
+      - carthage: Pure
       - carthage: Swinject
       - carthage: SwinjectAutoregistration
       - carthage: Testables
