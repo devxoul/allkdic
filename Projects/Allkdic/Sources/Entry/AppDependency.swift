@@ -20,6 +20,7 @@ extension AppDependency {
       AnalyticsAssembly(),
       PreferenceAssembly(),
       HotKeyAssembly(),
+      StatusItemAssembly(),
     ]
     let container = Container(defaultObjectScope: .graph)
     let assembler = Assembler(assemblies, container: container)
