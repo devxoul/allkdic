@@ -24,9 +24,16 @@
 
 import AppKit
 
+private func createAppDelegate() -> NSApplicationDelegate {
+  if let cls = NSClassFromString("AllkdicTests.AppDelegateDummy") as? (NSObject & NSApplicationDelegate).Type {
+    return cls.init()
+  } else {
+    return AppDelegate(dependency: AppDependency.resolve())
+  }
+}
+
 autoreleasepool {
   let application = NSApplication.shared
-  let delegate = AppDelegate(dependency: AppDependency.resolve())
-  application.delegate = delegate
-  application.run()
+  application.delegate = createAppDelegate()
+  _ = NSApplicationMain(CommandLine.argc, CommandLine.unsafeArgv)
 }
