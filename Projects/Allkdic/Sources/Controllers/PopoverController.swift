@@ -66,6 +66,12 @@ open class PopoverController: NSObject {
       self.handleKeyCode(event.keyCode, flags: event.modifierFlags, windowNumber: event.windowNumber)
       return event
     }
+
+    NotificationCenter.default.addObserver(self, selector: #selector(open), name: .globalHotKeyPressed, object: nil)
+  }
+
+  deinit {
+    NotificationCenter.default.removeObserver(self)
   }
 
   @objc open func open() {
