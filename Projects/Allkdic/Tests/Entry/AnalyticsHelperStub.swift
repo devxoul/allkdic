@@ -21,4 +21,12 @@ final class AnalyticsHelperStub: AnalyticsHelperProtocol {
   func handleApplicationWillClose() {
     return Stubber.invoke(handleApplicationWillClose, args: (), default: Void())
   }
+
+  func recordScreen(withName screenName: String!) {
+    return Stubber.invoke(recordScreen, args: screenName, default: Void())
+  }
+
+  func recordCachedEvent(withCategory eventCategory: String!, action eventAction: String!, label eventLabel: String!, value eventValue: NSNumber!) {
+    return Stubber.invoke(recordCachedEvent, args: (eventCategory, eventAction, eventLabel, eventValue), default: Void())
+  }
 }

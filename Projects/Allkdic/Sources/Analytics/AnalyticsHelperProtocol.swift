@@ -14,6 +14,9 @@ protocol AnalyticsHelperProtocol {
     version appVersion: String!
   )
   func handleApplicationWillClose()
+
+  func recordScreen(withName screenName: String!)
+  func recordCachedEvent(withCategory eventCategory: String!, action eventAction: String!, label eventLabel: String!, value eventValue: NSNumber!)
 }
 
 extension AnalyticsHelper: AnalyticsHelperProtocol {

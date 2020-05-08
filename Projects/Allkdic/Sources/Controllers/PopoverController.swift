@@ -30,6 +30,9 @@ import SimpleCocoaAnalytics
   // MARK: Module
 
   struct Dependency {
+    let notificationCenter: NotificationCenter
+    let eventMonitor: NSEventMonitorProtocol.Type
+    let analyticsHelper: AnalyticsHelperProtocol
   }
 
   struct Payload {
@@ -51,8 +54,9 @@ import SimpleCocoaAnalytics
   internal let aboutWindowController = AboutWindowController()
 
 
+  @available(*, deprecated)
   @objc class func sharedInstance() -> PopoverController {
-    return AppDependency.container.resolve()
+    return (nil as PopoverController?)!
   }
 
 
@@ -73,21 +77,35 @@ import SimpleCocoaAnalytics
 
     self.popover.contentViewController = self.contentViewController
 
-    NSEvent.addGlobalMonitorForEvents(matching: [.leftMouseUp, .leftMouseDown]) { _ in
-      self.close()
-    }
-
-    NSEvent.addLocalMonitorForEvents(matching: .keyDown) { event in
-      self.handleKeyCode(event.keyCode, flags: event.modifierFlags, windowNumber: event.windowNumber)
-      return event
-    }
-
-    NotificationCenter.default.addObserver(self, selector: #selector(open), name: .globalHotKeyPressed, object: nil)
+    self.addEventMonitors()
+    self.addNotificationObservers()
   }
 
   deinit {
-    NotificationCenter.default.removeObserver(self)
+    self.removeNotificationObservers()
   }
+
+  private func addEventMonitors() {
+    self.dependency.eventMonitor.addGlobalMonitorForEvents(matching: [.leftMouseUp, .leftMouseDown]) { [weak self] _ in
+      self?.close()
+    }
+
+    self.dependency.eventMonitor.addLocalMonitorForEvents(matching: .keyDown) { [weak self] event in
+      self?.handleKeyCode(event.keyCode, flags: event.modifierFlags, windowNumber: event.windowNumber)
+      return event
+    }
+  }
+
+  private func addNotificationObservers() {
+    self.dependency.notificationCenter.addObserver(self, selector: #selector(open), name: .globalHotKeyPressed, object: nil)
+  }
+
+  private func removeNotificationObservers() {
+    self.dependency.notificationCenter.removeObserver(self)
+  }
+
+
+  // MARK: Opening and Closing
 
   @objc func open() {
     if self.popover.isShown {
@@ -102,8 +120,8 @@ import SimpleCocoaAnalytics
     self.contentViewController.updateHotKeyLabel()
     self.contentViewController.focusOnTextArea()
 
-    AnalyticsHelper.sharedInstance().recordScreen(withName: "AllkdicWindow")
-    AnalyticsHelper.sharedInstance().recordCachedEvent(
+    self.dependency.analyticsHelper.recordScreen(withName: "AllkdicWindow")
+    self.dependency.analyticsHelper.recordCachedEvent(
       withCategory: AnalyticsCategory.allkdic,
       action: AnalyticsAction.open,
       label: nil,
@@ -119,13 +137,16 @@ import SimpleCocoaAnalytics
     self.statusButton.state = .off
     self.popover.close()
 
-    AnalyticsHelper.sharedInstance().recordCachedEvent(
+    self.dependency.analyticsHelper.recordCachedEvent(
       withCategory: AnalyticsCategory.allkdic,
       action: AnalyticsAction.close,
       label: nil,
       value: nil
     )
   }
+
+
+  // MARK: Handling Keyboard
 
   func handleKeyCode(_ keyCode: UInt16, flags: NSEvent.ModifierFlags, windowNumber: Int) {
     let keyBinding = LegacyKeyBinding(keyCode: Int(keyCode), flags: Int(flags.rawValue))
