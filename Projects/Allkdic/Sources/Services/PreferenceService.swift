@@ -70,4 +70,5 @@ extension PreferenceKey: ExpressibleByStringLiteral {
 }
 
 extension PreferenceKey {
+  static var hotKey: PreferenceKey<KeyBinding> { "AllkdicSettingKeyHotKey" }
 }

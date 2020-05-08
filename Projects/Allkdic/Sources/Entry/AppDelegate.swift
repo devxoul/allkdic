@@ -40,7 +40,13 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     )
 
     PopoverController.sharedInstance()
-    AKHotKeyManager.registerHotKey()
+    self.registerHotKey()
+  }
+
+  private func registerHotKey() {
+    let savedKeyBinding = self.dependency.preferenceService.value(forKey: .hotKey)
+    let keyBinding = savedKeyBinding ?? KeyBinding.default
+    self.dependency.hotKeyService.register(keyBinding: keyBinding)
   }
 
   func applicationWillTerminate(_ notification: Notification) {

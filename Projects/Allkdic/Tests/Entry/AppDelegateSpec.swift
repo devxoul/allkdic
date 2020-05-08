@@ -11,16 +11,20 @@ import Testing
 final class AppDelegateSpec: QuickSpec {
   override func spec() {
     func createAppDelegate(
-      analyticsHelper: AnalyticsHelperStub = .init()
+      analyticsHelper: AnalyticsHelperStub = .init(),
+      preferenceService: PreferenceServiceStub = .init(),
+      hotKeyService: HotKeyServiceStub = .init()
     ) -> AppDelegate {
       let appDelegate = AppDelegate(dependency: .init(
-        analyticsHelper: analyticsHelper
+        analyticsHelper: analyticsHelper,
+        preferenceService: preferenceService,
+        hotKeyService: hotKeyService
       ))
       return appDelegate
     }
 
-    describe("applicationDidFinishLaunching(_:)") {
-      it("starts analytics reporting") {
+    describe("analytics reporting") {
+      it("starts on application launch") {
         // given
         let analyticsHelper = AnalyticsHelperStub()
         let appDelegate = createAppDelegate(analyticsHelper: analyticsHelper)
@@ -32,10 +36,8 @@ final class AppDelegateSpec: QuickSpec {
         let executions = Stubber.executions(analyticsHelper.beginPeriodicReporting)
         expect(executions).to(haveCount(1))
       }
-    }
 
-    describe("applicationWillTerminate(_:)") {
-      it("logs application close to analytics helper") {
+      it("logs application close on termination") {
         // given
         let analyticsHelper = AnalyticsHelperStub()
         let appDelegate = createAppDelegate(analyticsHelper: analyticsHelper)
@@ -46,6 +48,49 @@ final class AppDelegateSpec: QuickSpec {
         // then
         let executions = Stubber.executions(analyticsHelper.handleApplicationWillClose)
         expect(executions).to(haveCount(1))
+      }
+    }
+
+    describe("hot key registration") {
+      context("if there is no saved key binding") {
+        it("registers with the default key binding on application launch") {
+          // given
+          let preferenceService = PreferenceServiceStub()
+          let hotKeyService = HotKeyServiceStub()
+          let appDelegate = createAppDelegate(
+            preferenceService: preferenceService,
+            hotKeyService: hotKeyService
+          )
+
+          // when
+          appDelegate.applicationDidFinishLaunching(Notification(name: .init(rawValue: "Test")))
+
+          // then
+          let executions = Stubber.executions(hotKeyService.register)
+          expect(executions.first?.arguments) == KeyBinding.default
+        }
+      }
+
+      context("if there is a saved key binding") {
+        it("registers with the saved key binding on application launch") {
+          // given
+          let preferenceService = PreferenceServiceStub()
+          let expectedKeyBinding = KeyBinding(keyCode: 12, shift: true, control: false, option: false, command: true)
+          preferenceService.set(expectedKeyBinding, forKey: .hotKey)
+
+          let hotKeyService = HotKeyServiceStub()
+          let appDelegate = createAppDelegate(
+            preferenceService: preferenceService,
+            hotKeyService: hotKeyService
+          )
+
+          // when
+          appDelegate.applicationDidFinishLaunching(Notification(name: .init(rawValue: "Test")))
+
+          // then
+          let executions = Stubber.executions(hotKeyService.register)
+          expect(executions.first?.arguments) == expectedKeyBinding
+        }
       }
     }
   }

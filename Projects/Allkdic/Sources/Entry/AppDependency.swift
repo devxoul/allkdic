@@ -10,12 +10,16 @@ import SwinjectAutoregistration
 
 struct AppDependency {
   let analyticsHelper: AnalyticsHelperProtocol
+  let preferenceService: PreferenceServiceProtocol
+  let hotKeyService: HotKeyServiceProtocol
 }
 
 extension AppDependency {
   static func resolve() -> AppDependency {
     let assemblies: [Assembly] = [
       AnalyticsAssembly(),
+      PreferenceAssembly(),
+      HotKeyAssembly(),
     ]
     let container = Container(defaultObjectScope: .graph)
     let assembler = Assembler(assemblies, container: container)
