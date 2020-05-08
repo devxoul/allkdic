@@ -22,11 +22,23 @@
 
 import Cocoa
 
+import Pure
 import SimpleCocoaAnalytics
 
-private let _sharedInstance = PopoverController()
+@objc final class PopoverController: NSObject, FactoryModule {
 
-class PopoverController: NSObject {
+  // MARK: Module
+
+  struct Dependency {
+  }
+
+  struct Payload {
+  }
+
+
+  // MARK: Properties
+
+  private let dependency: Dependency
 
   fileprivate let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
   fileprivate var statusButton: NSButton {
@@ -40,11 +52,14 @@ class PopoverController: NSObject {
 
 
   @objc class func sharedInstance() -> PopoverController {
-    return _sharedInstance
+    return AppDependency.container.resolve()
   }
 
 
-  override init() {
+  // MARK: Initiaizling
+
+  init(dependency: Dependency, payload: Payload) {
+    self.dependency = dependency
     super.init()
 
     let icon = NSImage(named: "statusicon_default")

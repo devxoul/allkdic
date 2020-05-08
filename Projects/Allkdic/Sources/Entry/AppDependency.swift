@@ -21,6 +21,7 @@ extension AppDependency {
       PreferenceAssembly(),
       HotKeyAssembly(),
       StatusItemAssembly(),
+      PopoverAssembly(),
     ]
     let container = Container(defaultObjectScope: .graph)
     let assembler = Assembler(assemblies, container: container)
