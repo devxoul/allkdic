@@ -27,20 +27,24 @@ import SnapKit
 
 final class AppDelegate: NSObject, NSApplicationDelegate {
   private let dependency: AppDependency
+  private var popoverController: PopoverController?
 
   init(dependency: AppDependency) {
     self.dependency = dependency
   }
 
   func applicationDidFinishLaunching(_ notification: Notification) {
+    self.startAnalytics()
+    self.registerHotKey()
+    self.createPopoverController()
+  }
+
+  private func startAnalytics() {
     self.dependency.analyticsHelper.beginPeriodicReporting(
       withAccount: "UA-42976442-2",
       name:"올ㅋ사전",
       version: BundleInfo.version
     )
-
-    PopoverController.sharedInstance()
-    self.registerHotKey()
   }
 
   private func registerHotKey() {
@@ -49,7 +53,24 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     self.dependency.hotKeyService.register(keyBinding: keyBinding)
   }
 
+  private func createPopoverController() {
+    let statusItemController = self.dependency.statusItemControllerFactory.create()
+    self.popoverController = self.dependency.popoverControllerFactory.create(payload: .init(
+      statusItemController: statusItemController
+    ))
+  }
+
   func applicationWillTerminate(_ notification: Notification) {
     self.dependency.analyticsHelper.handleApplicationWillClose()
   }
 }
+
+#if DEBUG
+import Testables
+
+extension AppDelegate: Testable {
+  final class TestableKeys: TestableKey<Self> {
+    let popoverController = \Self.popoverController
+  }
+}
+#endif

@@ -13,12 +13,16 @@ final class AppDelegateSpec: QuickSpec {
     func createAppDelegate(
       analyticsHelper: AnalyticsHelperStub = .init(),
       preferenceService: PreferenceServiceStub = .init(),
-      hotKeyService: HotKeyServiceStub = .init()
+      hotKeyService: HotKeyServiceStub = .init(),
+      statusItemControllerFactory: StatusItemController.Factory = .dummy(),
+      popoverControllerFactory: PopoverController.Factory = .dummy()
     ) -> AppDelegate {
       let appDelegate = AppDelegate(dependency: .init(
         analyticsHelper: analyticsHelper,
         preferenceService: preferenceService,
-        hotKeyService: hotKeyService
+        hotKeyService: hotKeyService,
+        statusItemControllerFactory: statusItemControllerFactory,
+        popoverControllerFactory: popoverControllerFactory
       ))
       return appDelegate
     }
@@ -91,6 +95,19 @@ final class AppDelegateSpec: QuickSpec {
           let executions = Stubber.executions(hotKeyService.register)
           expect(executions.first?.arguments) == expectedKeyBinding
         }
+      }
+    }
+
+    describe("popover") {
+      it("creates a status item controller and a popover controller on application launch") {
+        // given
+        let appDelegate = createAppDelegate()
+
+        // when
+        appDelegate.applicationDidFinishLaunching(Notification(name: .init(rawValue: "Test")))
+
+        // then
+        expect(appDelegate.testables[\.popoverController]).toNot(beNil())
       }
     }
   }

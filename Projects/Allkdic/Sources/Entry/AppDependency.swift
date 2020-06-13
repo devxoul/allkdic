@@ -12,6 +12,8 @@ struct AppDependency {
   let analyticsHelper: AnalyticsHelperProtocol
   let preferenceService: PreferenceServiceProtocol
   let hotKeyService: HotKeyServiceProtocol
+  let statusItemControllerFactory: StatusItemController.Factory
+  let popoverControllerFactory: PopoverController.Factory
 }
 
 extension AppDependency {

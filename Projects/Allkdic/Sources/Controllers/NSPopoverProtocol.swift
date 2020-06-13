@@ -15,3 +15,6 @@ protocol NSPopoverProtocol: class {
   func show(relativeTo positioningRect: NSRect, of positioningView: NSView, preferredEdge: NSRectEdge)
   func close()
 }
+
+extension NSPopover: NSPopoverProtocol {
+}
