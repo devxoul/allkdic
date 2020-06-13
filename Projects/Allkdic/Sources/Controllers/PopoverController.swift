@@ -30,24 +30,24 @@ import SimpleCocoaAnalytics
   // MARK: Module
 
   struct Dependency {
+    let popoverFactory: () -> NSPopoverProtocol
     let notificationCenter: NotificationCenter
+    let application: NSAppActivatable
     let eventMonitor: NSEventMonitorProtocol.Type
     let analyticsHelper: AnalyticsHelperProtocol
   }
 
   struct Payload {
+    let statusItemController: StatusItemController
   }
 
 
   // MARK: Properties
 
   private let dependency: Dependency
+  private let payload: Payload
 
-  fileprivate let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
-  fileprivate var statusButton: NSButton {
-    return self.statusItem.value(forKey: "_button") as! NSButton
-  }
-  fileprivate let popover = NSPopover()
+  fileprivate let popover: NSPopoverProtocol
 
   @objc internal let contentViewController = ContentViewController()
   internal let preferenceWindowController = PreferenceWindowController()
@@ -64,25 +64,26 @@ import SimpleCocoaAnalytics
 
   init(dependency: Dependency, payload: Payload) {
     self.dependency = dependency
+    self.payload = payload
+    self.popover = dependency.popoverFactory()
+
     super.init()
-
-    let icon = NSImage(named: "statusicon_default")
-    icon?.isTemplate = true
-    self.statusItem.image = icon
-    self.statusItem.target = self
-    self.statusItem.action = #selector(PopoverController.open)
-
-    self.statusButton.focusRingType = .none
-    self.statusButton.setButtonType(.pushOnPushOff)
-
-    self.popover.contentViewController = self.contentViewController
-
+    self.configureStatusItem()
+    self.configureContentViewControler()
     self.addEventMonitors()
     self.addNotificationObservers()
   }
 
   deinit {
     self.removeNotificationObservers()
+  }
+
+  private func configureStatusItem() {
+    self.payload.statusItemController.handler = self.toggleOpen
+  }
+
+  private func configureContentViewControler() {
+    self.popover.contentViewController = self.contentViewController
   }
 
   private func addEventMonitors() {
@@ -97,7 +98,7 @@ import SimpleCocoaAnalytics
   }
 
   private func addNotificationObservers() {
-    self.dependency.notificationCenter.addObserver(self, selector: #selector(open), name: .globalHotKeyPressed, object: nil)
+    self.dependency.notificationCenter.addObserver(self, selector: #selector(toggleOpen), name: .globalHotKeyPressed, object: nil)
   }
 
   private func removeNotificationObservers() {
@@ -108,15 +109,12 @@ import SimpleCocoaAnalytics
   // MARK: Opening and Closing
 
   @objc func open() {
-    if self.popover.isShown {
-      self.close()
-      return
-    }
+    let statusItemButton = self.payload.statusItemController.statusItem.button!
+    statusItemButton.state = .on
 
-    self.statusButton.state = .on
+    self.popover.show(relativeTo: .zero, of: statusItemButton, preferredEdge: .maxY)
+    self.dependency.application.activate(ignoringOtherApps: true)
 
-    NSApp.activate(ignoringOtherApps: true)
-    self.popover.show(relativeTo: .zero, of: self.statusButton, preferredEdge: .maxY)
     self.contentViewController.updateHotKeyLabel()
     self.contentViewController.focusOnTextArea()
 
@@ -130,11 +128,10 @@ import SimpleCocoaAnalytics
   }
 
   func close() {
-    if !self.popover.isShown {
-      return
-    }
+    guard self.popover.isShown else { return }
 
-    self.statusButton.state = .off
+    let statusItemButton = self.payload.statusItemController.statusItem.button!
+    statusItemButton.state = .off
     self.popover.close()
 
     self.dependency.analyticsHelper.recordCachedEvent(
@@ -143,6 +140,14 @@ import SimpleCocoaAnalytics
       label: nil,
       value: nil
     )
+  }
+
+  @objc private func toggleOpen() {
+    if !self.popover.isShown {
+      self.open()
+    } else {
+      self.close()
+    }
   }
 
 

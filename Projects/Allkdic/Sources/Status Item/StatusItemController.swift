@@ -42,9 +42,3 @@ final class StatusItemController: FactoryModule {
     self.handler?()
   }
 }
-
-private final class Foo {
-  init(handler: @escaping () -> Void) {
-
-  }
-}
