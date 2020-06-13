@@ -1,0 +1,30 @@
+packages:
+  # DI
+  Pure:
+    url: https://github.com/devxoul/Pure
+    from: 1.1.2
+  Swinject:
+    url: https://github.com/Swinject/Swinject
+    from: 2.7.1
+  SwinjectAutoregistration:
+    url: https://github.com/Swinject/SwinjectAutoregistration
+    from: 2.7.0
+
+  # UI
+  SnapKit:
+    url: https://github.com/SnapKit/SnapKit
+    from: 5.0.1
+
+  # Testing
+  Quick:
+    url: https://github.com/Quick/Quick
+    from: 3.0.0
+  Nimble:
+    url: https://github.com/Quick/Nimble
+    from: 8.1.1
+  Stubber:
+    url: https://github.com/devxoul/Stubber
+    from: 1.5.0
+  Testables:
+    url: https://github.com/StyleShare/Testables
+    from: 0.2.0

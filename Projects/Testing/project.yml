@@ -3,9 +3,9 @@ targets:
     templates: [Framework]
     dependencies:
       - sdk: XCTest.framework
-      - carthage: Nimble
-      - carthage: Quick
-      - carthage: Stubber
+      - package: Nimble
+      - package: Quick
+      - package: Stubber
 
   TestingTests:
     templates: [UnitTest]

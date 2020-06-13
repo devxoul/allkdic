@@ -19,6 +19,7 @@ settings:
       COPY_PHASE_STRIP: NO
 
 include:
+  - packages.yml
   - Projects/Allkdic/project.yml
   - Projects/LauncherApplication/project.yml
   - Projects/Testing/project.yml

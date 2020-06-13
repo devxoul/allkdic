@@ -13,10 +13,11 @@ targets:
       - sdk: Carbon.framework
       - sdk: Foundation.framework
       - sdk: WebKit.framework
-      - carthage: Pure
-      - carthage: Swinject
-      - carthage: SwinjectAutoregistration
-      - carthage: Testables
+      - package: Pure
+      - package: Swinject
+      - package: SwinjectAutoregistration
+      - package: SnapKit
+      - package: Testables
     attributes:
       ProvisioningStyle: Manual
     settings:
