@@ -93,7 +93,7 @@ class AboutWindowController: WindowController {
       let keyLabel = Label()
       self.contentView.addSubview(keyLabel)
       keyLabel.alignment = .right
-      keyLabel.font = NSFont.boldSystemFont(ofSize: NSFont.smallSystemFontSize())
+      keyLabel.font = NSFont.boldSystemFont(ofSize: NSFont.smallSystemFontSize)
       keyLabel.stringValue = key
       keyLabel.snp.makeConstraints { make in
         if keyLabels.count == 0 {
@@ -108,7 +108,7 @@ class AboutWindowController: WindowController {
 
       let valueLabel = Label()
       self.contentView.addSubview(valueLabel)
-      valueLabel.font = NSFont.systemFont(ofSize: NSFont.smallSystemFontSize())
+      valueLabel.font = NSFont.systemFont(ofSize: NSFont.smallSystemFontSize)
       valueLabel.stringValue = value
       valueLabel.snp.makeConstraints { make in
         make.top.equalTo(keyLabel)
@@ -167,7 +167,7 @@ class AboutWindowController: WindowController {
     AnalyticsHelper.sharedInstance().recordScreen(withName: "AboutWindow")
   }
 
-  func openAppStore() {
+  @objc func openAppStore() {
     AnalyticsHelper.sharedInstance().recordCachedEvent(
       withCategory: AnalyticsCategory.about,
       action: AnalyticsAction.checkForUpdate,
@@ -178,20 +178,20 @@ class AboutWindowController: WindowController {
     let appStoreID = "1033453958"
     let appStoreURLString = "macappstore://itunes.apple.com/app/id\(appStoreID)?mt=12"
     let appStoreURL = URL(string: appStoreURLString)!
-    NSWorkspace.shared().open(appStoreURL)
+    NSWorkspace.shared.open(appStoreURL)
   }
 
-  func viewOnGitHub() {
+  @objc func viewOnGitHub() {
     AnalyticsHelper.sharedInstance().recordCachedEvent(
       withCategory: AnalyticsCategory.about,
       action: AnalyticsAction.viewOnGitHub,
       label: nil,
       value: nil
     )
-    NSWorkspace.shared().open(URL(string: "https://github.com/devxoul/allkdic")!)
+    NSWorkspace.shared.open(URL(string: "https://github.com/devxoul/allkdic")!)
   }
 
-  func quit() {
+  @objc func quit() {
     exit(0)
   }
 }

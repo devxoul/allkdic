@@ -15,7 +15,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   func applicationDidFinishLaunching(_ aNotification: Notification) {
     let mainAppIdentifier = "kr.xoul.allkdic"
     
-    let runningApps = NSWorkspace.shared().runningApplications
+    let runningApps = NSWorkspace.shared.runningApplications
     let alreadyRunning = runningApps.filter { $0.bundleIdentifier == mainAppIdentifier }.count > 0
     
     if !alreadyRunning {
@@ -29,7 +29,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
       
       let newPath = NSString.path(withComponents: components)
       
-      NSWorkspace.shared().launchApplication(newPath)
+      NSWorkspace.shared.launchApplication(newPath)
     }
     self.terminate()
   }
