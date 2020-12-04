@@ -33,13 +33,13 @@ public func ==(left: KeyBinding, right: KeyBinding) -> Bool {
 
 open class KeyBinding: NSObject {
 
-  var keyCode: Int = 0
-  var shift: Bool = false
-  var control: Bool = false
-  var option: Bool = false
-  var command: Bool = false
+  @objc var keyCode: Int = 0
+  @objc var shift: Bool = false
+  @objc var control: Bool = false
+  @objc var option: Bool = false
+  @objc var command: Bool = false
 
-  override open var description: String {
+  @objc override open var description: String {
     var keys = [String]()
     if self.shift {
       keys.append("Shift")
@@ -95,7 +95,7 @@ open class KeyBinding: NSObject {
     }
   }
 
-  open func toDictionary() -> [String: Int] {
+  @objc open func toDictionary() -> [String: Int] {
     var dictionary = [String: Int]()
     for key in _dictionaryKeys {
       dictionary[key] = self.value(forKey: key) as! Int
@@ -103,11 +103,11 @@ open class KeyBinding: NSObject {
     return dictionary
   }
 
-  open class func keyStringFormKeyCode(_ keyCode: Int) -> String? {
+  @objc open class func keyStringFormKeyCode(_ keyCode: Int) -> String? {
     return keyMap[keyCode]
   }
 
-  open class func keyCodeFormKeyString(_ string: String) -> Int {
+  @objc open class func keyCodeFormKeyString(_ string: String) -> Int {
     for (keyCode, keyString) in keyMap {
       if keyString == string {
         return keyCode

@@ -30,7 +30,7 @@ struct BundleInfo {
 
 @objc class UserDefaultsKey: NSObject {
   class var ignoreApplicationFolderWarning: String { return "AKIgnoreApplicationFolder" }
-  class var hotKey: String { return "AllkdicSettingKeyHotKey" }
+  @objc class var hotKey: String { return "AllkdicSettingKeyHotKey" }
   class var selectedDictionaryName: String { return "SelectedDictionaryName" }
 }
 
