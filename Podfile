@@ -1,13 +1,10 @@
-platform :osx, '10.11'
+source 'https://cdn.cocoapods.org/'
+platform :osx, '14.0'
 
 target 'Allkdic' do
   use_frameworks!
 
-  pod 'SimpleCocoaAnalytics',
-    :git => 'https://github.com/stephenlind/SimpleCocoaGoogleAnalytics',
-    :tag => '0.1.0'
-
-  pod 'SnapKit', '~> 3.0'
+  pod 'SnapKit', '~> 5.7'
 
   target 'AllkdicTests' do
     inherit! :search_paths
@@ -18,8 +15,12 @@ end
 post_install do |installer|
   installer.pods_project.targets.each do |target|
     target.build_configurations.each do |config|
-      config.build_settings['SWIFT_VERSION'] = '3.0'
-      config.build_settings['MACOSX_DEPLOYMENT_TARGET'] = '10.10'
+      config.build_settings['MACOSX_DEPLOYMENT_TARGET'] = '14.0'
+      if target.name == 'SnapKit'
+        config.build_settings['SWIFT_VERSION'] = '5.0'
+      else
+        config.build_settings['SWIFT_VERSION'] = '6.0'
+      end
     end
   end
 end

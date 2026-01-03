@@ -22,24 +22,23 @@
 
 import Cocoa
 import WebKit
+import SnapKit
 
-import SimpleCocoaAnalytics
-
-open class ContentViewController: NSViewController {
+final class ContentViewController: NSViewController {
 
   let titleLabel = LabelButton()
   let hotKeyLabel = Label()
   let separatorView = NSImageView()
-  let webView = WebView()
-  let indicator = NSProgressIndicator(frame: NSZeroRect)
+  let webView = WKWebView()
+  let indicator = NSProgressIndicator(frame: .zero)
   let menuButton = NSButton()
   let mainMenu = NSMenu()
   let dictionaryMenu = NSMenu()
 
-  override open func loadView() {
+  override func loadView() {
     self.view = NSView(frame: CGRect(x: 0, y: 0, width: 405, height: 566))
-    self.view.autoresizingMask = NSAutoresizingMaskOptions()
-    self.view.appearance = NSAppearance(named: NSAppearanceNameAqua)
+    self.view.autoresizingMask = []
+    self.view.appearance = NSAppearance(named: .aqua)
 
     self.view.addSubview(self.titleLabel)
     self.titleLabel.textColor = NSColor.controlTextColor
@@ -55,7 +54,7 @@ open class ContentViewController: NSViewController {
 
     self.view.addSubview(self.hotKeyLabel)
     self.hotKeyLabel.textColor = NSColor.headerColor
-    self.hotKeyLabel.font = NSFont.systemFont(ofSize: NSFont.smallSystemFontSize())
+    self.hotKeyLabel.font = NSFont.systemFont(ofSize: NSFont.smallSystemFontSize)
     self.hotKeyLabel.snp.makeConstraints { make in
       make.top.equalTo(self.titleLabel.snp.bottom).offset(2)
       make.centerX.equalTo(0)
@@ -70,15 +69,14 @@ open class ContentViewController: NSViewController {
     }
 
     self.view.addSubview(self.webView)
-    self.webView.frameLoadDelegate = self
-    self.webView.shouldUpdateWhileOffscreen = true
+    self.webView.navigationDelegate = self
     self.webView.snp.makeConstraints { make in
       make.top.equalTo(self.separatorView.snp.bottom)
       make.left.right.bottom.equalTo(0)
     }
 
     self.view.addSubview(self.indicator)
-    self.indicator.style = .spinningStyle
+    self.indicator.style = .spinning
     self.indicator.controlSize = .small
     self.indicator.isDisplayedWhenStopped = false
     self.indicator.sizeToFit()
@@ -105,20 +103,16 @@ open class ContentViewController: NSViewController {
       NSMenuItem(title: gettext("preferences") + "...", action: #selector(ContentViewController.showPreferenceWindow), keyEquivalent: ","),
       NSMenuItem.separator(),
       NSMenuItem(title: gettext("quit"), action: #selector(ContentViewController.quit), keyEquivalent: ""),
-      ]
+    ]
 
     for mainMenuItem in mainMenuItems {
       self.mainMenu.addItem(mainMenuItem)
     }
 
-    //
-    // Dictionary Sub Menu
-    //
     mainMenuItems[0].submenu = self.dictionaryMenu
 
     let selectedDictionary = DictionaryType.selectedDictionary
 
-    // dictionary submenu
     for (i, dictionary) in DictionaryType.allTypes.enumerated() {
       let dictionaryMenuItem = NSMenuItem()
       dictionaryMenuItem.title = dictionary.title
@@ -127,7 +121,7 @@ open class ContentViewController: NSViewController {
       dictionaryMenuItem.keyEquivalent = "\(i + 1)"
       dictionaryMenuItem.keyEquivalentModifierMask = .command
       if dictionary == selectedDictionary {
-        dictionaryMenuItem.state = NSOnState
+        dictionaryMenuItem.state = .on
       }
       self.dictionaryMenu.addItem(dictionaryMenuItem)
     }
@@ -135,71 +129,53 @@ open class ContentViewController: NSViewController {
     self.navigateToMain()
   }
 
-  open func updateHotKeyLabel() {
+  @objc func updateHotKeyLabel() {
     let keyBindingData = UserDefaults.standard.dictionary(forKey: UserDefaultsKey.hotKey)
     let keyBinding = KeyBinding(dictionary: keyBindingData)
     self.hotKeyLabel.stringValue = keyBinding.description
     self.hotKeyLabel.sizeToFit()
   }
 
-  open func focusOnTextArea() {
-    self.javascript(DictionaryType.selectedDictionary.inputFocusingScript)
+  @objc func focusOnTextArea() {
+    let script = DictionaryType.selectedDictionary.inputFocusingScript
+    self.webView.evaluateJavaScript(script, completionHandler: nil)
   }
 
-
-  // MARK: - WebView
-
-  func navigateToMain() {
-    self.webView.mainFrameURL = DictionaryType.selectedDictionary.URLString
+  @objc func navigateToMain() {
+    guard let url = URL(string: DictionaryType.selectedDictionary.URLString) else { return }
+    let request = URLRequest(url: url)
+    self.webView.load(request)
     self.indicator.startAnimation(self)
     self.indicator.isHidden = false
   }
 
-  @discardableResult
-  func javascript(_ script: String) -> AnyObject? {
-    return self.webView.mainFrameDocument?.evaluateWebScript(script) as AnyObject?
-  }
-
-  open func handleKeyBinding(_ keyBinding: KeyBinding) {
+  func handleKeyBinding(_ keyBinding: KeyBinding) {
     let key = (keyBinding.shift, keyBinding.control, keyBinding.option, keyBinding.command, keyBinding.keyCode)
 
     switch key {
     case (false, false, false, false, 53):
-      // ESC
-      PopoverController.sharedInstance().close()
-      break
+      PopoverController.shared.close()
 
     case (_, false, false, true, let index) where 18...(18 + DictionaryType.allTypes.count) ~= index:
-      // Command + [Shift] + 1, 2, 3, ...
       self.swapDictionary(index - 18)
-      break
 
     case (false, false, false, true, KeyBinding.keyCodeFormKeyString(",")):
-      // Command + ,
       self.showPreferenceWindow()
-      break
 
     default:
       break
     }
   }
 
-
-  // MARK: - Menu
-
-  func showMenu() {
+  @objc func showMenu() {
     self.mainMenu.popUp(
       positioning: self.mainMenu.item(at: 0),
-      at:self.menuButton.frame.origin,
-      in:self.view
+      at: self.menuButton.frame.origin,
+      in: self.view
     )
   }
 
-  /// Swap dictionary to given index.
-  ///
-  /// - parameter sender: `Int` or `NSMenuItem`. If `NSMenuItem` is given, guess dictionary's index with `tag`
-  ///                     property.
-  func swapDictionary(_ sender: Any?) {
+  @objc func swapDictionary(_ sender: Any?) {
     if sender == nil {
       return
     }
@@ -213,85 +189,30 @@ open class ContentViewController: NSViewController {
     NSLog("Swap dictionary: \(selectedDictionary.name)")
 
     for menuItem in self.dictionaryMenu.items {
-      menuItem.state = NSOffState
+      menuItem.state = .off
     }
-    self.dictionaryMenu.item(withTag: index)?.state = NSOnState
-
-    AnalyticsHelper.sharedInstance().recordCachedEvent(
-      withCategory: AnalyticsCategory.allkdic,
-      action: AnalyticsAction.dictionary,
-      label: selectedDictionary.name,
-      value: nil
-    )
+    self.dictionaryMenu.item(withTag: index)?.state = .on
 
     self.navigateToMain()
   }
 
-  func showPreferenceWindow() {
-    PopoverController.sharedInstance().preferenceWindowController.showWindow(self)
+  @objc func showPreferenceWindow() {
+    PopoverController.shared.preferenceWindowController.showWindow(self)
   }
 
-  func showAboutWindow() {
-    PopoverController.sharedInstance().aboutWindowController.showWindow(self)
+  @objc func showAboutWindow() {
+    PopoverController.shared.aboutWindowController.showWindow(self)
   }
 
-  func quit() {
+  @objc func quit() {
     exit(0)
   }
 }
 
-
-// MARK: - WebFrameLoadDelegate
-
-extension ContentViewController: WebFrameLoadDelegate {
-
-  public func webView(_ sender: WebView!,
-                      willPerformClientRedirectTo URL: URL!,
-                      delay seconds: TimeInterval,
-                      fire date: Date!,
-                      for frame: WebFrame!) {
-    let URLString = URL.absoluteString
-    if URLString.range(of: "query=") == nil && URLString.range(of: "q=") == nil {
-      return
-    }
-
-    let URLPatternsForDictionaryType = [
-      AnalyticsLabel.english:  ["endic", "eng", "ee"],
-      AnalyticsLabel.korean:   ["krdic", "kor"],
-      AnalyticsLabel.hanja:    ["hanja"],
-      AnalyticsLabel.japanese: ["jpdic", "jp"],
-      AnalyticsLabel.chinese:  ["cndic", "ch"],
-      AnalyticsLabel.french:   ["frdic", "fr"],
-      AnalyticsLabel.russian:  ["ru"],
-      AnalyticsLabel.spanish:  ["spdic"],
-      ]
-
-    let URLPattern = DictionaryType.selectedDictionary.URLPattern
-    let regex = try! NSRegularExpression(pattern: URLPattern, options: .caseInsensitive)
-    let regexRange = NSMakeRange(0, URLString.characters.count)
-    guard let result = regex.firstMatch(in: URLString, options: [], range: regexRange) else {
-      return
-    }
-    let range = result.rangeAt(0)
-    let pattern = (URLString as NSString).substring(with: range)
-
-    for (type, patterns) in URLPatternsForDictionaryType {
-      if patterns.contains(pattern) {
-        AnalyticsHelper.sharedInstance().recordCachedEvent(
-          withCategory: AnalyticsCategory.allkdic,
-          action: AnalyticsAction.search,
-          label: type,
-          value: nil
-        )
-        break
-      }
-    }
-  }
-
-  public func webView(_ sender: WebView!, didFinishLoadFor frame: WebFrame!) {
+extension ContentViewController: WKNavigationDelegate {
+  func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
     self.indicator.stopAnimation(self)
     self.indicator.isHidden = true
     self.focusOnTextArea()
   }
-
 }

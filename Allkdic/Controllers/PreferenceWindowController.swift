@@ -21,10 +21,9 @@
 // SOFTWARE.
 
 import Cocoa
+import SnapKit
 
-import SimpleCocoaAnalytics
-
-class PreferenceWindowController: WindowController, NSTextFieldDelegate {
+final class PreferenceWindowController: WindowController, NSTextFieldDelegate {
 
   var keyBinding: KeyBinding?
 
@@ -36,7 +35,7 @@ class PreferenceWindowController: WindowController, NSTextFieldDelegate {
   let altLabel = Label()
   let commandLabel = Label()
   let keyLabel = Label()
-  
+
   let autostartLabel = Label()
   let autostartCheckbox = NSButton()
 
@@ -45,7 +44,7 @@ class PreferenceWindowController: WindowController, NSTextFieldDelegate {
     self.window!.title = gettext("preferences")
 
     self.contentView.addSubview(self.containerView)
-    
+
     self.containerView.addSubview(self.label)
     self.containerView.addSubview(self.hotKeyTextField)
     self.containerView.addSubview(self.shiftLabel)
@@ -63,7 +62,7 @@ class PreferenceWindowController: WindowController, NSTextFieldDelegate {
       make.left.equalToSuperview()
       make.centerY.equalTo(self.contentView)
     }
-    
+
     self.label.font = NSFont.systemFont(ofSize: 13)
     self.label.stringValue = gettext("shortcut") + ":"
     self.label.sizeToFit()
@@ -120,7 +119,7 @@ class PreferenceWindowController: WindowController, NSTextFieldDelegate {
       make.left.equalTo(self.commandLabel.snp.right).offset(-3)
       make.centerY.equalTo(self.hotKeyTextField)
     }
-    
+
     self.autostartLabel.font = NSFont.systemFont(ofSize: 13)
     self.autostartLabel.stringValue = gettext("launch_at_login") + ":"
     self.autostartLabel.sizeToFit()
@@ -128,10 +127,10 @@ class PreferenceWindowController: WindowController, NSTextFieldDelegate {
       make.left.equalTo(self.label.snp.left)
       make.centerY.equalTo(self.autostartCheckbox.snp.centerY)
     }
-    
+
     self.autostartCheckbox.target = self
     self.autostartCheckbox.title = ""
-    self.autostartCheckbox.state = LoginItem.enabled ? NSOnState : NSOffState
+    self.autostartCheckbox.state = LoginItem.enabled ? .on : .off
     self.autostartCheckbox.action = #selector(toggleAutostart(_:))
     self.autostartCheckbox.setButtonType(.switch)
     self.autostartCheckbox.snp.makeConstraints { make in
@@ -153,16 +152,14 @@ class PreferenceWindowController: WindowController, NSTextFieldDelegate {
     let keyBindingData = UserDefaults.standard.dictionary(forKey: UserDefaultsKey.hotKey)
     let keyBinding = KeyBinding(dictionary: keyBindingData)
     self.handleKeyBinding(keyBinding)
-
-    AnalyticsHelper.sharedInstance().recordScreen(withName: "PreferenceWindow")
   }
 
-  func windowShouldClose(_ sender: AnyObject?) -> Bool {
+  func windowShouldClose(_ sender: NSWindow) -> Bool {
     AKHotKeyManager.registerHotKey()
     return true
   }
 
-  override func controlTextDidChange(_ notification: Notification) {
+  func controlTextDidChange(_ notification: Notification) {
     if notification.object as? NSTextField == self.hotKeyTextField {
       self.hotKeyTextField.stringValue = ""
     }
@@ -200,17 +197,10 @@ class PreferenceWindowController: WindowController, NSTextFieldDelegate {
     UserDefaults.standard.set(keyBinding.toDictionary(), forKey: UserDefaultsKey.hotKey)
     UserDefaults.standard.synchronize()
 
-    PopoverController.sharedInstance().contentViewController.updateHotKeyLabel()
-
-    AnalyticsHelper.sharedInstance().recordCachedEvent(
-      withCategory: AnalyticsCategory.preference,
-      action: AnalyticsAction.updateHotKey,
-      label: nil,
-      value: nil
-    )
+    PopoverController.shared.contentViewController.updateHotKeyLabel()
   }
-  
-  func toggleAutostart(_ sender: AnyObject) -> Void {
-    LoginItem.setEnabled(enabled: self.autostartCheckbox.state == NSOnState)
+
+  @objc func toggleAutostart(_ sender: AnyObject) {
+    LoginItem.setEnabled(self.autostartCheckbox.state == .on)
   }
 }

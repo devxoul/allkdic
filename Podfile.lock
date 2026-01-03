@@ -1,25 +1,16 @@
 PODS:
-  - SimpleCocoaAnalytics (0.1.0)
-  - SnapKit (3.0.1)
+  - SnapKit (5.7.1)
 
 DEPENDENCIES:
-  - SimpleCocoaAnalytics (from `https://github.com/stephenlind/SimpleCocoaGoogleAnalytics`, tag `0.1.0`)
-  - SnapKit (~> 3.0)
+  - SnapKit (~> 5.7)
 
-EXTERNAL SOURCES:
-  SimpleCocoaAnalytics:
-    :git: https://github.com/stephenlind/SimpleCocoaGoogleAnalytics
-    :tag: 0.1.0
-
-CHECKOUT OPTIONS:
-  SimpleCocoaAnalytics:
-    :git: https://github.com/stephenlind/SimpleCocoaGoogleAnalytics
-    :tag: 0.1.0
+SPEC REPOS:
+  trunk:
+    - SnapKit
 
 SPEC CHECKSUMS:
-  SimpleCocoaAnalytics: cc95e551884ec851002c668d15b71b8a73e92f56
-  SnapKit: f818b8326d45b4e1c777d0ab27b5c0a3624bfdeb
+  SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
 
-PODFILE CHECKSUM: 23ae5f10937a46544ee0db46effccff18ac6e169
+PODFILE CHECKSUM: 1567ef1e59d130c1b353063f16208803ed1bb95e
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.13.0

@@ -20,24 +20,20 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-
 import Cocoa
 import ServiceManagement
 
-fileprivate let KEY_AUTOSTART = "launch_at_login"
+private let autostartKey = "launch_at_login"
 
-open class LoginItem {
-  
-  class var enabled: Bool {
-    get {
-      return UserDefaults.standard.bool(forKey: KEY_AUTOSTART)
-    }
+final class LoginItem {
+
+  static var enabled: Bool {
+    return UserDefaults.standard.bool(forKey: autostartKey)
   }
 
-  open class func setEnabled(enabled: Bool) {
+  static func setEnabled(_ enabled: Bool) {
     let launcherAppIdentifier = "kr.xoul.allkdic.LauncherApplication"
     SMLoginItemSetEnabled(launcherAppIdentifier as CFString, enabled)
-    
-    UserDefaults.standard.set(enabled, forKey: KEY_AUTOSTART)
+    UserDefaults.standard.set(enabled, forKey: autostartKey)
   }
 }

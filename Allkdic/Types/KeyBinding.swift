@@ -20,26 +20,19 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-private let _dictionaryKeys = ["keyCode", "shift", "control", "option", "command"]
+import Foundation
 
-public func ==(left: KeyBinding, right: KeyBinding) -> Bool {
-  for key in _dictionaryKeys {
-    if left.value(forKey: key) as? Int != right.value(forKey: key) as? Int {
-      return false
-    }
-  }
-  return true
-}
+private let dictionaryKeys = ["keyCode", "shift", "control", "option", "command"]
 
-open class KeyBinding: NSObject {
+@objc public class KeyBinding: NSObject {
 
-  var keyCode: Int = 0
-  var shift: Bool = false
-  var control: Bool = false
-  var option: Bool = false
-  var command: Bool = false
+  @objc dynamic var keyCode: Int = 0
+  @objc dynamic var shift: Bool = false
+  @objc dynamic var control: Bool = false
+  @objc dynamic var option: Bool = false
+  @objc dynamic var command: Bool = false
 
-  override open var description: String {
+  public override var description: String {
     var keys = [String]()
     if self.shift {
       keys.append("Shift")
@@ -85,34 +78,53 @@ open class KeyBinding: NSObject {
 
   @objc public init(dictionary: [AnyHashable: Any]?) {
     super.init()
-    if dictionary == nil {
-      return
-    }
-    for key in _dictionaryKeys {
-      if let value = dictionary![key] as? Int {
+    guard let dictionary = dictionary else { return }
+    for key in dictionaryKeys {
+      if let value = dictionary[key] as? Int {
         self.setValue(value, forKey: key)
       }
     }
   }
 
-  open func toDictionary() -> [String: Int] {
+  @objc public func toDictionary() -> [String: Int] {
     var dictionary = [String: Int]()
-    for key in _dictionaryKeys {
-      dictionary[key] = self.value(forKey: key) as! Int
+    for key in dictionaryKeys {
+      if let value = self.value(forKey: key) as? Int {
+        dictionary[key] = value
+      }
     }
     return dictionary
   }
 
-  open class func keyStringFormKeyCode(_ keyCode: Int) -> String? {
+  @objc public class func keyStringFormKeyCode(_ keyCode: Int) -> String? {
     return keyMap[keyCode]
   }
 
-  open class func keyCodeFormKeyString(_ string: String) -> Int {
+  @objc public class func keyCodeFormKeyString(_ string: String) -> Int {
     for (keyCode, keyString) in keyMap {
       if keyString == string {
         return keyCode
       }
     }
     return NSNotFound
+  }
+
+  public override func isEqual(_ object: Any?) -> Bool {
+    guard let other = object as? KeyBinding else { return false }
+    return self.keyCode == other.keyCode &&
+           self.shift == other.shift &&
+           self.control == other.control &&
+           self.option == other.option &&
+           self.command == other.command
+  }
+
+  public override var hash: Int {
+    var hasher = Hasher()
+    hasher.combine(keyCode)
+    hasher.combine(shift)
+    hasher.combine(control)
+    hasher.combine(option)
+    hasher.combine(command)
+    return hasher.finalize()
   }
 }

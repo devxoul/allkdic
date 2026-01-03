@@ -22,39 +22,38 @@
 
 import Cocoa
 
-import SimpleCocoaAnalytics
+@MainActor
+final class PopoverController: NSObject {
 
-private let _sharedInstance = PopoverController()
+  @objc static let shared = PopoverController()
 
-open class PopoverController: NSObject {
-
-  fileprivate let statusItem = NSStatusBar.system().statusItem(withLength: NSVariableStatusItemLength)
-  fileprivate var statusButton: NSButton {
-    return self.statusItem.value(forKey: "_button") as! NSButton
-  }
-  fileprivate let popover = NSPopover()
-
-  internal let contentViewController = ContentViewController()
-  internal let preferenceWindowController = PreferenceWindowController()
-  internal let aboutWindowController = AboutWindowController()
-
-
-  open class func sharedInstance() -> PopoverController {
-    return _sharedInstance
+  @objc class func sharedInstance() -> PopoverController {
+    return shared
   }
 
+  private let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
+  private var statusButton: NSButton? {
+    return self.statusItem.button
+  }
+  private let popover = NSPopover()
 
-  public override init() {
+  @objc let contentViewController = ContentViewController()
+  let preferenceWindowController = PreferenceWindowController()
+  let aboutWindowController = AboutWindowController()
+
+  private override init() {
     super.init()
+  }
 
+  func setup() {
     let icon = NSImage(named: "statusicon_default")
     icon?.isTemplate = true
-    self.statusItem.image = icon
-    self.statusItem.target = self
-    self.statusItem.action = #selector(PopoverController.open)
+    self.statusItem.button?.image = icon
+    self.statusItem.button?.target = self
+    self.statusItem.button?.action = #selector(PopoverController.open)
 
-    self.statusButton.focusRingType = .none
-    self.statusButton.setButtonType(.pushOnPushOff)
+    self.statusItem.button?.focusRingType = .none
+    self.statusItem.button?.setButtonType(.pushOnPushOff)
 
     self.popover.contentViewController = self.contentViewController
 
@@ -68,45 +67,32 @@ open class PopoverController: NSObject {
     }
   }
 
-  open func open() {
+  @objc func open() {
     if self.popover.isShown {
       self.close()
       return
     }
 
-    self.statusButton.state = NSOnState
+    self.statusItem.button?.state = .on
 
     NSApp.activate(ignoringOtherApps: true)
-    self.popover.show(relativeTo: .zero, of: self.statusButton, preferredEdge: .maxY)
+    if let button = self.statusItem.button {
+      self.popover.show(relativeTo: .zero, of: button, preferredEdge: .maxY)
+    }
     self.contentViewController.updateHotKeyLabel()
     self.contentViewController.focusOnTextArea()
-
-    AnalyticsHelper.sharedInstance().recordScreen(withName: "AllkdicWindow")
-    AnalyticsHelper.sharedInstance().recordCachedEvent(
-      withCategory: AnalyticsCategory.allkdic,
-      action: AnalyticsAction.open,
-      label: nil,
-      value: nil
-    )
   }
 
-  open func close() {
+  @objc func close() {
     if !self.popover.isShown {
       return
     }
 
-    self.statusButton.state = NSOffState
+    self.statusItem.button?.state = .off
     self.popover.close()
-
-    AnalyticsHelper.sharedInstance().recordCachedEvent(
-      withCategory: AnalyticsCategory.allkdic,
-      action: AnalyticsAction.close,
-      label: nil,
-      value: nil
-    )
   }
 
-  open func handleKeyCode(_ keyCode: UInt16, flags: NSEventModifierFlags, windowNumber: Int) {
+  func handleKeyCode(_ keyCode: UInt16, flags: NSEvent.ModifierFlags, windowNumber: Int) {
     let keyBinding = KeyBinding(keyCode: Int(keyCode), flags: Int(flags.rawValue))
 
     if let window = NSApp.window(withWindowNumber: windowNumber) {
