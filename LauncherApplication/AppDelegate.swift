@@ -26,7 +26,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     self.terminate()
   }
 
-  func terminate() {
+  @MainActor func terminate() {
     NSApp.terminate(nil)
   }
 }
