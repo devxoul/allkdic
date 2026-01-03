@@ -56,6 +56,7 @@ final class PopoverController: NSObject {
     self.statusItem.button?.setButtonType(.pushOnPushOff)
 
     self.popover.contentViewController = self.contentViewController
+    self.popover.contentSize = NSSize(width: 420, height: 580)
 
     NSEvent.addGlobalMonitorForEvents(matching: [.leftMouseUp, .leftMouseDown]) { _ in
       self.close()

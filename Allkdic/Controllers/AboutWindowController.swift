@@ -25,134 +25,146 @@ import SnapKit
 
 final class AboutWindowController: WindowController {
 
+  let mainStack = NSStackView()
   let logoView = NSImageView()
   let titleLabel = Label()
   let versionLabel = Label()
+  let buttonStack = NSStackView()
   let appstoreButton = NSButton()
   let viewOnGitHubButton = NSButton()
+  let creditsStack = NSStackView()
+  let separatorView = NSBox()
+  let footerStack = NSStackView()
   let quitButton = NSButton()
   let copyrightLabel = Label()
 
   init() {
-    super.init(windowSize: CGSize(width: 310, height: 408))
+    super.init(windowSize: CGSize(width: 340, height: 420))
     self.window?.title = gettext("about")
 
-    self.contentView.addSubview(logoView)
-    self.contentView.addSubview(titleLabel)
-    self.contentView.addSubview(versionLabel)
-    self.contentView.addSubview(appstoreButton)
-    self.contentView.addSubview(viewOnGitHubButton)
-    self.contentView.addSubview(quitButton)
-    self.contentView.addSubview(copyrightLabel)
+    self.mainStack.orientation = .vertical
+    self.mainStack.spacing = 12
+    self.mainStack.alignment = .centerX
+    self.mainStack.edgeInsets = NSEdgeInsets(top: 64, left: 24, bottom: 24, right: 24)
+    self.contentView.addSubview(self.mainStack)
+    self.mainStack.snp.makeConstraints { make in
+      make.edges.equalToSuperview()
+    }
 
     self.logoView.image = NSImage(named: "AppIcon")
+    self.logoView.imageScaling = .scaleProportionallyUpOrDown
     self.logoView.snp.makeConstraints { make in
-      make.centerX.equalTo(self.contentView)
-      make.top.equalTo(34)
-      make.width.height.equalTo(87)
+      make.width.height.equalTo(96)
     }
+    self.mainStack.addArrangedSubview(self.logoView)
 
-    self.titleLabel.font = NSFont.boldSystemFont(ofSize: 23)
-    self.titleLabel.textColor = NSColor.controlTextColor
+    self.titleLabel.font = NSFont.systemFont(ofSize: 22, weight: .semibold)
+    self.titleLabel.textColor = NSColor.labelColor
     self.titleLabel.stringValue = BundleInfo.bundleName
     self.titleLabel.sizeToFit()
-    self.titleLabel.snp.makeConstraints { make in
-      make.centerX.equalTo(self.contentView)
-      make.top.equalTo(self.logoView.snp.bottom).offset(10)
-    }
+    self.mainStack.addArrangedSubview(self.titleLabel)
+    self.mainStack.setCustomSpacing(12, after: self.logoView)
 
-    self.versionLabel.font = NSFont.systemFont(ofSize: 11)
-    self.versionLabel.textColor = NSColor.headerColor
-    self.versionLabel.stringValue = gettext("version") + ": \(BundleInfo.version)"
+    self.versionLabel.font = NSFont.systemFont(ofSize: 12, weight: .regular)
+    self.versionLabel.textColor = NSColor.secondaryLabelColor
+    self.versionLabel.stringValue = gettext("version") + " \(BundleInfo.version)"
     self.versionLabel.sizeToFit()
-    self.versionLabel.snp.makeConstraints { make in
-      make.centerX.equalTo(self.contentView)
-      make.top.equalTo(self.titleLabel.snp.bottom).offset(10)
-    }
+    self.mainStack.addArrangedSubview(self.versionLabel)
+    self.mainStack.setCustomSpacing(2, after: self.titleLabel)
 
-    self.styleButton(self.appstoreButton)
+    self.buttonStack.orientation = .horizontal
+    self.buttonStack.spacing = 8
+    self.mainStack.addArrangedSubview(self.buttonStack)
+    self.mainStack.setCustomSpacing(16, after: self.versionLabel)
+
+    self.styleButton(self.appstoreButton, primary: true)
     self.appstoreButton.title = gettext("open_in_appstore")
     self.appstoreButton.target = self
     self.appstoreButton.action = #selector(AboutWindowController.openAppStore)
-    self.appstoreButton.snp.makeConstraints { make in
-      make.top.equalTo(self.versionLabel.snp.bottom).offset(15)
-      make.centerX.equalTo(self.contentView)
-      make.width.equalTo(156)
+    self.buttonStack.addArrangedSubview(self.appstoreButton)
+
+    self.styleButton(self.viewOnGitHubButton, primary: false)
+    self.viewOnGitHubButton.title = gettext("view_on_github")
+    self.viewOnGitHubButton.image = NSImage(systemSymbolName: "arrow.up.right", accessibilityDescription: nil)
+    self.viewOnGitHubButton.imagePosition = .imageTrailing
+    self.viewOnGitHubButton.target = self
+    self.viewOnGitHubButton.action = #selector(AboutWindowController.viewOnGitHub)
+    self.buttonStack.addArrangedSubview(self.viewOnGitHubButton)
+
+    self.separatorView.boxType = .separator
+    self.mainStack.addArrangedSubview(self.separatorView)
+    self.separatorView.snp.makeConstraints { make in
+      make.width.equalToSuperview().offset(-48)
     }
+    self.mainStack.setCustomSpacing(16, after: self.buttonStack)
+
+    self.creditsStack.orientation = .vertical
+    self.creditsStack.spacing = 8
+    self.creditsStack.alignment = .leading
+    self.mainStack.addArrangedSubview(self.creditsStack)
+    self.mainStack.setCustomSpacing(16, after: self.separatorView)
 
     let credits = [
       (gettext("credit_developed_by"), gettext("전수열")),
       (gettext("credit_named_by"), gettext("하상욱")),
       (gettext("credit_thanks_to"), gettext("설진석") + gettext("thanks_to_chicken"))
     ]
-    var keyLabels = [Label]()
 
     for (key, value) in credits {
+      let row = NSStackView()
+      row.orientation = .horizontal
+      row.spacing = 8
+      row.alignment = .firstBaseline
+      
       let keyLabel = Label()
-      self.contentView.addSubview(keyLabel)
-      keyLabel.alignment = .right
-      keyLabel.font = NSFont.boldSystemFont(ofSize: NSFont.smallSystemFontSize)
+      keyLabel.font = NSFont.systemFont(ofSize: 11, weight: .medium)
+      keyLabel.textColor = NSColor.secondaryLabelColor
       keyLabel.stringValue = key
+      keyLabel.alignment = .right
       keyLabel.snp.makeConstraints { make in
-        if keyLabels.isEmpty {
-          make.top.equalTo(self.appstoreButton.snp.bottom).offset(15)
-        } else {
-          make.top.equalTo(keyLabels.last!.snp.bottom).offset(8)
-        }
-        make.left.equalTo(10)
-        make.right.equalTo(self.contentView.snp.centerX).offset(-15)
+        make.width.equalTo(80)
       }
-      keyLabels.append(keyLabel)
+      row.addArrangedSubview(keyLabel)
 
       let valueLabel = Label()
-      self.contentView.addSubview(valueLabel)
-      valueLabel.font = NSFont.systemFont(ofSize: NSFont.smallSystemFontSize)
+      valueLabel.font = NSFont.systemFont(ofSize: 11, weight: .regular)
+      valueLabel.textColor = NSColor.labelColor
       valueLabel.stringValue = value
-      valueLabel.snp.makeConstraints { make in
-        make.top.equalTo(keyLabel)
-        make.left.equalTo(keyLabel.snp.right).offset(4)
-        make.right.equalTo(self.contentView).offset(-10)
-      }
+      row.addArrangedSubview(valueLabel)
+
+      self.creditsStack.addArrangedSubview(row)
     }
 
-    self.styleButton(self.viewOnGitHubButton)
-    self.viewOnGitHubButton.title = gettext("view_on_github")
-    self.viewOnGitHubButton.target = self
-    self.viewOnGitHubButton.action = #selector(AboutWindowController.viewOnGitHub)
-    self.viewOnGitHubButton.snp.makeConstraints { make in
-      make.top.equalTo(keyLabels.last!.snp.bottom).offset(15)
-      make.centerX.equalTo(self.contentView)
-      make.width.equalTo(self.appstoreButton)
-    }
+    self.footerStack.orientation = .vertical
+    self.footerStack.spacing = 12
+    self.footerStack.alignment = .centerX
+    self.mainStack.addArrangedSubview(self.footerStack)
+    self.mainStack.setCustomSpacing(20, after: self.creditsStack)
 
-    self.styleButton(self.quitButton)
+    self.styleButton(self.quitButton, primary: false)
     self.quitButton.title = gettext("quit")
     self.quitButton.target = self
     self.quitButton.action = #selector(AboutWindowController.quit)
-    self.quitButton.snp.makeConstraints { make in
-      make.top.equalTo(self.viewOnGitHubButton.snp.bottom).offset(10)
-      make.centerX.equalTo(self.contentView)
-      make.width.equalTo(self.appstoreButton)
-    }
+    self.footerStack.addArrangedSubview(self.quitButton)
 
-    self.copyrightLabel.textColor = NSColor.headerColor
-    self.copyrightLabel.font = NSFont.systemFont(ofSize: 9)
-    self.copyrightLabel.stringValue = "Copyright © 2013 Suyeol Jeon. All Rights Reserved."
-    self.copyrightLabel.snp.makeConstraints { make in
-      make.top.equalTo(self.quitButton.snp.bottom).offset(20)
-      make.centerX.equalTo(self.contentView)
-    }
+    self.copyrightLabel.textColor = NSColor.tertiaryLabelColor
+    self.copyrightLabel.font = NSFont.systemFont(ofSize: 10, weight: .regular)
+    self.copyrightLabel.stringValue = "© 2013-2026 Suyeol Jeon"
+    self.footerStack.addArrangedSubview(self.copyrightLabel)
   }
 
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
 
-  func styleButton(_ button: NSButton) {
+  func styleButton(_ button: NSButton, primary: Bool) {
     button.setButtonType(.momentaryPushIn)
     button.bezelStyle = .rounded
-    button.font = NSFont.systemFont(ofSize: NSFont.systemFontSize(for: .small))
-    button.controlSize = .small
+    button.font = NSFont.systemFont(ofSize: 12, weight: .medium)
+    button.controlSize = .regular
+    if primary {
+      button.keyEquivalent = "\r"
+    }
   }
 
   override func showWindow(_ sender: Any?) {

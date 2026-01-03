@@ -44,13 +44,22 @@ class WindowController: NSWindowController, NSWindowDelegate {
       width: windowSize.width,
       height: windowSize.height
     )
-    let mask: NSWindow.StyleMask = [.titled, .closable]
+    let mask: NSWindow.StyleMask = [.titled, .closable, .fullSizeContentView]
     let window = NSWindow(contentRect: rect, styleMask: mask, backing: .buffered, defer: false)
     super.init(window: window)
 
     window.delegate = self
     window.hasShadow = true
-    window.contentView = NSView()
+    window.titlebarAppearsTransparent = true
+    window.titleVisibility = .visible
+    window.isMovableByWindowBackground = true
+    window.backgroundColor = NSColor.windowBackgroundColor
+    
+    let visualEffectView = NSVisualEffectView()
+    visualEffectView.material = .windowBackground
+    visualEffectView.blendingMode = .behindWindow
+    visualEffectView.state = .active
+    window.contentView = visualEffectView
   }
 
   required init?(coder: NSCoder) {

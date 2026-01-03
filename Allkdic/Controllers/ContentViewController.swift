@@ -26,9 +26,10 @@ import SnapKit
 
 final class ContentViewController: NSViewController {
 
+  let headerView = NSVisualEffectView()
   let titleLabel = LabelButton()
   let hotKeyLabel = Label()
-  let separatorView = NSImageView()
+  let separatorView = NSBox()
   let webView = WKWebView()
   let indicator = NSProgressIndicator(frame: .zero)
   let menuButton = NSButton()
@@ -36,64 +37,78 @@ final class ContentViewController: NSViewController {
   let dictionaryMenu = NSMenu()
 
   override func loadView() {
-    self.view = NSView(frame: CGRect(x: 0, y: 0, width: 405, height: 566))
-    self.view.autoresizingMask = []
-    self.view.appearance = NSAppearance(named: .aqua)
+    let contentSize = CGSize(width: 420, height: 580)
+    self.view = NSView(frame: CGRect(origin: .zero, size: contentSize))
+    self.view.translatesAutoresizingMaskIntoConstraints = false
+    self.preferredContentSize = contentSize
 
-    self.view.addSubview(self.titleLabel)
-    self.titleLabel.textColor = NSColor.controlTextColor
-    self.titleLabel.font = NSFont.systemFont(ofSize: 16)
+    self.view.widthAnchor.constraint(equalToConstant: 420).isActive = true
+    self.view.heightAnchor.constraint(equalToConstant: 580).isActive = true
+
+    self.view.addSubview(self.headerView)
+    self.headerView.material = .headerView
+    self.headerView.blendingMode = .withinWindow
+    self.headerView.state = .active
+    self.headerView.snp.makeConstraints { make in
+      make.top.left.right.equalToSuperview()
+      make.height.equalTo(64)
+    }
+
+    self.headerView.addSubview(self.titleLabel)
+    self.titleLabel.textColor = NSColor.labelColor
+    self.titleLabel.font = NSFont.systemFont(ofSize: 17, weight: .semibold)
     self.titleLabel.stringValue = BundleInfo.bundleName
     self.titleLabel.sizeToFit()
     self.titleLabel.target = self
     self.titleLabel.action = #selector(ContentViewController.navigateToMain)
     self.titleLabel.snp.makeConstraints { make in
-      make.top.equalTo(10)
-      make.centerX.equalTo(0)
+      make.top.equalTo(14)
+      make.centerX.equalToSuperview()
     }
 
-    self.view.addSubview(self.hotKeyLabel)
-    self.hotKeyLabel.textColor = NSColor.headerColor
-    self.hotKeyLabel.font = NSFont.systemFont(ofSize: NSFont.smallSystemFontSize)
+    self.headerView.addSubview(self.hotKeyLabel)
+    self.hotKeyLabel.textColor = NSColor.secondaryLabelColor
+    self.hotKeyLabel.font = NSFont.systemFont(ofSize: 12, weight: .regular)
     self.hotKeyLabel.snp.makeConstraints { make in
-      make.top.equalTo(self.titleLabel.snp.bottom).offset(2)
-      make.centerX.equalTo(0)
+      make.top.equalTo(self.titleLabel.snp.bottom).offset(4)
+      make.centerX.equalToSuperview()
+    }
+
+    self.headerView.addSubview(self.menuButton)
+    self.menuButton.image = NSImage(systemSymbolName: "gearshape", accessibilityDescription: "Settings")
+    self.menuButton.imagePosition = .imageOnly
+    self.menuButton.isBordered = false
+    self.menuButton.contentTintColor = NSColor.secondaryLabelColor
+    self.menuButton.target = self
+    self.menuButton.action = #selector(ContentViewController.showMenu)
+    self.menuButton.snp.makeConstraints { make in
+      make.right.equalTo(-14)
+      make.centerY.equalToSuperview()
+      make.width.height.equalTo(24)
     }
 
     self.view.addSubview(self.separatorView)
-    self.separatorView.image = NSImage(named: "line")
+    self.separatorView.boxType = .separator
     self.separatorView.snp.makeConstraints { make in
-      make.top.equalTo(self.hotKeyLabel.snp.bottom).offset(8)
-      make.left.right.equalTo(0)
-      make.height.equalTo(2)
+      make.top.equalTo(self.headerView.snp.bottom)
+      make.left.right.equalToSuperview()
+      make.height.equalTo(1)
     }
 
     self.view.addSubview(self.webView)
     self.webView.navigationDelegate = self
     self.webView.snp.makeConstraints { make in
       make.top.equalTo(self.separatorView.snp.bottom)
-      make.left.right.bottom.equalTo(0)
+      make.left.right.bottom.equalToSuperview()
     }
 
     self.view.addSubview(self.indicator)
     self.indicator.style = .spinning
-    self.indicator.controlSize = .small
+    self.indicator.controlSize = .regular
     self.indicator.isDisplayedWhenStopped = false
     self.indicator.sizeToFit()
     self.indicator.snp.makeConstraints { make in
       make.center.equalTo(self.webView)
-      return
-    }
-
-    self.view.addSubview(self.menuButton)
-    self.menuButton.title = ""
-    self.menuButton.bezelStyle = .roundedDisclosure
-    self.menuButton.setButtonType(.momentaryPushIn)
-    self.menuButton.target = self
-    self.menuButton.action = #selector(ContentViewController.showMenu)
-    self.menuButton.snp.makeConstraints { make in
-      make.right.equalTo(-10)
-      make.centerY.equalTo(self.separatorView.snp.top).dividedBy(2)
     }
 
     let mainMenuItems = [
@@ -171,7 +186,7 @@ final class ContentViewController: NSViewController {
     self.mainMenu.popUp(
       positioning: self.mainMenu.item(at: 0),
       at: self.menuButton.frame.origin,
-      in: self.view
+      in: self.headerView
     )
   }
 

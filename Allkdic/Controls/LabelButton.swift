@@ -24,15 +24,21 @@ import Cocoa
 
 class LabelButton: Label {
 
-  var normalTextColor: NSColor = NSColor.black
-  var highlightedTextColor: NSColor = NSColor(white: 0.5, alpha: 1)
+  var normalTextColor: NSColor = NSColor.labelColor
+  var highlightedTextColor: NSColor = NSColor.secondaryLabelColor
 
   override func mouseDown(with event: NSEvent) {
-    self.textColor = self.highlightedTextColor
+    NSAnimationContext.runAnimationGroup { context in
+      context.duration = 0.1
+      self.animator().alphaValue = 0.6
+    }
   }
 
   override func mouseUp(with event: NSEvent) {
-    self.textColor = self.normalTextColor
+    NSAnimationContext.runAnimationGroup { context in
+      context.duration = 0.1
+      self.animator().alphaValue = 1.0
+    }
 
     let point = event.locationInWindow
     let rect = self.frame.insetBy(dx: -10, dy: -30)
