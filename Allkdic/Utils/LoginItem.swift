@@ -23,17 +23,25 @@
 import Cocoa
 import ServiceManagement
 
-private let autostartKey = "launch_at_login"
-
 final class LoginItem {
 
+  private static let launcherIdentifier = "kr.xoul.allkdic.LauncherApplication"
+
   static var enabled: Bool {
-    return UserDefaults.standard.bool(forKey: autostartKey)
+    let service = SMAppService.loginItem(identifier: launcherIdentifier)
+    return service.status == .enabled
   }
 
   static func setEnabled(_ enabled: Bool) {
-    let launcherAppIdentifier = "kr.xoul.allkdic.LauncherApplication"
-    SMLoginItemSetEnabled(launcherAppIdentifier as CFString, enabled)
-    UserDefaults.standard.set(enabled, forKey: autostartKey)
+    let service = SMAppService.loginItem(identifier: launcherIdentifier)
+    do {
+      if enabled {
+        try service.register()
+      } else {
+        try service.unregister()
+      }
+    } catch {
+      NSLog("LoginItem setEnabled(\(enabled)) failed: \(error)")
+    }
   }
 }
