@@ -16,8 +16,8 @@ jobs:
 
       - name: Install Tuist
         run: |
-          curl -Ls https://install.tuist.io | bash
-          echo "$HOME/.local/bin" >> $GITHUB_PATH
+          brew tap tuist/tuist
+          brew install --formula tuist
 
       - name: Fetch Dependencies
         run: tuist install
