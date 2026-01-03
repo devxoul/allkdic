@@ -11,12 +11,11 @@
 
 ## 빌드하기
 
-[Bundler](https://bundler.io)를 사용해서 [CocoaPods](https://cocoapods.org)을 설치합니다.
+[Tuist](https://tuist.dev)를 사용해서 프로젝트를 생성합니다.
 
 ```console
-$ [sudo] gem install bundler
-$ bundle install
-$ bundle exec pod install
+$ tuist install
+$ tuist generate
 ```
 
 이후 **`Allkdic.xcworkspace`** 파일을 Xcode로 열어서 빌드할 수 있습니다.

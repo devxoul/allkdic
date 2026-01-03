@@ -1,9 +1,12 @@
 *.xcuserstate
 *.xccheckout
-*.xcworkspace
 xcuserdata
 
-Pods/
+*.xcodeproj
+*.xcworkspace
+
+.build/
+Derived/
 vendor/
 
 .DS_Store
