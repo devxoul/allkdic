@@ -5,7 +5,7 @@ run:
 	@~/Library/Developer/Xcode/DerivedData/Allkdic-*/Build/Products/Debug/Allkdic.app/Contents/MacOS/Allkdic
 
 generate:
-	tuist generate
+	tuist generate --no-open
 
 build:
 	tuist build Allkdic
