@@ -30,7 +30,7 @@ struct PreferencesView: View {
   var body: some View {
     Form {
       Section {
-        HStack {
+        HStack(spacing: 16) {
           Text(gettext("shortcut"))
             .frame(width: 110, alignment: .trailing)
 
@@ -40,8 +40,9 @@ struct PreferencesView: View {
           )
           .frame(width: 180)
         }
+        .frame(height: 28)
 
-        HStack {
+        HStack(spacing: 16) {
           Text(gettext("launch_at_login"))
             .frame(width: 110, alignment: .trailing)
 
@@ -53,9 +54,11 @@ struct PreferencesView: View {
 
           Spacer()
         }
+        .frame(height: 28)
       }
     }
     .formStyle(.grouped)
+    .padding(.vertical, 8)
     .frame(width: 380, height: 160)
     .onAppear {
       loadCurrentKeyBinding()
