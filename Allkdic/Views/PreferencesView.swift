@@ -10,7 +10,7 @@ struct PreferencesView: View {
       Section {
         HStack(spacing: 16) {
           Text(gettext("shortcut"))
-            .frame(width: 110, alignment: .trailing)
+            .frame(width: 140, alignment: .trailing)
 
           HotKeyRecorderView(
             keyBinding: $currentKeyBinding,
@@ -22,7 +22,7 @@ struct PreferencesView: View {
 
         HStack(spacing: 16) {
           Text(gettext("launch_at_login"))
-            .frame(width: 110, alignment: .trailing)
+            .frame(width: 140, alignment: .trailing)
 
           Toggle("", isOn: $launchAtLogin)
             .labelsHidden()
@@ -37,7 +37,7 @@ struct PreferencesView: View {
     }
     .formStyle(.grouped)
     .padding(.vertical, 8)
-    .frame(width: 380, height: 160)
+    .frame(width: 400, height: 160)
     .onAppear {
       loadCurrentKeyBinding()
     }
