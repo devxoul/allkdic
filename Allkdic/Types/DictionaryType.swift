@@ -22,7 +22,7 @@
 
 import Cocoa
 
-public enum DictionaryType: String {
+public enum DictionaryType: String, Hashable, CaseIterable {
 
   case Naver = "Naver"
   case Daum = "Daum"
