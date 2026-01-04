@@ -1,7 +1,7 @@
 # 올ㅋ사전
 
-[<img alt="appstore" height="20" src="https://devimages.apple.com.edgekey.net/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg">](https://itunes.apple.com/kr/app/allkdic/id1033453958?l=en&mt=12)
-[![Release](http://img.shields.io/github/release/devxoul/allkdic.svg?style=flat)](https://github.com/devxoul/allkdic/releases?style=flat)
+[<img alt="appstore" height="20" src="https://tools.applemediaservices.com/api/badges/download-on-the-mac-app-store/black/en-us">](https://itunes.apple.com/kr/app/allkdic/id1033453958?l=en&mt=12)
+[![Release](https://img.shields.io/github/release/devxoul/allkdic.svg?style=flat)](https://github.com/devxoul/allkdic/releases?style=flat)
 
 맥에서 Option + Command + Space를 누르면 영어사전이 뙇!!!!
 
@@ -29,9 +29,10 @@ $ open Allkdic.xcworkspace
 Makefile을 통해 터미널에서 빌드하고 실행할 수 있습니다.
 
 ```console
-$ make build   # 빌드만
-$ make run     # 빌드 후 실행 (로그가 터미널에 출력됨)
-$ make clean   # 빌드 캐시 정리
+$ make generate  # 프로젝트 생성 (tuist generate)
+$ make build     # 빌드만
+$ make run       # 빌드 후 실행 (로그가 터미널에 출력됨)
+$ make clean     # 빌드 캐시 정리
 ```
 
 ## 번역 문자열 관리하기
