@@ -1,1 +1,1 @@
-* Add 'Launch at login' feature.
+Improved stability and performance for the latest macOS.
