@@ -26,6 +26,7 @@ struct HeaderView: View {
   @Binding var selectedDictionary: DictionaryType
   @State private var hotKeyDescription: String = ""
   @Environment(\.openSettings) private var openSettings
+  @Environment(\.openWindow) private var openWindow
 
   var body: some View {
     ZStack {
@@ -68,7 +69,7 @@ struct HeaderView: View {
           }
 
           Button(gettext("preferences") + "...") {
-            openSettings()
+            openPreferences()
           }
           .keyboardShortcut(",", modifiers: .command)
 
@@ -91,6 +92,9 @@ struct HeaderView: View {
     .onAppear {
       updateHotKeyDescription()
     }
+    .onReceive(NotificationCenter.default.publisher(for: .hotKeyDidChange)) { _ in
+      updateHotKeyDescription()
+    }
   }
 
   private func updateHotKeyDescription() {
@@ -100,7 +104,13 @@ struct HeaderView: View {
   }
 
   private func openAboutWindow() {
-    NSApp.sendAction(#selector(AppDelegate.openAboutWindow), to: nil, from: nil)
+    AppDelegate.shared.closePopover()
+    openWindow(id: "about")
+  }
+
+  private func openPreferences() {
+    AppDelegate.shared.closePopover()
+    openSettings()
   }
 }
 

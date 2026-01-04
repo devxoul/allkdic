@@ -29,7 +29,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
   private let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
   private let popover = NSPopover()
-  private var aboutWindow: NSWindow?
   private var eventMonitor: Any?
 
   func applicationDidFinishLaunching(_ notification: Notification) {
@@ -37,13 +36,26 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     setupStatusItem()
     setupPopover()
     setupEventMonitor()
-    AKHotKeyManager.registerHotKey()
+    HotKeyManager.registerHotKey()
+    closeSettingsWindowIfNeeded()
   }
 
   func applicationWillTerminate(_ notification: Notification) {
     UserDefaults.standard.synchronize()
     if let monitor = eventMonitor {
       NSEvent.removeMonitor(monitor)
+    }
+  }
+
+  func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
+    return false
+  }
+
+  private func closeSettingsWindowIfNeeded() {
+    DispatchQueue.main.async {
+      for window in NSApp.windows where window.identifier?.rawValue == "com_apple_SwiftUI_Settings_window" {
+        window.close()
+      }
     }
   }
 
@@ -89,25 +101,5 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     guard popover.isShown else { return }
     statusItem.button?.state = .off
     popover.close()
-  }
-
-  @objc func openAboutWindow() {
-    closePopover()
-    if aboutWindow == nil {
-      let aboutView = AboutView()
-      aboutWindow = NSWindow(
-        contentRect: NSRect(x: 0, y: 0, width: 340, height: 420),
-        styleMask: [.titled, .closable, .fullSizeContentView],
-        backing: .buffered,
-        defer: false
-      )
-      aboutWindow?.title = gettext("about")
-      aboutWindow?.titlebarAppearsTransparent = true
-      aboutWindow?.isMovableByWindowBackground = true
-      aboutWindow?.center()
-      aboutWindow?.contentView = NSHostingView(rootView: aboutView)
-    }
-    aboutWindow?.makeKeyAndOrderFront(nil)
-    NSApp.activate(ignoringOtherApps: true)
   }
 }

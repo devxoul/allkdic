@@ -30,5 +30,12 @@ struct AllkdicApp: App {
     Settings {
       PreferencesView()
     }
+
+    Window(gettext("about"), id: "about") {
+      AboutView()
+    }
+    .windowStyle(.hiddenTitleBar)
+    .windowResizability(.contentSize)
+    .defaultPosition(.center)
   }
 }

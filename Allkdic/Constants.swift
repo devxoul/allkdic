@@ -63,3 +63,7 @@ struct AnalyticsLabel {
   static let russian = "Russian"
   static let spanish = "Spanish"
 }
+
+extension Notification.Name {
+  static let hotKeyDidChange = Notification.Name("hotKeyDidChange")
+}
