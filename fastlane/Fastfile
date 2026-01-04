@@ -1,0 +1,72 @@
+default_platform(:mac)
+
+def tuist_generate
+  sh "cd .. && tuist generate --no-open"
+end
+
+platform :mac do
+  desc "Build the app"
+  lane :build do
+    tuist_generate
+
+    build_mac_app(
+      workspace: "Allkdic.xcworkspace",
+      scheme: "Allkdic",
+      configuration: "Release",
+      clean: true,
+      output_directory: "./build",
+      output_name: "Allkdic.app",
+      export_method: "app-store"
+    )
+  end
+
+  desc "Build and upload to App Store"
+  lane :release do
+    tuist_generate
+
+    build_mac_app(
+      workspace: "Allkdic.xcworkspace",
+      scheme: "Allkdic",
+      configuration: "Release",
+      clean: true,
+      output_directory: "./build",
+      export_method: "app-store"
+    )
+
+    upload_to_app_store(
+      skip_metadata: true,
+      skip_screenshots: true,
+      precheck_include_in_app_purchases: false
+    )
+  end
+
+  desc "Bump version and build number"
+  lane :bump do |options|
+    version = options[:version]
+    UI.user_error!("Usage: fastlane bump version:X.Y.Z") unless version
+
+    plist_path = "../Allkdic/Allkdic-Info.plist"
+
+    # Set version
+    set_info_plist_value(
+      path: plist_path,
+      key: "CFBundleShortVersionString",
+      value: version
+    )
+
+    # Increment build number
+    current_build = get_info_plist_value(
+      path: plist_path,
+      key: "CFBundleVersion"
+    ).to_i
+    new_build = current_build + 1
+
+    set_info_plist_value(
+      path: plist_path,
+      key: "CFBundleVersion",
+      value: new_build.to_s
+    )
+
+    UI.success("Version: #{version}, Build: #{current_build} → #{new_build}")
+  end
+end
