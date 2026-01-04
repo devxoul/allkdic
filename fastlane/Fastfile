@@ -31,9 +31,10 @@ platform :mac do
 
     upload_to_app_store(
       api_key: get_api_key,
-      skip_metadata: true,
-      skip_screenshots: true,
-      precheck_include_in_app_purchases: false
+      skip_metadata: false,
+      skip_screenshots: false,
+      precheck_include_in_app_purchases: false,
+      force: true
     )
   end
 
