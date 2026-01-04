@@ -17,4 +17,5 @@ fastlane/Preview.html
 fastlane/screenshots
 fastlane/test_output
 fastlane/README.md
+fastlane/api_key.json
 build/
