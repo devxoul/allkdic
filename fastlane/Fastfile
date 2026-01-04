@@ -45,7 +45,7 @@ platform :mac do
     version = options[:version]
     UI.user_error!("Usage: fastlane bump version:X.Y.Z") unless version
 
-    plist_path = "../Allkdic/Allkdic-Info.plist"
+    plist_path = "Allkdic/Allkdic-Info.plist"
 
     # Set version
     set_info_plist_value(
@@ -68,5 +68,10 @@ platform :mac do
     )
 
     UI.success("Version: #{version}, Build: #{current_build} → #{new_build}")
+
+    git_commit(
+      path: plist_path,
+      message: "Bump version to #{version} (#{new_build})"
+    )
   end
 end
