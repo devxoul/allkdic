@@ -41,6 +41,8 @@ platform :mac do
       skip_metadata: false,
       skip_screenshots: false,
       precheck_include_in_app_purchases: false,
+      submit_for_review: true,
+      automatic_release: true,
       force: true
     )
   end
