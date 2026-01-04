@@ -5,7 +5,7 @@
 
 맥에서 Option + Command + Space를 누르면 영어사전이 뙇!!!!
 
-![allkdic](https://github.com/devxoul/allkdic/blob/gh-pages/gh-pages/images/screenshots/allkdic-2.png)
+![allkdic](https://github.com/user-attachments/assets/082aec2a-654a-4540-b98a-43081a635532)
 
 ## 빌드 및 실행
 
