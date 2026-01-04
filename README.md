@@ -7,7 +7,7 @@
 
 ![allkdic](https://github.com/devxoul/allkdic/blob/gh-pages/gh-pages/images/screenshots/allkdic-2.png)
 
-## 빌드하기
+## 빌드 및 실행
 
 [Tuist](https://tuist.dev)를 사용해서 프로젝트를 생성합니다.
 
@@ -16,7 +16,23 @@ $ tuist install
 $ tuist generate
 ```
 
-이후 **`Allkdic.xcworkspace`** 파일을 Xcode로 열어서 빌드할 수 있습니다.
+### Xcode 사용
+
+`Allkdic.xcworkspace` 파일을 Xcode로 열어서 빌드하고 실행할 수 있습니다.
+
+```console
+$ open Allkdic.xcworkspace
+```
+
+### CLI 사용
+
+Makefile을 통해 터미널에서 빌드하고 실행할 수 있습니다.
+
+```console
+$ make build   # 빌드만
+$ make run     # 빌드 후 실행 (로그가 터미널에 출력됨)
+$ make clean   # 빌드 캐시 정리
+```
 
 ## 번역 문자열 관리하기
 
