@@ -26,11 +26,9 @@ public enum DictionaryType: String, Hashable, CaseIterable {
 
   case Naver = "Naver"
   case Daum = "Daum"
-  case NaverMobile = "NaverMobile"
-
 
   static var allTypes: [DictionaryType] {
-    return [.Naver, .Daum, .NaverMobile]
+    return [.Naver, .Daum]
   }
 
   static var selectedDictionary: DictionaryType {
@@ -63,7 +61,6 @@ public enum DictionaryType: String, Hashable, CaseIterable {
     switch self {
     case .Naver: return gettext("naver_dictionary")
     case .Daum: return gettext("daum_dictionary")
-    case .NaverMobile: return gettext("naver_mobile_dictionary")
     }
   }
 
@@ -71,7 +68,6 @@ public enum DictionaryType: String, Hashable, CaseIterable {
     switch self {
     case .Naver: return "http://endic.naver.com/popManager.nhn?m=miniPopMain"
     case .Daum: return "http://small.dic.daum.net/"
-    case .NaverMobile: return "http://m.dic.naver.com/"
     }
   }
 
@@ -79,7 +75,6 @@ public enum DictionaryType: String, Hashable, CaseIterable {
     switch self {
     case .Naver: return "[a-z]+(?=\\.naver\\.com)"
     case .Daum: return "(?<=[?&]dic=)[a-z]+"
-    case .NaverMobile: return "(?<=m\\.)[a-z]+(?=\\.naver\\.com)"
     }
   }
 
@@ -87,7 +82,6 @@ public enum DictionaryType: String, Hashable, CaseIterable {
     switch self {
     case .Naver: return "ac_input.focus(); ac_input.select()"
     case .Daum: return "q.focus(); q.select()"
-    case .NaverMobile: return "ac_input.focus(); ac_input.select()"
     }
   }
 
