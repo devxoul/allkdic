@@ -33,7 +33,6 @@ let project = Project(
             entitlements: .file(path: "Allkdic/Allkdic.entitlements"),
             dependencies: [
                 .target(name: "LauncherApplication"),
-                .external(name: "SnapKit"),
                 .sdk(name: "Cocoa", type: .framework),
                 .sdk(name: "WebKit", type: .framework),
                 .sdk(name: "Carbon", type: .framework),
