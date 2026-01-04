@@ -21,15 +21,93 @@
 // SOFTWARE.
 
 import Cocoa
+import SwiftUI
 
+@MainActor
 class AppDelegate: NSObject, NSApplicationDelegate {
+  @objc static private(set) var shared: AppDelegate!
+
+  private let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
+  private let popover = NSPopover()
+  private var aboutWindow: NSWindow?
+  private var eventMonitor: Any?
 
   func applicationDidFinishLaunching(_ notification: Notification) {
-    PopoverController.shared.setup()
+    AppDelegate.shared = self
+    setupStatusItem()
+    setupPopover()
+    setupEventMonitor()
     AKHotKeyManager.registerHotKey()
   }
 
   func applicationWillTerminate(_ notification: Notification) {
     UserDefaults.standard.synchronize()
+    if let monitor = eventMonitor {
+      NSEvent.removeMonitor(monitor)
+    }
+  }
+
+  private func setupStatusItem() {
+    let icon = NSImage(named: "statusicon_default")
+    icon?.isTemplate = true
+    statusItem.button?.image = icon
+    statusItem.button?.target = self
+    statusItem.button?.action = #selector(togglePopover)
+    statusItem.button?.focusRingType = .none
+    statusItem.button?.setButtonType(.pushOnPushOff)
+  }
+
+  private func setupPopover() {
+    let contentView = MenuBarContentView()
+    popover.contentViewController = NSHostingController(rootView: contentView)
+    popover.contentSize = NSSize(width: 420, height: 580)
+    popover.behavior = .transient
+  }
+
+  private func setupEventMonitor() {
+    eventMonitor = NSEvent.addGlobalMonitorForEvents(matching: [.leftMouseUp, .leftMouseDown]) { [weak self] _ in
+      self?.closePopover()
+    }
+  }
+
+  @objc func togglePopover() {
+    if popover.isShown {
+      closePopover()
+    } else {
+      openPopover()
+    }
+  }
+
+  @objc func openPopover() {
+    guard let button = statusItem.button else { return }
+    statusItem.button?.state = .on
+    NSApp.activate(ignoringOtherApps: true)
+    popover.show(relativeTo: .zero, of: button, preferredEdge: .maxY)
+  }
+
+  @objc func closePopover() {
+    guard popover.isShown else { return }
+    statusItem.button?.state = .off
+    popover.close()
+  }
+
+  @objc func openAboutWindow() {
+    closePopover()
+    if aboutWindow == nil {
+      let aboutView = AboutView()
+      aboutWindow = NSWindow(
+        contentRect: NSRect(x: 0, y: 0, width: 340, height: 420),
+        styleMask: [.titled, .closable, .fullSizeContentView],
+        backing: .buffered,
+        defer: false
+      )
+      aboutWindow?.title = gettext("about")
+      aboutWindow?.titlebarAppearsTransparent = true
+      aboutWindow?.isMovableByWindowBackground = true
+      aboutWindow?.center()
+      aboutWindow?.contentView = NSHostingView(rootView: aboutView)
+    }
+    aboutWindow?.makeKeyAndOrderFront(nil)
+    NSApp.activate(ignoringOtherApps: true)
   }
 }

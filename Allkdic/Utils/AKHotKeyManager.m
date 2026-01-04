@@ -79,8 +79,6 @@ EventHotKeyRef hotKeyRef;
 
     RegisterEventHotKey((UInt32)keyBinding.keyCode, hotKeyModifiers, hotKeyId, GetApplicationEventTarget(), 0,
                         &hotKeyRef);
-
-    [[PopoverController sharedInstance].contentViewController updateHotKeyLabel];
 }
 
 + (void)unregisterHotKey
@@ -95,7 +93,7 @@ EventHotKeyRef hotKeyRef;
 
 OSStatus hotKeyHandler(EventHandlerCallRef nextHandler, EventRef theEvent, void *userData)
 {
-    [[PopoverController sharedInstance] open];
+    [AppDelegate.shared openPopover];
     return noErr;
 }
 
