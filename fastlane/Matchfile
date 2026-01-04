@@ -1,0 +1,10 @@
+git_url("https://github.com/devxoul/allkdic-match.git")
+
+storage_mode("git")
+
+type("appstore")
+
+app_identifier("kr.xoul.allkdic")
+team_id("N2C267LBVY")
+
+platform("macos")

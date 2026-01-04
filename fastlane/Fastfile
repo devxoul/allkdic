@@ -20,6 +20,12 @@ platform :mac do
   lane :release do
     tuist_generate
 
+    match(
+      type: "appstore",
+      platform: "macos",
+      api_key: get_api_key
+    )
+
     build_mac_app(
       workspace: "Allkdic.xcworkspace",
       scheme: "Allkdic",
@@ -53,6 +59,15 @@ platform :mac do
   #
   # Download screenshots:
   # bundle exec fastlane deliver download_screenshots --api_key_path ./fastlane/api_key.json --platform osx --use_live_version true
+
+  desc "Sync certificates and profiles"
+  lane :certs do
+    match(
+      type: "appstore",
+      platform: "macos",
+      api_key: get_api_key
+    )
+  end
 
   desc "Bump version and build number"
   lane :bump do |options|
@@ -95,7 +110,8 @@ def tuist_generate
 end
 
 def get_api_key
-  api_key_json = JSON.parse(File.read("./fastlane/api_key.json"))
+  api_key_path = File.join(__dir__, "api_key.json")
+  api_key_json = JSON.parse(File.read(api_key_path))
   app_store_connect_api_key(
     key_id: api_key_json["key_id"],
     issuer_id: api_key_json["issuer_id"],
