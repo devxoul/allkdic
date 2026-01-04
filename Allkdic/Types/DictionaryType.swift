@@ -63,4 +63,17 @@ public enum DictionaryType: String, Hashable, CaseIterable {
     }
   }
 
+  public var customCSS: String? {
+    switch self {
+    case .Naver:
+      return """
+        .Ngnb {
+          display: none !important;
+        }
+        """
+    case .Daum:
+      return nil
+    }
+  }
+
 }

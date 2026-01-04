@@ -62,6 +62,14 @@ private struct WebView: NSViewRepresentable {
 
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
       isLoading = false
+      if let css = dictionary.customCSS {
+        let script = """
+          var style = document.createElement('style');
+          style.textContent = `\(css)`;
+          document.head.appendChild(style);
+          """
+        webView.evaluateJavaScript(script)
+      }
       webView.evaluateJavaScript(dictionary.inputFocusingScript)
     }
 
