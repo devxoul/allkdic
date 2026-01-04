@@ -99,8 +99,9 @@ struct HeaderView: View {
 
   private func updateHotKeyDescription() {
     let keyBindingData = UserDefaults.standard.dictionary(forKey: UserDefaultsKey.hotKey)
-    let keyBinding = KeyBinding(dictionary: keyBindingData)
-    hotKeyDescription = keyBinding.description
+    if let keyBinding = KeyBinding(dictionary: keyBindingData) {
+      hotKeyDescription = keyBinding.description
+    }
   }
 
   private func openAboutWindow() {

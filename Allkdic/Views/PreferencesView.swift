@@ -158,7 +158,7 @@ class HotKeyRecorderField: NSView {
 
     let displayBinding: KeyBinding?
     if isRecording && !currentModifiers.isEmpty {
-      let kb = KeyBinding()
+      var kb = KeyBinding()
       kb.shift = currentModifiers.contains(.shift)
       kb.control = currentModifiers.contains(.control)
       kb.option = currentModifiers.contains(.option)
@@ -219,7 +219,7 @@ class HotKeyRecorderField: NSView {
 
     guard hasModifier else { return }
 
-    let kb = KeyBinding()
+    var kb = KeyBinding()
     kb.shift = flags.contains(.shift)
     kb.control = flags.contains(.control)
     kb.option = flags.contains(.option)

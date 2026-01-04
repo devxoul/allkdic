@@ -86,11 +86,12 @@ enum HotKeyManager {
   }
 
   private static func loadKeyBinding() -> KeyBinding {
-    if let data = UserDefaults.standard.dictionary(forKey: UserDefaultsKey.hotKey) {
-      return KeyBinding(dictionary: data)
+    if let data = UserDefaults.standard.dictionary(forKey: UserDefaultsKey.hotKey),
+       let keyBinding = KeyBinding(dictionary: data) {
+      return keyBinding
     } else {
       print("No existing key setting.")
-      let keyBinding = KeyBinding()
+      var keyBinding = KeyBinding()
       keyBinding.option = true
       keyBinding.command = true
       keyBinding.keyCode = 49

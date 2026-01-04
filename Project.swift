@@ -25,7 +25,7 @@ let project = Project(
             bundleId: "kr.xoul.allkdic",
             deploymentTargets: .macOS("14.0"),
             infoPlist: .file(path: "Allkdic/Allkdic-Info.plist"),
-            sources: ["Allkdic/**/*.swift", "Allkdic/**/*.m"],
+            sources: ["Allkdic/**/*.swift"],
             resources: [
                 "Resources/Images.xcassets",
                 "Resources/Localizable/**",
@@ -42,8 +42,6 @@ let project = Project(
             settings: .settings(
                 base: [
                     "CLANG_ENABLE_MODULES": "YES",
-                    "SWIFT_OBJC_BRIDGING_HEADER": "$(SRCROOT)/Allkdic/Allkdic-Bridging-Header.h",
-                    "HEADER_SEARCH_PATHS": "$(SRCROOT)/Allkdic/Utils",
                     "CODE_SIGN_ENTITLEMENTS": "Allkdic/Allkdic.entitlements",
                     "CODE_SIGN_IDENTITY": "Mac Developer",
                     "OTHER_CODE_SIGN_FLAGS": "--deep",
