@@ -1,0 +1,1 @@
+- Why I disabled ATS? => My app has a webview to provide users 3rd party dictionary contents, which does not fully support https.

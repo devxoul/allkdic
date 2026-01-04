@@ -1,0 +1,10 @@
+Allkdic - A dictionary in status bar.
+
+Press Option + Command + Space. Allkdic will be appeard in your Mac's status bar.
+
+• Naver Dictionary (Command + 1)
+• Daum Dictionary (Command + 2)
+• Naver Mobile Dictionary (Command + 3)
+• Change shortcut (If default shortcut doesn't work, click the icon in status bar to open Allkdic and open Preference in the menu.)
+
+Fork Allkdic on GitHub: https://github.com/devxoul/allkdic
