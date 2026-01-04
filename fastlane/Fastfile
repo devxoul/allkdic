@@ -23,7 +23,8 @@ platform :mac do
     match(
       type: "appstore",
       platform: "macos",
-      api_key: get_api_key
+      api_key: get_api_key,
+      additional_cert_types: ["mac_installer_distribution"]
     )
 
     build_mac_app(
@@ -65,7 +66,8 @@ platform :mac do
     match(
       type: "appstore",
       platform: "macos",
-      api_key: get_api_key
+      api_key: get_api_key,
+      additional_cert_types: ["mac_installer_distribution"]
     )
   end
 
