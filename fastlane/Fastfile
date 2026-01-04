@@ -48,7 +48,10 @@ platform :mac do
   end
 
   # Download metadata:
-  # bundle exec fastlane deliver download_metadata --api_key_path ./fastlane/api_key.json --platform osx
+  # bundle exec fastlane deliver download_metadata --api_key_path ./fastlane/api_key.json --platform osx --use_live_version true
+  #
+  # Download screenshots:
+  # bundle exec fastlane deliver download_screenshots --api_key_path ./fastlane/api_key.json --platform osx --use_live_version true
 
   desc "Bump version and build number"
   lane :bump do |options|
