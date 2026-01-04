@@ -29,7 +29,6 @@ let project = Project(
             resources: [
                 "Resources/Images.xcassets",
                 "Resources/Localizable/**",
-                "Resources/dsa_pub.pem",
             ],
             entitlements: .file(path: "Allkdic/Allkdic.entitlements"),
             dependencies: [
