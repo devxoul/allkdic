@@ -8,6 +8,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   private let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
   private let popover = NSPopover()
   private var eventMonitor: Any?
+  private var preferencesWindow: NSWindow?
+  private var aboutWindow: NSWindow?
+
+  override init() {
+    super.init()
+    UserDefaults.standard.set(false, forKey: "NSQuitAlwaysKeepsWindows")
+  }
 
   func applicationDidFinishLaunching(_ notification: Notification) {
     AppDelegate.shared = self
@@ -15,7 +22,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     setupPopover()
     setupEventMonitor()
     HotKeyManager.registerHotKey()
-    closeSettingsWindowIfNeeded()
   }
 
   func applicationWillTerminate(_ notification: Notification) {
@@ -27,14 +33,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
   func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
     return false
-  }
-
-  private func closeSettingsWindowIfNeeded() {
-    DispatchQueue.main.async {
-      for window in NSApp.windows where window.identifier?.rawValue == "com_apple_SwiftUI_Settings_window" {
-        window.close()
-      }
-    }
   }
 
   private func setupStatusItem() {
@@ -58,6 +56,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     eventMonitor = NSEvent.addGlobalMonitorForEvents(matching: [.leftMouseUp, .leftMouseDown]) { [weak self] _ in
       self?.closePopover()
     }
+    NSEvent.addLocalMonitorForEvents(matching: .keyDown) { [weak self] event in
+      if event.modifierFlags.contains(.command) && event.charactersIgnoringModifiers == "," {
+        self?.closePopover()
+        self?.openPreferencesWindow()
+        return nil
+      }
+      return event
+    }
   }
 
   @objc func togglePopover() {
@@ -79,5 +85,43 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     guard popover.isShown else { return }
     statusItem.button?.state = .off
     popover.close()
+  }
+
+  func openPreferencesWindow() {
+    if preferencesWindow == nil {
+      let hostingView = NSHostingView(rootView: PreferencesView())
+      hostingView.setFrameSize(hostingView.fittingSize)
+      let window = NSWindow(
+        contentRect: NSRect(origin: .zero, size: hostingView.fittingSize),
+        styleMask: [.titled, .closable],
+        backing: .buffered,
+        defer: false
+      )
+      window.title = gettext("preferences")
+      window.contentView = hostingView
+      window.center()
+      preferencesWindow = window
+    }
+    preferencesWindow?.makeKeyAndOrderFront(nil)
+    NSApp.activate(ignoringOtherApps: true)
+  }
+
+  func openAboutWindow() {
+    if aboutWindow == nil {
+      let hostingView = NSHostingView(rootView: AboutView())
+      hostingView.setFrameSize(hostingView.fittingSize)
+      let window = NSWindow(
+        contentRect: NSRect(origin: .zero, size: hostingView.fittingSize),
+        styleMask: [.titled, .closable],
+        backing: .buffered,
+        defer: false
+      )
+      window.title = gettext("about")
+      window.contentView = hostingView
+      window.center()
+      aboutWindow = window
+    }
+    aboutWindow?.makeKeyAndOrderFront(nil)
+    NSApp.activate(ignoringOtherApps: true)
   }
 }

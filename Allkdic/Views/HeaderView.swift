@@ -3,8 +3,7 @@ import SwiftUI
 struct HeaderView: View {
   @Binding var selectedDictionary: DictionaryType
   @State private var hotKeyDescription: String = ""
-  @Environment(\.openSettings) private var openSettings
-  @Environment(\.openWindow) private var openWindow
+
 
   var body: some View {
     ZStack {
@@ -84,12 +83,12 @@ struct HeaderView: View {
 
   private func openAboutWindow() {
     AppDelegate.shared.closePopover()
-    openWindow(id: "about")
+    AppDelegate.shared.openAboutWindow()
   }
 
   private func openPreferences() {
     AppDelegate.shared.closePopover()
-    openSettings()
+    AppDelegate.shared.openPreferencesWindow()
   }
 }
 
