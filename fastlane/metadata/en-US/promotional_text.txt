@@ -1,1 +1,1 @@
-
+Press Option+Cmd+Space to instantly look up words. Supports Naver and Daum dictionaries.
