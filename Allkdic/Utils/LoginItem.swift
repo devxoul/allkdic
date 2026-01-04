@@ -25,20 +25,16 @@ import ServiceManagement
 
 final class LoginItem {
 
-  private static let launcherIdentifier = "kr.xoul.allkdic.LauncherApplication"
-
   static var enabled: Bool {
-    let service = SMAppService.loginItem(identifier: launcherIdentifier)
-    return service.status == .enabled
+    SMAppService.mainApp.status == .enabled
   }
 
   static func setEnabled(_ enabled: Bool) {
-    let service = SMAppService.loginItem(identifier: launcherIdentifier)
     do {
       if enabled {
-        try service.register()
+        try SMAppService.mainApp.register()
       } else {
-        try service.unregister()
+        try SMAppService.mainApp.unregister()
       }
     } catch {
       NSLog("LoginItem setEnabled(\(enabled)) failed: \(error)")
