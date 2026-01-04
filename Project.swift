@@ -37,6 +37,7 @@ let project = Project(
                 .sdk(name: "Carbon", type: .framework),
                 .sdk(name: "Security", type: .framework),
                 .sdk(name: "ServiceManagement", type: .framework),
+                .external(name: "AmplitudeSwift"),
             ],
             settings: .settings(
                 base: [

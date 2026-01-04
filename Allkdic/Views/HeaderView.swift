@@ -25,8 +25,12 @@ struct HeaderView: View {
           Menu(gettext("change_dictionary")) {
             ForEach(Array(DictionaryType.allTypes.enumerated()), id: \.element) { index, dictionary in
               Button {
+                let previous = selectedDictionary
                 selectedDictionary = dictionary
                 DictionaryType.selectedDictionary = dictionary
+                if previous != dictionary {
+                  AnalyticsHelper.shared.trackDictionarySwitched(from: previous, to: dictionary)
+                }
               } label: {
                 HStack {
                   Text(dictionary.title)

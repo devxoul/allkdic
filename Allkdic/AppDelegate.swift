@@ -79,12 +79,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     statusItem.button?.state = .on
     NSApp.activate(ignoringOtherApps: true)
     popover.show(relativeTo: .zero, of: button, preferredEdge: .maxY)
+    AnalyticsHelper.shared.trackAppOpened()
   }
 
   @objc func closePopover() {
     guard popover.isShown else { return }
     statusItem.button?.state = .off
     popover.close()
+    AnalyticsHelper.shared.trackAppClosed()
   }
 
   func openPreferencesWindow() {
@@ -104,6 +106,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     preferencesWindow?.makeKeyAndOrderFront(nil)
     NSApp.activate(ignoringOtherApps: true)
+    AnalyticsHelper.shared.trackPreferencesOpened()
   }
 
   func openAboutWindow() {
@@ -123,5 +126,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     aboutWindow?.makeKeyAndOrderFront(nil)
     NSApp.activate(ignoringOtherApps: true)
+    AnalyticsHelper.shared.trackAboutOpened()
   }
 }

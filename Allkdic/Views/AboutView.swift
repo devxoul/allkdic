@@ -74,12 +74,14 @@ struct AboutView: View {
     let appStoreID = "1033453958"
     if let url = URL(string: "macappstore://itunes.apple.com/app/id\(appStoreID)?mt=12") {
       NSWorkspace.shared.open(url)
+      AnalyticsHelper.shared.trackUpdateChecked()
     }
   }
 
   private func openGitHub() {
     if let url = URL(string: "https://github.com/devxoul/allkdic") {
       NSWorkspace.shared.open(url)
+      AnalyticsHelper.shared.trackGitHubViewed()
     }
   }
 }

@@ -103,6 +103,7 @@ struct HotKeyRecorderRepresentable: NSViewRepresentable {
           parent.keyBinding = kb
           UserDefaults.standard.set(dict, forKey: UserDefaultsKey.hotKey)
           NotificationCenter.default.post(name: .hotKeyDidChange, object: nil)
+          AnalyticsHelper.shared.trackHotkeyUpdated()
         }
         HotKeyManager.registerHotKey()
       }

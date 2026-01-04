@@ -12,36 +12,6 @@ struct BundleInfo {
   @objc class var selectedDictionaryName: String { return "SelectedDictionaryName" }
 }
 
-
-// MARK: - Google Analytics
-
-struct AnalyticsCategory {
-  static let allkdic = "Allkdic"
-  static let preference = "Preference"
-  static let about = "About"
-}
-
-struct AnalyticsAction {
-  static let open = "Open"
-  static let close = "Close"
-  static let dictionary = "Dictionary" // Use `DictionaryName` as Label
-  static let search = "Search"
-  static let updateHotKey = "UpdateHotKey"
-  static let checkForUpdate = "CheckForUpdate"
-  static let viewOnGitHub = "ViewOnGitHub"
-}
-
-struct AnalyticsLabel {
-  static let english = "English"
-  static let korean = "Korean"
-  static let hanja = "Hanja"
-  static let japanese = "Japanese"
-  static let chinese = "Chinese"
-  static let french = "French"
-  static let russian = "Russian"
-  static let spanish = "Spanish"
-}
-
 extension Notification.Name {
   static let hotKeyDidChange = Notification.Name("hotKeyDidChange")
 }

@@ -21,8 +21,12 @@ struct MenuBarContentView: View {
       let allTypes = DictionaryType.allTypes
       for (index, dictionary) in allTypes.enumerated() {
         if event.charactersIgnoringModifiers == "\(index + 1)" {
+          let previous = selectedDictionary
           selectedDictionary = dictionary
           DictionaryType.selectedDictionary = dictionary
+          if previous != dictionary {
+            AnalyticsHelper.shared.trackDictionarySwitched(from: previous, to: dictionary)
+          }
           return nil
         }
       }
