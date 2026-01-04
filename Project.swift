@@ -32,7 +32,6 @@ let project = Project(
             ],
             entitlements: .file(path: "Allkdic/Allkdic.entitlements"),
             dependencies: [
-                .target(name: "LauncherApplication"),
                 .sdk(name: "Cocoa", type: .framework),
                 .sdk(name: "WebKit", type: .framework),
                 .sdk(name: "Carbon", type: .framework),
@@ -65,30 +64,6 @@ let project = Project(
                 base: [
                     "BUNDLE_LOADER": "$(TEST_HOST)",
                     "TEST_HOST": "$(BUILT_PRODUCTS_DIR)/Allkdic.app/Contents/MacOS/Allkdic",
-                ]
-            )
-        ),
-        .target(
-            name: "LauncherApplication",
-            destinations: .macOS,
-            product: .app,
-            bundleId: "kr.xoul.allkdic.LauncherApplication",
-            deploymentTargets: .macOS("14.0"),
-            infoPlist: .file(path: "LauncherApplication/Info.plist"),
-            sources: ["LauncherApplication/**/*.swift"],
-            resources: [
-                "LauncherApplication/Assets.xcassets",
-                "LauncherApplication/Base.lproj/Main.storyboard",
-            ],
-            entitlements: .file(path: "LauncherApplication/LauncherApplication.entitlements"),
-            settings: .settings(
-                base: [
-                    "CLANG_ENABLE_MODULES": "YES",
-                    "CODE_SIGN_ENTITLEMENTS": "LauncherApplication/LauncherApplication.entitlements",
-                    "CODE_SIGN_IDENTITY": "Mac Developer",
-                    "ASSETCATALOG_COMPILER_APPICON_NAME": "AppIcon",
-                    "COMBINE_HIDPI_IMAGES": "YES",
-                    "SKIP_INSTALL": "YES",
                 ]
             )
         ),
