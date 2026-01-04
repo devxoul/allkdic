@@ -32,37 +32,35 @@ struct AboutView: View {
   }
 
   var body: some View {
-    VStack(spacing: 12) {
+    VStack(spacing: 8) {
       Image(nsImage: NSApp.applicationIconImage)
         .resizable()
         .frame(width: 96, height: 96)
 
-      Text(BundleInfo.bundleName)
-        .font(.system(size: 22, weight: .semibold))
+      VStack(spacing: 4) {
+        Text(BundleInfo.bundleName)
+          .font(.system(size: 22, weight: .semibold))
+        
+        Text("\(gettext("version")) \(BundleInfo.version)")
+          .font(.system(size: 12))
+          .foregroundStyle(.secondary)
+      }
 
-      Text("\(gettext("version")) \(BundleInfo.version)")
-        .font(.system(size: 12))
-        .foregroundStyle(.secondary)
-
-      HStack(spacing: 8) {
+      VStack(spacing: 8) {
         Button(gettext("open_in_appstore")) {
           openAppStore()
         }
         .keyboardShortcut(.return, modifiers: [])
 
-        Button {
+        Button(gettext("view_on_github")) {
           openGitHub()
-        } label: {
-          HStack(spacing: 4) {
-            Text(gettext("view_on_github"))
-            Image(systemName: "arrow.up.right")
-          }
         }
       }
-      .padding(.top, 4)
+      .padding(.top, 8)
 
       Divider()
         .padding(.horizontal, 24)
+        .padding(.vertical, 8)
 
       VStack(alignment: .leading, spacing: 8) {
         ForEach(credits, id: \.0) { key, value in
@@ -73,23 +71,25 @@ struct AboutView: View {
               .frame(width: 80, alignment: .trailing)
             Text(value)
               .font(.system(size: 11))
+              .fixedSize(horizontal: false, vertical: true)
           }
         }
       }
-
-      Spacer()
+      .frame(maxWidth: 280)
 
       Button(gettext("quit")) {
         NSApplication.shared.terminate(nil)
       }
+      .padding(.vertical, 16)
 
       Text("© 2013-2026 Suyeol Jeon")
         .font(.system(size: 10))
         .foregroundStyle(.tertiary)
     }
-    .padding(.top, 40)
+    .padding(.top, 8)
     .padding(.bottom, 24)
-    .frame(width: 340, height: 420)
+    .frame(width: 300)
+    .fixedSize(horizontal: false, vertical: true)
   }
 
   private func openAppStore() {
