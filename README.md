@@ -35,16 +35,6 @@ $ make run       # 빌드 후 실행 (로그가 터미널에 출력됨)
 $ make clean     # 빌드 캐시 정리
 ```
 
-## 번역 문자열 관리하기
-
-번역 문자열 관리 도구로 [POEditor](https://poeditor.com/)를 사용합니다. 여러분도 [직접 번역에 참여](https://poeditor.com/join/project/Q3GgzshlCz)하실 수 있습니다.
-
-POEditor에 있는 문자열은 [poeditor-cli](https://github.com/StyleShare/poeditor-cli)를 사용해서 프로젝트로 받아옵니다.
-
-```console
-$ bundle exec poeditor pull
-```
-
 ## 라이센스
 
 올ㅋ사전은 MIT 라이센스 하에 배포됩니다.
