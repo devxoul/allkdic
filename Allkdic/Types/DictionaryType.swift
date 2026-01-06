@@ -44,8 +44,8 @@ public enum DictionaryType: String, Hashable, CaseIterable {
 
   public var URLString: String {
     switch self {
-    case .Naver: return "http://endic.naver.com/popManager.nhn?m=miniPopMain"
-    case .Daum: return "http://small.dic.daum.net/"
+    case .Naver: return "https://en.dict.naver.com/#/mini/main"
+    case .Daum: return "https://small.dic.daum.net/top/search.do?dic=all"
     }
   }
 
