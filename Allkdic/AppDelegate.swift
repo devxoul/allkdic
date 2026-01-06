@@ -79,6 +79,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     statusItem.button?.state = .on
     NSApp.activate(ignoringOtherApps: true)
     popover.show(relativeTo: .zero, of: button, preferredEdge: .maxY)
+    NotificationCenter.default.post(name: .popoverDidOpen, object: nil)
     AnalyticsHelper.shared.trackAppOpened()
   }
 

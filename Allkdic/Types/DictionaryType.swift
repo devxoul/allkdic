@@ -58,8 +58,16 @@ public enum DictionaryType: String, Hashable, CaseIterable {
 
   public var inputFocusingScript: String {
     switch self {
-    case .Naver: return "ac_input.focus(); ac_input.select()"
-    case .Daum: return "q.focus(); q.select()"
+    case .Naver:
+      return """
+        var input = document.getElementById('gnb_svc_search_input');
+        if (input) { input.focus(); input.select(); }
+        """
+    case .Daum:
+      return """
+        var input = document.getElementById('q');
+        if (input) { input.focus(); input.select(); }
+        """
     }
   }
 

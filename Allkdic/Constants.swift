@@ -14,4 +14,5 @@ struct BundleInfo {
 
 extension Notification.Name {
   static let hotKeyDidChange = Notification.Name("hotKeyDidChange")
+  static let popoverDidOpen = Notification.Name("popoverDidOpen")
 }

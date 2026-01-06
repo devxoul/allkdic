@@ -25,11 +25,13 @@ private struct WebView: NSViewRepresentable {
   func makeNSView(context: Context) -> WKWebView {
     let webView = WKWebView()
     webView.navigationDelegate = context.coordinator
+    context.coordinator.webView = webView
     loadIfNeeded(webView, context: context)
     return webView
   }
 
   func updateNSView(_ webView: WKWebView, context: Context) {
+    context.coordinator.dictionary = dictionary
     loadIfNeeded(webView, context: context)
   }
 
@@ -46,14 +48,41 @@ private struct WebView: NSViewRepresentable {
     Coordinator(isLoading: $isLoading, dictionary: dictionary)
   }
 
+  @MainActor
   class Coordinator: NSObject, WKNavigationDelegate {
     @Binding var isLoading: Bool
     var dictionary: DictionaryType
     var lastLoadedURL: String?
+    weak var webView: WKWebView?
+    private nonisolated(unsafe) var popoverObserver: NSObjectProtocol?
 
     init(isLoading: Binding<Bool>, dictionary: DictionaryType) {
       self._isLoading = isLoading
       self.dictionary = dictionary
+      super.init()
+      setupPopoverObserver()
+    }
+
+    deinit {
+      if let observer = popoverObserver {
+        NotificationCenter.default.removeObserver(observer)
+      }
+    }
+
+    private func setupPopoverObserver() {
+      popoverObserver = NotificationCenter.default.addObserver(
+        forName: .popoverDidOpen,
+        object: nil,
+        queue: .main
+      ) { [weak self] _ in
+        Task { @MainActor in
+          self?.focusInput()
+        }
+      }
+    }
+
+    private func focusInput() {
+      webView?.evaluateJavaScript(dictionary.inputFocusingScript)
     }
 
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
@@ -70,7 +99,7 @@ private struct WebView: NSViewRepresentable {
           """
         webView.evaluateJavaScript(script)
       }
-      webView.evaluateJavaScript(dictionary.inputFocusingScript)
+      focusInput()
     }
 
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
