@@ -1,1 +1,3 @@
 Improved stability and performance for the latest macOS.
+
+• Removed unnecessary beep sound when pressing enter key while searching.
