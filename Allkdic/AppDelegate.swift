@@ -80,14 +80,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     NSApp.activate(ignoringOtherApps: true)
     popover.show(relativeTo: .zero, of: button, preferredEdge: .maxY)
     NotificationCenter.default.post(name: .popoverDidOpen, object: nil)
-    AnalyticsHelper.shared.trackAppOpened()
   }
 
   @objc func closePopover() {
     guard popover.isShown else { return }
     statusItem.button?.state = .off
     popover.close()
-    AnalyticsHelper.shared.trackAppClosed()
   }
 
   func openPreferencesWindow() {
