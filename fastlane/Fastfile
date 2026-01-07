@@ -43,7 +43,17 @@ platform :mac do
       precheck_include_in_app_purchases: false,
       submit_for_review: true,
       automatic_release: true,
-      force: true
+      force: true,
+      submission_information: {
+        add_id_info_uses_idfa: false,
+        add_id_info_serves_ads: false,
+        add_id_info_tracks_install: false,
+        add_id_info_tracks_action: true,  # Amplitude analytics
+        add_id_info_limits_tracking: true,
+        content_rights_contains_third_party_content: true,  # Naver/Daum dictionary
+        content_rights_has_rights: true,
+        export_compliance_uses_encryption: false,
+      }
     )
   end
 
