@@ -32,16 +32,6 @@ final class AnalyticsHelper: @unchecked Sendable {
 }
 
 extension AnalyticsHelper {
-  func trackAppOpened() {
-    amplitude.track(eventType: "App Opened", eventProperties: [
-      "Dictionary": DictionaryType.selectedDictionary.name
-    ])
-  }
-
-  func trackAppClosed() {
-    amplitude.track(eventType: "App Closed")
-  }
-
   func trackSearchSubmitted(dictionary: DictionaryType) {
     amplitude.track(eventType: "Search Submitted", eventProperties: [
       "Dictionary": dictionary.name
