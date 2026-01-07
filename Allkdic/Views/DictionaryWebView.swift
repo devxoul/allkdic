@@ -32,6 +32,7 @@ private struct WebView: NSViewRepresentable {
   func makeNSView(context: Context) -> WKWebView {
     let webView = NoBeepWebView()
     webView.navigationDelegate = context.coordinator
+    webView.uiDelegate = context.coordinator
     context.coordinator.webView = webView
     loadIfNeeded(webView, context: context)
     return webView
@@ -56,7 +57,7 @@ private struct WebView: NSViewRepresentable {
   }
 
   @MainActor
-  class Coordinator: NSObject, WKNavigationDelegate {
+  class Coordinator: NSObject, WKNavigationDelegate, WKUIDelegate {
     @Binding var isLoading: Bool
     var dictionary: DictionaryType
     var lastLoadedURL: String?
@@ -115,6 +116,18 @@ private struct WebView: NSViewRepresentable {
 
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
       isLoading = false
+    }
+
+    func webView(
+      _ webView: WKWebView,
+      createWebViewWith configuration: WKWebViewConfiguration,
+      for navigationAction: WKNavigationAction,
+      windowFeatures: WKWindowFeatures
+    ) -> WKWebView? {
+      if let url = navigationAction.request.url {
+        NSWorkspace.shared.open(url)
+      }
+      return nil
     }
   }
 }
