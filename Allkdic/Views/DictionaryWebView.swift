@@ -18,12 +18,19 @@ struct DictionaryWebView: View {
   }
 }
 
+private final class NoBeepWebView: WKWebView {
+  override func performKeyEquivalent(with event: NSEvent) -> Bool {
+    if event.keyCode == 36 || event.keyCode == 76 { return true }
+    return super.performKeyEquivalent(with: event)
+  }
+}
+
 private struct WebView: NSViewRepresentable {
   let dictionary: DictionaryType
   @Binding var isLoading: Bool
 
   func makeNSView(context: Context) -> WKWebView {
-    let webView = WKWebView()
+    let webView = NoBeepWebView()
     webView.navigationDelegate = context.coordinator
     context.coordinator.webView = webView
     loadIfNeeded(webView, context: context)
