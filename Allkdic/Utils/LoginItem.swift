@@ -1,8 +1,7 @@
 import Cocoa
 import ServiceManagement
 
-final class LoginItem {
-
+enum LoginItem {
   static var enabled: Bool {
     SMAppService.mainApp.status == .enabled
   }

@@ -1,8 +1,7 @@
-import XCTest
 @testable import Allkdic
+import XCTest
 
 final class KeyBindingTests: XCTestCase {
-
   // MARK: - description
 
   func test_description_withAllModifiers() {
@@ -103,7 +102,7 @@ final class KeyBindingTests: XCTestCase {
       "shift": 1,
       "control": 0,
       "option": 1,
-      "command": 1
+      "command": 1,
     ]
     let binding = KeyBinding(dictionary: dict)
     XCTAssertNotNil(binding)
@@ -120,7 +119,7 @@ final class KeyBindingTests: XCTestCase {
       "shift": true,
       "control": false,
       "option": true,
-      "command": true
+      "command": true,
     ]
     let binding = KeyBinding(dictionary: dict)
     XCTAssertNotNil(binding)
@@ -137,7 +136,7 @@ final class KeyBindingTests: XCTestCase {
       "shift": 1,
       "control": false,
       "option": true,
-      "command": 0
+      "command": 0,
     ]
     let binding = KeyBinding(dictionary: dict)
     XCTAssertNotNil(binding)

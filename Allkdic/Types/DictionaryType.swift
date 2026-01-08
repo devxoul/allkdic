@@ -1,18 +1,17 @@
 import Cocoa
 
 public enum DictionaryType: String, Hashable, CaseIterable {
-
-  case Naver = "Naver"
-  case Daum = "Daum"
+  case Naver
+  case Daum
 
   static var allTypes: [DictionaryType] {
-    return [.Naver, .Daum]
+    [.Naver, .Daum]
   }
 
   static var selectedDictionary: DictionaryType {
     get {
       if let name = UserDefaults.standard.string(forKey: UserDefaultsKey.selectedDictionaryName),
-        let dict = DictionaryType(name: name) {
+         let dict = DictionaryType(name: name) {
         return dict
       }
       self.selectedDictionary = .Naver
@@ -25,63 +24,60 @@ public enum DictionaryType: String, Hashable, CaseIterable {
     }
   }
 
-
   public init?(name: String) {
     self.init(rawValue: name)
   }
 
-
   public var name: String {
-    return self.rawValue
+    rawValue
   }
 
   public var title: String {
     switch self {
-    case .Naver: return gettext("naver_dictionary")
-    case .Daum: return gettext("daum_dictionary")
+    case .Naver: gettext("naver_dictionary")
+    case .Daum: gettext("daum_dictionary")
     }
   }
 
   public var URLString: String {
     switch self {
-    case .Naver: return "https://en.dict.naver.com/#/mini/main"
-    case .Daum: return "https://small.dic.daum.net/top/search.do?dic=all"
+    case .Naver: "https://en.dict.naver.com/#/mini/main"
+    case .Daum: "https://small.dic.daum.net/top/search.do?dic=all"
     }
   }
 
   public var URLPattern: String {
     switch self {
-    case .Naver: return "[a-z]+(?=\\.naver\\.com)"
-    case .Daum: return "(?<=[?&]dic=)[a-z]+"
+    case .Naver: "[a-z]+(?=\\.naver\\.com)"
+    case .Daum: "(?<=[?&]dic=)[a-z]+"
     }
   }
 
   public var inputFocusingScript: String {
     switch self {
     case .Naver:
-      return """
-        var input = document.getElementById('gnb_svc_search_input');
-        if (input) { input.focus(); input.select(); }
-        """
+      """
+      var input = document.getElementById('gnb_svc_search_input');
+      if (input) { input.focus(); input.select(); }
+      """
     case .Daum:
-      return """
-        var input = document.getElementById('q');
-        if (input) { input.focus(); input.select(); }
-        """
+      """
+      var input = document.getElementById('q');
+      if (input) { input.focus(); input.select(); }
+      """
     }
   }
 
   public var customCSS: String? {
     switch self {
     case .Naver:
-      return """
-        .Ngnb {
-          display: none !important;
-        }
-        """
+      """
+      .Ngnb {
+        display: none !important;
+      }
+      """
     case .Daum:
-      return nil
+      nil
     }
   }
-
 }

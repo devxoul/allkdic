@@ -13,8 +13,8 @@ struct PreferencesView: View {
             .frame(width: 140, alignment: .trailing)
 
           HotKeyRecorderView(
-            keyBinding: $currentKeyBinding,
-            isRecording: $isRecordingHotKey
+            keyBinding: self.$currentKeyBinding,
+            isRecording: self.$isRecordingHotKey
           )
           .frame(width: 180)
         }
@@ -24,9 +24,9 @@ struct PreferencesView: View {
           Text(gettext("launch_at_login"))
             .frame(width: 140, alignment: .trailing)
 
-          Toggle("", isOn: $launchAtLogin)
+          Toggle("", isOn: self.$launchAtLogin)
             .labelsHidden()
-            .onChange(of: launchAtLogin) { _, newValue in
+            .onChange(of: self.launchAtLogin) { _, newValue in
               LoginItem.setEnabled(newValue)
             }
 
@@ -39,13 +39,13 @@ struct PreferencesView: View {
     .padding(.vertical, 8)
     .frame(width: 400, height: 160)
     .onAppear {
-      loadCurrentKeyBinding()
+      self.loadCurrentKeyBinding()
     }
   }
 
   private func loadCurrentKeyBinding() {
     let keyBindingData = UserDefaults.standard.dictionary(forKey: UserDefaultsKey.hotKey)
-    currentKeyBinding = KeyBinding(dictionary: keyBindingData)
+    self.currentKeyBinding = KeyBinding(dictionary: keyBindingData)
   }
 }
 
@@ -54,7 +54,7 @@ struct HotKeyRecorderView: View {
   @Binding var isRecording: Bool
 
   var body: some View {
-    HotKeyRecorderRepresentable(keyBinding: $keyBinding, isRecording: $isRecording)
+    HotKeyRecorderRepresentable(keyBinding: self.$keyBinding, isRecording: self.$isRecording)
       .frame(height: 28)
   }
 }
@@ -66,13 +66,13 @@ struct HotKeyRecorderRepresentable: NSViewRepresentable {
   func makeNSView(context: Context) -> HotKeyRecorderField {
     let field = HotKeyRecorderField()
     field.delegate = context.coordinator
-    field.keyBinding = keyBinding
+    field.keyBinding = self.keyBinding
     return field
   }
 
-  func updateNSView(_ nsView: HotKeyRecorderField, context: Context) {
-    nsView.keyBinding = keyBinding
-    nsView.isRecording = isRecording
+  func updateNSView(_ nsView: HotKeyRecorderField, context _: Context) {
+    nsView.keyBinding = self.keyBinding
+    nsView.isRecording = self.isRecording
     nsView.needsDisplay = true
   }
 
@@ -88,19 +88,19 @@ struct HotKeyRecorderRepresentable: NSViewRepresentable {
       self.parent = parent
     }
 
-    nonisolated func hotKeyRecorderFieldDidStartRecording(_ field: HotKeyRecorderField) {
+    nonisolated func hotKeyRecorderFieldDidStartRecording(_: HotKeyRecorderField) {
       Task { @MainActor in
-        parent.isRecording = true
+        self.parent.isRecording = true
       }
     }
 
-    nonisolated func hotKeyRecorderFieldDidEndRecording(_ field: HotKeyRecorderField, keyBinding: KeyBinding?) {
+    nonisolated func hotKeyRecorderFieldDidEndRecording(_: HotKeyRecorderField, keyBinding: KeyBinding?) {
       let dict = keyBinding?.toDictionary()
       Task { @MainActor in
-        parent.isRecording = false
-        if let dict = dict {
+        self.parent.isRecording = false
+        if let dict {
           let kb = KeyBinding(dictionary: dict)
-          parent.keyBinding = kb
+          self.parent.keyBinding = kb
           UserDefaults.standard.set(dict, forKey: UserDefaultsKey.hotKey)
           NotificationCenter.default.post(name: .hotKeyDidChange, object: nil)
           AnalyticsHelper.shared.trackHotkeyUpdated()
@@ -127,55 +127,55 @@ class HotKeyRecorderField: NSView {
 
   override var acceptsFirstResponder: Bool { true }
 
-  override func draw(_ dirtyRect: NSRect) {
-    let bgColor: NSColor = isRecording ? NSColor.controlAccentColor.withAlphaComponent(0.15) : .controlBackgroundColor
+  override func draw(_: NSRect) {
+    let bgColor: NSColor = self.isRecording ? NSColor.controlAccentColor.withAlphaComponent(0.15) : .controlBackgroundColor
     bgColor.setFill()
     let path = NSBezierPath(roundedRect: bounds, xRadius: 6, yRadius: 6)
     path.fill()
 
-    let borderColor: NSColor = isRecording ? .controlAccentColor : .separatorColor
+    let borderColor: NSColor = self.isRecording ? .controlAccentColor : .separatorColor
     borderColor.setStroke()
     path.lineWidth = 1
     path.stroke()
 
     let displayBinding: KeyBinding?
-    if isRecording && !currentModifiers.isEmpty {
+    if self.isRecording, !self.currentModifiers.isEmpty {
       var kb = KeyBinding()
-      kb.shift = currentModifiers.contains(.shift)
-      kb.control = currentModifiers.contains(.control)
-      kb.option = currentModifiers.contains(.option)
-      kb.command = currentModifiers.contains(.command)
-      kb.keyCode = keyBinding?.keyCode ?? 0
+      kb.shift = self.currentModifiers.contains(.shift)
+      kb.control = self.currentModifiers.contains(.control)
+      kb.option = self.currentModifiers.contains(.option)
+      kb.command = self.currentModifiers.contains(.command)
+      kb.keyCode = self.keyBinding?.keyCode ?? 0
       displayBinding = kb
     } else {
-      displayBinding = keyBinding
+      displayBinding = self.keyBinding
     }
-    
+
     let symbols: [(String, Bool)] = [
       ("⇧", displayBinding?.shift ?? false),
       ("⌃", displayBinding?.control ?? false),
       ("⌥", displayBinding?.option ?? false),
-      ("⌘", displayBinding?.command ?? false)
+      ("⌘", displayBinding?.command ?? false),
     ]
-    
+
     let attributedString = NSMutableAttributedString()
-    
+
     for (symbol, isActive) in symbols {
       let color: NSColor = isActive ? .labelColor : .tertiaryLabelColor
       attributedString.append(NSAttributedString(string: symbol + " ", attributes: [
         .font: NSFont.systemFont(ofSize: 14, weight: .medium),
-        .foregroundColor: color
+        .foregroundColor: color,
       ]))
     }
-    
+
     if let keyCode = displayBinding?.keyCode,
        let keyString = KeyBinding.keyStringFormKeyCode(keyCode) {
       attributedString.append(NSAttributedString(string: keyString.capitalized, attributes: [
         .font: NSFont.systemFont(ofSize: 13, weight: .medium),
-        .foregroundColor: NSColor.labelColor
+        .foregroundColor: NSColor.labelColor,
       ]))
     }
-    
+
     let rect = attributedString.boundingRect(with: bounds.size, options: [])
     let origin = NSPoint(
       x: 10,
@@ -184,20 +184,20 @@ class HotKeyRecorderField: NSView {
     attributedString.draw(at: origin)
   }
 
-  override func mouseDown(with event: NSEvent) {
-    if isRecording {
-      stopRecording(with: nil)
+  override func mouseDown(with _: NSEvent) {
+    if self.isRecording {
+      self.stopRecording(with: nil)
     } else {
-      startRecording()
+      self.startRecording()
     }
   }
 
   override func keyDown(with event: NSEvent) {
-    guard isRecording else { return }
+    guard self.isRecording else { return }
 
     let flags = event.modifierFlags.intersection(.deviceIndependentFlagsMask)
     let hasModifier = flags.contains(.shift) || flags.contains(.control) ||
-                      flags.contains(.option) || flags.contains(.command)
+      flags.contains(.option) || flags.contains(.command)
 
     guard hasModifier else { return }
 
@@ -208,27 +208,27 @@ class HotKeyRecorderField: NSView {
     kb.command = flags.contains(.command)
     kb.keyCode = Int(event.keyCode)
 
-    stopRecording(with: kb)
+    self.stopRecording(with: kb)
   }
 
   override func flagsChanged(with event: NSEvent) {
-    guard isRecording else { return }
-    currentModifiers = event.modifierFlags.intersection(.deviceIndependentFlagsMask)
+    guard self.isRecording else { return }
+    self.currentModifiers = event.modifierFlags.intersection(.deviceIndependentFlagsMask)
     needsDisplay = true
   }
 
   private func startRecording() {
     HotKeyManager.unregisterHotKey()
-    isRecording = true
-    currentModifiers = []
+    self.isRecording = true
+    self.currentModifiers = []
     window?.makeFirstResponder(self)
-    delegate?.hotKeyRecorderFieldDidStartRecording(self)
+    self.delegate?.hotKeyRecorderFieldDidStartRecording(self)
   }
 
   private func stopRecording(with keyBinding: KeyBinding?) {
-    isRecording = false
-    currentModifiers = []
-    delegate?.hotKeyRecorderFieldDidEndRecording(self, keyBinding: keyBinding)
+    self.isRecording = false
+    self.currentModifiers = []
+    self.delegate?.hotKeyRecorderFieldDidEndRecording(self, keyBinding: keyBinding)
   }
 }
 
@@ -237,9 +237,9 @@ struct ModifierKeyView: View {
   let isActive: Bool
 
   var body: some View {
-    Text(symbol)
+    Text(self.symbol)
       .font(.system(size: 14, weight: .medium))
-      .foregroundStyle(isActive ? .primary : .tertiary)
+      .foregroundStyle(self.isActive ? .primary : .tertiary)
   }
 }
 

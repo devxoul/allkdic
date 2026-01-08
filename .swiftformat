@@ -1,0 +1,7 @@
+# SwiftFormat configuration for Allkdic
+# https://github.com/nicklockwood/SwiftFormat
+
+--swiftversion 6.0
+--indent 2
+--self insert
+--disable wrapMultilineStatementBraces

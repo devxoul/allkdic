@@ -2,7 +2,7 @@ import Carbon
 import Cocoa
 
 enum HotKeyManager {
-  nonisolated(unsafe) private static var hotKeyRef: EventHotKeyRef?
+  private nonisolated(unsafe) static var hotKeyRef: EventHotKeyRef?
 
   static func registerHotKey() {
     var eventType = EventTypeSpec(
@@ -36,7 +36,7 @@ enum HotKeyManager {
       id: 0
     )
 
-    let keyBinding = loadKeyBinding()
+    let keyBinding = self.loadKeyBinding()
     print("Bind HotKey: \(keyBinding)")
 
     var hotKeyModifiers: UInt32 = 0
@@ -51,7 +51,7 @@ enum HotKeyManager {
       hotKeyID,
       GetApplicationEventTarget(),
       0,
-      &hotKeyRef
+      &self.hotKeyRef
     )
   }
 
@@ -59,7 +59,7 @@ enum HotKeyManager {
     print("Unbind HotKey")
     if let ref = hotKeyRef {
       UnregisterEventHotKey(ref)
-      hotKeyRef = nil
+      self.hotKeyRef = nil
     }
   }
 

@@ -1,6 +1,6 @@
 import ProjectDescription
 
 let tuist = Tuist(
-    compatibleXcodeVersions: .all,
-    swiftVersion: "6.0"
+  compatibleXcodeVersions: .all,
+  swiftVersion: "6.0"
 )
