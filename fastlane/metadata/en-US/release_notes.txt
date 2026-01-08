@@ -1,3 +1,4 @@
-Improved stability and performance for the latest macOS.
+Improved stability and code quality.
 
-• Removed unnecessary beep sound when pressing enter key while searching.
+• Fixed links with target=_blank to open in the default browser.
+• Upgraded to Swift 6.2 for better performance.
