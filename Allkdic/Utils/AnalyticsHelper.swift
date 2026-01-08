@@ -11,8 +11,8 @@ final class AnalyticsHelper: @unchecked Sendable {
       apiKey: "501194a85de24840f1a3a6b81fa62870",
       defaultTracking: DefaultTrackingOptions(
         sessions: true,
-        appLifecycles: true
-      )
+        appLifecycles: true,
+      ),
     ))
     self.setUserProperties()
   }

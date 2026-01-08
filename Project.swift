@@ -4,7 +4,7 @@ let project = Project(
   name: "Allkdic",
   options: .options(
     defaultKnownRegions: ["en", "ko", "Base"],
-    developmentRegion: "en"
+    developmentRegion: "en",
   ),
   settings: .settings(
     base: [
@@ -15,7 +15,7 @@ let project = Project(
     configurations: [
       .debug(name: "Debug"),
       .release(name: "Release"),
-    ]
+    ],
   ),
   targets: [
     .target(
@@ -47,8 +47,8 @@ let project = Project(
           "OTHER_CODE_SIGN_FLAGS": "--deep",
           "ASSETCATALOG_COMPILER_APPICON_NAME": "AppIcon",
           "COMBINE_HIDPI_IMAGES": "YES",
-        ]
-      )
+        ],
+      ),
     ),
     .target(
       name: "AllkdicTests",
@@ -65,8 +65,8 @@ let project = Project(
         base: [
           "BUNDLE_LOADER": "$(TEST_HOST)",
           "TEST_HOST": "$(BUILT_PRODUCTS_DIR)/Allkdic.app/Contents/MacOS/Allkdic",
-        ]
-      )
+        ],
+      ),
     ),
   ],
   schemes: [
@@ -75,7 +75,7 @@ let project = Project(
       shared: true,
       buildAction: .buildAction(targets: ["Allkdic"]),
       testAction: .targets(["AllkdicTests"]),
-      runAction: .runAction(executable: "Allkdic")
+      runAction: .runAction(executable: "Allkdic"),
     ),
-  ]
+  ],
 )

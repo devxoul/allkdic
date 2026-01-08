@@ -81,7 +81,7 @@ private struct WebView: NSViewRepresentable {
       self.popoverObserver = NotificationCenter.default.addObserver(
         forName: .popoverDidOpen,
         object: nil,
-        queue: .main
+        queue: .main,
       ) { [weak self] _ in
         Task { @MainActor in
           self?.focusInput()
@@ -122,7 +122,7 @@ private struct WebView: NSViewRepresentable {
       _: WKWebView,
       createWebViewWith _: WKWebViewConfiguration,
       for navigationAction: WKNavigationAction,
-      windowFeatures _: WKWindowFeatures
+      windowFeatures _: WKWindowFeatures,
     ) -> WKWebView? {
       if let url = navigationAction.request.url {
         NSWorkspace.shared.open(url)
