@@ -112,7 +112,7 @@ platform :mac do
 
     UI.success("Version: #{version}, Build: #{current_build} → #{new_build}")
 
-    release_notes = Dir.glob("fastlane/metadata/*/release_notes.txt")
+    release_notes = Dir.glob("metadata/*/release_notes.txt")
     git_commit(
       path: [plist_path] + release_notes,
       message: "Bump version to #{version} (#{new_build})"
