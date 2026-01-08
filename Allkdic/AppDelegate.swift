@@ -96,7 +96,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         contentRect: NSRect(origin: .zero, size: hostingView.fittingSize),
         styleMask: [.titled, .closable],
         backing: .buffered,
-        defer: false
+        defer: false,
       )
       window.title = gettext("preferences")
       window.contentView = hostingView
@@ -116,7 +116,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         contentRect: NSRect(origin: .zero, size: hostingView.fittingSize),
         styleMask: [.titled, .closable],
         backing: .buffered,
-        defer: false
+        defer: false,
       )
       window.title = gettext("about")
       window.contentView = hostingView

@@ -7,13 +7,13 @@ enum HotKeyManager {
   static func registerHotKey() {
     var eventType = EventTypeSpec(
       eventClass: OSType(kEventClassKeyboard),
-      eventKind: UInt32(kEventHotKeyPressed)
+      eventKind: UInt32(kEventHotKeyPressed),
     )
 
     let handler: EventHandlerUPP = { (
       _: EventHandlerCallRef?,
       _: EventRef?,
-      _: UnsafeMutableRawPointer?
+      _: UnsafeMutableRawPointer?,
     ) -> OSStatus in
       Task { @MainActor in
         AppDelegate.shared.openPopover()
@@ -28,12 +28,12 @@ enum HotKeyManager {
       1,
       &eventType,
       nil,
-      &handlerRef
+      &handlerRef,
     )
 
     let hotKeyID = EventHotKeyID(
       signature: fourCharCode("allk"),
-      id: 0
+      id: 0,
     )
 
     let keyBinding = self.loadKeyBinding()
@@ -51,7 +51,7 @@ enum HotKeyManager {
       hotKeyID,
       GetApplicationEventTarget(),
       0,
-      &self.hotKeyRef
+      &self.hotKeyRef,
     )
   }
 

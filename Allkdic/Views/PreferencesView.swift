@@ -14,7 +14,7 @@ struct PreferencesView: View {
 
           HotKeyRecorderView(
             keyBinding: self.$currentKeyBinding,
-            isRecording: self.$isRecordingHotKey
+            isRecording: self.$isRecordingHotKey,
           )
           .frame(width: 180)
         }
@@ -179,7 +179,7 @@ class HotKeyRecorderField: NSView {
     let rect = attributedString.boundingRect(with: bounds.size, options: [])
     let origin = NSPoint(
       x: 10,
-      y: (bounds.height - rect.height) / 2
+      y: (bounds.height - rect.height) / 2,
     )
     attributedString.draw(at: origin)
   }
