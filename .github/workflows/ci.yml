@@ -19,6 +19,9 @@ jobs:
           brew tap tuist/tuist
           brew install --formula tuist
 
+      - name: Lint
+        run: swift run --package-path BuildTools swiftformat . --lint
+
       - name: Fetch Dependencies
         run: tuist install
 
