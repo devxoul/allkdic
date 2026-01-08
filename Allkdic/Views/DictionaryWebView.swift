@@ -84,9 +84,16 @@ private struct WebView: NSViewRepresentable {
         queue: .main,
       ) { [weak self] _ in
         Task { @MainActor in
+          self?.reloadIfNeeded()
           self?.focusInput()
         }
       }
+    }
+
+    private func reloadIfNeeded() {
+      guard self.lastLoadedURL == nil, let url = URL(string: self.dictionary.URLString) else { return }
+      self.isLoading = true
+      self.webView?.load(URLRequest(url: url))
     }
 
     private func focusInput() {
@@ -116,6 +123,10 @@ private struct WebView: NSViewRepresentable {
 
     func webView(_: WKWebView, didFailProvisionalNavigation _: WKNavigation!, withError _: Error) {
       self.isLoading = false
+    }
+
+    func webViewWebContentProcessDidTerminate(_: WKWebView) {
+      self.lastLoadedURL = nil
     }
 
     func webView(
