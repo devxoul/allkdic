@@ -4,7 +4,6 @@ struct HeaderView: View {
   @Binding var selectedDictionary: DictionaryType
   @State private var hotKeyDescription: String = ""
 
-
   var body: some View {
     ZStack {
       VisualEffectView(material: .headerView, blendingMode: .withinWindow)
@@ -14,7 +13,7 @@ struct HeaderView: View {
           .font(.system(size: 17, weight: .semibold))
           .foregroundStyle(.primary)
 
-        Text(hotKeyDescription)
+        Text(self.hotKeyDescription)
           .font(.system(size: 12))
           .foregroundStyle(.secondary)
       }
@@ -25,8 +24,8 @@ struct HeaderView: View {
           Menu(gettext("change_dictionary")) {
             ForEach(Array(DictionaryType.allTypes.enumerated()), id: \.element) { index, dictionary in
               Button {
-                let previous = selectedDictionary
-                selectedDictionary = dictionary
+                let previous = self.selectedDictionary
+                self.selectedDictionary = dictionary
                 DictionaryType.selectedDictionary = dictionary
                 if previous != dictionary {
                   AnalyticsHelper.shared.trackDictionarySwitched(from: previous, to: dictionary)
@@ -34,7 +33,7 @@ struct HeaderView: View {
               } label: {
                 HStack {
                   Text(dictionary.title)
-                  if dictionary == selectedDictionary {
+                  if dictionary == self.selectedDictionary {
                     Image(systemName: "checkmark")
                   }
                 }
@@ -46,11 +45,11 @@ struct HeaderView: View {
           Divider()
 
           Button(gettext("about")) {
-            openAboutWindow()
+            self.openAboutWindow()
           }
 
           Button(gettext("preferences") + "...") {
-            openPreferences()
+            self.openPreferences()
           }
           .keyboardShortcut(",", modifiers: .command)
 
@@ -71,17 +70,17 @@ struct HeaderView: View {
     }
     .frame(height: 64)
     .onAppear {
-      updateHotKeyDescription()
+      self.updateHotKeyDescription()
     }
     .onReceive(NotificationCenter.default.publisher(for: .hotKeyDidChange)) { _ in
-      updateHotKeyDescription()
+      self.updateHotKeyDescription()
     }
   }
 
   private func updateHotKeyDescription() {
     let keyBindingData = UserDefaults.standard.dictionary(forKey: UserDefaultsKey.hotKey)
     if let keyBinding = KeyBinding(dictionary: keyBindingData) {
-      hotKeyDescription = keyBinding.description
+      self.hotKeyDescription = keyBinding.description
     }
   }
 
@@ -100,17 +99,17 @@ struct VisualEffectView: NSViewRepresentable {
   let material: NSVisualEffectView.Material
   let blendingMode: NSVisualEffectView.BlendingMode
 
-  func makeNSView(context: Context) -> NSVisualEffectView {
+  func makeNSView(context _: Context) -> NSVisualEffectView {
     let view = NSVisualEffectView()
-    view.material = material
-    view.blendingMode = blendingMode
+    view.material = self.material
+    view.blendingMode = self.blendingMode
     view.state = .active
     return view
   }
 
-  func updateNSView(_ nsView: NSVisualEffectView, context: Context) {
-    nsView.material = material
-    nsView.blendingMode = blendingMode
+  func updateNSView(_ nsView: NSVisualEffectView, context _: Context) {
+    nsView.material = self.material
+    nsView.blendingMode = self.blendingMode
   }
 }
 

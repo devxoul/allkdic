@@ -5,7 +5,7 @@ struct AboutView: View {
     [
       (gettext("credit_developed_by"), gettext("전수열")),
       (gettext("credit_named_by"), gettext("하상욱")),
-      (gettext("credit_thanks_to"), gettext("설진석") + gettext("thanks_to_chicken"))
+      (gettext("credit_thanks_to"), gettext("설진석") + gettext("thanks_to_chicken")),
     ]
   }
 
@@ -18,7 +18,7 @@ struct AboutView: View {
       VStack(spacing: 4) {
         Text(BundleInfo.bundleName)
           .font(.system(size: 22, weight: .semibold))
-        
+
         Text("\(gettext("version")) \(BundleInfo.version)")
           .font(.system(size: 12))
           .foregroundStyle(.secondary)
@@ -26,12 +26,12 @@ struct AboutView: View {
 
       VStack(spacing: 8) {
         Button(gettext("open_in_appstore")) {
-          openAppStore()
+          self.openAppStore()
         }
         .keyboardShortcut(.return, modifiers: [])
 
         Button(gettext("view_on_github")) {
-          openGitHub()
+          self.openGitHub()
         }
       }
       .padding(.top, 8)
@@ -41,7 +41,7 @@ struct AboutView: View {
         .padding(.vertical, 8)
 
       VStack(alignment: .leading, spacing: 8) {
-        ForEach(credits, id: \.0) { key, value in
+        ForEach(self.credits, id: \.0) { key, value in
           HStack(alignment: .firstTextBaseline, spacing: 8) {
             Text(key)
               .font(.system(size: 11, weight: .medium))

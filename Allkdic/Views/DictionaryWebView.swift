@@ -7,9 +7,9 @@ struct DictionaryWebView: View {
 
   var body: some View {
     ZStack {
-      WebView(dictionary: dictionary, isLoading: $isLoading)
+      WebView(dictionary: self.dictionary, isLoading: self.$isLoading)
 
-      if isLoading {
+      if self.isLoading {
         ProgressView()
           .progressViewStyle(.circular)
           .controlSize(.regular)
@@ -34,26 +34,26 @@ private struct WebView: NSViewRepresentable {
     webView.navigationDelegate = context.coordinator
     webView.uiDelegate = context.coordinator
     context.coordinator.webView = webView
-    loadIfNeeded(webView, context: context)
+    self.loadIfNeeded(webView, context: context)
     return webView
   }
 
   func updateNSView(_ webView: WKWebView, context: Context) {
-    context.coordinator.dictionary = dictionary
-    loadIfNeeded(webView, context: context)
+    context.coordinator.dictionary = self.dictionary
+    self.loadIfNeeded(webView, context: context)
   }
 
   private func loadIfNeeded(_ webView: WKWebView, context: Context) {
-    guard context.coordinator.lastLoadedURL != dictionary.URLString else { return }
+    guard context.coordinator.lastLoadedURL != self.dictionary.URLString else { return }
     guard let url = URL(string: dictionary.URLString) else { return }
 
-    context.coordinator.lastLoadedURL = dictionary.URLString
+    context.coordinator.lastLoadedURL = self.dictionary.URLString
     let request = URLRequest(url: url)
     webView.load(request)
   }
 
   func makeCoordinator() -> Coordinator {
-    Coordinator(isLoading: $isLoading, dictionary: dictionary)
+    Coordinator(isLoading: self.$isLoading, dictionary: self.dictionary)
   }
 
   @MainActor
@@ -65,10 +65,10 @@ private struct WebView: NSViewRepresentable {
     private nonisolated(unsafe) var popoverObserver: NSObjectProtocol?
 
     init(isLoading: Binding<Bool>, dictionary: DictionaryType) {
-      self._isLoading = isLoading
+      _isLoading = isLoading
       self.dictionary = dictionary
       super.init()
-      setupPopoverObserver()
+      self.setupPopoverObserver()
     }
 
     deinit {
@@ -78,7 +78,7 @@ private struct WebView: NSViewRepresentable {
     }
 
     private func setupPopoverObserver() {
-      popoverObserver = NotificationCenter.default.addObserver(
+      self.popoverObserver = NotificationCenter.default.addObserver(
         forName: .popoverDidOpen,
         object: nil,
         queue: .main
@@ -90,39 +90,39 @@ private struct WebView: NSViewRepresentable {
     }
 
     private func focusInput() {
-      webView?.evaluateJavaScript(dictionary.inputFocusingScript)
+      self.webView?.evaluateJavaScript(self.dictionary.inputFocusingScript)
     }
 
-    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-      isLoading = true
+    func webView(_: WKWebView, didStartProvisionalNavigation _: WKNavigation!) {
+      self.isLoading = true
     }
 
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-      isLoading = false
+    func webView(_ webView: WKWebView, didFinish _: WKNavigation!) {
+      self.isLoading = false
       if let css = dictionary.customCSS {
         let script = """
-          var style = document.createElement('style');
-          style.textContent = `\(css)`;
-          document.head.appendChild(style);
-          """
+        var style = document.createElement('style');
+        style.textContent = `\(css)`;
+        document.head.appendChild(style);
+        """
         webView.evaluateJavaScript(script)
       }
-      focusInput()
+      self.focusInput()
     }
 
-    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-      isLoading = false
+    func webView(_: WKWebView, didFail _: WKNavigation!, withError _: Error) {
+      self.isLoading = false
     }
 
-    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
-      isLoading = false
+    func webView(_: WKWebView, didFailProvisionalNavigation _: WKNavigation!, withError _: Error) {
+      self.isLoading = false
     }
 
     func webView(
-      _ webView: WKWebView,
-      createWebViewWith configuration: WKWebViewConfiguration,
+      _: WKWebView,
+      createWebViewWith _: WKWebViewConfiguration,
       for navigationAction: WKNavigationAction,
-      windowFeatures: WKWindowFeatures
+      windowFeatures _: WKWindowFeatures
     ) -> WKWebView? {
       if let url = navigationAction.request.url {
         NSWorkspace.shared.open(url)

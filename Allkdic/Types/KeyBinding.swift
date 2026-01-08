@@ -14,7 +14,7 @@ public struct KeyBinding: Codable, Equatable, Hashable, Sendable {
     if self.option { keys.append("Option") }
     if self.command { keys.append("Command") }
 
-    if let keyString = KeyBinding.keyStringFormKeyCode(self.keyCode) {
+    if let keyString = KeyBinding.keyStringFormKeyCode(keyCode) {
       keys.append(keyString.capitalized)
     }
 
@@ -33,7 +33,7 @@ public struct KeyBinding: Codable, Equatable, Hashable, Sendable {
 
   public init(keyCode: Int, flags: Int) {
     self.keyCode = keyCode
-    for i in 0...6 {
+    for i in 0 ... 6 {
       if flags & (1 << i) != 0 {
         if i == 0 { self.control = true }
         else if i == 1 { self.shift = true }
@@ -53,17 +53,17 @@ public struct KeyBinding: Codable, Equatable, Hashable, Sendable {
   }
 
   public func toDictionary() -> [String: Int] {
-    return [
-      "keyCode": keyCode,
-      "shift": shift ? 1 : 0,
-      "control": control ? 1 : 0,
-      "option": option ? 1 : 0,
-      "command": command ? 1 : 0
+    [
+      "keyCode": self.keyCode,
+      "shift": self.shift ? 1 : 0,
+      "control": self.control ? 1 : 0,
+      "option": self.option ? 1 : 0,
+      "command": self.command ? 1 : 0,
     ]
   }
 
   public static func keyStringFormKeyCode(_ keyCode: Int) -> String? {
-    return keyMap[keyCode]
+    keyMap[keyCode]
   }
 
   public static func keyCodeFormKeyString(_ string: String) -> Int {

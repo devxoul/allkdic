@@ -3,7 +3,7 @@ import SwiftUI
 
 @MainActor
 class AppDelegate: NSObject, NSApplicationDelegate {
-  @objc static private(set) var shared: AppDelegate!
+  @objc private(set) static var shared: AppDelegate!
 
   private let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
   private let popover = NSPopover()
@@ -16,48 +16,48 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     UserDefaults.standard.set(false, forKey: "NSQuitAlwaysKeepsWindows")
   }
 
-  func applicationDidFinishLaunching(_ notification: Notification) {
+  func applicationDidFinishLaunching(_: Notification) {
     AppDelegate.shared = self
-    setupStatusItem()
-    setupPopover()
-    setupEventMonitor()
+    self.setupStatusItem()
+    self.setupPopover()
+    self.setupEventMonitor()
     HotKeyManager.registerHotKey()
   }
 
-  func applicationWillTerminate(_ notification: Notification) {
+  func applicationWillTerminate(_: Notification) {
     UserDefaults.standard.synchronize()
     if let monitor = eventMonitor {
       NSEvent.removeMonitor(monitor)
     }
   }
 
-  func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
-    return false
+  func applicationShouldTerminateAfterLastWindowClosed(_: NSApplication) -> Bool {
+    false
   }
 
   private func setupStatusItem() {
     let icon = NSImage(named: "statusicon_default")
     icon?.isTemplate = true
-    statusItem.button?.image = icon
-    statusItem.button?.target = self
-    statusItem.button?.action = #selector(togglePopover)
-    statusItem.button?.focusRingType = .none
-    statusItem.button?.setButtonType(.pushOnPushOff)
+    self.statusItem.button?.image = icon
+    self.statusItem.button?.target = self
+    self.statusItem.button?.action = #selector(self.togglePopover)
+    self.statusItem.button?.focusRingType = .none
+    self.statusItem.button?.setButtonType(.pushOnPushOff)
   }
 
   private func setupPopover() {
     let contentView = MenuBarContentView()
-    popover.contentViewController = NSHostingController(rootView: contentView)
-    popover.contentSize = NSSize(width: 420, height: 580)
-    popover.behavior = .transient
+    self.popover.contentViewController = NSHostingController(rootView: contentView)
+    self.popover.contentSize = NSSize(width: 420, height: 580)
+    self.popover.behavior = .transient
   }
 
   private func setupEventMonitor() {
-    eventMonitor = NSEvent.addGlobalMonitorForEvents(matching: [.leftMouseUp, .leftMouseDown]) { [weak self] _ in
+    self.eventMonitor = NSEvent.addGlobalMonitorForEvents(matching: [.leftMouseUp, .leftMouseDown]) { [weak self] _ in
       self?.closePopover()
     }
     NSEvent.addLocalMonitorForEvents(matching: .keyDown) { [weak self] event in
-      if event.modifierFlags.contains(.command) && event.charactersIgnoringModifiers == "," {
+      if event.modifierFlags.contains(.command), event.charactersIgnoringModifiers == "," {
         self?.closePopover()
         self?.openPreferencesWindow()
         return nil
@@ -67,29 +67,29 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   }
 
   @objc func togglePopover() {
-    if popover.isShown {
-      closePopover()
+    if self.popover.isShown {
+      self.closePopover()
     } else {
-      openPopover()
+      self.openPopover()
     }
   }
 
   @objc func openPopover() {
     guard let button = statusItem.button else { return }
-    statusItem.button?.state = .on
+    self.statusItem.button?.state = .on
     NSApp.activate(ignoringOtherApps: true)
-    popover.show(relativeTo: .zero, of: button, preferredEdge: .maxY)
+    self.popover.show(relativeTo: .zero, of: button, preferredEdge: .maxY)
     NotificationCenter.default.post(name: .popoverDidOpen, object: nil)
   }
 
   @objc func closePopover() {
-    guard popover.isShown else { return }
-    statusItem.button?.state = .off
-    popover.close()
+    guard self.popover.isShown else { return }
+    self.statusItem.button?.state = .off
+    self.popover.close()
   }
 
   func openPreferencesWindow() {
-    if preferencesWindow == nil {
+    if self.preferencesWindow == nil {
       let hostingView = NSHostingView(rootView: PreferencesView())
       hostingView.setFrameSize(hostingView.fittingSize)
       let window = NSWindow(
@@ -101,15 +101,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
       window.title = gettext("preferences")
       window.contentView = hostingView
       window.center()
-      preferencesWindow = window
+      self.preferencesWindow = window
     }
-    preferencesWindow?.makeKeyAndOrderFront(nil)
+    self.preferencesWindow?.makeKeyAndOrderFront(nil)
     NSApp.activate(ignoringOtherApps: true)
     AnalyticsHelper.shared.trackPreferencesOpened()
   }
 
   func openAboutWindow() {
-    if aboutWindow == nil {
+    if self.aboutWindow == nil {
       let hostingView = NSHostingView(rootView: AboutView())
       hostingView.setFrameSize(hostingView.fittingSize)
       let window = NSWindow(
@@ -121,9 +121,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
       window.title = gettext("about")
       window.contentView = hostingView
       window.center()
-      aboutWindow = window
+      self.aboutWindow = window
     }
-    aboutWindow?.makeKeyAndOrderFront(nil)
+    self.aboutWindow?.makeKeyAndOrderFront(nil)
     NSApp.activate(ignoringOtherApps: true)
     AnalyticsHelper.shared.trackAboutOpened()
   }

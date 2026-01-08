@@ -6,23 +6,23 @@ struct MenuBarContentView: View {
 
   var body: some View {
     VStack(spacing: 0) {
-      HeaderView(selectedDictionary: $selectedDictionary)
+      HeaderView(selectedDictionary: self.$selectedDictionary)
       Divider()
-      DictionaryWebView(dictionary: selectedDictionary)
+      DictionaryWebView(dictionary: self.selectedDictionary)
     }
-    .onAppear { setupKeyMonitor() }
-    .onDisappear { removeKeyMonitor() }
+    .onAppear { self.setupKeyMonitor() }
+    .onDisappear { self.removeKeyMonitor() }
   }
 
   private func setupKeyMonitor() {
-    keyMonitor = NSEvent.addLocalMonitorForEvents(matching: .keyDown) { event in
+    self.keyMonitor = NSEvent.addLocalMonitorForEvents(matching: .keyDown) { event in
       guard event.modifierFlags.contains(.command) else { return event }
 
       let allTypes = DictionaryType.allTypes
       for (index, dictionary) in allTypes.enumerated() {
         if event.charactersIgnoringModifiers == "\(index + 1)" {
-          let previous = selectedDictionary
-          selectedDictionary = dictionary
+          let previous = self.selectedDictionary
+          self.selectedDictionary = dictionary
           DictionaryType.selectedDictionary = dictionary
           if previous != dictionary {
             AnalyticsHelper.shared.trackDictionarySwitched(from: previous, to: dictionary)
@@ -37,7 +37,7 @@ struct MenuBarContentView: View {
   private func removeKeyMonitor() {
     if let monitor = keyMonitor {
       NSEvent.removeMonitor(monitor)
-      keyMonitor = nil
+      self.keyMonitor = nil
     }
   }
 }

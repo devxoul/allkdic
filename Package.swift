@@ -2,8 +2,8 @@
 import PackageDescription
 
 let package = Package(
-    name: "Allkdic",
-    dependencies: [
-        .package(url: "https://github.com/amplitude/Amplitude-Swift", from: "1.0.0"),
-    ]
+  name: "Allkdic",
+  dependencies: [
+    .package(url: "https://github.com/amplitude/Amplitude-Swift", from: "1.0.0"),
+  ]
 )
