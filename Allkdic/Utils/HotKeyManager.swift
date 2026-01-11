@@ -16,7 +16,7 @@ enum HotKeyManager {
       _: UnsafeMutableRawPointer?,
     ) -> OSStatus in
       Task { @MainActor in
-        AppDelegate.shared.openPopover()
+        AppDelegate.shared.togglePopover()
       }
       return noErr
     }

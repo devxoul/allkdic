@@ -57,6 +57,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
       self?.closePopover()
     }
     NSEvent.addLocalMonitorForEvents(matching: .keyDown) { [weak self] event in
+      if event.keyCode == 53 { // Escape key
+        self?.closePopover()
+        return nil
+      }
       if event.modifierFlags.contains(.command), event.charactersIgnoringModifiers == "," {
         self?.closePopover()
         self?.openPreferencesWindow()
