@@ -1,4 +1,5 @@
-Improved stability and code quality.
+Press ESC or your hot key to close the dictionary!
 
-• Fixed links with target=_blank to open in the default browser.
-• Upgraded to Swift 6.2 for better performance.
+• ESC now closes the popover instantly
+• Press the hot key again (default: ⌥⌘Space) to dismiss
+• Fixed blank screen issue after prolonged idle
