@@ -3,7 +3,7 @@
 [<img alt="appstore" height="20" src="https://tools.applemediaservices.com/api/badges/download-on-the-mac-app-store/black/en-us">](https://itunes.apple.com/kr/app/allkdic/id1033453958?l=en&mt=12)
 [![Release](https://img.shields.io/github/release/devxoul/allkdic.svg?style=flat)](https://github.com/devxoul/allkdic/releases?style=flat)
 
-맥에서 Option + Command + Space를 누르면 영어사전이 뙇!!!!
+macOS 메뉴바 사전 앱
 
 ![allkdic](https://github.com/user-attachments/assets/082aec2a-654a-4540-b98a-43081a635532)
 
