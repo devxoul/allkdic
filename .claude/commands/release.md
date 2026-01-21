@@ -1,4 +1,4 @@
-# /bump - Version Bump & Release
+# /release - Version Bump & Release
 
 Analyze changes, bump version, release to GitHub, submit to App Store.
 
