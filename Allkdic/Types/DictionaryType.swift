@@ -57,7 +57,7 @@ public enum DictionaryType: String, Hashable, CaseIterable {
     switch self {
     case .Naver:
       """
-      var input = document.getElementById('gnb_svc_search_input');
+      var input = document.getElementById('ac_input');
       if (input) { input.focus(); input.select(); }
       """
     case .Daum:

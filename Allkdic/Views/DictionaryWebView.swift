@@ -97,7 +97,9 @@ private struct WebView: NSViewRepresentable {
     }
 
     private func focusInput() {
-      self.webView?.evaluateJavaScript(self.dictionary.inputFocusingScript)
+      guard let webView = self.webView else { return }
+      webView.window?.makeFirstResponder(webView)
+      webView.evaluateJavaScript(self.dictionary.inputFocusingScript)
     }
 
     func webView(_: WKWebView, didStartProvisionalNavigation _: WKNavigation!) {
