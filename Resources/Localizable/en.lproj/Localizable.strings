@@ -22,3 +22,6 @@
 "view_on_github" = "View on GitHub...";
 "shortcut" = "Shortcut";
 "launch_at_login" = "Launch at login";
+"login_item_requires_approval" = "Approval required. Click to open System Settings.";
+"error" = "Error";
+"ok" = "OK";
