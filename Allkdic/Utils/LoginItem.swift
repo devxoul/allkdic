@@ -2,19 +2,23 @@ import Cocoa
 import ServiceManagement
 
 enum LoginItem {
-  static var enabled: Bool {
-    SMAppService.mainApp.status == .enabled
+  static var status: SMAppService.Status {
+    SMAppService.mainApp.status
   }
 
-  static func setEnabled(_ enabled: Bool) {
-    do {
-      if enabled {
-        try SMAppService.mainApp.register()
-      } else {
-        try SMAppService.mainApp.unregister()
-      }
-    } catch {
-      NSLog("LoginItem setEnabled(\(enabled)) failed: \(error)")
+  static var enabled: Bool {
+    status == .enabled
+  }
+
+  static var requiresApproval: Bool {
+    status == .requiresApproval
+  }
+
+  static func setEnabled(_ enabled: Bool) throws {
+    if enabled {
+      try SMAppService.mainApp.register()
+    } else {
+      try SMAppService.mainApp.unregister()
     }
   }
 }

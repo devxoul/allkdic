@@ -1,9 +1,12 @@
+import ServiceManagement
 import SwiftUI
 
 struct PreferencesView: View {
   @State private var currentKeyBinding: KeyBinding?
   @State private var isRecordingHotKey = false
   @State private var launchAtLogin = LoginItem.enabled
+  @State private var showLoginItemError = false
+  @State private var loginItemErrorMessage = ""
 
   var body: some View {
     Form {
@@ -27,8 +30,25 @@ struct PreferencesView: View {
           Toggle("", isOn: self.$launchAtLogin)
             .labelsHidden()
             .onChange(of: self.launchAtLogin) { _, newValue in
-              LoginItem.setEnabled(newValue)
+              do {
+                try LoginItem.setEnabled(newValue)
+              } catch {
+                self.loginItemErrorMessage = error.localizedDescription
+                self.showLoginItemError = true
+                self.launchAtLogin = LoginItem.enabled
+              }
             }
+
+          if LoginItem.requiresApproval {
+            Button {
+              SMAppService.openSystemSettingsLoginItems()
+            } label: {
+              Image(systemName: "exclamationmark.triangle.fill")
+                .foregroundStyle(.yellow)
+            }
+            .buttonStyle(.plain)
+            .help(gettext("login_item_requires_approval"))
+          }
 
           Spacer()
         }
@@ -40,6 +60,12 @@ struct PreferencesView: View {
     .frame(width: 400, height: 160)
     .onAppear {
       self.loadCurrentKeyBinding()
+      self.launchAtLogin = LoginItem.enabled
+    }
+    .alert(gettext("error"), isPresented: self.$showLoginItemError) {
+      Button(gettext("ok")) {}
+    } message: {
+      Text(self.loginItemErrorMessage)
     }
   }
 

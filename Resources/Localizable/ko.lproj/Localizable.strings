@@ -22,3 +22,6 @@
 "view_on_github" = "GitHub에서 보기...";
 "shortcut" = "단축키";
 "launch_at_login" = "로그인시 자동으로 실행";
+"login_item_requires_approval" = "승인이 필요합니다. 클릭하여 시스템 설정을 여세요.";
+"error" = "오류";
+"ok" = "확인";
