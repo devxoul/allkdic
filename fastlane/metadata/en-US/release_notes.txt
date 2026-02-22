@@ -1,3 +1,2 @@
-Fixed an issue where the search text wasn't automatically selected when opening the dictionary.
-
-Now you can just start typing right away!
+Fixed a crash on launch on macOS Sonoma.
+Login startup is now more reliable too.
