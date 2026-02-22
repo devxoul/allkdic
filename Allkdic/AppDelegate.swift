@@ -5,7 +5,7 @@ import SwiftUI
 class AppDelegate: NSObject, NSApplicationDelegate {
   @objc private(set) static var shared: AppDelegate!
 
-  private let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
+  private var statusItem: NSStatusItem!
   private let popover = NSPopover()
   private var eventMonitor: Any?
   private var preferencesWindow: NSWindow?
@@ -18,6 +18,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
   func applicationDidFinishLaunching(_: Notification) {
     AppDelegate.shared = self
+    self.statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
     self.setupStatusItem()
     self.setupPopover()
     self.setupEventMonitor()
