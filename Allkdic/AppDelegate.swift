@@ -82,7 +82,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   @objc func openPopover() {
     guard let button = statusItem.button else { return }
     self.statusItem.button?.state = .on
-    NSApp.activate(ignoringOtherApps: true)
     self.popover.show(relativeTo: .zero, of: button, preferredEdge: .maxY)
     NotificationCenter.default.post(name: .popoverDidOpen, object: nil)
   }
