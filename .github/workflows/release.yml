@@ -1,0 +1,121 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version (x.y.z)"
+        required: true
+
+# Serialize releases by version. cancel-in-progress is false because an upload
+# in flight must never be cancelled: the App Store upload is effectively
+# irreversible once accepted, and we tag only after a successful upload.
+concurrency:
+  group: release-${{ inputs.version }}
+  cancel-in-progress: false
+
+# contents: write is needed to push the version-bump commit and the tag.
+permissions:
+  contents: write
+
+jobs:
+  release:
+    # macOS runner required for Xcode, Tuist, codesign, and App Store upload.
+    runs-on: macos-15
+
+    env:
+      # match decrypts the signing certs/profiles cloned from the private
+      # allkdic-match repo. MATCH_GIT_BASIC_AUTHORIZATION (for the HTTPS clone)
+      # is derived from the raw PAT in a step below.
+      MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+      # App Store Connect API key (.p8) passed base64-encoded so the multi-line
+      # PEM survives as a single-line secret. Read by get_api_key_from_env.
+      APP_STORE_CONNECT_KEY_ID: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
+      APP_STORE_CONNECT_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
+      APP_STORE_CONNECT_API_KEY_P8_BASE64: ${{ secrets.APP_STORE_CONNECT_API_KEY_P8_BASE64 }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Full history so the bump commit and tag attach cleanly to main.
+          fetch-depth: 0
+
+      # GitHub-hosted runners have no git identity; the bump commit and tag
+      # below need one.
+      - name: Configure git identity
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      # Reject anything that isn't a strict x.y.z BEFORE we mutate the plist,
+      # push a commit, or create a tag. The value is interpolated into git and
+      # fastlane commands downstream, so validate it up front.
+      - name: Validate version
+        env:
+          VERSION: ${{ inputs.version }}
+        run: |
+          if ! [[ "$VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "::error::Invalid version: '$VERSION' (expected strict x.y.z)"
+            exit 1
+          fi
+
+      # Fail fast if the tag already exists, so a re-run can't bump again and
+      # collide with an already-shipped release.
+      - name: Ensure tag does not already exist
+        run: |
+          if git ls-remote --exit-code --tags origin "refs/tags/${{ inputs.version }}" >/dev/null 2>&1; then
+            echo "::error::Tag '${{ inputs.version }}' already exists. Bump to a new version."
+            exit 1
+          fi
+
+      - name: Install Tuist
+        run: |
+          brew tap tuist/tuist
+          brew install --formula tuist
+
+      - name: Set up Ruby and fastlane
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          # Installs and caches the gems pinned in Gemfile.lock.
+          bundler-cache: true
+
+      - name: Fetch Dependencies
+        run: tuist install
+
+      # fastlane match needs MATCH_GIT_BASIC_AUTHORIZATION = base64("user:PAT")
+      # to clone the private allkdic-match repo over HTTPS. We build it from the
+      # raw PAT secret here; the base64 of the secret is itself masked in logs.
+      - name: Set up match git authorization
+        env:
+          PAT: ${{ secrets.MATCH_GITHUB_PAT }}
+        run: echo "MATCH_GIT_BASIC_AUTHORIZATION=$(printf '%s' "devxoul:${PAT}" | base64 | tr -d '\n')" >> "$GITHUB_ENV"
+
+      # Bump CFBundleShortVersionString to the input version and increment
+      # CFBundleVersion, then commit (plist + release notes) to main. This
+      # reuses the same logic as the local `bump` lane. We do this BEFORE the
+      # build so the uploaded binary carries the new version, but we push the
+      # commit only after a successful upload (see below) to avoid leaving a
+      # version bump on main for a release that never shipped.
+      - name: Bump version
+        run: bundle exec fastlane bump version:${{ inputs.version }}
+
+      # Build, sign (match readonly), and upload to App Store Connect, then
+      # submit for review with automatic release on approval. setup_ci inside
+      # the lane provisions a temporary keychain.
+      - name: Build and upload to App Store
+        run: bundle exec fastlane release_ci
+
+      # Only reached if the upload succeeded. Push the bump commit and create
+      # the tag (no `v` prefix, matching existing tags like 2.2.2), then a
+      # GitHub Release with auto-generated notes.
+      - name: Push commit and tag
+        run: |
+          git push origin HEAD:main
+          git tag "${{ inputs.version }}"
+          git push origin "${{ inputs.version }}"
+
+      - name: Create GitHub Release
+        run: gh release create "${{ inputs.version }}" --generate-notes
+        env:
+          GH_TOKEN: ${{ github.token }}

@@ -9,9 +9,10 @@
 #   make lint-ci               # 포맷팅 검사 (CI용)
 #   make format                # 코드 포맷팅
 #   make bump VERSION=X.Y.Z    # 버전 및 빌드 번호 증가
-#   make release               # App Store 배포
+#   make release               # App Store 배포 (로컬)
+#   make release-ci            # App Store 배포 (CI, 환경변수 사용)
 
-.PHONY: install generate build run test clean lint format bump release
+.PHONY: install generate build run test clean lint format bump release release-ci
 
 install:
 	tuist install
@@ -46,3 +47,6 @@ bump:
 
 release:
 	bundle exec fastlane release
+
+release-ci:
+	bundle exec fastlane release_ci
