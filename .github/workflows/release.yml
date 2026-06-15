@@ -21,7 +21,9 @@ permissions:
 jobs:
   release:
     # macOS runner required for Xcode, Tuist, codesign, and App Store upload.
-    runs-on: macos-15
+    # macos-26 matches ci.yml; older images miss the Swift runtime that the
+    # Homebrew tuist bottle links against (libswiftCompatibilitySpan.dylib).
+    runs-on: macos-26
 
     env:
       # match decrypts the signing certs/profiles cloned from the private
