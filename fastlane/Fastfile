@@ -144,12 +144,9 @@ platform :mac do
       readonly: true
     )
 
-    # Tuist bakes CODE_SIGN_IDENTITY="Mac Developer" into the project, but a CI
-    # runner only has the App Store distribution cert that match installed.
-    # Override signing at archive time via xcargs (command-line build settings
-    # take precedence over the project's), and mirror it in export_options so
-    # the archive and export agree. CODE_SIGN_STYLE=Manual is required because
-    # we pin PROVISIONING_PROFILE_SPECIFIER.
+    # Release-config signing (Apple Distribution + match profile) is set on the
+    # Allkdic target in Project.swift, scoped so it never touches the SPM
+    # framework targets. export_options keeps archive and export in agreement.
     build_mac_app(
       workspace: "Allkdic.xcworkspace",
       scheme: "Allkdic",
@@ -157,12 +154,6 @@ platform :mac do
       clean: true,
       output_directory: "./build",
       export_method: "app-store",
-      xcargs: [
-        "DEVELOPMENT_TEAM=N2C267LBVY",
-        "CODE_SIGN_STYLE=Manual",
-        'CODE_SIGN_IDENTITY="Apple Distribution"',
-        'PROVISIONING_PROFILE_SPECIFIER="match AppStore kr.xoul.allkdic macos"'
-      ].join(" "),
       export_options: {
         signingStyle: "manual",
         teamID: "N2C267LBVY",

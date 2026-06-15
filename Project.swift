@@ -43,10 +43,26 @@ let project = Project(
         base: [
           "CLANG_ENABLE_MODULES": "YES",
           "CODE_SIGN_ENTITLEMENTS": "Allkdic/Allkdic.entitlements",
-          "CODE_SIGN_IDENTITY": "Mac Developer",
           "OTHER_CODE_SIGN_FLAGS": "--deep",
           "ASSETCATALOG_COMPILER_APPICON_NAME": "AppIcon",
           "COMBINE_HIDPI_IMAGES": "YES",
+        ],
+        configurations: [
+          .debug(
+            name: "Debug",
+            settings: [
+              "CODE_SIGN_STYLE": "Automatic",
+              "CODE_SIGN_IDENTITY": "Mac Developer",
+            ],
+          ),
+          .release(
+            name: "Release",
+            settings: [
+              "CODE_SIGN_STYLE": "Manual",
+              "CODE_SIGN_IDENTITY": "Apple Distribution",
+              "PROVISIONING_PROFILE_SPECIFIER": "match AppStore kr.xoul.allkdic macos",
+            ],
+          ),
         ],
       ),
     ),
