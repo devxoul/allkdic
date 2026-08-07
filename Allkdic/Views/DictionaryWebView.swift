@@ -57,13 +57,14 @@ private struct WebView: NSViewRepresentable {
   }
 
   @MainActor
-  class Coordinator: NSObject, WKNavigationDelegate, WKUIDelegate, NSWindowDelegate {
+  class Coordinator: NSObject, WKNavigationDelegate, WKUIDelegate {
     @Binding var isLoading: Bool
     var dictionary: DictionaryType
     var lastLoadedURL: String?
     weak var webView: WKWebView?
     private nonisolated(unsafe) var popoverObserver: NSObjectProtocol?
-    private var popupWindow: NSWindow?
+    private var loginPopupController: LoginPopupController?
+    private var needsSessionReload = false
 
     init(isLoading: Binding<Bool>, dictionary: DictionaryType) {
       _isLoading = isLoading
@@ -92,7 +93,18 @@ private struct WebView: NSViewRepresentable {
     }
 
     private func reloadIfNeeded() {
-      guard self.lastLoadedURL == nil, let url = URL(string: self.dictionary.URLString) else { return }
+      guard self.lastLoadedURL != nil else {
+        self.loadDictionary()
+        return
+      }
+      guard self.needsSessionReload else { return }
+      self.isLoading = true
+      self.webView?.reload()
+    }
+
+    private func loadDictionary() {
+      guard let url = URL(string: self.dictionary.URLString) else { return }
+      self.lastLoadedURL = self.dictionary.URLString
       self.isLoading = true
       self.webView?.load(URLRequest(url: url))
     }
@@ -109,6 +121,9 @@ private struct WebView: NSViewRepresentable {
 
     func webView(_ webView: WKWebView, didFinish _: WKNavigation!) {
       self.isLoading = false
+      // Cleared only once a load actually lands, so a reload that fails while
+      // offline is retried on the next popover open instead of being lost.
+      self.needsSessionReload = false
       if let css = dictionary.customCSS {
         let script = """
         var style = document.createElement('style');
@@ -132,50 +147,47 @@ private struct WebView: NSViewRepresentable {
       self.lastLoadedURL = nil
     }
 
-    // Naver/Daum 로그인은 팝업 창(window.open)으로 뜨는데, 이걸 외부 브라우저로 보내면
-    // 로그인 세션 쿠키가 앱의 WKWebView 데이터스토어와 공유되지 않아 로그인이 반영되지 않는다.
-    // 전달받은 configuration을 그대로 재사용해 같은 데이터스토어를 쓰는 팝업 웹뷰를 앱 안에 띄운다.
     func webView(
       _: WKWebView,
       createWebViewWith configuration: WKWebViewConfiguration,
-      for _: WKNavigationAction,
+      for navigationAction: WKNavigationAction,
       windowFeatures _: WKWindowFeatures,
     ) -> WKWebView? {
-      self.popupWindow?.close()
-
-      let popupWebView = WKWebView(frame: NSRect(x: 0, y: 0, width: 480, height: 640), configuration: configuration)
-      popupWebView.navigationDelegate = self
-      popupWebView.uiDelegate = self
-
-      let window = NSWindow(
-        contentRect: popupWebView.frame,
-        styleMask: [.titled, .closable, .resizable],
-        backing: .buffered,
-        defer: false,
+      let request = PopupRequest(
+        url: navigationAction.request.url,
+        sourceURL: navigationAction.sourceFrame.request.url,
+        navigationType: navigationAction.navigationType,
       )
-      window.isReleasedWhenClosed = false
-      window.title = self.dictionary.title
-      window.contentView = popupWebView
-      window.delegate = self
-      window.center()
-      window.makeKeyAndOrderFront(nil)
-      NSApp.activate(ignoringOtherApps: true)
 
-      self.popupWindow = window
-      return popupWebView
+      switch request.disposition {
+      case .inAppLogin:
+        return self.presentLoginPopup(configuration: configuration)
+
+      case .externalBrowser:
+        if let url = request.url {
+          NSWorkspace.shared.open(url)
+        }
+        return nil
+
+      case .deny:
+        return nil
+      }
     }
 
-    // 로그인 완료 후 팝업이 스스로 닫힐 때(window.close()) 호출된다.
-    func webViewDidClose(_: WKWebView) {
-      self.popupWindow?.close()
-    }
+    /// Reuses the configuration WebKit passes in, which is what ties the popup
+    /// to the dictionary web view's cookie store and makes the login stick.
+    private func presentLoginPopup(configuration: WKWebViewConfiguration) -> WKWebView? {
+      self.loginPopupController?.close()
 
-    // 팝업이 어떤 경로로든(로그인 완료, 사용자가 직접 닫기) 닫히면
-    // 로그인 세션이 반영되도록 메인 웹뷰를 새로고침한다.
-    func windowWillClose(_ notification: Notification) {
-      guard notification.object as? NSWindow === self.popupWindow else { return }
-      self.popupWindow = nil
-      self.webView?.reload()
+      let controller = LoginPopupController(configuration: configuration, title: self.dictionary.title)
+      controller.onClose = { [weak self] in
+        self?.loginPopupController = nil
+        self?.needsSessionReload = true
+      }
+      controller.show()
+      self.loginPopupController = controller
+
+      return controller.webView
     }
   }
 }
