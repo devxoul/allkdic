@@ -51,6 +51,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     self.popover.contentViewController = NSHostingController(rootView: contentView)
     self.popover.contentSize = NSSize(width: 420, height: 580)
     self.popover.behavior = .transient
+    self.popover.delegate = self
   }
 
   private func setupEventMonitor() {
@@ -58,17 +59,25 @@ class AppDelegate: NSObject, NSApplicationDelegate {
       self?.closePopover()
     }
     NSEvent.addLocalMonitorForEvents(matching: .keyDown) { [weak self] event in
+      guard let self, self.isPopoverEvent(event) else { return event }
       if event.keyCode == 53 { // Escape key
-        self?.closePopover()
+        self.closePopover()
         return nil
       }
       if event.modifierFlags.contains(.command), event.charactersIgnoringModifiers == "," {
-        self?.closePopover()
-        self?.openPreferencesWindow()
+        self.closePopover()
+        self.openPreferencesWindow()
         return nil
       }
       return event
     }
+  }
+
+  /// This monitor is app-wide and never removed, so without a window check it
+  /// would also swallow keys aimed at the login, preferences and about windows.
+  func isPopoverEvent(_ event: NSEvent) -> Bool {
+    guard self.popover.isShown, let popoverWindow = popover.contentViewController?.view.window else { return false }
+    return event.window === popoverWindow
   }
 
   @objc func togglePopover() {
@@ -130,5 +139,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     self.aboutWindow?.makeKeyAndOrderFront(nil)
     NSApp.activate(ignoringOtherApps: true)
     AnalyticsHelper.shared.trackAboutOpened()
+  }
+}
+
+extension AppDelegate: NSPopoverDelegate {
+  /// A `.transient` popover also closes on its own, e.g. when the login window
+  /// takes focus, which bypasses `closePopover()` and leaves the button lit.
+  func popoverDidClose(_: Notification) {
+    self.statusItem.button?.state = .off
   }
 }

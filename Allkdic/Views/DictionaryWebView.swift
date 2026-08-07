@@ -63,6 +63,8 @@ private struct WebView: NSViewRepresentable {
     var lastLoadedURL: String?
     weak var webView: WKWebView?
     private nonisolated(unsafe) var popoverObserver: NSObjectProtocol?
+    private var loginPopupController: LoginPopupController?
+    private var needsSessionReload = false
 
     init(isLoading: Binding<Bool>, dictionary: DictionaryType) {
       _isLoading = isLoading
@@ -91,7 +93,18 @@ private struct WebView: NSViewRepresentable {
     }
 
     private func reloadIfNeeded() {
-      guard self.lastLoadedURL == nil, let url = URL(string: self.dictionary.URLString) else { return }
+      guard self.lastLoadedURL != nil else {
+        self.loadDictionary()
+        return
+      }
+      guard self.needsSessionReload else { return }
+      self.isLoading = true
+      self.webView?.reload()
+    }
+
+    private func loadDictionary() {
+      guard let url = URL(string: self.dictionary.URLString) else { return }
+      self.lastLoadedURL = self.dictionary.URLString
       self.isLoading = true
       self.webView?.load(URLRequest(url: url))
     }
@@ -108,6 +121,9 @@ private struct WebView: NSViewRepresentable {
 
     func webView(_ webView: WKWebView, didFinish _: WKNavigation!) {
       self.isLoading = false
+      // Cleared only once a load actually lands, so a reload that fails while
+      // offline is retried on the next popover open instead of being lost.
+      self.needsSessionReload = false
       if let css = dictionary.customCSS {
         let script = """
         var style = document.createElement('style');
@@ -133,14 +149,45 @@ private struct WebView: NSViewRepresentable {
 
     func webView(
       _: WKWebView,
-      createWebViewWith _: WKWebViewConfiguration,
+      createWebViewWith configuration: WKWebViewConfiguration,
       for navigationAction: WKNavigationAction,
       windowFeatures _: WKWindowFeatures,
     ) -> WKWebView? {
-      if let url = navigationAction.request.url {
-        NSWorkspace.shared.open(url)
+      let request = PopupRequest(
+        url: navigationAction.request.url,
+        sourceURL: navigationAction.sourceFrame.request.url,
+        navigationType: navigationAction.navigationType,
+      )
+
+      switch request.disposition {
+      case .inAppLogin:
+        return self.presentLoginPopup(configuration: configuration)
+
+      case .externalBrowser:
+        if let url = request.url {
+          NSWorkspace.shared.open(url)
+        }
+        return nil
+
+      case .deny:
+        return nil
       }
-      return nil
+    }
+
+    /// Reuses the configuration WebKit passes in, which is what ties the popup
+    /// to the dictionary web view's cookie store and makes the login stick.
+    private func presentLoginPopup(configuration: WKWebViewConfiguration) -> WKWebView? {
+      self.loginPopupController?.close()
+
+      let controller = LoginPopupController(configuration: configuration, title: self.dictionary.title)
+      controller.onClose = { [weak self] in
+        self?.loginPopupController = nil
+        self?.needsSessionReload = true
+      }
+      controller.show()
+      self.loginPopupController = controller
+
+      return controller.webView
     }
   }
 }
