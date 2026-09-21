@@ -43,8 +43,9 @@ The workflow's `bump` lane commits whatever is currently in `fastlane/metadata/*
 These are **App Store release notes for users, not a developer changelog** (the GitHub Release gets auto-generated developer notes separately). Users only care about "what's better for me now?"
 
 - **Benefits, not features** — "검색이 더 빨라졌어요" / "Search feels snappier now", not "Added a caching layer".
-- **Be human** — avoid "Bug fixes and performance improvements". 올ㅋ사전 has a playful brand (올ㅋ = casual Korean internet vibe); friendly, witty, emoji-OK is welcome, but authentic > clever.
-- **Nothing user-facing?** Be honest: "내부 코드를 정리했어요. 겉으로 달라진 건 없지만 앱이 더 건강해졌습니다 💪" / "Under-the-hood improvements. Nothing flashy, but the app is healthier now."
+- **Be human** — avoid "Bug fixes and performance improvements". 올ㅋ사전 has a playful brand (올ㅋ = casual Korean internet vibe); friendly and witty is welcome, but authentic > clever.
+- **No emoji** — App Store Connect rejects them in "What's New" (`An attribute value has invalid characters ... /data/attributes/whatsNew`), which fails the upload step after the build already succeeded.
+- **Nothing user-facing?** Be honest: "내부 코드를 정리했어요. 겉으로 달라진 건 없지만 앱이 더 건강해졌습니다." / "Under-the-hood improvements. Nothing flashy, but the app is healthier now."
 - **Keep it brief** — the App Store shows ~3 lines before the "more" tap; lead with the most important change (4000 char limit, but shorter is better).
 - **Tone** — Korean: 친근한 반말/해요체, 인터넷 감성 OK. English: casual but clear, matching the Korean tone.
 
