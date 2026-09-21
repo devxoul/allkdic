@@ -55,7 +55,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   }
 
   private func setupEventMonitor() {
-    self.eventMonitor = NSEvent.addGlobalMonitorForEvents(matching: [.leftMouseUp, .leftMouseDown]) { [weak self] _ in
+    // Watch only `.leftMouseDown`: on macOS 27 the `.leftMouseUp` of the very click that opens the
+    // popover reaches this global monitor, which closed the popover right after it appeared (#96).
+    // A press outside is enough to dismiss, so the release never needed to be observed.
+    self.eventMonitor = NSEvent.addGlobalMonitorForEvents(matching: .leftMouseDown) { [weak self] _ in
       self?.closePopover()
     }
     NSEvent.addLocalMonitorForEvents(matching: .keyDown) { [weak self] event in
