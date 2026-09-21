@@ -1,2 +1,2 @@
 Fixed the dictionary popover closing the instant it opened on macOS 27.
-Naver and Daum logins now carry over into the app properly, and the login page opens in its own tidy window 🙆
+Naver and Daum logins now carry over into the app properly, and the login page opens in its own tidy window.
