@@ -9,13 +9,15 @@ macOS menu-bar dictionary app (올ㅋ사전). Built with Tuist, signed with fast
 ```bash
 make install     # tuist install (resolve dependencies)
 make generate    # tuist generate --no-open
-make build       # tuist build Allkdic
+make build       # generate + tuist xcodebuild build
 make run         # build and run (logs to terminal)
-make test        # run unit tests
+make test        # generate + tuist xcodebuild test
 make lint        # swiftformat --lint
 make format      # swiftformat
 make clean       # tuist clean
 ```
+
+`build` and `test` depend on `generate`, then drive the generated workspace through `tuist xcodebuild` (plain `xcodebuild` plus Tuist insights). `tuist build` is deprecated and must not be reintroduced. Build products go to the pinned `.build/DerivedData` (gitignored), which is where `make run` looks for `Allkdic.app`.
 
 The scheme and workspace are both named `Allkdic`. Version lives in `Allkdic/Allkdic-Info.plist` (`CFBundleShortVersionString` + `CFBundleVersion`), which `Project.swift` references via `infoPlist: .file(...)`.
 
